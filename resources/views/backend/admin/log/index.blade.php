@@ -1,4 +1,4 @@
-@extends('backend.layouts.index', ['active' => 'list_log'])
+@extends('backend.layout.index', ['active' => 'list_log'])
 @section('title', 'Log')
 @section('content')
 

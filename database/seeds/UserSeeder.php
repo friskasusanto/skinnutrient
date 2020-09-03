@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Role;
 use App\User;
 use App\Model\Menu;
+use App\Model\Jenis;
 
 class UserSeeder extends Seeder
 {
@@ -67,5 +68,47 @@ class UserSeeder extends Seeder
 			$menu->name = 'By Range';
 			$menu->status = 1;
 			$menu->save();
+
+		// Jenis
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Serums';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Sanitiser';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Cleansers';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Toners';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Masks';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Moisturiser';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Body Care';
+			$jenis->status = 1;
+			$jenis->save();
+
+			$jenis = new ProductJenis();
+			$jenis->jenis = 'Gifts';
+			$jenis->status = 1;
+			$jenis->save();
     }
 }
+

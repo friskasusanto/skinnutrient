@@ -29,21 +29,24 @@
 <div class="container-fluid">
     <div class="row products-admin ratio_asos">
     @if(count($product) != 0)
+    @foreach ($product as $key =>$u)
         <div class="col-xl-3 col-sm-6">
             <div class="card">
-            @foreach ($product as $key =>$u)
+            
                 <div class="card-body product-box">
                     <div class="img-wrapper">
                         <div class="front">
-                            <a href="#"><img src="../assets/images/pro3/34.jpg" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                            <a href="#"><img src="{{url('product/'.$u->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             <div class="product-hover">
                                 <ul>
                                     <li>
-                                        <a type="button" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="ti-pencil-alt" ></i></a>
+                                        <a type="btn" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa-trash" style="color: $000"></i></a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/admin/delete/product/', $u->id)}}"><i class="ti-trash"></i></a>
+                                        <a href="{{url('/admin/delete/product/', $u->id)}}" type="btn"><i class="ti-trash"></i></a>
                                     </li>
+                                </ul>
+                                <ul>
                                     <li>
                                         <a type="button" data-toggle="modal" data-target="#modalDetail{{$u->id}}"><i class="ti-eye"></i></a>
                                     </li>
@@ -57,17 +60,13 @@
                             <h6>{{$u->name}}</h6>
                         </a>
                         <h4>{{$u->price}}<del>$600.00</del></h4>
-                        <ul class="color-variant">
-                            <li class="bg-light0"></li>
-                            <li class="bg-light1"></li>
-                            <li class="bg-light2"></li>
-                        </ul>
                     </div>
                 </div>
-            @endforeach
-            {{$product->render()}}
+            
             </div>
         </div>
+        @endforeach
+        {{$product->render()}}
         @else 
             <div class="col-12">
                 <p align="center">~ Product Kosong ~</p>
@@ -97,6 +96,18 @@
                     <th>Category Product</th>
                     <td>: {{ $u->category->category_name }}</td>
                 </tr>
+                <br/>
+                @if ($u->jenis_id == null)
+                <tr>
+                    <th>Jenis Product</th>
+                    <td>: -</td>
+                </tr>
+                @else
+                <tr>
+                    <th>Jenis Product</th>
+                    <td>: {{ $u->jenis->category_name }}</td>
+                </tr>
+                @endif
                 <br/>
                 <tr>
                     <th>Harga</th>
@@ -156,7 +167,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form novalidate="novalidate" method="POST" action= "{{action('backend\admin\ProductController@edit_product', $u->id)}}" enctype="multipart/form-data">
+                <form novalidate="novalidate" method="POST" action= "{{url('/admin/edit/product', $u->id)}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-body">
                         <div class="row">
@@ -237,7 +248,7 @@
                                    <input type="file" class="form-control" id="" name="photos[]" multiple required style="width: 100%" value="">
 
                                     <?php 
-                                        $gambar = App\ProductGambar::where('product_id', $u->id)->get();
+                                        $gambar = App\Model\ProductGambar::where('product_id', $u->id)->get();
                                     ?>
                                     @if (count($gambar) != 0)
                                         @foreach ($gambar as $g)

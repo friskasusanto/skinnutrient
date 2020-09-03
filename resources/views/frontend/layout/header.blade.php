@@ -36,7 +36,7 @@
                                     </a>
                                 </div>
                                 <div class="brand-logo">
-                                    <a href="index.html"><img src="{{asset('backends/assets/images/icon/logos.png')}}"
+                                    <a href="{{url('/')}}"><img src="{{asset('backends/assets/images/icon/logos.png')}}"
                                             class="img-fluid blur-up lazyload" alt=""></a>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                                         class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                             </li>
                                             <li>
-                                                <a href="#">Sale</a>
+                                                <a href="{{url('/sale')}}">Sale</a>
                                             </li>
                                             <li class="mega"><a href="#">Skin Care
                                                     <div class="lable-nav">new</div>
@@ -58,17 +58,17 @@
                                             </li>
                                             
                                             <li>
-                                                <a href="#">What's New!</a>
+                                                <a href="{{url('/new')}}">What's New!</a>
                                             </li>
                                             <!-- <li class="mega"><a href="#">features
                                                     <div class="lable-nav">new</div>
                                                 </a>
                                             </li> -->
                                             <li>
-                                                <a href="#">Best Sellers</a>
+                                                <a href="{{url('/bestSeller')}}">Best Sellers</a>
                                             </li>
                                             <li>
-                                                <a href="#">Blog</a>
+                                                <a href="{{url('/blogs')}}">Blog</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -291,7 +291,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"><img src="{{asset('backends/assets/images/icon/logos.png')}}"
+                                <a href="{{url('/')}}"><img src="{{asset('backends/assets/images/icon/logos.png')}}"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
@@ -375,7 +375,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="#">Blog</a>
+                                            <a href="{{url('/blogs')}}">Blog</a>
                                         </li>
 
                                 </nav>

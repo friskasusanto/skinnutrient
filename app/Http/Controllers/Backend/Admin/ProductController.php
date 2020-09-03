@@ -9,6 +9,7 @@ use App\Model\Product;
 use App\Model\ProductGambar;
 use App\Model\Category;
 use App\Model\Log;
+use App\Model\ProductJenis;
 use Auth;
 
 class ProductController extends Controller
@@ -44,14 +45,16 @@ class ProductController extends Controller
     	$search = \Request::get('search');
     	$product = Product::where('name', 'like', '%'.$search.'%')->orderBy('created_at', 'desc')->paginate(10);
         $category = Category::all();
+        $jenis = ProductJenis::all();
 
-    	return view('backend.admin.product.index', compact(['product', 'category']));
+    	return view('backend.admin.product.index', compact(['product', 'category', 'jenis']));
     }
 
     public function add_view_product()
     {
     	$category = Category::all();
-    	return view('backend.admin.product.add', compact(['category']));
+        $jenis = ProductJenis::all();
+    	return view('backend.admin.product.add', compact(['category', 'jenis']));
     }
 
     public function add_product (Request $request)

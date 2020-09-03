@@ -14,12 +14,12 @@ class Product extends Model
     {
         return $this->belongsTo('App\Model\Category', 'category_id');
     }
+    public function jenis()
+    {
+        return $this->belongsTo('App\Model\ProductJenis', 'jenis_id');
+    }
     public function product_image()
     {
         return $this->hasMany('App\Model\ProductGambar', 'product_id');
-    }
-    public function product_imageUtama()
-    {
-        return $this->hasOne('App\Model\ProductGambar', 'product_id')->first();
     }
 }

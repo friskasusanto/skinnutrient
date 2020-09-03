@@ -1,4 +1,4 @@
-@extends('backend.layout.index', ['active' => 'edit_gudang'])
+@extends('backend.layouts.index', ['active' => 'edit_gudang'])
 @section('title', 'Gudang')
 @section('content') 
 

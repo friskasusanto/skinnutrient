@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Model;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProductJenis extends Model
+{
+    protected $fillable = [
+    	'jenis', 'status'
+    ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Model\Product', 'product_id');
+    }
+}

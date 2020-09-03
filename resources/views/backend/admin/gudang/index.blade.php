@@ -1,4 +1,4 @@
-@extends('backend.layouts.index', ['active' => 'list_category'])
+@extends('backend.layout.index', ['active' => 'list_category'])
 @section('title', 'Category')
 @section('content')
 

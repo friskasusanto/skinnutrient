@@ -1,4 +1,4 @@
-@extends('backend.layout.index', ['active' => 'detail_checkout'])
+@extends('backend.layouts.index', ['active' => 'detail_checkout'])
 @section('title', 'Checkout')
 @section('content')
 

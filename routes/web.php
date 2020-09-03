@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 //FRONTEND
+
+	//Frontend/BlogController
+	Route::get('/blogs', 'Frontend\BlogController@blog')->name('blog');
+
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
 
@@ -48,6 +52,12 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 
 //BACKEND/ADMIN
+
+	//Backend/BlogController
+	Route::get('/admin/blog', 'Backend\Admin\BlogController@index')->name('admin_blog');
+	Route::get('/admin/addBlog', 'Backend\Admin\BlogController@add_view')->name('admin_addBlogView');
+	Route::post('/admin/addBlog', 'Backend\Admin\BlogController@add')->name('admin_addBlog');
+	Route::get('/admin/hapusBlog/{id}', 'Backend\Admin\BlogController@delete')->name('admin_hapusBlog');
 
 	//Backend/GeneralController
 	Route::get('/ganti_password/{id}', 'Backend\GeneralController@changePass_view')->name('gantipassword');

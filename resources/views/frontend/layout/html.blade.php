@@ -30,6 +30,9 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color1.css')}}" media="screen" id="color">
+    
+    <!-- Theme css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('backends/new-style.css')}}">
 
 
 </head>
