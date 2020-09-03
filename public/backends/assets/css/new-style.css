@@ -1,0 +1,76 @@
+.center-slider .home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 154vh !important;
+}
+
+.header.green-gradient .top-header {
+    background: #000000 (--theme-deafult);
+    background-image: -webkit-gradient(linear, left top, right top, from(var(--gradient1)), to(var(--gradient2)));
+    background-image: linear-gradient(to right, var(--gradient1), var(--gradient2));
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .slick-list {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding-top: 232px;
+    }
+}
+
+.banner-adv {
+    position: relative;
+    height: 70px;
+    background: #ff0018;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-adv .text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.banner-adv .close-banner {
+    cursor: pointer;
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: block;
+    z-index: 9;
+    color: #fff;
+}
+
+.banner-adv .close-banner:after {
+    border-bottom: 2px solid;
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 19px;
+    width: 15px;
+}
+
+.banner-adv .close-banner:before {
+    transform: rotate(-45deg);
+}
+
+.banner-adv .close-banner:after {
+    transform: rotate(45deg);
+}
+
