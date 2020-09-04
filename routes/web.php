@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 //FRONTEND
 
+	//Frontend/HomeController
+	Route::get('/', 'Frontend\HomeController@home')->name('');
+
 	//Frontend/BlogController
 	Route::get('/blogs', 'Frontend\BlogController@blog')->name('blog');
 
@@ -38,7 +41,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 //FRONTEND
 	//Frontend/SaleController
-	Route::post('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
+	Route::get('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
 	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/DetailController

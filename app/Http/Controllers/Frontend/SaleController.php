@@ -25,6 +25,9 @@ class SaleController extends Controller
 
     	if (Auth::check()){
         	
+            $status = 200;
+            $message = "Berhasil Menambahkan Wishlist";
+
 	    	$wishlist = new Wishlist;
 	    	$wishlist->user_id = Auth::user()->id;
 	    	$wishlist->product_id = $product->id;
@@ -33,7 +36,7 @@ class SaleController extends Controller
 	    	$wishlist->status = 0;
 	    	$wishlist->save();
 
-	    	return redirect()->back();
+	    	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
 	    } else {
 	    	$status = 200;
         	$message = "Silahkan login terlebih dahulu sebelum melanjutkan !";

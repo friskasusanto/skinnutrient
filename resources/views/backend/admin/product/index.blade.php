@@ -40,15 +40,21 @@
                             <div class="product-hover">
                                 <ul>
                                     <li>
-                                        <a type="btn" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa-trash" style="color: $000"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="{{url('/admin/delete/product/', $u->id)}}" type="btn"><i class="ti-trash"></i></a>
+                                        <a type="btn" data-toggle="modal" data-target="#modalEdit{{$u->id}}">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li>
-                                        <a type="button" data-toggle="modal" data-target="#modalDetail{{$u->id}}"><i class="ti-eye"></i></a>
+                                        <a href="{{url('/admin/delete/product', $u->id)}}" type="btn"><i class="fa fa-trash" style="color: #000"></i></a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a type="btn" data-toggle="modal" data-target="#modalDetail{{$u->id}}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -75,13 +81,13 @@
     </div>
 </div>
 
-@if(isset($user))
-@foreach( $user as $u )
+@if(isset($product))
+@foreach( $product as $u )
 <div class="modal" id="modalDetail{{$u->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><center>Data User</center></h5>
+                <h5 class="modal-title"><center>Data Product</center></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -144,6 +150,24 @@
                     <td>: {{ $u->title }}</td>
                 </tr>
                 <br/>
+                <tr>
+                    <th>Gambar Utama</th>
+                    <td>: <img src="{{url('product/'.$u->image)}}" alt="..." style="width: 20%"></td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Gambar Lain</th>
+                    <td>: 
+                        <?php 
+                            $gambar = App\Model\ProductGambar::where('product_id', $u->id)->get();
+                        ?>
+                        @if (count($gambar) != 0)
+                            @foreach ($gambar as $g)
+                                <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 20%">
+                            @endforeach
+                        @endif
+                    </td>
+                </tr>
             </div>
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->

@@ -10,6 +10,7 @@ use App\Model\ProductGambar;
 use App\Model\Category;
 use App\Model\Log;
 use App\Model\ProductJenis;
+use App\Model\Checkout;
 use Auth;
 
 class ProductController extends Controller
@@ -309,21 +310,40 @@ class ProductController extends Controller
 
     public function delete_product (Request $request, $id)
     {
-    	$status = 200;
-        $message = "Data Berhasil di Hapus";
-    	$delete = Product::find($id);
-    	$delete->delete();
+    	$product = Product::find($id);
+        $cek = Checkout::where('product_id', $product->id)->count();
 
-        $log = new Log;
-        $log->mutasi_action = "delete product ". $request->name;
-        $log->user_id = Auth::user()->id;
-        $log->controller = "ProductController";
-        $log->function = "delete_product";
-        $log->keterangan = "hapus product berhasil";
-        $log->tgl_action = date('Y-m-d H:i:s');
-        $log->save();
+        if ($cek <= 0){
+            $status = 200;
+            $message = "Data Berhasil di Hapus";
 
-    	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+            $delete = Product::find($id);
+            $delete->delete();
+
+            $log = new Log;
+            $log->mutasi_action = "delete product ". $request->name;
+            $log->user_id = Auth::user()->id;
+            $log->controller = "ProductController";
+            $log->function = "delete_product";
+            $log->keterangan = "hapus product berhasil";
+            $log->tgl_action = date('Y-m-d H:i:s');
+            $log->save();
+
+            return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+        } else {
+            $status = 500;
+            $message = "Data Tidak Bisa di Hapus, Pembelian Sedang Berlangsung";
+
+            return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+        }
+
+    	
+
+
+
+        
+
+    	
 
     }
 }
