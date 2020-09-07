@@ -8,6 +8,7 @@ use App\Model\Chart;
 use App\Model\Wishlist;
 use App\Model\Product;
 use App\Model\Checkout;
+use App\Model\Blog;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,8 @@ class HomeController extends Controller
     	$featured = Wishlist::orderBy('created_at', 'desc')->limit(8)->get();
     	$new = Product::orderBy('created_at', 'desc')->limit(8)->get();
     	$best = Checkout::orderBy('total_item', 'desc')->limit(8)->get();
+    	$blog = Blog::orderBy('created_at', 'desc')->limit(5)->get();
 
-    	return view('frontend.home', compact('terbaik', 'featured', 'new', 'best'));
+    	return view('frontend.home', compact('terbaik', 'featured', 'new', 'best', 'blog'));
     }
 }

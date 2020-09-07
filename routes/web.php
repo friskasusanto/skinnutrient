@@ -19,11 +19,15 @@ Route::get('/', function () {
 
 //FRONTEND
 
+	//Frontend/CommentController
+	Route::post('/comment/{judul}', 'Frontend\CommentController@commentBlog')->name('comment');
+
 	//Frontend/HomeController
 	Route::get('/', 'Frontend\HomeController@home')->name('');
 
 	//Frontend/BlogController
 	Route::get('/blogs', 'Frontend\BlogController@blog')->name('blog');
+	Route::get('/blogsDetail/{judul}', 'Frontend\BlogController@detail')->name('blogsDetail');
 
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
