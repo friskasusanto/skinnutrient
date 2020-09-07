@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Chart;
 use App\Model\Wishlist;
+use App\Model\Product;
+use App\Model\Checkout;
 
 class HomeController extends Controller
 {
