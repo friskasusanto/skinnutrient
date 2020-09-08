@@ -28,65 +28,56 @@ class DetailController extends Controller
         $cekWish = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
 
     	// dd($request->quantity);
-        
+        if (Auth::check()) {
         	if (! $cek){
-                if (Auth::check()) {
-            		$cart = new Chart;
-            		$cart->user_id = Auth::user()->id;
-            		$cart->product_id = $product->id;
+        		$cart = new Chart;
+        		$cart->user_id = Auth::user()->id;
+        		$cart->product_id = $product->id;
 
-            		if ($request->quantity == null){
-            			$cart->jumlah = 1;
-            		}else {
-            			$cart->jumlah = $request->quantity;
-            		}
+        		if ($request->quantity == null){
+        			$cart->jumlah = 1;
+        		}else {
+        			$cart->jumlah = $request->quantity;
+        		}
 
-            		$cart->total_amount = $product->price * $cart->jumlah;
-            		$cart->status = 0;
-            		$cart->save();
+        		$cart->total_amount = $product->price * $cart->jumlah;
+        		$cart->status = 0;
+        		$cart->save();
 
 
-                    if ($cekWish){
-                        $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-                        $wishlist->delete();
-                    }
-
-            		$status = 200;
-                	$message = "Berhasil Menambahkan ke Cart";
-
-                	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
-
-                }else{
-                    $status = 200;
-                    $message = "Silahkan Login Terlebih Dahulu";
-
-                    return redirect('/login');
+                if ($cekWish){
+                    $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+                    $wishlist->delete();
                 }
+
+        		$status = 200;
+            	$message = "Berhasil Menambahkan ke Cart";
+
+            	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
         
             }else{
-                if (Auth::check()) {
-                	if ($request->quantity != null){
-                		$cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-                		$cart->jumlah = $request->quantity;
-                		$cart->save();
-                	}
-                    if ($cekWish){
-                        $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-                        $wishlist->delete();
-                    }
-                	
-                	$status = 200;
-                	$message = "Product sudah ada di cart";
 
-                	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
-                }else{
-                    $status = 200;
-                    $message = "Silahkan Login Terlebih Dahulu";
-
-                    return redirect('/login');
+            	if ($request->quantity != null){
+            		$cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+            		$cart->jumlah = $request->quantity;
+            		$cart->save();
+            	}
+                if ($cekWish){
+                    $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+                    $wishlist->delete();
                 }
+            	
+            	$status = 200;
+            	$message = "Product sudah ada di cart";
+
+            	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
             }
-        
+        }else{
+            $status = 200;
+            $message = "Silahkan Login Terlebih Dahulu";
+
+            return redirect('/login');
+        }
     }
 
     public function buy (Request $request, $slug)

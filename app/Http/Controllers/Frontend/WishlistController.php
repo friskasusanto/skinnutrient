@@ -32,7 +32,7 @@ class WishlistController extends Controller
 
     public function addCart (Request $request, $id)
     {
-    	$wishlist = Wishlist::find($id)->where('user_id', Auth::user()->id)->first();
+    	$wishlist = Wishlist::find($id)->where('user_id', Auth::user()->id);
     	$cek = Chart::where('product_id', $wishlist->product_id)->where('user_id', Auth::user()->id)->first();
     	// dd($cek);
 

@@ -22,11 +22,10 @@ class SaleController extends Controller
     public function wishlist (Request $request, $slug)
     {
     	$product = Product::where('slug', $slug)->first();
-        $cek = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
 
     	if (Auth::check()){
 
-            if (! $cek){
+            if (count(Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->get()) >= 0){
         	
                 $status = 200;
                 $message = "Berhasil Menambahkan Wishlist";
@@ -44,7 +43,7 @@ class SaleController extends Controller
                 $message = "Berhasil Menambahkan Wishlist";
             }
 	    } else {
-	    	$status = 200;
+	    	$status = 500;
         	$message = "Silahkan login terlebih dahulu sebelum melanjutkan !";
 	    }
 

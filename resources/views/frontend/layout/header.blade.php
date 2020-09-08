@@ -93,7 +93,7 @@
                                             </li> -->
                                             <li class="onhover-div mobile-cart">
                                                 <div>
-                                                    <img src="{{asset('Fbackends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
+                                                    <img src="{{asset('backends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
                                                     <i class="ti-shopping-cart"></i>
                                                 </div>
                                             </li>

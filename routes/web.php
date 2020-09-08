@@ -40,6 +40,8 @@ Route::get('/', function () {
 
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
+	Route::post('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
+	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
@@ -47,15 +49,6 @@ Route::get('/', function () {
 	Route::get('/whatsNew', 'Frontend\GeneralController@new')->name('new');
 	Route::get('/bestSeller', 'Frontend\GeneralController@bestSeller')->name('bestSeller');
 
-Auth::routes(['verify' => true]);
-Route::group(['middleware' => ['auth', 'verified']], function ()  {
-
-	Route::get('/home', 'HomeController@index')->name('home');
-
-//FRONTEND
-	//Frontend/SaleController
-	Route::get('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
-	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/DetailController
 	Route::get('/detailProduct/{slug}', 'Frontend\DetailController@detail')->name('detailProduct');
@@ -64,6 +57,11 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 	//Frontend/CheckoutController
 	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
+
+Auth::routes(['verify' => true]);
+Route::group(['middleware' => ['auth', 'verified']], function ()  {
+
+	Route::get('/home', 'HomeController@index')->name('home');
 
 
 
