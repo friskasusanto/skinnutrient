@@ -19,6 +19,15 @@ Route::get('/', function () {
 
 //FRONTEND
 
+	//Frontend/CartController
+	Route::get('/cartDelete/{id}', 'Frontend\CartController@delete')->name('cartDelete');
+	Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
+
+	//Frontend/WishlistController
+	Route::get('/wishlist', 'Frontend\WishlistController@wishlist')->name('wishlist');
+	Route::get('/wishlistDelete/{id}', 'Frontend\WishlistController@delete')->name('deleteWishlist');
+	Route::get('/addWishlistCart/{id}', 'Frontend\WishlistController@addCart')->name('addWishlistCart');
+
 	//Frontend/CommentController
 	Route::post('/comment/{judul}', 'Frontend\CommentController@commentBlog')->name('comment');
 

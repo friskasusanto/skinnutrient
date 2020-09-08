@@ -13,4 +13,8 @@ class Wishlist extends Model
     {
         return $this->belongsTo('App\Model\Product', 'product_id');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\Model\User', 'user_id');
+    }
 }

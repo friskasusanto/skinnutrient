@@ -1,4 +1,4 @@
-<!-- loader start -->
+
     <div class="loader_skeleton">
         <div class="top-header">
             <div class="container">
@@ -13,8 +13,13 @@
                     </div>
                     <div class="col-lg-6 text-right">
                         <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                        @if (Auth::check())
+                            <li class="mobile-wishlist">
+                                <a href="{{url('/wishlist')}}">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </a>
                             </li>
+                        @endif
                             <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                                 My Account
                             </li>
@@ -81,15 +86,16 @@
                                                         class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
                                                         onclick="openSearch()"></i></div>
                                             </li>
-                                            <li class="onhover-div mobile-setting">
+                                            <!-- <li class="onhover-div mobile-setting">
                                                 <div><img src="{{asset('backends/assets/images/icon/setting.png')}}"
                                                         class="img-fluid blur-up lazyload" alt=""> <i
                                                         class="ti-settings"></i></div>
-                                            </li>
+                                            </li> -->
                                             <li class="onhover-div mobile-cart">
-                                                <div><img src="{{asset('backends/assets/images/icon/cart.png')}}"
-                                                        class="img-fluid blur-up lazyload" alt=""> <i
-                                                        class="ti-shopping-cart"></i></div>
+                                                <div>
+                                                    <img src="{{asset('Fbackends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
+                                                    <i class="ti-shopping-cart"></i>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -237,8 +243,13 @@
                     </div>
                     <div class="col-lg-6 text-right">
                         <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                            @if (Auth::check())
+                            <li class="mobile-wishlist">
+                                <a href="{{url('/wishlist')}}">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </a>
                             </li>
+                            @endif
                             <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                                 My Account
                                 <ul class="onhover-show-div">
@@ -410,7 +421,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="onhover-div mobile-setting">
+                                        <!-- <li class="onhover-div mobile-setting">
                                             <div><img src="{{asset('backends/assets/images/icon/setting.png')}}"
                                                     class="img-fluid blur-up lazyload" alt=""> <i
                                                     class="ti-settings"></i></div>
@@ -428,51 +439,50 @@
                                                     <li><a href="#">doller</a></li>
                                                 </ul>
                                             </div>
-                                        </li>
+                                        </li> -->
+                                    @if (Auth::check())
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="{{asset('backends/assets/images/icon/cart.png')}}"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i
-                                                    class="ti-shopping-cart"></i></div>
+                                            <div>
+                                                <img src="{{asset('backends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
+                                                <i class="ti-shopping-cart"></i>
+                                            </div>
+                                            <?php
+                                                $cart = App\Model\Chart::where('user_id', Auth::user()->id)->get();
+                                            ?>
+                                            @foreach($cart as $c)
                                             <ul class="show-div shopping-cart">
                                                 <li>
                                                     <div class="media">
-                                                        <a href="#"><img alt="" class="mr-3"
-                                                                src="{{asset('backends/assets/images/fashion/product/1.jpg')}}"></a>
+                                                        <a href="{{url('/detailProduct', $c->product->slug)}}">
+                                                            <img alt="" class="mr-3" src="{{url('product/'.$c->product->image)}}">
+                                                        </a>
                                                         <div class="media-body">
                                                             <a href="#">
-                                                                <h4>item name</h4>
+                                                                <h4>{{$c->product->name}}</h4>
                                                             </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
+                                                            <h4><span>{{$c->jumlah}} x $ Rp. {{$c->product->price}}</span></h4>
                                                         </div>
                                                     </div>
-                                                    <div class="close-circle"><a href="#"><i class="fa fa-times"
-                                                                aria-hidden="true"></i></a></div>
-                                                </li>
-                                                <li>
-                                                    <div class="media">
-                                                        <a href="#"><img alt="" class="mr-3"
-                                                                src="{{asset('backends/assets/images/fashion/product/2.jpg')}}"></a>
-                                                        <div class="media-body">
-                                                            <a href="#">
-                                                                <h4>item name</h4>
-                                                            </a>
-                                                            <h4><span>1 x $ 299.00</span></h4>
-                                                        </div>
+                                                    <div class="close-circle">
+                                                        <a href="{{url('/cartDelete', $c->id)}}">
+                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                        </a>
                                                     </div>
-                                                    <div class="close-circle"><a href="#"><i class="fa fa-times"
-                                                                aria-hidden="true"></i></a></div>
                                                 </li>
                                                 <li>
                                                     <div class="total">
-                                                        <h5>subtotal : <span>$299.00</span></h5>
+                                                        <h5>subtotal : <span>Rp. {{$c->jumlah * $c->product->price}}</span></h5>
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div class="buttons"><a href="cart.html" class="view-cart">view
-                                                            cart</a> <a href="#" class="checkout">checkout</a></div>
+                                                    <div class="buttons">
+                                                        <a href="{{url('/cart')}}" class="view-cart">view cart</a><a href="#" class="checkout">checkout</a>
+                                                    </div>
                                                 </li>
+                                            @endforeach
                                             </ul>
                                         </li>
+                                    @endif
                                     </ul>
                                 </div>
                             </div>
@@ -482,4 +492,4 @@
             </div>
         </div>
     </header>
-    <!-- header end -->
+    <!-- header end
