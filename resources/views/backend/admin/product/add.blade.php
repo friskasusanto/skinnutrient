@@ -36,6 +36,16 @@
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="col-xl-7">
                             <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/add/product')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
