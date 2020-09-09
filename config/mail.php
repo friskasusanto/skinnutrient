@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env('MAIL_HOST', 'test.skinnutrient.co.id'),
+            'port' => env('MAIL_PORT', 465),
+            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
+            'username' => env('admin@skinnutrient.co.id'),
+            'password' => env('adminskinutrient'),
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -106,5 +106,7 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'log_channel' => env('MAIL_LOG_CHANNEL'),
 
 ];
