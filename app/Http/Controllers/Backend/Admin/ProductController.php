@@ -79,13 +79,14 @@ class ProductController extends Controller
         {
             $allowedfileExtension=['JPG','PNG', 'JPEG', 'jpg', 'png', 'jpeg'];
             $files = $request->file('photos');
+            // dd($files);
 
             foreach($files as $file){
 
             $filename = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
-            // dd($check);
+            dd($check);
 
                 if($check)
                 {
@@ -128,9 +129,7 @@ class ProductController extends Controller
                     $log->save();
 
                     return redirect()->back()->with(['flash_status' => 200,'flash_message' => 'Berhasil Menyimpan Data']);
-                }
-                else
-                {
+                }else{
                     return redirect()->back()->with(['flash_status' => 500,'flash_message' => 'gagal']);
                 }
             }
