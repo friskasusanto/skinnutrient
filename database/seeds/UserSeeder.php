@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Role;
 use App\User;
 use App\Model\Menu;
-use App\Model\Jenis;
+use App\Model\ProductJenis;
 
 class UserSeeder extends Seeder
 {
