@@ -72,7 +72,7 @@
                                         <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Jenis Product :</label>
 
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                            <select name="category" type="text" class="form-control" style="width: 100%">
+                                            <select name="jenis" type="text" class="form-control" style="width: 100%">
                                                 <option value="">--pilih jenis product--</option>
                                                 @foreach ($jenis as $p)
                                                     <option value= "{{$p->id}}">{{$p->jenis}}</option>

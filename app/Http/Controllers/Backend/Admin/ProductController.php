@@ -98,6 +98,13 @@ class ProductController extends Controller
                     $add->image = $fileName;
 
                     $add->category_id = $request->category;
+
+                    if ($request->jenis != null ){
+                        $add->jenis_id = $request->jenis;
+                    }else{
+                        $add->jenis_id = null;
+                    }
+                    
                     $add->price = $request->price;
                     $add->title = null;
                     $add->description = $request->description;
@@ -137,6 +144,13 @@ class ProductController extends Controller
             $add= new Product;
             $add->name = $request->name;
             $add->category_id = $request->category;
+
+            if ($request->jenis != null ){
+                $add->jenis_id = $request->jenis;
+            }else{
+                $add->jenis_id = null;
+            }
+
             $add->price = $request->price;
             $add->title = $request->title;
             $add->description = $request->description;
