@@ -86,7 +86,7 @@ class ProductController extends Controller
             $filename = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
-            dd($check);
+            // dd($check);
 
                 if($check)
                 {
