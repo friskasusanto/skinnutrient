@@ -144,6 +144,10 @@ class ProductController extends Controller
             $add= new Product;
             $add->name = $request->name;
             $add->category_id = $request->category;
+            
+            $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
+            $request->image->move(public_path('product'), $fileName);
+            $add->image = $fileName;
 
             if ($request->jenis != null ){
                 $add->jenis_id = $request->jenis;
