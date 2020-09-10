@@ -54,6 +54,7 @@ Route::get('/', function () {
 	Route::get('/detailProduct/{slug}', 'Frontend\DetailController@detail')->name('detailProduct');
 	Route::post('/addCart/{slug}', 'Frontend\DetailController@addCart')->name('addCart');
 	Route::post('/buy/{slug}', 'Frontend\DetailController@buy')->name('buy');
+	Route::post('/review/{slug}', 'Frontend\DetailController@review')->name('review');
 
 	//Frontend/CheckoutController
 	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
@@ -66,6 +67,12 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 
 //BACKEND/ADMIN
+
+	//Backend/JenisController
+	Route::get('/admin/jenisProduct', 'Backend\Admin\JenisController@index')->name('admin_jenisProduct');
+	Route::post('/admin/addjenisProduct', 'Backend\Admin\JenisController@add')->name('admin_jenisProduct');
+	Route::post('/admin/editjenisProduct/{id}', 'Backend\Admin\JenisController@edit')->name('admin_editjenisProduct');
+	Route::get('/admin/hapusjenisProduct/{id}', 'Backend\Admin\JenisController@delete')->name('admin_hapusJenis');
 
 	//Backend/BlogController
 	Route::get('/admin/blog', 'Backend\Admin\BlogController@index')->name('admin_blog');

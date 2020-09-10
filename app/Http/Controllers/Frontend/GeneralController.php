@@ -29,9 +29,14 @@ class GeneralController extends Controller
         if ($request->category) {
             $product = Product::orWhere('category_id', $request->category)->orderBy('created_at', 'desc')->paginate(16);
             $category = Category::with('product')->get();
-
-            return view('frontend.product', compact('product', 'category'));
+        }elseif ($request->name) {
+            $product = Product::orWhere('name', 'like', '%'.$request->name.'%')->orderBy('created_at', 'desc')->paginate(16);
+            $category = Category::with('product')->get();
+        }elseif ($request->jenis) {
+            $product = Product::orWhere('jenis_id', $request->jenis)->orderBy('created_at', 'desc')->paginate(16);
         }
+
+        return view('frontend.product', compact('product', 'category'));
     }
 
     public function subscribe (Request $request)

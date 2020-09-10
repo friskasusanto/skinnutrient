@@ -77,9 +77,9 @@ class ProductController extends Controller
 
         if($request->hasFile('photos'))
         {
-            $allowedfileExtension=['JPG','PNG', 'JPEG', 'jpg', 'png', 'jpeg'];
+            $allowedfileExtension=['JPG','PNG', 'JPEG', 'WEBP', 'jpg', 'png', 'jpeg', 'webp'];
             $files = $request->file('photos');
-            // dd($files);
+            // dd($allowedfileExtension);
 
             foreach($files as $file){
 

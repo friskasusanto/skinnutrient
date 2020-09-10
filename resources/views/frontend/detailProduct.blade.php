@@ -132,42 +132,56 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab"
-                                href="#top-home" role="tab" aria-selected="true">Description</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Description </a>
                             <div class="material-border"></div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
+                        <!-- <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
                                 href="#top-profile" role="tab" aria-selected="false">Details</a>
                             <div class="material-border"></div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab"
+                        </li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab"
                                 href="#top-contact" role="tab" aria-selected="false">Video</a>
                             <div class="material-border"></div>
+                        </li> -->
+                    @if (count($status))
+                        <li class="nav-item">
+                            <a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">Write Review</a>
+                            <div class="material-border"></div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
-                                href="#top-review" role="tab" aria-selected="false">Write Review</a>
+                    @endif
+                        <li class="nav-item">
+                            <a class="nav-link" id="allreview-top-tab" data-toggle="tab" href="#alltop-review"  role="tab" aria-selected="false">All Review </a>
                             <div class="material-border"></div>
                         </li>
                     </ul>
                     <div class="tab-content nav-material" id="top-tabContent">
                         <div class="tab-pane fade show active" id="top-home" role="tabpanel"
                             aria-labelledby="top-home-tab">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum
-                                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                                galley of type and scrambled it to make a type specimen book. It has survived not only
-                                five centuries, but also the leap into electronic typesetting, remaining essentially
-                                unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                                containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                                Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            <p>{{$product->description}}</p>
                         </div>
-                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+                        <div class="tab-pane fade" id="alltop-review" role="tabpanel"
+                            aria-labelledby="allreview-top-tab">
+                            @if (count($comment) != 0)
+                                @foreach ($comment as $c)
+                                    <li>
+                                        <div class="media">
+                                            <img src="{{asset('backends/assets/images/avtar.jpg')}}" alt="Generic placeholder image" style="width: 10%">
+                                            <div class="media-body" style="padding-left: 5%">
+                                                <h6>{{$c->name}}<span>( {{$c->created_at}} )</span></h6>
+                                                <p>{{$c->comment}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                                {{ $comment->links() }}
+                            @else
+                                <br/><br/>
+                                <center><p>~ ulasan kosong ~</p></center>
+                                <br/><br/>
+                            @endif
+                        </div>
+                        <!-- <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry's standard dummy text ever since the 1500s, when an unknown
                                 printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -205,51 +219,55 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                        </div> -->
+                        <!-- <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                             <div class="mt-4 text-center">
                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8"
                                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
-                        </div>
+                        </div> -->
+                    @if (count ($status))
                         <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-                            <form class="theme-form">
+                            <form class="theme-form" novalidate="novalidate" method="POST" action= "{{url('/review', $product->slug)}}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="media">
                                             <label>Rating</label>
                                             <div class="media-body ml-3">
-                                                <div class="rating three-star"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                <div class="rating">
+                                                    <input type="radio" id="star5" name="star" value="5" /><label for="star5" title="Sangat Baik">5 stars</label>
+                                                    <input type="radio" id="star4" name="star" value="4" /><label for="star4" title="Baik">4 stars</label>
+                                                    <input type="radio" id="star3" name="star" value="3" /><label for="star3" title="Cukup Baik">3 stars</label>
+                                                    <input type="radio" id="star2" name="star" value="2" /><label for="star2" title="Cukup">2 stars</label>
+                                                    <input type="radio" id="star1" name="star" value="1" /><label for="star1" title="Buruk">1 star</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Your name"
-                                            required>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter Your name" required name="name">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email" placeholder="Email" required>
+                                        <input type="text" class="form-control" id="email" placeholder="Email" required name="email">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="review">Review Title</label>
-                                        <input type="text" class="form-control" id="review"
-                                            placeholder="Enter your Review Subjects" required>
+                                        <label for="review">Judul Ulasan</label>
+                                        <input type="text" class="form-control" id="review" placeholder="judul ulasan" required name="judul">
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="review">Review Title</label>
-                                        <textarea class="form-control" placeholder="Wrire Your Testimonial Here"
-                                            id="exampleFormControlTextarea1" rows="6"></textarea>
+                                        <label for="review">Ulasan Product</label>
+                                        <textarea class="form-control" placeholder="berikan ulasan product anda" id="exampleFormControlTextarea1" rows="6" name="comment"></textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn btn-solid" type="submit">Submit YOur Review</button>
+                                        <button class="btn btn-solid" type="submit">Kirim Ulasan</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                    @endif
                     </div>
                 </div>
             </div>
@@ -267,213 +285,111 @@
                 </div>
             </div>
             <div class="row search-product">
+            @if (count ($related) != 0)
+                @foreach ($related as $r)
                 <div class="col-xl-2 col-md-4 col-sm-6">
                     <div class="product-box">
                         <div class="img-wrapper">
                             <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/33.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                <a href="{{url('/detailProduct', $r->slug)}}">
+                                @if ($r->image == null)
+                                    <img src="{{asset('backends/assets/images/pro3/35.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                @else
+                                    <img src="{{url('product/'.$r->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                @endif
+                                </a>
                             </div>
                             <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/34.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                <a href="{{url('/detailProduct', $r->slug)}}">
+                                @if ($r->image == null)
+                                    <img src="{{asset('backends/assets/images/pro3/36.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                @else
+                                    <img src="{{url('product/'.$r->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                @endif
+                                </a>
                             </div>
                             <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
+                                <a href="{{url('/cart', $r->slug)}}" title="Add to cart">
+                                    <i class="ti-shopping-cart" aria-hidden="true"></i>
+                                </a> 
+                                <a href="{{action('Frontend\SaleController@wishlist', $r->slug)}}" title="Add to Wishlist">
+                                    <i class="ti-heart" aria-hidden="true"></i>
+                                </a> 
+                                <a href="#" data-toggle="modal" data-target="#quick-view{{$r->slug}}" title="Quick View">
+                                    <i class="ti-search" aria-hidden="true"></i>
+                                </a> 
+                            </div>
                         </div>
                         <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <a href="{{url('/detailProduct', $r->slug)}}">
+                                <h6>{{$r->name}}</h6>
                             </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
+                            <h4>Rp. {{$r->price}}</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-md-4 col-sm-6">
-                    <div class="product-box">
-                        <div class="img-wrapper">
-                            <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/1.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/2.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
+                @endforeach
+            @else
+                <br/><br/>
+                <center><p>~ product kosong ~</p></center>
+                <br/><br/>
+            @endif
+            </div>
+        </div>
+    </section>
+    <!-- product section end -->
+
+    @if(isset($related))
+    @foreach( $related as $s )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
                         </div>
-                        <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
-                            </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 col-sm-6">
-                    <div class="product-box">
-                        <div class="img-wrapper">
-                            <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/27.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$s->name}}</h2>
+                                <h3>Rp. {{$s->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{{$s->description}}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $s->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/28.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
-                            </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 col-sm-6">
-                    <div class="product-box">
-                        <div class="img-wrapper">
-                            <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/35.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/36.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
-                            </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 col-sm-6">
-                    <div class="product-box">
-                        <div class="img-wrapper">
-                            <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/2.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/1.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
-                            </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 col-sm-6">
-                    <div class="product-box">
-                        <div class="img-wrapper">
-                            <div class="front">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/28.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="back">
-                                <a href="#"><img src="{{asset('backends/assets/images/pro3/27.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                            <div class="cart-info cart-wrap">
-                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i
-                                        class="ti-shopping-cart"></i></button> <a href="javascript:void(0)"
-                                    title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                    data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                        class="ti-search" aria-hidden="true"></i></a> <a href="compare.html"
-                                    title="Compare"><i class="ti-reload" aria-hidden="true"></i></a></div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <a href="product-page(no-sidebar).html">
-                                <h6>Slim Fit Cotton Shirt</h6>
-                            </a>
-                            <h4>$500.00</h4>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- product section end -->
+    </div>
+    @endforeach
+    @endif
 
 @endsection

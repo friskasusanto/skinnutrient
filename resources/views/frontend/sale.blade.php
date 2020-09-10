@@ -181,11 +181,6 @@
                             <div class="product-right">
                                 <h2>{{$s->name}}</h2>
                                 <h3>Rp. {{$s->price}}</h3>
-                                <ul class="color-variant">
-                                    <li class="bg-light0"></li>
-                                    <li class="bg-light1"></li>
-                                    <li class="bg-light2"></li>
-                                </ul>
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
                                     <p>{{$s->description}}</p>

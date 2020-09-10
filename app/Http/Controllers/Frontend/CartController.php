@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Chart;
 use App\Model\Product;
+use Auth;
 
 class CartController extends Controller
 {
@@ -16,7 +17,7 @@ class CartController extends Controller
     	return view('frontend.cart', compact('cart'));
     }
 
-    public function delete (Request $request, $id);
+    public function delete (Request $request, $id)
     {
     	$status = 200;
         $message = "Product Berhasil di Hapus dari Cart";

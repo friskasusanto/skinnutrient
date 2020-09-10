@@ -97,6 +97,7 @@ return [
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
     'required' => ' :attribute kosong atau tidak cocok, periksa kembali.',
+    'starValidation' => ' :anda belum berpartipasi dalam memberikan bintang pada product.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',

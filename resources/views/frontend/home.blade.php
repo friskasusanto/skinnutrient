@@ -152,120 +152,24 @@
     <section class="pt-0 banner-6 ratio2_1">
         <div class="container">
             <div class="row partition3">
-                <div class="col-md-3">
-                    <a href="#">
+            @if (count($jenis) != 0)
+                @foreach ($jenis as $j)
+                <div class="col-md-3" style= "margin-bottom: 2%">
+                    <a href="{{route('shop', ['jenis' => $j->id])}}">
                         <div class="collection-banner p-left">
                             <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/1s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                <img src="{{url('jenisProduct/'.$j->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                             </div>
                             <div class="contain-banner banner-3">
                                 <div>
-                                    <h2>Serums</h2>
+                                    <h2>{{$j->jenis}}</h2>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right text-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/2s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Sanitiser</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-left">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/3s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Cleansers</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/4s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Toners</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row partition3 banner-top-cls">
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right text-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/5s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Masks</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/6s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Moisturisers</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/7s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Body Care</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <div class="collection-banner p-right">
-                            <div class="img-part">
-                                <img src="{{asset('backends/assets/images/pets/banner/8s.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                            </div>
-                            <div class="contain-banner banner-3">
-                                <div>
-                                    <h2>Gifts</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
+            @endif
             </div>
         </div>
     </section>
@@ -896,5 +800,191 @@
         </div>
     </section>
     <!--  logo section end-->
+
+
+    @if(isset($terbaik))
+    @foreach( $terbaik as $s )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->product->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->product->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$s->product->name}}</h2>
+                                <h3>Rp. {{$s->product->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{{$s->product->description}}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $s->product->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($featured))
+    @foreach( $featured as $s )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->product->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->product->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$s->poduct->name}}</h2>
+                                <h3>Rp. {{$s->product->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{{$s->product->description}}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $s->product->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($new))
+    @foreach( $new as $s )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$s->name}}</h2>
+                                <h3>Rp. {{$s->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{{$s->description}}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $s->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($best))
+    @foreach( $best as $s )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->product->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->product->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$s->product->name}}</h2>
+                                <h3>Rp. {{$s->product->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{{$s->product->description}}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $s->product->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
 
 @endsection

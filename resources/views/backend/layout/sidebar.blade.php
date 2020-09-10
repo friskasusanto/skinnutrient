@@ -39,9 +39,11 @@
                             <li><a href="{{url('/admin/checkout/index')}}"><i class="fa fa-circle"></i>Daftar Order</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Category</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Menu Product</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="{{url('/list_category')}}"><i class="fa fa-circle"></i>Daftar Category</a></li>
+                            <li><a href=""><i class="fa fa-circle"></i>Daftar Product Menu</a></li>
+                            <li><a href="{{url('/list_category')}}"><i class="fa fa-circle"></i>Daftar Product Category</a></li>
+                            <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>
