@@ -42,11 +42,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if (count($cart) != 0)
+                            @foreach ($cart as $c)
                             <tr>
                                 <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
+                                    <a href="{{url('/detailProduct', $c->product->slug)}}">
+                                        <img src="{{url('product/'.$c->product->image)}}" alt="">
+                                    </a>
                                 </td>
-                                <td><a href="#">cotton shirt</a>
+                                <td>
+                                    <a href="{{url('/detailProduct', $c->product->slug)}}">{{$c->product->name}}</a>
                                     <div class="mobile-cart-content row">
                                         <div class="col-xs-3">
                                             <div class="qty-box">
@@ -57,112 +62,41 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
+                                            <h2 class="td-color">Rp. {{$c->product->price}}</h2>
                                         </div>
                                         <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
+                                            <h2 class="td-color">
+                                                <a href="{{url('/cartDelete', $c->id)}}" class="icon">
+                                                    <i class="ti-close"></i>
+                                                </a>
                                             </h2>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h2>$63.00</h2>
+                                    <h2>Rp. {{$c->product->price}}</h2>
                                 </td>
                                 <td>
+                                    <form novalidate="novalidate" method="POST" action= "{{url('/cartQuantity', $c->id)}}" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
                                     <div class="qty-box">
                                         <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
+                                            <input type="number" name="jumlah" class="form-control input-number" value="{{$c->jumlah}}">
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-success">ubah</button>
                                 </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                                <td><a href="{{url('/cartDelete', $c->id)}}" class="icon"><i class="ti-close"></i></a></td>
                                 <td>
-                                    <h2 class="td-color">$4539.00</h2>
+                                    <h2 class="td-color">Rp. {{$c->total_amount}}</h2>
                                 </td>
                             </tr>
-                        </tbody>
-                        <tbody>
+                            @endforeach
+                        @else
                             <tr>
-                                <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
+                                <td colspan="6"><center>KOSONG</center></td>
                             </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="#"><img src="../assets/images/pro3/1.jpg" alt=""></a>
-                                </td>
-                                <td><a href="#">cotton shirt</a>
-                                    <div class="mobile-cart-content row">
-                                        <div class="col-xs-3">
-                                            <div class="qty-box">
-                                                <div class="input-group">
-                                                    <input type="number" name="quantity"
-                                                        class="form-control input-number" value="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color">$63.00</h2>
-                                        </div>
-                                        <div class="col-xs-3">
-                                            <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <h2>$63.00</h2>
-                                </td>
-                                <td>
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number"
-                                                value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                                <td>
-                                    <h2 class="td-color">$4539.00</h2>
-                                </td>
-                            </tr>
+                        @endif
                         </tbody>
                     </table>
                     <table class="table cart-table table-responsive-md">
@@ -170,7 +104,7 @@
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>$6935.00</h2>
+                                    <h2>Rp. {{$cart->sum('total_amount')}}</h2>
                                 </td>
                             </tr>
                         </tfoot>
@@ -178,8 +112,8 @@
                 </div>
             </div>
             <div class="row cart-buttons">
-                <div class="col-6"><a href="#" class="btn btn-solid">continue shopping</a></div>
-                <div class="col-6"><a href="#" class="btn btn-solid">check out</a></div>
+                <div class="col-6"><a href="{{url('/whatsNew')}}" class="btn btn-solid">continue shopping</a></div>
+                <div class="col-6"><a href="{{url('/cartTocheckout')}}" class="btn btn-solid">check out</a></div>
             </div>
         </div>
     </section>

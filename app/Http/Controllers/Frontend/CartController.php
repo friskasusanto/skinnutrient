@@ -6,10 +6,53 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Chart;
 use App\Model\Product;
+use App\Model\Checkout;
 use Auth;
 
 class CartController extends Controller
 {
+    public function checkoutAdd ()
+    {
+        $cart = Chart::where('user_id', Auth::user()->id)->get();
+        foreach ($cart as $key => $value) {
+            $data[] = array(
+                'date_entry'=>  date('Y-m-d H:i:s'),
+                'product_id'=> $value->product_id,
+                'user_id'=> Auth::user()->id,
+                'receiver_name'=> null,
+                'address'=> null,
+                'phone_number'=> null,
+                'total_item'=> $value->jumlah,
+                'total_amount'=> $value->total_amount,
+                'payment_date'=> null,
+                'courier'=> null,
+                'courier_price'=> null,
+                'status'=> 0,
+            );
+        }
+        Checkout::insert($data);
+
+        $value->delete();
+
+        return redirect('/checkout');
+    }
+
+    public function quantity (Request $request, $id)
+    {
+        $status = 200;
+        $message = "Jumlah Quantity Berhasil di Ubah";
+
+        $quantity = Chart::find($id);
+
+        $product = Product::where('id', $quantity->product_id)->first();
+
+        $quantity->jumlah = $request->jumlah;
+        $quantity->total_amount = $request->jumlah * $product->price;
+        $quantity->save();
+
+        return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+    }
+
     public function cart ()
     {
     	$cart = Chart::where('user_id', Auth::user()->id)->get();

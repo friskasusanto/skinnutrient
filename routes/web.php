@@ -19,14 +19,6 @@ Route::get('/', function () {
 
 //FRONTEND
 
-	//Frontend/CartController
-	Route::get('/cartDelete/{id}', 'Frontend\CartController@delete')->name('cartDelete');
-	Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
-
-	//Frontend/WishlistController
-	Route::get('/wishlist', 'Frontend\WishlistController@wishlist')->name('wishlist');
-	Route::get('/wishlistDelete/{id}', 'Frontend\WishlistController@delete')->name('deleteWishlist');
-	Route::get('/addWishlistCart/{id}', 'Frontend\WishlistController@addCart')->name('addWishlistCart');
 
 	//Frontend/CommentController
 	Route::post('/comment/{judul}', 'Frontend\CommentController@commentBlog')->name('comment');
@@ -41,7 +33,7 @@ Route::get('/', function () {
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
 	Route::post('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
-	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
+	Route::get('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
@@ -56,13 +48,27 @@ Route::get('/', function () {
 	Route::post('/buy/{slug}', 'Frontend\DetailController@buy')->name('buy');
 	Route::post('/review/{slug}', 'Frontend\DetailController@review')->name('review');
 
-	//Frontend/CheckoutController
-	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
 
 Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 	Route::get('/home', 'HomeController@index')->name('home');
+
+//FRONEND
+
+	//Frontend/CheckoutController
+	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
+
+	//Frontend/CartController
+	Route::get('/cartDelete/{id}', 'Frontend\CartController@delete')->name('cartDelete');
+	Route::post('/cartQuantity/{id}', 'Frontend\CartController@quantity')->name('cartQuantity');
+	Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
+	Route::get('/cartTocheckout', 'Frontend\CartController@checkoutAdd')->name('cartTocheckout');
+
+	//Frontend/WishlistController
+	Route::get('/wishlist', 'Frontend\WishlistController@wishlist')->name('wishlist');
+	Route::get('/wishlistDelete/{id}', 'Frontend\WishlistController@delete')->name('deleteWishlist');
+	Route::get('/addWishlistCart/{id}', 'Frontend\WishlistController@addCart')->name('addWishlistCart');
 
 
 

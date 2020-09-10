@@ -451,7 +451,7 @@
                                                 <i class="ti-shopping-cart"></i>
                                             </div>
                                             <?php
-                                                $cart = App\Model\Chart::where('user_id', Auth::user()->id)->get();
+                                                $cart = App\Model\Chart::where('user_id', Auth::user()->id)->limit(2)->get();
                                             ?>
                                             @foreach($cart as $c)
                                             <ul class="show-div shopping-cart">
@@ -480,7 +480,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="buttons">
-                                                        <a href="{{url('/cart')}}" class="view-cart">view cart</a><a href="#" class="checkout">checkout</a>
+                                                        <a href="{{url('/cart')}}" class="view-cart">view cart</a><a href="{{url('/cartTocheckout')}}" class="checkout">checkout</a>
                                                     </div>
                                                 </li>
                                             @endforeach
