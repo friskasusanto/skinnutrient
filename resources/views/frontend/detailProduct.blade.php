@@ -86,10 +86,7 @@
                         </form>
                             <div class="border-product">
                                 <h6 class="product-title">product details</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
-                                    veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
-                                    voluptatem,</p>
+                                <p>Description</p>
                             </div>
                             <div class="border-product">
                                 <h6 class="product-title">share it</h6>
@@ -158,7 +155,7 @@
                     <div class="tab-content nav-material" id="top-tabContent">
                         <div class="tab-pane fade show active" id="top-home" role="tabpanel"
                             aria-labelledby="top-home-tab">
-                            <p>{!!$product->description!!}</p>
+                            <p>{!!$product->detail!!}</p>
                         </div>
                         <div class="tab-pane fade" id="alltop-review" role="tabpanel"
                             aria-labelledby="allreview-top-tab">
@@ -277,7 +274,12 @@
 
     <section class="section-b-space ratio_asos">
         <div class="container">
-            
+            {!!$product->step!!}
+        </div>
+    </section>
+    <section class="section-b-space ratio_asos">
+        <div class="container">
+            {!!$product->ingredients!!}
         </div>
     </section>
 
