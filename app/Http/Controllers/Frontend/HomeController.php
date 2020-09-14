@@ -15,10 +15,10 @@ class HomeController extends Controller
 {
     public function home()
     {
-    	$terbaik = Chart::orderBy('jumlah', 'desc')->limit(8)->get();
-    	$featured = Wishlist::orderBy('created_at', 'desc')->limit(8)->get();
-    	$new = Product::orderBy('created_at', 'desc')->limit(8)->get();
-    	$best = Checkout::orderBy('total_item', 'desc')->limit(8)->get();
+    	$terbaik = Chart::orderBy('jumlah', 'desc')->limit(12)->get();
+    	$featured = Wishlist::orderBy('created_at', 'desc')->limit(12)->get();
+    	$new = Product::orderBy('created_at', 'desc')->limit(12)->get();
+    	$best = Checkout::orderBy('total_item', 'desc')->limit(12)->get();
     	$blog = Blog::orderBy('created_at', 'desc')->limit(5)->get();
     	$jenis = ProductJenis::orderBy('created_at', 'desc')->get();
 

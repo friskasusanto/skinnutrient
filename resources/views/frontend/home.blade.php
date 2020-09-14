@@ -85,7 +85,7 @@
 <br>
 
     <!-- about section-->
-    <section>
+    <!-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -101,11 +101,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- about section end -->
 
     <!-- collection banner -->
-    <section class="pb-0 ratio2_1">
+    <!-- <section class="pb-0 ratio2_1">
         <div class="container">
             <div class="row partition2">
                 <div class="col-md-6">
@@ -142,7 +142,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- collection banner end -->
 <br>
 <br
@@ -530,7 +530,7 @@
     <!-- Tab product end -->
 
     <!-- instagram section -->
-    <section class="instagram ratio_square">
+    <!-- <section class="instagram ratio_square">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 p-0">
@@ -612,7 +612,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- instagram section end -->
 
     <!-- blog section -->
@@ -670,7 +670,7 @@
 
 
     <!-- service layout -->
-    <div class="container">
+    <!-- <div class="container">
         <section class="service border-section small-section">
             <div class="row">
                 <div class="col-md-4 service-block">
@@ -744,7 +744,7 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div> -->
     <!-- service layout  end -->
 
 
