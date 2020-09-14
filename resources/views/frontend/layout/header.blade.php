@@ -257,8 +257,9 @@
                                 <ul class="onhover-show-div">
                                 @if (Auth::check())
                                     <li>Hallo, {{Auth::user()->name}}</li>
-                                @endif
                                     <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                @endif
+                                    
                                     <li><a href="{{ route('login') }}" data-lng="en">Login</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
