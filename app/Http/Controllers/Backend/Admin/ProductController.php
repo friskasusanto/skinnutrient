@@ -108,8 +108,8 @@ class ProductController extends Controller
                     $add->description = $request->description;
                     $add->detail = $request->detail;
                     $add->ingredients = $request->ingredients;
-                    $add->how = $request->how;
-                    $add->shipping = $request->shipping;
+                    $add->how_to_use = $request->how;
+                    $add->shipping_police = $request->shipping;
                     $add->step = $request->step;
                     $add->composition = $request->composition;
                     $add->stock = null;
