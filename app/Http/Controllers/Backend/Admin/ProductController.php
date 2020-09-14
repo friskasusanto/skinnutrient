@@ -69,10 +69,8 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required', 
             'image' => 'required', 
-            'stock' => 'required', 
-            'description' => 'required', 
-            'min_price' => 'required', 
-            'max_price' => 'required', 
+            'description' => 'required',
+            'category' => 'required',
         ]);
 
         if($request->hasFile('photos'))
@@ -108,9 +106,15 @@ class ProductController extends Controller
                     $add->price = $request->price;
                     $add->title = null;
                     $add->description = $request->description;
-                    $add->stock = $request->stock;
-                    $add->min_price = $request->min_price;
-                    $add->max_price = $request->max_price;
+                    $add->detail = $request->detail;
+                    $add->ingredients = $request->ingredients;
+                    $add->how = $request->how;
+                    $add->shipping = $request->shipping;
+                    $add->step = $request->step;
+                    $add->composition = $request->composition;
+                    $add->stock = null;
+                    $add->min_price = null;
+                    $add->max_price = null;
                     $add->discount = $request->discount;
                     $add->status = 0;
                     $add->slug = Str::slug($request->name, '-');

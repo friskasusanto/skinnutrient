@@ -2,6 +2,8 @@
 @section('title', 'Product')
 @section('content')
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ 
 
 <!-- Container-fluid starts-->
 <div class="container-fluid">
@@ -82,24 +84,9 @@
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Harga :</label>
+                                        <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Harga User:</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" required="" name="price">
                                         <div class="valid-feedback">Looks good!</div>
-                                    </div>
-                                    <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Stock :</label>
-                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="stock">
-                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
-                                    </div>
-                                    <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Harga Minimal :</label>
-                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="min_price">
-                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
-                                    </div>
-                                    <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Harga Maksimal :</label>
-                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="max_price">
-                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Discount :</label>
@@ -109,7 +96,42 @@
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Keterangan :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                            <textarea id="editor1" name="description" cols="81" rows="4"></textarea>
+                                            <textarea class="form-control" name="description" id="summernoteDescription"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Detail :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="detail" id="summernoteDetail"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Ingredients :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="ingredients" id="summernoteIngredients"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">How To Use :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="how" id="summernoteHow"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Shipping Police :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="shipping" id="summernoteShipping"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Composition :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="composition" id="summernoteComposition"></textarea>
                                         </div>
                                         <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>
@@ -119,9 +141,7 @@
                                             <div class="row">
                                                 <ul class="file-upload-product">
                                                     <li>
-                                                        <div class="box-input-file">
-                                                            <input class="upload" type="file" name="image" multiple required><i class="fa fa-plus"></i>
-                                                        </div>
+                                                            <input class="file" type="file" name="image" multiple required>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -133,9 +153,7 @@
                                             <div class="row">
                                                 <ul class="file-upload-product">
                                                     <li>
-                                                        <div class="box-input-file">
-                                                            <input class="upload" type="file" name="photos[]" multiple required><i class="fa fa-plus"></i>
-                                                        </div>
+                                                            <input class="file" type="file" name="photos[]" multiple required>
                                                     </li>
                                                     <li>(bisa pilih lebih dari 1 gambar)</li>
                                                 </ul>
@@ -153,4 +171,47 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<!-- summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $('#summernoteDescription').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteDetail').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteIngredients').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteHow').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteShipping').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteStep').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteComposition').summernote({
+        height: 200
+    });
+</script>
+
+
 @endsection
