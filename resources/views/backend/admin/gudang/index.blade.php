@@ -290,113 +290,114 @@
                 @endif
                 <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/gudang/edit', $u->id)}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class="form-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Product</label>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Product</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="product_id" type="text" class="form-control pull-right select2" style="width: 100%">
+                                          <option value="">--pilih product--</option>
+                                          <option value="">--{{$u->product->name}}--</option>
+                                          @foreach ($product as $p)
+                                            <option value= "{{$p->id}}">{{$p->name}}</option>
+                                          @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <select name="product_id" type="text" class="form-control pull-right select2" style="width: 100%">
-                                      <option value="">--pilih product--</option>
-                                      <option value="">--{{$u->product->name}}--</option>
-                                      @foreach ($product as $p)
-                                        <option value= "{{$p->id}}">{{$p->name}}</option>
-                                      @endforeach
-                                </select>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Total Stock</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="number" class="form-control pull-right" id="" placeholder="total stock" name="total_stock" required value="{{$u->jumlah}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Stock User</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="number" class="form-control pull-right" id="" placeholder="stock user" name="stock_user" required value="{{$u->stock_user}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Stock Distributor</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="number" class="form-control pull-right" id="" placeholder="total distributor" name="stock_distributor" required value="{{$u->stock_distributor}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Harga Distributor</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="number" class="form-control pull-right" id="" placeholder="harga distributor" name="harga_distributor" required value="{{$u->harga_distributor}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Keterangan</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="keterangan" id="summernote" value="{!$u->keterangan!}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="status" type="text" class="form-control pull-right select2" style="width: 100%">
+                                          <option value="">--pilih status--</option>
+                                          @if ($u->status == 1)
+                                          <option value="">--ditampilkan--</option>
+                                          @else
+                                          <option value="">--disembunyikan--</option>
+                                          @endif
+                                          <option value= "1">sembunyikan</option>
+                                          <option value= "0">tampilkan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Total Stock</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <input type="number" class="form-control pull-right" id="" placeholder="total stock" name="total_stock" required value="{{$u->jumlah}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Stock User</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <input type="number" class="form-control pull-right" id="" placeholder="stock user" name="stock_user" required value="{{$u->stock_user}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Stock Distributor</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <input type="number" class="form-control pull-right" id="" placeholder="total distributor" name="stock_distributor" required value="{{$u->stock_distributor}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Harga Distributor</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <input type="number" class="form-control pull-right" id="" placeholder="harga distributor" name="harga_distributor" required value="{{$u->harga_distributor}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <textarea class="form-control" name="keterangan" id="summernote" value="{!$u->keterangan!}"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Status</label>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <select name="status" type="text" class="form-control pull-right select2" style="width: 100%">
-                                      <option value="">--pilih status--</option>
-                                      @if ($u->status == 1)
-                                      <option value="">--ditampilkan--</option>
-                                      @else
-                                      <option value="">--disembunyikan--</option>
-                                      @endif
-                                      <option value= "1">sembunyikan</option>
-                                      <option value= "0">tampilkan</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
