@@ -1,5 +1,5 @@
 :root {
-  --theme-deafult: #3fdda7; }
+  --theme-deafult: #ffcfa7; }
 
 /*-----------------------------------------------------------------------------------
 
@@ -311,6 +311,7 @@ del {
   transition: filter 400ms, -webkit-filter 400ms; }
   .blur-up.lazyloaded {
     -webkit-filter: blur(0);
+    height: auto;
     filter: blur(0); }
 
 /*=====================
@@ -2500,7 +2501,7 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 100%;
+    height: 50%;
     background-color: #ffffff; }
     .category-bg .contain-block.even:after {
       top: 94%; }
@@ -2568,7 +2569,7 @@ header {
     background-color: var(--theme-deafult);
     opacity: 0.3;
     width: 100%;
-    height: 100%;
+    height: 55%;
     z-index: -1; }
 
 .category-m .slick-slide > div {
@@ -14576,7 +14577,7 @@ body.dark {
     bottom: 0;
     left: 0;
     height: 60px;
-    background-color: #333333;
+    background-color: #ffffff;
     width: 100vw;
     z-index: 9;
     -webkit-box-shadow: 0 2px 5px 0 #a8a8a8;
@@ -14668,7 +14669,7 @@ body.dark {
   .brand-logo {
     position: absolute;
     left: 50%;
-    margin-right: -50%;
+    margin-right: -15%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     padding-top: 30px !important;

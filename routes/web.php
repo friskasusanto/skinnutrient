@@ -136,11 +136,11 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 	//Backend/Admin/GudangController
 	Route::get('/admin/gudang/index', 'Backend\Admin\GudangController@index')->name('admin_index_gudang');
-	Route::get('/admin/edit/gudang/{id}', 'Backend\Admin\GudangController@edit_view')->name('admin_gudang_edit');
 	Route::post('/admin/gudang/edit/{id}', 'Backend\Admin\GudangController@edit')->name('admin_gudang_edit');
 	Route::get('/admin/add/gudang', 'Backend\Admin\GudangController@add_view')->name('admin_gudang_add');
 	Route::post('/admin/add/gudang', 'Backend\Admin\GudangController@add')->name('admin_gudang_add');
 	Route::get('/admin/gudang/delete/{id}', 'Backend\Admin\GudangController@delete')->name('admin_delete_gudang');
+	Route::post('/admin/gudang/log/{id}', 'Backend\Admin\GudangController@keluarMasuk')->name('admin_log_gudang');
 
 
 	//LOG

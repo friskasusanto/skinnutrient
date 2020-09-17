@@ -18,7 +18,7 @@
                 </div>
                 <ul class="sidebar-menu">
                     <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>User</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i> <span>User</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li>
                                 <a href="{{url('/admin/index')}}"><i class="fa fa-circle"></i>
@@ -27,38 +27,39 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Product</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="box"></i><span>Product</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/index/product')}}"><i class="fa fa-circle"></i>Daftar Product</a></li>
                             <li><a href="{{url('/admin/gambar_product')}}"><i class="fa fa-circle"></i>Gambar product</a></li>
                             <li><a href="{{url('/admin/add_view/product')}}"><i class="fa fa-circle"></i>Tambah product</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Checkout</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="clipboard"></i><span>Checkout</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/checkout/index')}}"><i class="fa fa-circle"></i>Daftar Order</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Menu Product</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Menu Product</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href=""><i class="fa fa-circle"></i>Daftar Product Menu</a></li>
                             <li><a href="{{url('/list_category')}}"><i class="fa fa-circle"></i>Daftar Product Category</a></li>
                             <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="archive"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/gudang/index')}}"><i class="fa fa-circle"></i>Daftar Gudang</a></li>
                             <li><a href="{{url('/admin/add/gudang')}}"><i class="fa fa-circle"></i>Tambah Barang</a></li>
+                            <li><a href=""><i class="fa fa-circle"></i>Barang Keluar Masuk</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Blog</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Blog</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/blog')}}"><i class="fa fa-circle"></i>Daftar Blog</a></li>
                             <li><a href="{{url('/admin/addBlog')}}"><i class="fa fa-circle"></i>Tambah Blog</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Log Admin</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href=""><i data-feather="bar-chart"></i><span>Log Admin</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/log')}}"><i class="fa fa-circle"></i>Daftar Log Admin</a></li>
                         </ul>

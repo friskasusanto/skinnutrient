@@ -155,7 +155,7 @@
                     <div class="tab-content nav-material" id="top-tabContent">
                         <div class="tab-pane fade show active" id="top-home" role="tabpanel"
                             aria-labelledby="top-home-tab">
-                            <p>{!!$product->detail!!}</p>
+                            <p>{!!$product->description!!}</p>
                         </div>
                         <div class="tab-pane fade" id="alltop-review" role="tabpanel"
                             aria-labelledby="allreview-top-tab">
