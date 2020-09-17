@@ -41,7 +41,7 @@
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Menu Product</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href=""><i class="fa fa-circle"></i>Daftar Product Menu</a></li>
+                            <li><a href="{{url('/list_menu')}}"><i class="fa fa-circle"></i>Daftar Product Menu</a></li>
                             <li><a href="{{url('/list_category')}}"><i class="fa fa-circle"></i>Daftar Product Category</a></li>
                             <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li>
                         </ul>

@@ -13,4 +13,9 @@ class Checkout extends Model
     {
         return $this->belongsTo('App\Model\Product', 'product_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }

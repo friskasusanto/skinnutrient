@@ -13,14 +13,7 @@ use Auth;
 class GudangController extends Controller
 {
     //GUDANG
-
-    public function keluarMasuk_view (Request $request, $id)
-    {
-        $gudang = Gudang::find($id);
-
-        return view('backend.admin.gudang.keluarMasuk', compact('gudang'));
-    }
-
+    
     public function keluarMasuk (Request $request, $id)
     {
         $gudang = Gudang::find($id);

@@ -1,5 +1,5 @@
-@extends('backend.layout.index', ['active' => 'list_log'])
-@section('title', 'Log')
+@extends('backend.layout.index', ['active' => 'list_category'])
+@section('title', 'Category')
 @section('content')
 
 <!-- Container-fluid starts-->
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Log Admins List
+                    <h3>Menu Category List
                         <small>Multikart Admin panel</small>
                     </h3>
                 </div>
@@ -16,8 +16,8 @@
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Log</li>
-                    <li class="breadcrumb-item active">Log Admin List</li>
+                    <li class="breadcrumb-item">Menu</li>
+                    <li class="breadcrumb-item active">Menu Category List</li>
                 </ol>
             </div>
         </div>
@@ -29,7 +29,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Log Admin List</h5>
+            <h5>Daftar Menu</h5>
         </div>
         <div class="card-body">
             <div id="batchDelete" class="category-table user-list order-table"></div>
@@ -38,35 +38,31 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
-                                <th>Aksi</th>
-                                <th>User Id</th>
-                                <th>Controller</th>
-                                <th>Fungsi</th>
-                                <th>Keterangan</th>
-                                <th>Tgl Action</th>
+                                <th>Nama Menu</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @if(count($log) != 0)
-                            @foreach ($log as $key =>$u)
+                        @if(count($menu) != 0)
+                            @foreach ($menu as $key =>$u)
                             <tr>
                                 <td>{{++$key}}</td>
-                                <td>{{$u->mutasi_action}}</td>
-                                <td>{{$u->user_id}}</td>
-                                <td>{{$u->controller}}</td>
-                                <td>{{$u->function}}</td>
-                                <td>{{$u->keterangan}}</td>
-                                <td>{{$u->tgl_action}}</td>
+                                <td>{{$u->name}}</td>
+                                @if ($u->status == 0)
+                                    <td style="color: red">menu tidak aktif</td>
+                                @else
+                                    <td style="color: green">menu aktif</td>
+                                @endif
                             </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7"><center>KOSONG</center></td>
+                                <td colspan="3"><center>KOSONG</center></td>
                             </tr>
                         @endif 
                         </tbody>
                     </table>
-                    {{$log->render()}}
+                    {{$menu->render()}}
                 </div>
             </div>
         </div>

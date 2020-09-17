@@ -12,6 +12,13 @@ use Auth;
 class CategoryController extends Controller
 {
     //CATEGORI
+
+    public function menu ()
+    {
+        $menu = Menu::orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.admin.category.menu', compact(['menu']));
+    }
+
     public function index (Request $request)
     {
         $menu = Menu::orderBy('created_at', 'desc')->paginate(10);

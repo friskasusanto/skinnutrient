@@ -129,6 +129,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	Route::get('/admin/checkout/detail/{id}', 'backend\admin\CheckoutController@detail_checkout')->name('admin_detail_checkout');
 
 	//Backend/Admin/CategoryController
+	Route::get('/list_menu', 'Backend\Admin\CategoryController@menu')->name('list_menu');
 	Route::get('/list_category', 'Backend\Admin\CategoryController@index')->name('list_category');
     Route::get('/delete_category/{id}', 'Backend\Admin\CategoryController@deleteCategory')->name('delete_category');
     Route::post('/edit_category/{id}', 'Backend\Admin\CategoryController@editCategory')->name('edit_category');

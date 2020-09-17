@@ -2,101 +2,78 @@
 @section('title', 'Category')
 @section('content')
 
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-7 align-self-center">
-            <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Daftar Product jenis</h4>
-            <div class="d-flex align-items-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb m-0 p-0">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-muted">Product jenis</a></li>
-                        <li class="breadcrumb-item text-muted active" aria-current="page">Daftar Product jenis</li>
-                    </ol>
-                </nav>
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>Jenis Category List
+                        <small>Multikart Admin panel</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Category</li>
+                    <li class="breadcrumb-item active">Jenis Category List</li>
+                </ol>
             </div>
         </div>
-        <!-- <div class="col-5 align-self-center">
-            <div class="customize-input float-right">
-                <form action="" method="GET">
-                    <div class="customize-input">
-                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                            type="search" placeholder="cari nama product" aria-label="Search" name="search">
-                        <i class="form-control-icon" data-feather="search" type="submit"></i>
-                    </div>
-                </form>
-            </div>
-        </div> -->
     </div>
 </div>
-<!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Container fluid  -->
-<!-- ============================================================== -->
+<!-- Container-fluid Ends-->
+
+<!-- Container-fluid starts-->
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <!-- basic table -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded" style="margin-bottom: 2%; background: linear-gradient(to bottom, #f70411 16%, #8f0222 44%, #f70018 99%); color: #fff" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Jenis Product</a>
+    <div class="card">
+        <div class="card-header">
+            <h5>Jenis Category List</h5>
+            <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded pull-right" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Jenis Product</a>
+        </div>
+        <div class="card-body">
+            <div id="batchDelete" class="category-table user-list order-table"></div>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th>jenis Product</th>
+                                <th>Image</th>
+                                <th>Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @if(count($jenis) != 0)
+                            @foreach ($jenis as $key =>$u)
+                            <tr>
+                                <td>{{++$key}}</td>
+                                <td>{{$u->jenis}}</td>
+                                <td><img src="{{url('jenisProduct/'.$u->image)}}" style="width: 50%"></td>
+                                @if ($u->status == 0)
+                                    <td style="color: red">jenis tidak aktif</td>
+                                @else
+                                    <td style="color: green">jenis aktif</td>
+                                @endif
+                                <td>
+                                <center>
+                                    <a type="button" class="btn btn-circle btn-warning btn-icon-split btn-sm" style="font-size: xx-small;" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa fa-edit" style="padding: 5px; color: #000"></i></a> 
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                    <a href="{{url('/admin/hapusjenisProduct', $u->id)}}" class="btn btn-circle btn-danger btn-icon-split btn-sm" style="font-size: xx-small;"><i class="fa fa-trash" style="padding: 5px; color: #000"></i></a>
+                                </center>
+                                </td>
+                            </tr>
                             @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
-                    <div class="table-responsive">
-                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th>jenis Product</th>
-                                    <th>Image</th>
-                                    <th>Status</th>
-                                    <th class="text-center">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @if(count($jenis) != 0)
-                                @foreach ($jenis as $key =>$u)
-                                <tr>
-                                    <td>{{++$key}}</td>
-                                    <td>{{$u->jenis}}</td>
-                                    <td><img src="{{url('jenisProduct/'.$u->image)}}" style="width: 50%"></td>
-                                    @if ($u->status == 0)
-                                        <td style="color: red">jenis tidak aktif</td>
-                                    @else
-                                        <td style="color: green">jenis aktif</td>
-                                    @endif
-                                    <td>
-                                    <center>
-                                        <a type="button" class="btn btn-circle btn-warning btn-icon-split btn-sm" style="font-size: xx-small;" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa fa-edit" style="padding: 5px; color: #000"></i></a> 
-
-                                        <a href="{{url('/admin/hapusjenisProduct', $u->id)}}" class="btn btn-circle btn-danger btn-icon-split btn-sm" style="font-size: xx-small;"><i class="fa fa-trash" style="padding: 5px; color: #000"></i></a>
-                                    </center>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="5"><center>KOSONG</center></td>
-                                </tr>
-                            @endif 
-                            </tbody>
-                        </table>
-                        {{$jenis->render()}}
-                    </div>
+                        @else
+                            <tr>
+                                <td colspan="5"><center>KOSONG</center></td>
+                            </tr>
+                        @endif 
+                        </tbody>
+                    </table>
+                    {{$jenis->render()}}
                 </div>
             </div>
         </div>

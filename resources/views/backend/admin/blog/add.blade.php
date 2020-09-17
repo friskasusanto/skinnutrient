@@ -3,6 +3,7 @@
 @section('content')
 
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
@@ -46,9 +47,9 @@
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Keterangan :</label>
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Isi Blog :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                            <textarea id="editor1" name="description" cols="81" rows="4"></textarea>
+                                            <textarea id="summernote" name="description" cols="81" rows="4"></textarea>
                                         </div>
                                         <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>
@@ -58,9 +59,7 @@
                                             <div class="row">
                                                 <ul class="file-upload-product">
                                                     <li>
-                                                        <div class="box-input-file">
-                                                            <input class="upload" type="file" name="images" multiple required><i class="fa fa-plus"></i>
-                                                        </div>
+                                                        <input type="file" name="images" multiple required>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -77,4 +76,15 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<!-- summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $('#summernote').summernote({
+        height: 200
+    });
+</script>
 @endsection

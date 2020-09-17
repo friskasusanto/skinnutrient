@@ -2,106 +2,127 @@
 @section('title', 'Category')
 @section('content')
 
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-7 align-self-center">
-            <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Daftar Category</h4>
-            <div class="d-flex align-items-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb m-0 p-0">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-muted">Category</a></li>
-                        <li class="breadcrumb-item text-muted active" aria-current="page">Daftar Category</li>
-                    </ol>
-                </nav>
+
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>Category List
+                        <small>Multikart Admin panel</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Category</li>
+                    <li class="breadcrumb-item active">Category List</li>
+                </ol>
             </div>
         </div>
-        <!-- <div class="col-5 align-self-center">
-            <div class="customize-input float-right">
-                <form action="" method="GET">
-                    <div class="customize-input">
-                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                            type="search" placeholder="cari nama product" aria-label="Search" name="search">
-                        <i class="form-control-icon" data-feather="search" type="submit"></i>
-                    </div>
-                </form>
-            </div>
-        </div> -->
     </div>
 </div>
-<!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Container fluid  -->
-<!-- ============================================================== -->
+<!-- Container-fluid Ends-->
+
+<!-- Container-fluid starts-->
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <!-- basic table -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded" style="margin-bottom: 2%; background: linear-gradient(to bottom, #f70411 16%, #8f0222 44%, #f70018 99%); color: #fff" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Category</a>
+    <div class="card">
+        <div class="card-header">
+            <h5>Category Details</h5>
+            <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded pull-right" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Category</a>
+        </div>
+        <div class="card-body">
+            <div id="batchDelete" class="category-table user-list order-table"></div>
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th>Nama Category</th>
+                                <th>Menu By</th>
+                                <th>Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @if(count($category) != 0)
+                            @foreach ($category as $key =>$u)
+                            <tr>
+                                <td>{{++$key}}</td>
+                                <td>{{$u->category_name}}</td>
+                                <td>{{$u->menu->name}}</td>
+                                @if ($u->status == 0)
+                                    <td style="color: red">menu tidak aktif</td>
+                                @else
+                                    <td style="color: green">menu aktif</td>
+                                @endif
+                                <td>
+                                <center>
+                                    <a type="button" class="btn btn-circle btn-warning btn-icon-split btn-sm" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa fa-edit" ></i></a> 
 
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                    <a type="button" class="btn btn-circle btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#modalDetail{{$u->id}}"><i class="fa fa-eye" ></i></a> 
+
+                                    <a href="{{url('/delete_category', $u->id)}}" class="btn btn-circle btn-danger btn-icon-split btn-sm"><i class="fa fa-trash"></i></a>
+                                </center>
+                                </td>
+                            </tr>
                             @endforeach
-                        </ul>
-                    </div>
-                    @endif
-
-                    <div class="table-responsive">
-                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th>Nama Category</th>
-                                    <th>Menu By</th>
-                                    <th>Status</th>
-                                    <th class="text-center">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @if(count($category) != 0)
-                                @foreach ($category as $key =>$u)
-                                <tr>
-                                    <td>{{++$key}}</td>
-                                    <td>{{$u->category_name}}</td>
-                                    <td>{{$u->menu->name}}</td>
-                                    @if ($u->status == 0)
-                                        <td style="color: red">menu tidak aktif</td>
-                                    @else
-                                        <td style="color: green">menu aktif</td>
-                                    @endif
-                                    <td>
-                                    <center>
-                                        <a type="button" class="btn btn-circle btn-warning btn-icon-split btn-sm" style="font-size: xx-small;" data-toggle="modal" data-target="#modalEdit{{$u->id}}"><i class="fa fa-edit" style="padding: 5px; color: #000"></i></a> 
-
-                                        <a href="{{url('/delete_category', $u->id)}}" class="btn btn-circle btn-danger btn-icon-split btn-sm" style="font-size: xx-small;"><i class="fa fa-trash" style="padding: 5px; color: #000"></i></a>
-                                    </center>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="5"><center>KOSONG</center></td>
-                                </tr>
-                            @endif 
-                            </tbody>
-                        </table>
-                        {{$category->render()}}
-                    </div>
+                        @else
+                            <tr>
+                                <td colspan="5"><center>KOSONG</center></td>
+                            </tr>
+                        @endif 
+                        </tbody>
+                    </table>
+                    {{$category->render()}}
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@if(isset($category))
+@foreach( $category as $u )
+<div class="modal" id="modalDetail{{$u->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><center>Detail Category</center></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <tr>
+                    <th>Menu Category</th>
+                    <td>: {{ $u->menu->name }}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Nama Category</th>
+                    <td>: {{ $u->category_name }}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Status</th>
+                @if ($u->status == 1)
+                    <td>: Ditampilkan</td>
+                @else
+                    <td>: Disembunyikan</td>
+                @endif
+                </tr>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+@endif
 
 @if(isset($category))
 @foreach( $category as $u )
