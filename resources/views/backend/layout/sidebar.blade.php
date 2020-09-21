@@ -64,6 +64,16 @@
                             <li><a href="{{url('/admin/log')}}"><i class="fa fa-circle"></i>Daftar Log Admin</a></li>
                         </ul>
                     </li>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Distributor</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/distributor')}}"><i class="fa fa-circle"></i>Daftar Distributor</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Sales</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/sales')}}"><i class="fa fa-circle"></i>Daftar Sales</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>

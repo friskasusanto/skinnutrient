@@ -74,6 +74,18 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 //BACKEND/ADMIN
 
+//Backend/DistributorController
+	Route::get('/admin/sales', 'Backend\Admin\SalesController@index')->name('sales');
+	Route::post('/admin/addSales', 'Backend\Admin\SalesController@add')->name('add_sales');
+	Route::post('/admin/editSales/{id}', 'Backend\Admin\SalesController@edit')->name('editsalesr');
+	Route::get('/admin/hapusSales/{id}', 'Backend\Admin\SalesController@delete')->name('hapus_sales');
+
+	//Backend/DistributorController
+	Route::get('/admin/distributor', 'Backend\Admin\DistributorController@index')->name('distributor');
+	Route::post('/admin/addDistributor', 'Backend\Admin\DistributorController@add')->name('add_distributor');
+	Route::post('/admin/editDistributor/{id}', 'Backend\Admin\DistributorController@edit')->name('edit_distributor');
+	Route::get('/admin/hapusDistributor/{id}', 'Backend\Admin\DistributorController@delete')->name('hapus_distributor');
+
 	//Backend/JenisController
 	Route::get('/admin/jenisProduct', 'Backend\Admin\JenisController@index')->name('admin_jenisProduct');
 	Route::post('/admin/addjenisProduct', 'Backend\Admin\JenisController@add')->name('admin_jenisProduct');
