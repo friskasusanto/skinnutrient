@@ -31,6 +31,16 @@ class UserSeeder extends Seeder
 			$resellerRole->display_name = "Reseller";
 			$resellerRole->save();
 
+			$resellerRole = new Role();
+			$resellerRole->name = "Gudang";
+			$resellerRole->display_name = "Gudang";
+			$resellerRole->save();
+
+			$resellerRole = new Role();
+			$resellerRole->name = "Sales";
+			$resellerRole->display_name = "Sales";
+			$resellerRole->save();
+
 		// Membuat sample admin
 			$admin = new User();
 			$admin->name = 'Admin Skinnutrient';

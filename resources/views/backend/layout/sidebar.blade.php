@@ -14,6 +14,10 @@
                     <p>Dropshiper</p>
                 @elseif (Auth::user()->hasRole('Reseller'))
                     <p>Reseller</p>
+                @elseif (Auth::user()->hasRole('Gudang'))
+                    <p>Gudang</p>
+                @elseif (Auth::user()->hasRole('Sales'))
+                    <p>Sales</p>
                 @endif
                 </div>
                 <ul class="sidebar-menu">
