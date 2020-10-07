@@ -65,7 +65,14 @@
                         <a href="#">
                             <h6>{{$u->name}}</h6>
                         </a>
-                        <h4>{{$u->price}}<del>$600.00</del></h4>
+                        <h4>
+                        @if ($u->discount != null)
+                            Rp. {{number_format ($u->price - ($u->price * ($u->discount / 100)), 0, ".", ".")}} 
+                            <del>Rp. {{number_format ($u->price, 0, ".", ".")}}</del>
+                        @else
+                            Rp. {{number_format ($u->price, 0, ".", ".")}}
+                        @endif
+                        </h4>
                     </div>
                 </div>
             
@@ -103,18 +110,6 @@
                     <td>: {{ $u->category->category_name }}</td>
                 </tr>
                 <br/>
-                @if ($u->jenis_id == null)
-                <tr>
-                    <th>Jenis Product</th>
-                    <td>: -</td>
-                </tr>
-                @else
-                <tr>
-                    <th>Jenis Product</th>
-                    <td>: {{ $u->jenis->category_name }}</td>
-                </tr>
-                @endif
-                <br/>
                 <tr>
                     <th>Harga</th>
                     <td>: {{ $u->price }}</td>
@@ -122,32 +117,12 @@
                 <br/>
                 <tr>
                     <th>Deskripsi</th>
-                    <td>: {{ $u->description }}</td>
+                    <td>: {!! $u->description !!}</td>
                 </tr>
                 <br/>
                 <tr>
                     <th>Stock</th>
                     <td>: {{ $u->stock }}</td>
-                </tr>
-                <br/>
-                <tr>
-                    <th>Harga Minimal</th>
-                    <td>: {{ $u->min_price }}</td>
-                </tr>
-                <br/>
-                <tr>
-                    <th>Harga Maksimal</th>
-                    <td>: {{ $u->max_price }}</td>
-                </tr>
-                <br/>
-                <tr>
-                    <th>Slug</th>
-                    <td>: {{ $u->slug }}</td>
-                </tr>
-                <br/>
-                <tr>
-                    <th>Title</th>
-                    <td>: {{ $u->title }}</td>
                 </tr>
                 <br/>
                 <tr>
