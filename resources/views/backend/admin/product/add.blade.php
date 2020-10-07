@@ -129,6 +129,13 @@
                                         <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>
                                     <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Step :</label>
+                                        <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                            <textarea class="form-control" name="composition" id="summernoteStep"></textarea>
+                                        </div>
+                                        <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
                                         <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Composition :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                             <textarea class="form-control" name="composition" id="summernoteComposition"></textarea>
