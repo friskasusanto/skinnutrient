@@ -2,6 +2,7 @@
 @section('title', 'User')
 @section('content')
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <!-- Container-fluid starts-->
 <div class="container-fluid">
     <div class="page-header">
@@ -209,18 +210,6 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Title</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="" placeholder="title" name="title" required value="{{$u->title}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
                                     <label>Category</label>
                                 </div>
                             </div>
@@ -239,12 +228,108 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Harga</label>
+                                    <label>Harga User</label>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
                                    <input type="text" class="form-control" id="" name="price" required style="width: 100%" value="{{ucfirst($u->price)}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Discount</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <input type="text" class="form-control" id="" name="discount" required style="width: 100%" value="{{ucfirst($u->discount)}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Keterangan</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="description" id="summernoteDescription">{!!$u->description!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Detail</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="detail" id="summernoteDetail">{!!$u->detail!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Ingredients</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="ingredients" id="summernoteIngredients">{!!$u->ingredients!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>How To Use</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="how" id="summernoteHow">{!!$u->how!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Shipping Police</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="shipping_police" id="summernoteShipping">{!!$u->shipping_police!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Step</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="step" id="summernoteStep">{!!$u->step!!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Composition</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                   <textarea class="form-control" name="composition" id="summernoteComposition">{!!$u->composition!!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -285,42 +370,6 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Descrioption</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <textarea type="text" class="form-control" id="" name="description" required style="width: 100%" rows="4" >{{$u->description}}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Harga Minimal</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" id="" name="min_price" required style="width: 100%" value="{{ucfirst($u->min_price)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Harga Maksimal</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" id="" name="max_price" required style="width: 100%" value="{{ucfirst($u->max_price)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
                                     <label>Status</label>
                                 </div>
                             </div>
@@ -354,5 +403,48 @@
 </div>
 @endforeach
 @endif
+
+@endsection
+
+@section('script')
+<!-- summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $('#summernoteDescription').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteDetail').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteIngredients').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteHow').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteShipping').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteStep').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteComposition').summernote({
+        height: 200
+    });
+</script>
+
 
 @endsection
