@@ -469,7 +469,7 @@
                                     </li>
                                     <li class="onhover-div mobile-setting">
                                         <div>
-                                            <a href="login.php">
+                                            <a href="{{ route('login') }}">
                                             <img src="{{asset('backends/assets/images/icon/users.png')}}" class="img-fluid blur-up lazyload" alt="">
                                             <i class="ti-settings"></i>
                                             </a>
@@ -519,7 +519,7 @@
                                             aria-hidden="true"></i></div>
                                 </li>
                                 <li>
-                                    <a href="#">Home</a>
+                                    <a href="#">Sale</a>
                                     <ul>
                                         <li>
                                             <a href="#">new demos <span class="new-tag">new</span></a>
@@ -574,63 +574,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="#">shop</a>
-                                    <ul>
-                                        <li><a href="category-page.html">left sidebar</a></li>
-                                        <li><a href="category-page(right).html">right sidebar</a></li>
-                                        <li><a href="category-page(no-sidebar).html">no sidebar</a></li>
-                                        <li><a href="category-page(sidebar-popup).html">sidebar popup</a></li>
-                                        <li><a href="category-page(metro).html">metro <span
-                                                    class="new-tag">new</span></a></li>
-                                        <li><a href="category-page(full-width).html">full width <span
-                                                    class="new-tag">new</span></a></li>
-                                        <li><a href="category-page(infinite-scroll).html">infinite scroll</a></li>
-                                        <li><a href=category-page(3-grid).html>3 grid</a></li>
-                                        <li><a href="category-page(6-grid).html">6 grid</a></li>
-                                        <li><a href="category-page(list-view).html">list view</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">product</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">sidebar</a>
-                                            <ul>
-                                                <li><a href="product-page.html">left sidebar</a></li>
-                                                <li><a href="product-page(right-sidebar).html">right sidebar</a></li>
-                                                <li><a href="product-page(no-sidebar).html">no sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">thumbnail image</a>
-                                            <ul>
-                                                <li><a href="product-page(left-image).html">left image</a></li>
-                                                <li><a href="product-page(right-image).html">right image</a></li>
-                                                <li><a href="product-page(image-outside).html">image outside <span
-                                                            class="new-tag">new</span></a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">3 column</a>
-                                            <ul>
-                                                <li><a href="product-page(3-col-left).html">thumbnail left</a></li>
-                                                <li><a href="product-page(3-col-right).html">thumbnail right</a></li>
-                                                <li><a href="product-page(3-column).html">thubnail bottom</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="product-page(4-image).html">4 image <span
-                                                    class="new-tag">new</span></a></li>
-                                        <li><a href="product-page(sticky).html">sticky</a></li>
-                                        <li><a href="product-page(accordian).html">accordian</a></li>
-                                        <li><a href="product-page(bundle).html">bundle<span
-                                                    class="new-tag">new</span></a></li>
-                                        <li><a href="product-page(image-swatch).html">image swatch <span
-                                                    class="new-tag">new</span></a></li>
-                                        <li><a href="product-page(vertical-tab).html">vertical tab</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mega" id="hover-cls"><a href="#">features
+                                <li class="mega" id="hover-cls"><a href="#">Skin Care
                                         <div class="lable-nav">new</div>
                                     </a>
                                     <ul class="mega-menu full-mega-menu">
@@ -748,7 +692,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#">pages</a>
+                                <li><a href="#">What's New</a>
                                     <ul>
                                         <li>
                                             <a href="#">vendor <span class="new-tag">new</span></a>
@@ -798,6 +742,15 @@
                                         <li><a href="coming-soon.html">coming soon <span class="new-tag">new</span></a>
                                         </li>
                                         <li><a href="faq.html">FAQ</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Best Seller</a>
+                                    <ul>
+                                        <li><a href="blog-page.html">left sidebar</a></li>
+                                        <li><a href="blog(right-sidebar).html">right sidebar</a></li>
+                                        <li><a href="blog(no-sidebar).html">no sidebar</a></li>
+                                        <li><a href="blog-details.html">blog details</a></li>
                                     </ul>
                                 </li>
                                 <li>
