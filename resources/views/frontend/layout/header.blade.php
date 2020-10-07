@@ -80,22 +80,19 @@
                                                 aria-hidden="true"></i></div>
                                     </li>
                                     <li>
-                                        <a href="#">Home</a>
+                                        <a href="#">Sale</a>
                                     </li>
-                                    <li>
-                                        <a href="#">shop</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">product</a>
-                                    </li>
-                                    <li class="mega"><a href="#">features
+                                    <li class="mega"><a href="#">Skin Care
                                             <div class="lable-nav">new</div>
                                         </a>
                                     </li>
-                                    <li><a href="#">pages</a>
+                                    <li><a href="#">What's new</a>
                                     </li>
                                     <li>
-                                        <a href="#">blog</a>
+                                        <a href="#">Best Seller</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -276,8 +273,18 @@
                             <li class="onhover-dropdown mobile-account"><i class="fa fa-user" aria-hidden="true"></i> My
                                 Account
                                 <ul class="onhover-show-div">
-                                    <li><a href="#" data-lng="en">Login</a></li>
-                                    <li><a href="#" data-lng="es">Logout</a></li>
+                                    <li><a href="{{ route('login') }}" data-lng="en">Login</a></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();" data-lng="en">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
