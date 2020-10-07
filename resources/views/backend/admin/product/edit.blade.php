@@ -1,217 +1,237 @@
-@extends('backend.layouts.index', ['active' => 'edit_product'])
+@extends('backend.layout.index', ['active' => 'edit_product'])
 @section('title', 'Admin')
 @section('content') 
 
 
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-7 align-self-center">
-            <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Edit Product</h4>
-            <div class="d-flex align-items-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb m-0 p-0">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-muted">Product</a></li>
-                        <li class="breadcrumb-item text-muted active" aria-current="page">Edit Product</li>
-                    </ol>
-                </nav>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ 
+
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>Edit Products
+                        <small>Multikart Admin panel</small>
+                    </h3>
+                </div>
             </div>
-        </div>
-        <div class="col-5 align-self-center">
-            <div class="customize-input float-right">
-                <a href="{{action('backend\admin\ProductController@index_product')}}">
-					<button type="button" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Daftar Product</button>
-				</a>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Product</li>
+                    <li class="breadcrumb-item active">Edit Product</li>
+                </ol>
             </div>
         </div>
     </div>
 </div>
-<!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Container fluid  -->
-<!-- ============================================================== -->
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    @include('layouts._flash')
-					@if (count($errors) > 0)
-			        <div class="alert alert-danger">
-			            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-			            <ul>
-			                @foreach ($errors->all() as $error)
-			                    <li>{{ $error }}</li>
-			                @endforeach
-			            </ul>
-			        </div>
-			        @endif
-                    <form novalidate="novalidate" method="POST" action= "{{action('backend\admin\ProductController@edit_product', $product->id)}}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Nama Product</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="" name="name" required style="width: 100%" value="{{ucfirst($product->name)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Title</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="" placeholder="title" name="title" required value="{{$product->title}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Category</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <select name="category" type="text" class="form-control" style="width: 100%">
-                                        <option value="">--{{$product->category->category_name}}--</option>
-		                              	<option value="">--pilih category--</option>
-		                              	@foreach ($category as $p)
-		                              		<option value= "{{$p->id}}">{{$p->category_name}}</option>
-		                              	@endforeach
-		                          	</select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Harga</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" id="" name="price" required style="width: 100%" value="{{ucfirst($product->price)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Gambar Utama</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="file" class="form-control" id="" name="image" multiple required style="width: 100%" value="">
-                                   <a target="_blank" href="{{url('product/'.$product->image)}}">
-									   <img src="{{url('product/'.$product->image)}}" alt="..." style="border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 25%;height: 25%">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Gambar lain (bisa pilih lebih dari 1 gambar)</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="file" class="form-control" id="" name="photos[]" multiple required style="width: 100%" value="">
-                                    @if (count($gambar) != 0)
-                                        @foreach ($gambar as $g)
-                                            <div class="image-area" style="border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 25%;height: 25%">
-                                              <a class="remove-image" href="{{action('backend\admin\ProductController@deleteProduct_gambar', $g->id)}}" style="display: inline;"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                              <a target="_blank" href="{{url('product/'.$g->image)}}">
-                                                <img src="{{url('product/'.$g->image)}}"  alt="Preview" style="width: 100%">
-                                              </a>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Descrioption</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <textarea type="text" class="form-control" id="" name="description" required style="width: 100%" rows="4" >{{$product->description}}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Harga Minimal</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" id="" name="min_price" required style="width: 100%" value="{{ucfirst($product->min_price)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Harga Maksimal</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <input type="text" class="form-control" id="" name="max_price" required style="width: 100%" value="{{ucfirst($product->max_price)}}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Status</label>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                   <select name="status" type="text" class="form-control" style="width: 100%">
-			                              <option value="">--pilih status--</option>
-			                              @if ($product->status == 1)
-			                              <option value="">--sembunyikan--</option>
-			                              @elseif ($product->status == 0)
-			                              <option value="">--tampilkan--</option>
-			                              @endif
+<!-- Container-fluid Ends-->
 
-			                              
-			                              <option value= "1">sembunyikan</option>
-			                              <option value= "0">tampilkan</option>
-		                          	</select>
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Edit Product</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row product-adding">
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        <div class="col-xl-7">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/edit/product', $product->id)}}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="form-body">
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nama Product :</label>
+                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" name="name" value="{{$product->name}}">
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Category Product :</label>
+
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <select name="category" type="text" class="form-control" style="width: 100%">
+                                            <option value="">--{{$product->category->category_name}}--</option>
+                                            <option value="">--pilih category--</option>
+                                            @foreach ($category as $p)
+                                                <option value= "{{$p->id}}">{{$p->category_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Jenis Product :</label>
+
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <select name="jenis" type="text" class="form-control" style="width: 100%">
+                                            <option value="">--{{$product->jenis->name}}--</option>
+                                            <option value="">--pilih jenis product--</option>
+                                            @foreach ($jenis as $p)
+                                                <option value= "{{$p->id}}">{{$p->jenis}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Harga User:</label>
+                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" required="" name="price" value="{{$product->price}}">
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Discount :</label>
+                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="discount" value="{{$product->discount}}">
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Keterangan :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="description" id="summernoteDescription">{{$product->description}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Detail :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="detail" id="summernoteDetail">{{$product->detail}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Ingredients :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="ingredients" id="summernoteIngredients">{{$product->ingredients}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">How To Use :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="how" id="summernoteHow">{{$product->how}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Shipping Police :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="shipping" id="summernoteShipping">{{$product->shipping}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Composition :</label>
+                                    <div class="col-xl-8 col-sm-7 pl-0 description-sm">
+                                        <textarea class="form-control" name="composition" id="summernoteComposition">{{$product->composition}}</textarea>
+                                    </div>
+                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Utama :</label>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul class="file-upload-product">
+                                                <li>
+                                                    <input class="file" type="file" name="image" multiple required>
+                                                </li>
+                                                <li>
+                                                    <img src="{{url('product/'.$product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Lain :</label>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul class="file-upload-product">
+                                                <li>
+                                                    <input class="file" type="file" name="photos[]" multiple required>
+                                                </li>
+                                                <li>(bisa pilih lebih dari 1 gambar)</li>
+                                                
+                                                <?php 
+                                                    $gambar = App\Model\ProductGambar::where('product_id', $product->id)->get();
+                                                ?>
+                                                @if (count($gambar) != 0)
+                                                    @foreach ($gambar as $g)
+                                                    <li>
+                                                        <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 20%">
+                                                    </li>
+                                                    @endforeach
+                                                @endif
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>
-                            </div>
-                        </div>
+        				</form>
                     </div>
-				</form>
+                </div>
 			</div> <!-- /content -->
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('script')
+<!-- summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $('#summernoteDescription').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteDetail').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteIngredients').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteHow').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteShipping').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteStep').summernote({
+        height: 200
+    });
+</script>
+<script type="text/javascript">
+    $('#summernoteComposition').summernote({
+        height: 200
+    });
+</script>
+
+
 @endsection

@@ -141,7 +141,7 @@
                                             <div class="row">
                                                 <ul class="file-upload-product">
                                                     <li>
-                                                            <input class="file" type="file" name="image" multiple required>
+                                                        <input class="file" type="file" name="image" multiple required>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -153,7 +153,7 @@
                                             <div class="row">
                                                 <ul class="file-upload-product">
                                                     <li>
-                                                            <input class="file" type="file" name="photos[]" multiple required>
+                                                        <input class="file" type="file" name="photos[]" multiple required>
                                                     </li>
                                                     <li>(bisa pilih lebih dari 1 gambar)</li>
                                                 </ul>

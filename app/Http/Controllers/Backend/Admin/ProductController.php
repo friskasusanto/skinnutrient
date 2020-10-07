@@ -188,8 +188,9 @@ class ProductController extends Controller
     	$category = Category::all();
     	$product = Product::find($id);
         $gambar = ProductGambar::where('product_id', $product->id)->get();
+        $jenis = ProductJenis::all();
         // dd($gambar);
-    	return view('backend.admin.product.edit', compact(['product', 'category', 'gambar']));
+    	return view('backend.admin.product.edit', compact(['product', 'category', 'gambar', 'jenis']));
     }
 
     public function edit_product (Request $request, $id)

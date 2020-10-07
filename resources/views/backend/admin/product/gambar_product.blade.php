@@ -70,8 +70,8 @@
                                     @endif
                                     <td>
                                         <center>
-                                        <a href="{{action('backend\admin\ProductController@edit_view_product', $u->id)}}" class="btn btn-warning btn-icon-split btn-sm" style="font-size: xx-small;">
-                                            <i class="fas fa-edit" style="padding: 5px;"></i>
+                                        <a href="{{url('/admin/edit/product', $u->id)}}" class="btn btn-warning btn-icon-split btn-sm" style="font-size: xx-small;">
+                                            <i class="fa fa-edit" style="padding: 5px;"></i>
                                         </a>
                                     </center>
                                     </td>

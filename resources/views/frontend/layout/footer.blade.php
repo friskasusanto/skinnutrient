@@ -1,65 +1,45 @@
 <!-- footer -->
-    <footer class="footer-light">
-        <div class="light-layout">
+    <footer class="footer-light footer-classic">
+        <!--<div class="light-layout upper-footer">
             <div class="container">
-                <section class="small-section border-section border-top-0">
+                <section class="small-section ">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>KNOW IT ALL FIRST!</h4>
-                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
+                                    <h4>Subscribe.</h4>
+                                    <p>Sign up to receive updates about our new product launches and sales!</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form novalidate="novalidate" method="POST" action= "{{url('/subscribe')}}" enctype="multipart/form-data" class="form-inline subscribe-form auth-form needs-validation" >
-                            {{ csrf_field() }}
+                            <form class="form-inline subscribe-form">
                                 <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="email" id="mce-EMAIL"
-                                        placeholder="Enter your email" required="required" style="width: 100%">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="Enter your email">
                                 </div>
-                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
+                                <button type="submit" class="btn btn-solid black-btn">subscribe</button>
                             </form>
                         </div>
                     </div>
                 </section>
             </div>
-        </div>
+        </div>-->
         <section class="section-b-space light-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-title footer-mobile-title">
-                            <h4>about</h4>
-                        </div>
-                        <div class="footer-contant">
-                            <div class="footer-logo"><img src="{{asset('backends/assets/images/icon/logos.png')}}" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                            <div class="footer-social">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>ABOUT US</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
+                                    <li><a href="about-page.html">Tentang Kami</a></li>
+                                    <li><a href="search.html">Pencarian Produk</a></li>
+                                    <li><a href="#">Stokis</a></li>
+                                    <li><a href="sitemap.html">Peta</a></li>
+                                    <li><a href="#">Press</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -67,15 +47,16 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>CUSTOMER CARE</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li><a href="faq.html">FAQ s</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Return Policy</a></li>
+                                    <li><a href="#">Terms of Service</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -87,11 +68,26 @@
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
-                                    </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@Fiot.com</a></li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-map-marker"></i>Jl. Pandanaran 1 No. 10, Pekunden, Semarang Tengah</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: 0852-XXXX-XXXX</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">customerservice@skinnutrient.co.id</a></li>
+                                    <!--<li><i class="fa fa-fax"></i>Fax: 123456</li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>IKUTI KAMI</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/skinnutrientindonesia/" target="_blank">facebook</a></li>
+                                    <li><a href="https://www.instagram.com/skinnutrient.id/" target="_blank">instagram</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCU-TTrwGEmkL6KrzVkZ8a0A" target="_blank">youtube</a></li>
+                                    <li><a href="https://www.pinterest.com.au/skinnutrient/" target="_blank">linkedin</a></li>
+                                    <li><a href="https://www.linkedin.com/company/skin-nutrient/?originalSubdomain=au" target="_blank">pinterest</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -99,13 +95,12 @@
                 </div>
             </div>
         </section>
-        <div class="sub-footer">
+        <div class="sub-footer ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
                         <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by
-                                pixelstrap</p>
+                            <p>Copyright &copy; Skin Nutrient <script>document.write(new Date().getFullYear())</script> All Right Reserved.</p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-12">

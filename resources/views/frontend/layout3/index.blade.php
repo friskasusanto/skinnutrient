@@ -1,120 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 @include('frontend.layout.html')
 
 <body>
 
+
     @include('frontend.layout.header')
 
+
     @yield('content')
+
 
     @include('frontend.layout.footer')
 
 
-    <!-- Add to cart bar -->
-    <div id="cart_side" class=" add_to_cart bottom">
-        <a href="javascript:void(0)" class="overlay" onclick="closeCart()"></a>
-        <div class="cart-inner">
-            <div class="cart_top">
-                <h3>my cart</h3>
-                <div class="close-cart">
-                    <a href="javascript:void(0)" onclick="closeCart()">
-                        <i class="fa fa-times" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="cart_media">
-                <ul class="cart_product">
-                    <li>
-                        <div class="media">
-                            <a href="#">
-                                <img alt="" class="mr-3" src="../assets/images/pro/34.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
-                                </a>
-                                <h4>
-                                    <span>1 x $ 299.00</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="close-circle">
-                            <a href="#">
-                                <i class="ti-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="media">
-                            <a href="#">
-                                <img alt="" class="mr-3" src="../assets/images/pro/16.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
-                                </a>
-                                <h4>
-                                    <span>1 x $ 299.00</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="close-circle">
-                            <a href="#">
-                                <i class="ti-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="media">
-                            <a href="#"><img alt="" class="mr-3" src="../assets/images/pro/27.jpg"></a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
-                                </a>
-                                <h4><span>1 x $ 299.00</span></h4>
-                            </div>
-                        </div>
-                        <div class="close-circle">
-                            <a href="#">
-                                <i class="ti-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="cart_total">
-                    <li>
-                        <div class="total">
-                            <h5>subtotal : <span>$299.00</span></h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="buttons">
-                            <a href="cart.php" class="btn btn-solid btn-xs view-cart">view cart</a>
-                            <a href="checkout.php" class="btn btn-solid btn-xs checkout">checkout</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Add to cart bar end-->
-
-
     <!--modal popup start-->
-    <!--<div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog"
+    <!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-body modal2">
+                <div class="modal-body modal1">
                     <div class="container-fluid p-0">
                         <div class="row">
                             <div class="col-12">
                                 <div class="modal-bg">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                             aria-hidden="true">&times;</span></button>
-                                    <div class="offer-content"><img src="../assets/images/Offer-banner.png"
+                                    <div class="offer-content"> <img src="{{asset('backends/assets/images/Offer-banner.png')}}"
                                             class="img-fluid blur-up lazyload" alt="">
                                         <h2>newsletter</h2>
                                         <form
@@ -123,7 +36,7 @@
                                             id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                                             target="_blank">
                                             <div class="form-group mx-sm-3">
-                                                <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
+                                                <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL"
                                                     placeholder="Enter your email" required="required">
                                                 <button type="submit" class="btn btn-solid"
                                                     id="mc-submit">subscribe</button>
@@ -137,77 +50,13 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    </div> -->
     <!--modal popup end-->
 
 
-    <!-- Quick-view modal popup start-->
-    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content quick-view-modal">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12">
-                            <div class="quick-view-img"><img src="../assets/images/pro3/1.jpg" alt=""
-                                    class="img-fluid blur-up lazyload"></div>
-                        </div>
-                        <div class="col-lg-6 rtl-text">
-                            <div class="product-right">
-                                <h2>Women Pink Shirt</h2>
-                                <h3>$32.96</h3>
-                                <ul class="color-variant">
-                                    <li class="bg-light0"></li>
-                                    <li class="bg-light1"></li>
-                                    <li class="bg-light2"></li>
-                                </ul>
-                                <div class="border-product">
-                                    <h6 class="product-title">product details</h6>
-                                    <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium</p>
-                                </div>
-                                <div class="product-description border-product">
-                                    <div class="size-box">
-                                        <ul>
-                                            <li class="active"><a href="#">s</a></li>
-                                            <li><a href="#">m</a></li>
-                                            <li><a href="#">l</a></li>
-                                            <li><a href="#">xl</a></li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="product-title">quantity</h6>
-                                    <div class="qty-box">
-                                        <div class="input-group"><span class="input-group-prepend"><button type="button"
-                                                    class="btn quantity-left-minus" data-type="minus" data-field=""><i
-                                                        class="ti-angle-left"></i></button> </span>
-                                            <input type="text" name="quantity" class="form-control input-number"
-                                                value="1"> <span class="input-group-prepend"><button type="button"
-                                                    class="btn quantity-right-plus" data-type="plus" data-field=""><i
-                                                        class="ti-angle-right"></i></button></span></div>
-                                    </div>
-                                </div>
-                                <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a
-                                        href="#" class="btn btn-solid">view detail</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick-view modal popup end-->
-
 
     <!-- theme setting -->
-    <a href="javascript:void(0)" onclick="openSetting()">
-        <div class="setting-sidebar" id="setting-icon">
-            <div>
-                <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-        </div>
-    </a>
+    
     <div id="setting_box" class="setting-box">
         <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
         <div class="setting_box_body">
@@ -737,7 +586,7 @@
                                 <div class="demo-text">
                                     <h4>no sidebar</h4>
                                     <div class="btn-group demo-btn" role="group" aria-label="Basic example"> <button
-                                            type="button" onClick="window.open('product-page.php')"
+                                            type="button" onClick="window.open('product-page(no-sidebar).html')"
                                             class="btn new-tab-btn">Preview</button> </div>
                                 </div>
                             </div>
@@ -877,7 +726,7 @@
                 <div class="setting-contant">
                     <ul class="color-box">
                         <li>
-                            <input id="ColorPicker1" type="color" value="#3fdda7" name="Background">
+                            <input id="ColorPicker1" type="color" value="#ff4c3b" name="Background">
                             <span>theme deafult color</span>
                         </li>
                     </ul>
@@ -897,13 +746,13 @@
                         target="_blank" class="btn btn-block purchase_btn"><i class="fa fa-shopping-cart"
                             aria-hidden="true"></i> purchase Multikart now!</a>
                     <a href="https://themeforest.net/item/multikart-responsive-angular-ecommerce-template/22905358?s_rank=3"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/angular.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{{asset('backends/assets/images/icon/angular.png')}}"
                             alt="" class="img-fluid"> Multikart Angular</a>
                     <a href="https://themeforest.net/item/multikart-responsive-react-ecommerce-template/23067773?s_rank=2"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/react.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{{asset('backends/assets/images/icon/react.png')}}"
                             alt="" class="img-fluid"> Multikart React</a>
                     <a href="https://themeforest.net/item/multikart-multipurpose-shopify-sections-theme/23093831?s_rank=1"
-                        target="_blank" class="btn btn-block purchase_btn"><img src="../assets/images/icon/shopify.png"
+                        target="_blank" class="btn btn-block purchase_btn"><img src="{{asset('backends/assets/images/icon/shopify.png')}}"
                             alt="" class="img-fluid"> Multikart Shopify</a>
                 </div>
             </div>
@@ -912,15 +761,72 @@
     <!-- theme setting -->
 
 
-    <!-- tap to top start -->
-    <div class="tap-top">
-        <div><i class="fa fa-angle-double-up"></i></div>
+    <!-- exit modal popup start-->
+    <!-- <div class="modal fade bd-example-modal-lg theme-modal exit-modal" id="exit_popup" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body modal1">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="modal-bg">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div class="media">
+                                        <img src="{{asset('backends/assets/images/stop.png')}}"
+                                            class="stop img-fluid blur-up lazyload mr-3" alt="">
+                                        <div class="media-body text-left align-self-center">
+                                            <div>
+                                                <h2>wait!</h2>
+                                                <h4>We want to give you
+                                                    <b>10% discount</b>
+                                                    <span>for your first order</span>
+                                                </h4>
+                                                <h5>Use discount code at checkout</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Add to cart modal popup end-->
+
+
+    <!-- facebook chat section start -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="2123438804574660" theme_color="#0084ff"
+        logged_in_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?"
+        logged_out_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?">
+    </div>
+    <!-- facebook chat section end -->
+
+    <!-- tap to top -->
+    <div class="tap-top top-cls">
+        <div>
+            <i class="fa fa-angle-double-up"></i>
+        </div>
     </div>
     <!-- tap to top end -->
 
 
     @include('frontend.layout.script')
     @yield('script')
+
 </body>
 
 </html>
