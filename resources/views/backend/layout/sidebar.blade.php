@@ -47,7 +47,7 @@
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/list_menu')}}"><i class="fa fa-circle"></i>Daftar Product Menu</a></li>
                             <li><a href="{{url('/list_category')}}"><i class="fa fa-circle"></i>Daftar Product Category</a></li>
-                            <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li>
+                            <!-- <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li> -->
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="archive"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>

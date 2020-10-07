@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
-                                    <div class="form-group mb-3 row">
+                                    <!-- <div class="form-group mb-3 row">
                                         <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Jenis Product :</label>
 
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
@@ -82,7 +82,7 @@
                                             </select>
                                         </div>
                                         <div class="valid-feedback">Looks good!</div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Harga User:</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="number" required="" name="price">

@@ -97,12 +97,8 @@ class ProductController extends Controller
 
                     $add->category_id = $request->category;
 
-                    if ($request->jenis != null ){
-                        $add->jenis_id = $request->jenis;
-                    }else{
-                        $add->jenis_id = null;
-                    }
                     
+                    $add->jenis_id = null;
                     $add->price = $request->price;
                     $add->title = null;
                     $add->description = $request->description;
