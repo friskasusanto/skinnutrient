@@ -121,6 +121,31 @@
                 </tr>
                 <br/>
                 <tr>
+                    <th>Ingredients</th>
+                    <td>: {!! $u->ingredients !!}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>How To Use</th>
+                    <td>: {!! $u->how !!}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Shipping Police</th>
+                    <td>: {!! $u->shipping_police !!}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Step</th>
+                    <td>: {!! $u->step !!}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Composition</th>
+                    <td>: {!! $u->composition !!}</td>
+                </tr>
+                <br/>
+                <tr>
                     <th>Stock</th>
                     <td>: {{ $u->stock }}</td>
                 </tr>
