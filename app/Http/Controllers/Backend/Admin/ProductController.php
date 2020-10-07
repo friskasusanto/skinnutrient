@@ -229,7 +229,7 @@ class ProductController extends Controller
                     $edit->description = $request->description;
                     $edit->detail = $request->detail;
                     $edit->ingredients = $request->ingredients;
-                    $edit->how = $request->how;
+                    $edit->how_to_use = $request->how;
                     $edit->shipping_police = $request->shipping_police;
                     $edit->step = $request->step;
                     $edit->composition = $request->composition;
@@ -273,7 +273,7 @@ class ProductController extends Controller
                 $edit= Product::find($id);
                 $edit->name = $request->name;
                 $edit->price = $request->price;
-                $edit->title = $request->title;
+                $edit->title = null;
 
                 if ($request->category != null ){
                     $edit->category_id = $request->category;
@@ -291,18 +291,17 @@ class ProductController extends Controller
                 // dd($fileName);
 
                 $edit->description = $request->description;
+                $edit->discount = $request->discount;
+                $edit->description = $request->description;
+                $edit->detail = $request->detail;
+                $edit->ingredients = $request->ingredients;
+                $edit->how_to_use = $request->how;
+                $edit->shipping_police = $request->shipping_police;
+                $edit->step = $request->step;
+                $edit->composition = $request->composition;
 
-                if ($request->min_price != null ){
-                    $edit->min_price = $request->min_price;
-                }else{
-                    $edit->min_price = $edit->min_price;
-                }
-
-                if ($request->max_price != null ){
-                    $edit->max_price = $request->max_price;
-                }else{
-                    $edit->max_price = $edit->max_price;
-                }
+                $edit->min_price = null;
+                $edit->max_price = null;
 
                 if ($request->status != null ){
                     $edit->status = $request->status;
