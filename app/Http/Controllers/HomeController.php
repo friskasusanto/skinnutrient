@@ -29,13 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $terbaik = Chart::orderBy('jumlah', 'desc')->limit(12)->get();
-        $featured = Wishlist::orderBy('created_at', 'desc')->limit(12)->get();
-        $new = Product::orderBy('created_at', 'desc')->limit(12)->get();
-        $best = Checkout::orderBy('total_item', 'desc')->limit(12)->get();
-        $blog = Blog::orderBy('created_at', 'desc')->limit(5)->get();
-        $jenis = ProductJenis::orderBy('created_at', 'desc')->get();
+        $new = Product::orderBy('created_at', 'asc')->limit(8)->get();
+        $last = Product::orderBy('created_at', 'desc')->limit(8)->get();
+        $best = Product::where('best_seller', '1')->limit(8)->get();
 
-        return view('frontend.home', compact('terbaik', 'featured', 'new', 'best', 'blog', 'jenis'));
+        return view('frontend.home', compact('new', 'best', 'last'));
     }
 }

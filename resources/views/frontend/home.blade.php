@@ -121,486 +121,110 @@
                 <div class="col">
                     <div class="theme-tab">
                         <ul class="tabs tab-title2">
-                            <li class="btn btn-solid white-btn current"><a href="tab-1new">Best Seller</a></li>
+                            <li class="btn btn-solid white-btn current"><a href="tab-1">Best Seller</a></li>
                             <li class="btn btn-solid black-btn"><a href="tab-2">What s New</a></li>
                             <!--<li class=""><a href="tab-3">trends of week</a></li>-->
                         </ul>
                         <div class="tab-content-cls">
                             <div id="tab-1" class="tab-content active default">
                                 <div class="product-4 product-m no-arrow">
+                                @foreach ($best as $b)
                                     <div class="product-box">
                                         <div class="img-block">
                                             <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro1.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                <a href="{{url('/detailProduct', $b->slug)}}">
+                                                    <img src="{{url('product/'.$b->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                </a>
                                             </div>
                                             <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro1.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                <a href="{{url('/detailProduct', $b->slug)}}">
+                                                    <img src="{{url('product/'.$b->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                </a>
                                             </div>
                                             <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="{{url('/cart', $b->slug)}}" title="Add to cart">
+                                                    <i class="ti-shopping-cart" aria-hidden="true"></i>
+                                                </a> 
+                                                <a href="{{url('/wishlist', $b->slug)}}" title="Add to Wishlist">
+                                                    <i class="ti-heart" aria-hidden="true"></i>
+                                                </a> 
+                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$b->slug}}" title="Quick View">
+                                                    <i class="ti-search" aria-hidden="true"></i>
+                                                </a> 
                                             </div>
                                         </div>
                                         <div class="product-detail">
                                             <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
+                                            <h4>{{$b->category->category_name}}</h4>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i>
+                                            </div>
                                             <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
+                                                <h5>Skin Nutrient™ {{$b->name}}</h5>
                                             </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
+                                            <h6><strong>Helps With:</strong>{!!$b->detail!!}</h6>
                                             <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
+                                            <h4>Rp. {{$b->price}}
+                                                <!-- <del>$600.00</del> -->
+                                            </h4>
                                         </div>
                                     </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro2.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro2.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro3.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro3.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro4.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro4.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro5.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro5.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro6.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro6.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro7.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro7.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro8.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro8.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro9.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro9.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
+                                @endforeach
                                 </div>
                             </div>
 
                             <div id="tab-2" class="tab-content">
                                 <div class="product-4 product-m no-arrow">
+                                @foreach ($new as $n)
                                     <div class="product-box">
                                         <div class="img-block">
                                             <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro10.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                <a href="{{url('/detailProduct', $n->slug)}}">
+                                                    <img src="{{url('product/'.$n->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                </a>
                                             </div>
                                             <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro11.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                <a href="{{url('/detailProduct', $n->slug)}}">
+                                                    <img src="{{url('product/'.$n->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                </a>
                                             </div>
                                             <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="{{url('/cart', $n->slug)}}" title="Add to cart">
+                                                    <i class="ti-shopping-cart" aria-hidden="true"></i>
+                                                </a> 
+                                                <a href="{{url('/wishlist', $n->slug)}}" title="Add to Wishlist">
+                                                    <i class="ti-heart" aria-hidden="true"></i>
+                                                </a> 
+                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$n->slug}}" title="Quick View">
+                                                    <i class="ti-search" aria-hidden="true"></i>
+                                                </a> 
                                             </div>
                                         </div>
                                         <div class="product-detail">
                                             <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
+                                            <h4>{{$n->category->category_name}}</h4>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <a href="{{url('/detailProduct', $n->slug)}}">
+                                                <h5>Skin Nutrient™ {{$n->name}}</h5>
                                             </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
+                                            <h6><strong>Helps With:</strong>{!!$n->detail!!}</h6>
                                             <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
+                                            <h4>Rp. {{$n->price}}
+                                                <!-- <del>$600.00</del> -->
+                                            </h4>
                                         </div>
                                     </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro12.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro12.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro13.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro14.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
-                                    <div class="product-box">
-                                        <div class="img-block">
-                                            <div class="front">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro15.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="back">
-                                                <a href="product-page.php"><img
-                                                        src="{{asset('backends/assets/images/banner/pro16.jpg')}}"
-                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                            </div>
-                                            <div class="cart-info">
-                                                <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                                    <i class="ti-shopping-cart"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view"
-                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail">
-                                            <br>
-                                            <h4>BEE VENOM FIRMING</h4>
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="product-page.php">
-                                                <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                            </a>
-                                            <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                            <br>
-                                            <h4>$500.00 <del>$600.00</del></h4>
-                                        </div>
-                                    </div>
+                                @endforeach
                                 </div>
                             </div>
                         </div>
@@ -647,186 +271,54 @@
             <div class="row">
                 <div class="col">
                     <div class="product-4 product-m no-arrow">
+                    @foreach ($last as $l)
                         <div class="product-box">
                             <div class="img-block">
                                 <div class="front">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro17.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                    <a href="{{url('/detailProduct', $l->slug)}}">
+                                        <img src="{{url('product/'.$l->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
                                 </div>
                                 <div class="back">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro17.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                    <a href="{{url('/detailProduct', $l->slug)}}">
+                                        <img src="{{url('product/'.$l->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
                                 </div>
                                 <div class="cart-info">
-                                    <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                        <i class="ti-shopping-cart"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                            aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                            class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare"><i class="ti-reload"
-                                            aria-hidden="true"></i></a>
+                                    <a href="{{url('/cart', $l->slug)}}" title="Add to cart">
+                                        <i class="ti-shopping-cart" aria-hidden="true"></i>
+                                    </a> 
+                                    <a href="{{url('/wishlist', $l->slug)}}" title="Add to Wishlist">
+                                        <i class="ti-heart" aria-hidden="true"></i>
+                                    </a> 
+                                    <a href="#" data-toggle="modal" data-target="#quick-view{{$l->slug}}" title="Quick View">
+                                        <i class="ti-search" aria-hidden="true"></i>
+                                    </a> 
                                 </div>
                             </div>
                             <div class="product-detail">
                                 <br>
-                                <h4>BEE VENOM FIRMING</h4>
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i></div>
-                                <a href="product-page.php">
-                                    <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
+                                <h4>{{$l->category->category_name}}</h4>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <a href="{{url('/detailProduct', $l->slug)}}">
+                                    <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
-                                <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
+                                @if ($l->detail != null)
+                                    <h6><strong>Helps With:</strong>{!!$l->detail!!}</h6>
+                                @endif
                                 <br>
-                                <h4>$500.00 <del>$600.00</del></h4>
+                                <h4>Rp. {{$l->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h4>
                             </div>
                         </div>
-                        <div class="product-box">
-                            <div class="img-block">
-                                <div class="front">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro18.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="back">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro18.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="cart-info">
-                                    <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                        <i class="ti-shopping-cart"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                            aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                            class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare"><i class="ti-reload"
-                                            aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <br>
-                                <h4>BEE VENOM FIRMING</h4>
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i></div>
-                                <a href="product-page.php">
-                                    <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                </a>
-                                <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                <br>
-                                <h4>$500.00 <del>$600.00</del></h4>
-                            </div>
-                        </div>
-                        <div class="product-box">
-                            <div class="img-block">
-                                <div class="front">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro19.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="back">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro19.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="cart-info">
-                                    <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                        <i class="ti-shopping-cart"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                            aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                            class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare"><i class="ti-reload"
-                                            aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <br>
-                                <h4>BEE VENOM FIRMING</h4>
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i></div>
-                                <a href="product-page.php">
-                                    <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                </a>
-                                <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                <br>
-                                <h4>$500.00 <del>$600.00</del></h4>
-                            </div>
-                        </div>
-                        <div class="product-box">
-                            <div class="img-block">
-                                <div class="front">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro20.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="back">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro20.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="cart-info">
-                                    <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                        <i class="ti-shopping-cart"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                            aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                            class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare"><i class="ti-reload"
-                                            aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <br>
-                                <h4>BEE VENOM FIRMING</h4>
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i></div>
-                                <a href="product-page.php">
-                                    <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                </a>
-                                <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                <br>
-                                <h4>$500.00 <del>$600.00</del></h4>
-                            </div>
-                        </div>
-                        <div class="product-box">
-                            <div class="img-block">
-                                <div class="front">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro21.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="back">
-                                    <a href="product-page.php"><img src="{{asset('backends/assets/images/banner/pro21.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                                </div>
-                                <div class="cart-info">
-                                    <button tabindex="0" onclick="openCart()" title="Add to cart">
-                                        <i class="ti-shopping-cart"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart"
-                                            aria-hidden="true"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                            class="ti-search" aria-hidden="true"></i></a>
-                                    <a href="compare.html" title="Compare"><i class="ti-reload"
-                                            aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <br>
-                                <h4>BEE VENOM FIRMING</h4>
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                        class="fa fa-star"></i></div>
-                                <a href="product-page.php">
-                                    <h5>Skin Nutrient™ Bee Venom Peptide Serum</h5>
-                                </a>
-                                <h6><strong>Helps With:</strong>Signs of ageing, skin plumping and firming</h6>
-                                <br>
-                                <h4>$500.00 <del>$600.00</del></h4>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -966,4 +458,144 @@
         </div>
     </section>
     <!-- blog section end -->
+
+    <!-- Quick-view modal popup start-->
+    @if(isset($last))
+    @foreach( $last as $l )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$l->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$l->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$l->name}}</h2>
+                                <h3>Rp. {{$l->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{!!$l->description!!}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $l->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $l->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($new))
+    @foreach( $new as $l )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$l->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$l->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$l->name}}</h2>
+                                <h3>Rp. {{$l->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{!!$l->description!!}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $l->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $l->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+
+    @if(isset($best))
+    @foreach( $best as $l )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$l->slug}}" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{url('product/'.$l->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>{{$l->name}}</h2>
+                                <h3>Rp. {{$l->price}}</h3>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{!!$l->description!!}</p>
+                                </div>
+
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $l->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="product-description border-product">
+                                        <h6 class="product-title">quantity</h6>
+                                            <div class="input-group">
+                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="product-buttons">
+                                        <button type="submit" class="btn btn-solid"> add to cart</button>
+                                        <a href="{{url('/detailProduct', $l->slug)}}" class="btn btn-solid">view detail</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+    <!-- Quick-view modal popup end-->
 @endsection

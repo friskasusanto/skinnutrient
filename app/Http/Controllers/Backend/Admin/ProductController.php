@@ -154,18 +154,24 @@ class ProductController extends Controller
             $request->image->move(public_path('product'), $fileName);
             $add->image = $fileName;
 
-            if ($request->jenis != null ){
-                $add->jenis_id = $request->jenis;
-            }else{
-                $add->jenis_id = null;
-            }
-
+            $add->jenis_id = null;
             $add->price = $request->price;
-            $add->title = $request->title;
+            $add->title = null;
             $add->description = $request->description;
-            $add->min_price = $request->min_price;
-            $add->max_price = $request->max_price;
-            $add->status = 0;
+            $add->detail = $request->detail;
+            $add->ingredients = $request->ingredients;
+            $add->how_to_use = $request->how;
+            $add->shipping_police = $request->shipping;
+            $add->step = $request->step;
+            $add->composition = $request->composition;
+            $add->stock = null;
+            $add->min_price = null;
+            $add->max_price = null;
+            $add->discount = $request->discount;
+
+            if ($request->bestseller != null){
+                $add->best_seller = 1;
+            }
             $add->slug = Str::slug($request->name, '-');
             $add->save();
 
@@ -247,6 +253,14 @@ class ProductController extends Controller
                     }else{
                         $edit->status = $edit->status;
                     }
+
+                    if ($request->bestseller == 1){
+                        $edit->best_seller = 1;
+                    }elseif ($request->bestseller == 0) {
+                        $edit->best_seller = 0;
+                    }else {
+                        $edit->best_seller = $edit->bestseller;
+                    }
                     $edit->save();
 
                     foreach ($request->photos as $photo) {
@@ -312,6 +326,14 @@ class ProductController extends Controller
                     $edit->status = $request->status;
                 }else{
                     $edit->status = $edit->status;
+                }
+                
+                if ($request->bestseller == 1){
+                    $edit->best_seller = 1;
+                }elseif ($request->bestseller == 0) {
+                    $edit->best_seller = 0;
+                }else {
+                    $edit->best_seller = $edit->bestseller;
                 }
                 $edit->save();
 

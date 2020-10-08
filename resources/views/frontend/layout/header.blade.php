@@ -276,10 +276,14 @@
                     </div>
                     <div class="col-lg-6 text-right hidden-aja">
                         <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>
-                                    wishlist</a></li>
-                            <li class="onhover-dropdown mobile-account"><i class="fa fa-user" aria-hidden="true"></i> My
-                                Account
+                            <li class="mobile-wishlist">
+                                <a href="#">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    wishlist
+                                </a>
+                            </li>
+                            <li class="onhover-dropdown mobile-account">
+                                <i class="fa fa-user" aria-hidden="true"></i> 
                                 <ul class="onhover-show-div">
                                 @if (Auth::check())
                                     <li>Hallo, {{Auth::user()->name}}</li>

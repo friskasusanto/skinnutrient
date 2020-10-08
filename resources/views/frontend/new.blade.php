@@ -126,7 +126,6 @@
                                                                 <a href="product-page(no-sidebar).html">
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
-                                                                <p>{!!$s->description!!}</p>
                                                                 <h4>Rp. {{$s->price}}</h4>
                                                             </div>
                                                         </div>

@@ -54,9 +54,8 @@ class SaleController extends Controller
     public function cart (Request $request, $slug)
     {
     	$product = Product::where('slug', $slug)->first();
-        $cek = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-
     	if (Auth::check()){
+            $cek = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
         	if (! $cek){
             	$status = 200;
             	$message = "Berhasil menambahkan ke cart";
@@ -69,7 +68,7 @@ class SaleController extends Controller
     	    	$cart->status = 0;
     	    	$cart->save();
             }else{
-                $status = 200;
+                $status = 500;
                 $message = "Berhasil menambahkan ke cart";
             }
 
