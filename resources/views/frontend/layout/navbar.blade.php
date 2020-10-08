@@ -169,8 +169,9 @@
                             </div>
                         </div>
                         <div class="brand-logo layout2-logo">
-                            <a href="index.php"><img src="{{asset('backends/assets/images/icon/logo/skinnutrient-logo.png')}}"
-                                    class="img-fluid blur-up lazyload" alt=""></a>
+                            <a href="{{url('/')}}">
+                                <img src="{{asset('backends/assets/images/icon/logo/skinnutrient-logo.png')}}" class="img-fluid blur-up lazyload" alt="">
+                            </a>
                         </div>
                         <div class="menu-right pull-right">
                             <div class="icon-nav">
@@ -186,14 +187,13 @@
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-xl-12">
-                                                                <form>
+                                                                <form action="{{url('/shop')}}" method="GET">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control"
-                                                                            id="exampleInputPassword1"
-                                                                            placeholder="Search a Product">
+                                                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product" name="name">
                                                                     </div>
-                                                                    <button type="submit" class="btn btn-primary"><i
-                                                                            class="fa fa-search"></i></button>
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </button>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -210,23 +210,10 @@
                                             </a>
                                         </div>
                                     </li>
+                                @if (Auth::check())
                                     <li class="onhover-div mobile-setting">
-                                        <div><img src="{{asset('backends/assets/images/icon/heart-black.png')}}"
-                                                class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i>
-                                        </div>
-                                        <div class="show-div setting">
-                                            <h6>language</h6>
-                                            <ul>
-                                                <li><a href="#">english</a></li>
-                                                <li><a href="#">french</a></li>
-                                            </ul>
-                                            <h6>currency</h6>
-                                            <ul class="list-inline">
-                                                <li><a href="#">euro</a></li>
-                                                <li><a href="#">rupees</a></li>
-                                                <li><a href="#">pound</a></li>
-                                                <li><a href="#">doller</a></li>
-                                            </ul>
+                                        <div><img src="{{asset('backends/assets/images/icon/heart-black.png')}}" class="img-fluid blur-up lazyload" alt=""> 
+                                            <i class="ti-settings"></i>
                                         </div>
                                     </li>
                                     <li class="onhover-div mobile-cart">
@@ -234,6 +221,7 @@
                                                 src="{{asset('backends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload"
                                                 alt=""> <i class="ti-shopping-cart"></i></div>
                                     </li>
+                                @endif
                                 </ul>
                             </div>
                         </div>
@@ -254,60 +242,7 @@
                                             aria-hidden="true"></i></div>
                                 </li>
                                 <li>
-                                    <a href="#">Sale</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">new demos <span class="new-tag">new</span></a>
-                                            <ul>
-                                                <li><a target="_blank" href="marketplace-demo.html">marketplace</a></li>
-                                                <li><a target="_blank" href="tools.html">tools</a></li>
-                                                <li><a target="_blank" href="game.html">game</a></li>
-                                                <li><a target="_blank" href="gym-product.html">gym</a></li>
-                                                <li><a target="_blank" href="marijuana.html">marijuana</a></li>
-                                                <li><a target="_blank" href="left_sidebar-demo.html">left sidebar</a>
-                                                </li>
-                                                <li><a target="_blank" href="jewellery.html">jewellery</a></li>
-                                                <li><a target="_blank" href="pets.html">pets</a></li>
-                                                <li><a target="_blank" href="metro.html">metro</a></li>
-                                                <li><a target="_blank" href="video-slider.html">video slider</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">clothing</a>
-                                            <ul>
-                                                <li><a target="_blank" href="index.html">fashion 1</a></li>
-                                                <li><a target="_blank" href="fashion-2.html">fashion 2</a></li>
-                                                <li><a target="_blank" href="fashion-3.html">fashion 3</a></li>
-                                                <li><a target="_blank" href="kids.html">kids</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a target="_blank" href="watch.html">watch</a></li>
-                                        <li><a target="_blank" href="shoes.html">shoes</a></li>
-                                        <li>
-                                            <a href="#">electronics</a>
-                                            <ul>
-                                                <li><a target="_blank" href="electronic-1.html">electronic 1</a></li>
-                                                <li><a target="_blank" href="electronic-2.html">electronic 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a target="_blank" href="bags.html">bags</a></li>
-                                        <li><a target="_blank" href="nursery.html">nursery</a></li>
-                                        <li><a target="_blank" href="vegetables.html">vegetable</a></li>
-                                        <li><a target="_blank" href="beauty.html">beauty</a></li>
-                                        <li><a target="_blank" href="light.html">light</a></li>
-                                        <li><a target="_blank" href="furniture.html">furniture</a></li>
-                                        <li><a target="_blank" href="goggles.html">googles</a></li>
-                                        <li>
-                                            <a href="#">basics</a>
-                                            <ul>
-                                                <li><a target="_blank" href="lookbook-demo.html">lookbook</a></li>
-                                                <li><a target="_blank" href="instagram-shop.html">instagram</a></li>
-                                                <li><a target="_blank" href="video.html">video</a></li>
-                                                <li><a target="_blank" href="parallax.html">parallax</a></li>
-                                                <li><a target="_blank" href="full-page.html">full page</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <a href="{{url('/sale')}}">Sale</a>
                                 </li>
                                 <li class="mega" id="hover-cls"><a href="#">Skin Care
                                         <div class="lable-nav">new</div>
@@ -319,24 +254,15 @@
                                                     <div class="col mega-box">
                                                         <div class="link-section">
                                                             <div class="menu-title">
-                                                                <h5>portfolio</h5>
+                                                                <h5>By Concern</h5>
                                                             </div>
                                                             <div class="menu-content">
                                                                 <ul>
-                                                                    <li><a href="grid-2-col.html">portfolio grid 2</a>
+                                                                @foreach (App\Model\Category::where('menu_id', 1)->orderBy('created_at', 'asc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
                                                                     </li>
-                                                                    <li><a href="grid-3-col.html">portfolio grid 3</a>
-                                                                    </li>
-                                                                    <li><a href="grid-4-col.html">portfolio grid 4</a>
-                                                                    </li>
-                                                                    <li><a href="masonary-2-grid.html">mesonary grid
-                                                                            2</a></li>
-                                                                    <li><a href="masonary-3-grid.html">mesonary grid
-                                                                            3</a></li>
-                                                                    <li><a href="masonary-4-grid.html">mesonary grid
-                                                                            4</a></li>
-                                                                    <li><a href="masonary-fullwidth.html">mesonary full
-                                                                            width</a></li>
+                                                                @endforeach
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -344,18 +270,15 @@
                                                     <div class="col mega-box">
                                                         <div class="link-section">
                                                             <div class="menu-title">
-                                                                <h5>add to cart</h5>
+                                                                <h5>By Category</h5>
                                                             </div>
                                                             <div class="menu-content">
                                                                 <ul>
-                                                                    <li><a href="nursery.html">cart modal popup</a></li>
-                                                                    <li><a href="vegetables.html">qty. counter <i
-                                                                                class="fa fa-bolt icon-trend"
-                                                                                aria-hidden="true"></i></a></li>
-                                                                    <li><a href="bags.html">cart top</a></li>
-                                                                    <li><a href="shoes.html">cart bottom</a></li>
-                                                                    <li><a href="watch.html">cart left</a></li>
-                                                                    <li><a href="tools.html">cart right</a></li>
+                                                                @foreach (App\Model\Category::where('menu_id', 2)->orderBy('created_at', 'desc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -363,61 +286,15 @@
                                                     <div class="col mega-box">
                                                         <div class="link-section">
                                                             <div class="menu-title">
-                                                                <h5>theme elements</h5>
+                                                                <h5>By Range</h5>
                                                             </div>
                                                             <div class="menu-content">
                                                                 <ul>
-                                                                    <li><a href="element-title.html">title</a></li>
-                                                                    <li><a href="element-banner.html">collection
-                                                                            banner</a></li>
-                                                                    <li><a href="element-slider.html">home slider</a>
+                                                                @foreach (App\Model\Category::where('menu_id', 3)->orderBy('created_at', 'desc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
                                                                     </li>
-                                                                    <li><a href="element-category.html">category</a>
-                                                                    </li>
-                                                                    <li><a href="element-service.html">service</a></li>
-                                                                    <li><a href="element-image-ratio.html">image size
-                                                                            ratio <i class="fa fa-bolt icon-trend"
-                                                                                aria-hidden="true"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col mega-box">
-                                                        <div class="link-section">
-                                                            <div class="menu-title">
-                                                                <h5>product elements</h5>
-                                                            </div>
-                                                            <div class="menu-content">
-                                                                <ul>
-                                                                    <li class="up-text"><a
-                                                                            href="element-productbox.html">product
-                                                                            box<span>10+</span></a></li>
-                                                                    <li><a href="element-product-slider.html">product
-                                                                            slider</a></li>
-                                                                    <li><a href="element-no_slider.html">no slider</a>
-                                                                    </li>
-                                                                    <li><a href="element-mulitiple_slider.html">multi
-                                                                            slider</a></li>
-                                                                    <li><a href="element-tab.html">tab</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col mega-box">
-                                                        <div class="link-section">
-                                                            <div class="menu-title">
-                                                                <h5>email template </h5>
-                                                            </div>
-                                                            <div class="menu-content">
-                                                                <ul>
-                                                                    <li><a href="email-order-success.html">order
-                                                                            success</a></li>
-                                                                    <li><a href="email-order-success-two.html">order
-                                                                            success 2</a></li>
-                                                                    <li><a href="email-template.html">email template</a>
-                                                                    </li>
-                                                                    <li><a href="email-template-two.html">email template
-                                                                            2</a></li>
+                                                                @endforeach
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -428,13 +305,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">What's New</a>
+                                    <a href="{{url('/whatsNew')}}">What's New</a>
                                 </li>
                                 <li>
-                                    <a href="#">Best Sellers</a>
+                                    <a href="{{url('/bestSeller')}}">Best Sellers</a>
                                 </li>
                                 <li>
-                                    <a href="#">blog</a>
+                                    <a href="{{url('/blogs')}}">blog</a>
                                 </li>
                             </ul>
                         </nav>

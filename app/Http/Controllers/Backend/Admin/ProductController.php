@@ -112,6 +112,11 @@ class ProductController extends Controller
                     $add->min_price = null;
                     $add->max_price = null;
                     $add->discount = $request->discount;
+
+                    if ($request->bestseller != null){
+                        $add->best_seller = 1;
+                    }
+                    
                     $add->status = 0;
                     $add->slug = Str::slug($request->name, '-');
                     $add->save();

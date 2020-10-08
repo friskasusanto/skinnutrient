@@ -37,15 +37,9 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="top-banner-wrapper">
-                                        <a href="#"><img src="{{asset('backends/assets/images/via/BANNER-SALE.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
-                                        <div class="top-banner-content small-section">
-                                            <h4>fashion</h4>
-                                            <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </h5>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                                it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                                                of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        </div>
+                                        <a href="#">
+                                            <img src="{{asset('backends/assets/images/via/BANNER-SALE.jpg')}}" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
                                     </div>
                                     <div class="collection-product-wrapper">
                                         <div class="product-top-filter">
@@ -53,9 +47,6 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="product-filter-content">
-                                                            <div class="search-count">
-                                                                <h5>Showing Products 1-24 of 10 Result</h5>
-                                                            </div>
                                                             <div class="collection-view">
                                                                 <ul>
                                                                     <li><i class="fa fa-th grid-layout-view"></i></li>
@@ -137,7 +128,7 @@
                                                                 <a href="product-page(no-sidebar).html">
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
-                                                                <p>{{$s->description}}</p>
+                                                                <p>{!!$s->description!!}</p>
                                                                 <h4>Rp. {{$s->price}}</h4>
                                                             </div>
                                                         </div>
@@ -183,7 +174,7 @@
                                 <h3>Rp. {{$s->price}}</h3>
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
-                                    <p>{{$s->description}}</p>
+                                    <p>{!!$s->description!!}</p>
                                 </div>
 
                                 <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
