@@ -48,9 +48,12 @@
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-setting">
-                                            <div><img src="{{asset('backends/assets/images/icon/users.png')}}"
-                                                    class="img-fluid blur-up lazyload" alt=""> <i
-                                                    class="ti-settings"></i>
+                                            <div>
+                                                <a href="{{ route('login') }}">
+                                                    <img src="{{asset('backends/assets/images/icon/users.png')}}"
+                                                    class="img-fluid blur-up lazyload" alt=""> 
+                                                    <i class="ti-settings"></i>
+                                                </a>
                                             </div>
                                         </li>
                                     @if (Auth::check())
@@ -485,8 +488,8 @@
                                     <li class="onhover-div mobile-setting">
                                         <div>
                                             <a href="{{ route('login') }}">
-                                            <img src="{{asset('backends/assets/images/icon/users.png')}}" class="img-fluid blur-up lazyload" alt="">
-                                            <i class="ti-settings"></i>
+                                                <img src="{{asset('backends/assets/images/icon/users.png')}}" class="img-fluid blur-up lazyload" alt="">
+                                                <i class="ti-settings"></i>
                                             </a>
                                         </div>
                                     </li>

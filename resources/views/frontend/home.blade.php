@@ -164,9 +164,9 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <a href="product-page.php">
-                                                <h5>Skin Nutrient™ {{$b->name}}</h5>
+                                                <h5>{{$b->name}}</h5>
                                             </a>
-                                            <h6><strong>Helps With:</strong>{!!$b->detail!!}</h6>
+                                            <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!}</h6>
                                             <br>
                                             <h4>Rp. {{$b->price}}
                                                 <!-- <del>$600.00</del> -->
@@ -215,9 +215,9 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <a href="{{url('/detailProduct', $n->slug)}}">
-                                                <h5>Skin Nutrient™ {{$n->name}}</h5>
+                                                <h5>{{$n->name}}</h5>
                                             </a>
-                                            <h6><strong>Helps With:</strong>{!!$n->detail!!}</h6>
+                                            <h6><strong>Membantu dengan:</strong>{!!$n->detail!!}</h6>
                                             <br>
                                             <h4>Rp. {{$n->price}}
                                                 <!-- <del>$600.00</del> -->
