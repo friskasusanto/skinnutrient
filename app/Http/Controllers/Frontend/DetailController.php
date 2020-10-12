@@ -89,12 +89,12 @@ class DetailController extends Controller
     {
     	$product = Product::where('slug', $slug)->first();
     	$gambar = ProductGambar::where('product_id', $product->id)->get();
-        $status = Checkout::where('user_id', Auth::user()->id)->where('product_id', $product->id)->orderBy('updated_at', 'desc')->where('status', 1)->get();
+        // $status = Checkout::where('user_id', Auth::user()->id)->where('product_id', $product->id)->orderBy('updated_at', 'desc')->where('status', 1)->get();
         $related = Product::with('category')->where('category_id', $product->category_id)->orderBy('created_at', 'desc')->limit('6')->get();
         $comment = Comment::where('product_id', $product->id)->orderBy('created_at', 'desc')->paginate(5);
     	// dd($status);
 
-    	return view('frontend.detailProduct', compact('product', 'gambar', 'status', 'related', 'comment'));
+    	return view('frontend.detailProductnew', compact('product', 'gambar', 'related', 'comment'));
     }
 
     public function addCart (Request $request, $slug)

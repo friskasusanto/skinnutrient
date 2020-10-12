@@ -15,7 +15,7 @@
                                     <div>
                                         <!--<h4>special offer</h4>
                                         <h1>men shoes</h1>-->
-                                        <a href="#" class="btn btn-solid black-btn">shop now</a>
+                                        <a href="{{route('shop', ['name' => 'Skin+Nutrient™+Goat%27s+Milk+Magic™+Moment'])}}" class="btn btn-solid black-btn">shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                     <div>
                                         <!--<h4>special offer</h4>
                                         <h1>men shoes</h1>-->
-                                        <a href="#" class="btn btn-solid black-btn">shop now</a>
+                                        <a href="{{route('shop', ['name' => 'Skin+Nutrient™+Goat%27s+Milk+Magic™+Sleep+Cream'])}}" class="btn btn-solid black-btn">shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -335,10 +335,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form class="form-inline subscribe-form">
+                            <form class="form-inline subscribe-form" novalidate="novalidate" method="POST" action= "{{url('/subscribe')}}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group mx-sm-3">
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="Enter your email">
+                                        placeholder="Enter your email" name="email">
                                 </div>
                                 <button type="submit" class="btn btn-solid black-btn">subscribe</button>
                             </form>
