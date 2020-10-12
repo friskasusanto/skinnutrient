@@ -166,7 +166,7 @@
                                             <a href="product-page.php">
                                                 <h5>{{$b->name}}</h5>
                                             </a>
-                                            <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!}</h6>
+                                            <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
                                             <br>
                                             <h4>Rp. {{$b->price}}
                                                 <!-- <del>$600.00</del> -->
@@ -217,7 +217,7 @@
                                             <a href="{{url('/detailProduct', $n->slug)}}">
                                                 <h5>{{$n->name}}</h5>
                                             </a>
-                                            <h6><strong>Membantu dengan:</strong>{!!$n->detail!!}</h6>
+                                            <!-- <h6><strong>Membantu dengan:</strong>{!!substr($n->detail,0,50)!!} ...</h6> -->
                                             <br>
                                             <h4>Rp. {{$n->price}}
                                                 <!-- <del>$600.00</del> -->
