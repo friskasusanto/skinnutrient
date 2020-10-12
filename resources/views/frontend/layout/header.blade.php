@@ -537,8 +537,9 @@
                                         <?php
                                             $cart = App\Model\Chart::where('user_id', Auth::user()->id)->limit(2)->get();
                                         ?>
-                                        @foreach($cart as $c)
                                         <ul class="show-div shopping-cart">
+                                    @if (count ($cart) != 0)
+                                        @foreach($cart as $c)
                                             <li>
                                                 <div class="media">
                                                     <a href="{{url('/detailProduct', $c->product->slug)}}">
@@ -556,17 +557,26 @@
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </div>
+                                            </li>
                                             <li>
                                                 <div class="total">
                                                     <h5>subtotal : <span>Rp. {{$c->jumlah * $c->product->price}}</span></h5>
                                                 </div>
                                             </li>
+                                            
+                                        @endforeach 
                                             <li>
                                                 <div class="buttons">
                                                     <a href="{{url('/cart')}}" class="view-cart">view cart</a><a href="{{url('/cartTocheckout')}}" class="checkout">checkout</a>
                                                 </div>
                                             </li>
-                                        @endforeach
+                                    @else
+                                        <li>
+                                            <center><div class="buttons">
+                                                <a href="{{url('/cart')}}" class="view-cart">view cart</a>
+                                            </div></center>
+                                        </li>
+                                    @endif
                                         </ul>
                                     </li>
                                 @endif

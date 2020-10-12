@@ -28,7 +28,7 @@ Page Header Start-->
                             <li><a href="#" data-lng="fr"><i class="flag-icon flag-icon-nz"></i> French</a></li>
                         </ul>
                     </li> -->
-                    <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
+                    <!-- <li class="onhover-dropdown"><i data-feather="bell"></i><span class="badge badge-pill badge-primary pull-right notification-badge">3</span><span class="dot"></span>
                         <ul class="notification-dropdown onhover-show-div p-0">
                             <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
                             <li>
@@ -57,7 +57,7 @@ Page Header Start-->
                             </li>
                             <li class="txt-dark"><a href="#">All</a> notification</li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- <li><a href="#"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li> -->
                     <li class="onhover-dropdown">
                         <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="{{asset('backends/assets/images/dashboard/man.png')}}" alt="header-user">
@@ -69,10 +69,19 @@ Page Header Start-->
                             <li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
                             <li><a href="#"><i data-feather="settings"></i>Settings</a></li> -->
                             <li>
+                                <a href="{{ url('/') }}">
+                                  Home Skinnutrient
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('/ganti_password', Auth::user()->id)}}">
+                                  Ganti Password
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                <i data-feather="log-out"></i>
                                   Logout
                                 </a>
 

@@ -386,69 +386,31 @@
                         <div class="line"></div>
                     </div>-->
                     <div class="slide-3 no-arrow">
+                    @if (count ($blog) != 0)
+                        @foreach ($blog as $b)
                         <div class="col-md-12">
                             <a href="#">
                                 <div class="classic-effect">
                                     <div>
-                                        <img src="{{asset('backends/assets/images/banner/blog1.jpg')}}"
+                                        <img src="{{url('blog/'.$b->images)}}"
                                             class="img-fluid blur-up lazyload bg-img" alt="">
                                     </div>
                                     <span></span>
                                 </div>
                             </a>
                             <div class="blog-details">
-                                <h4>NEWSWORTHY</h4>
+                                <h4>SKINNUTRIENT NEWS</h4>
                                 <a href="#">
-                                    <p>Skin Nutrient™ have won 2 skincare categories for 2020!</p>
+                                    <p>{{$b->judul}}</p>
                                 </a>
                                 <!--<hr class="style1">
                                 <h6>by: John Dio , 2 Comment</h6>-->
                                 <br>
-                                <a href="#" class="btn btn-solid black-btn">LEARN MORE</a>
+                                <a href="{{url('/blogsDetail', $b->judul)}}" class="btn btn-solid black-btn">LEARN MORE</a>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="{{asset('backends/assets/images/banner/blog2.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>EXPERT ADVICE</h4>
-                                <a href="#">
-                                    <p>Red wine is an anti-ageing drink, learn about the skin benefits</p>
-                                </a>
-                                <!--<hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>-->
-                                <br>
-                                <a href="#" class="btn btn-solid black-btn">LEARN MORE</a>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="{{asset('backends/assets/images/banner/blog3.jpg')}}"
-                                            class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>EXPERT ADVICE</h4>
-                                <a href="#">
-                                    <p>Healthy skin habits to start in 2020</p>
-                                </a>
-                                <!--<hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>-->
-                                <br>
-                                <a href="#" class="btn btn-solid black-btn">LEARN MORE</a>
-                            </div>
-                        </div>
+                        @endforeach
+                    @endif
                     </div>
                 </div>
             </div>
