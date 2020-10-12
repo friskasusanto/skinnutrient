@@ -309,10 +309,6 @@
                                 <a href="{{url('/detailProduct', $l->slug)}}">
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
-                                @if ($l->detail != null)
-                                    <h6><strong>Helps With:</strong>{!!$l->detail!!}</h6>
-                                @endif
-                                <br>
                                 <h4>Rp. {{$l->price}}
                                     <!-- <del>$600.00</del> -->
                                 </h4>
