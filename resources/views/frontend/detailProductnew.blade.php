@@ -62,32 +62,7 @@
                             <!-- <h4><del>$459.00</del><span>55% off</span></h4> -->
                             <h3>Rp. {{$product->price}}</h3>
                             <p>{!!$product->description!!}</p>
-                            <div class="product-description border-product">
-                                <!--<h6 class="product-title size-text">select size <span><a href="" data-toggle="modal"
-                                            data-target="#sizemodal">size chart</a></span></h6>
-                                <div class="modal fade" id="sizemodal" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Sheer Straight Kurta</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <div class="modal-body"><img src="../assets/images/size-chart.jpg" alt=""
-                                                    class="img-fluid blur-up lazyload"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="size-box">
-                                    <ul>
-                                        <li class="active"><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">xl</a></li>
-                                    </ul>
-                                </div>-->
-                                <h6 class="product-title">quantity</h6>
+                            <div class="product-description">
                                 <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/buy', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="product-description border-product">
@@ -138,6 +113,7 @@
                                     voluptatem,</p>
                             </div>-->
                             <div id="accordion">
+                            @if ($product->detail != null)
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
                                     <h5 class="mb-0">
@@ -153,6 +129,8 @@
                                     </div>
                                     </div>
                                 </div>
+                            @endif
+                            @if ($product->ingredients != null)
                                 <div class="card">
                                     <div class="card-header" id="headingTwo">
                                     <h5 class="mb-0">
@@ -167,6 +145,8 @@
                                     </div>
                                     </div>
                                 </div>
+                            @endif
+                            @if ($product->how_to_use != null)
                                 <div class="card">
                                     <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -181,6 +161,8 @@
                                     </div>
                                     </div>
                                 </div>
+                            @endif
+                            @if ($product->shipping_police != null)
                                 <div class="card">
                                     <div class="card-header" id="headingFour">
                                     <h5 class="mb-0">
@@ -195,6 +177,7 @@
                                     </div>
                                     </div>
                                 </div>
+                            @endif
                                 </div>
                             <!--<div class="border-product">
                                 <h6 class="product-title">share it</h6>

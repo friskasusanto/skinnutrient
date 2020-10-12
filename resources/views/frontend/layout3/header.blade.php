@@ -94,9 +94,10 @@
                                                         class="ti-settings"></i></div>
                                             </li> -->
                                             <li class="onhover-div mobile-cart">
-                                                <div>
-                                                    <img src="{{asset('backends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
-                                                    <i class="ti-shopping-cart"></i>
+                                                <div href="javascript:void(0)" onclick="openCart()">
+                                                    <img src="{{asset('backends/assets/images/icon/cart.png')}}"
+                                                        class="img-fluid blur-up lazyload" alt=""> 
+                                                        <i class="ti-shopping-cart"></i>
                                                 </div>
                                             </li>
                                         </ul>

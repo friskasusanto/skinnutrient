@@ -159,11 +159,10 @@ class DetailController extends Controller
     public function buy (Request $request, $slug)
     {
     	$product = Product::where('slug', $slug)->first();
-    	$cek = Checkout::where('product_id', $product->id)->where('user_id', Auth::user()->id)->count();
-        $cekCart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
     	// dd($cek);
 
         if (Auth::check()) {
+            $cek = Checkout::where('product_id', $product->id)->where('user_id', Auth::user()->id)->count();
         	if ($cek <= 0){
         		$buy = new Checkout;
         		$buy->date_entry = date('Y-m-d H:i:s');    
@@ -174,6 +173,7 @@ class DetailController extends Controller
         		$buy->status = 0;
         		$buy->save();
 
+                $cekCart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
         		if ($cekCart){
                     $cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
                     $cart->delete();

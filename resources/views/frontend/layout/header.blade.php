@@ -59,12 +59,14 @@
                                     @if (Auth::check())
                                         <li class="onhover-div mobile-setting">
                                             <div>
+                                            <a href="{{url('/wishlist')}}">
                                                 <img src="{{asset('backends/assets/images/icon/heart-black.png')}}" class="img-fluid blur-up lazyload" alt=""> 
                                                 <i class="ti-settings"></i>
+                                            </a>
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-cart">
-                                            <div href="javascript:void(0)" onclick="openCart()">
+                                            <div>
                                                 <img src="{{asset('backends/assets/images/icon/cart.png')}}"
                                                     class="img-fluid blur-up lazyload" alt=""> 
                                                     <i class="ti-shopping-cart"></i>
@@ -280,7 +282,7 @@
                     <div class="col-lg-6 text-right hidden-aja">
                         <ul class="header-dropdown">
                             <li class="mobile-wishlist">
-                                <a href="#">
+                                <a href="{{url('/wishlist')}}">
                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                     wishlist
                                 </a>
@@ -492,18 +494,80 @@
                                                 <i class="ti-settings"></i>
                                             </a>
                                         </div>
+                                        <div class="show-div setting">
+                                        @if (Auth::check())
+                                            <h6>Hallo, {{Auth::user()->name}}</h6>
+                                        @endif
+                                            <ul>
+                                            @if (! Auth::check())
+                                                <li><a href="{{ route('login') }}">login</a></li>
+                                            @endif
+                                            @if (Auth::check())
+                                                <li><a href="{{ url('/dasboard') }}">dasboard</a></li>
+                                                <li>
+                                                    <a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                      Logout
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            @endif
+                                            </ul>
+                                        </div>
                                     </li>
                                 @if (Auth::check())
                                     <li class="onhover-div mobile-setting">
-                                        <div><img src="{{asset('backends/assets/images/icon/heart-black.png')}}" class="img-fluid blur-up lazyload" alt=""> 
+                                        <div>
+                                        <a href="{{url('/wishlist')}}">
+                                            <img src="{{asset('backends/assets/images/icon/heart-black.png')}}" class="img-fluid blur-up lazyload" alt=""> 
                                             <i class="ti-settings"></i>
+                                        </a>
                                         </div>
                                     </li>
                                     <li class="onhover-div mobile-cart">
-                                        <div href="javascript:void(0)" onclick="openCart()">
-                                            <img src="{{asset('backends/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt=""> 
-                                            <i class="ti-shopping-cart"></i>
+                                        <div>
+                                            <img src="{{asset('backends/assets/images/icon/cart.png')}}"
+                                                class="img-fluid blur-up lazyload" alt=""> 
+                                                <i class="ti-shopping-cart"></i>
                                         </div>
+                                        <?php
+                                            $cart = App\Model\Chart::where('user_id', Auth::user()->id)->limit(2)->get();
+                                        ?>
+                                        @foreach($cart as $c)
+                                        <ul class="show-div shopping-cart">
+                                            <li>
+                                                <div class="media">
+                                                    <a href="{{url('/detailProduct', $c->product->slug)}}">
+                                                        <img alt="" class="mr-3" src="{{url('product/'.$c->product->image)}}">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a href="{{url('/detailProduct', $c->product->slug)}}">
+                                                            <h4>{{$c->product->name}}</h4>
+                                                        </a>
+                                                        <h4><span>{{$c->jumlah}} x $ Rp. {{$c->product->price}}</span></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="close-circle">
+                                                    <a href="{{url('/cartDelete', $c->id)}}">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            <li>
+                                                <div class="total">
+                                                    <h5>subtotal : <span>Rp. {{$c->jumlah * $c->product->price}}</span></h5>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="buttons">
+                                                    <a href="{{url('/cart')}}" class="view-cart">view cart</a><a href="{{url('/cartTocheckout')}}" class="checkout">checkout</a>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                        </ul>
                                     </li>
                                 @endif
                                 </ul>
