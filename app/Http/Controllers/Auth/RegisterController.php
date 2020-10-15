@@ -56,10 +56,6 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $role = Role::where('name','=','Member')->first();
-        $user->attachRole($role);
-
-        return $user;
     }
 
     /**
@@ -76,5 +72,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        
+        $role = Role::where('name','=','Member')->first();
+        $user->attachRole($role);
+
+        return $user;
     }
 }
