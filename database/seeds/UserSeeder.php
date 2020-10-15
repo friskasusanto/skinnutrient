@@ -41,6 +41,11 @@ class UserSeeder extends Seeder
 			$salesRole->display_name = "Sales";
 			$salesRole->save();
 
+			$memberRole = new Role();
+			$memberRole->name = "Member";
+			$memberRole->display_name = "Member";
+			$memberRole->save();
+
 		// Membuat sample admin
 			$admin = new User();
 			$admin->name = 'Admin Skinnutrient';
@@ -71,11 +76,18 @@ class UserSeeder extends Seeder
 			$gudang->attachRole($gudangRole);
 
 			$sales = new User();
-			$sales->name = "Salesp Skinnutrient";
+			$sales->name = "Sales Skinnutrient";
 			$sales->email = 'sales@gmail.com';
 			$sales->password = bcrypt('password');
 			$sales->save();
 			$sales->attachRole($salesRole);
+
+			$member = new User();
+			$member->name = "Member Skinnutrient";
+			$member->email = 'member@gmail.com';
+			$member->password = bcrypt('password');
+			$member->save();
+			$member->attachRole($memberRole);
 
 		// Menu
 			$menu = new Menu();
