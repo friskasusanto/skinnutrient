@@ -31,15 +31,15 @@ class UserSeeder extends Seeder
 			$resellerRole->display_name = "Reseller";
 			$resellerRole->save();
 
-			$resellerRole = new Role();
-			$resellerRole->name = "Gudang";
-			$resellerRole->display_name = "Gudang";
-			$resellerRole->save();
+			$gudangRole = new Role();
+			$gudangRole->name = "Gudang";
+			$gudangRole->display_name = "Gudang";
+			$gudangRole->save();
 
-			$resellerRole = new Role();
-			$resellerRole->name = "Sales";
-			$resellerRole->display_name = "Sales";
-			$resellerRole->save();
+			$salesRole = new Role();
+			$salesRole->name = "Sales";
+			$salesRole->display_name = "Sales";
+			$salesRole->save();
 
 		// Membuat sample admin
 			$admin = new User();
@@ -62,6 +62,20 @@ class UserSeeder extends Seeder
 			$reseller->password = bcrypt('password');
 			$reseller->save();
 			$reseller->attachRole($resellerRole);
+
+			$gudang = new User();
+			$gudang->name = "Gudang Skinnutrient";
+			$gudang->email = 'gudang@gmail.com';
+			$gudang->password = bcrypt('password');
+			$gudang->save();
+			$gudang->attachRole($gudangRole);
+
+			$sales = new User();
+			$sales->name = "Salesp Skinnutrient";
+			$sales->email = 'sales@gmail.com';
+			$sales->password = bcrypt('password');
+			$sales->save();
+			$sales->attachRole($salesRole);
 
 		// Menu
 			$menu = new Menu();

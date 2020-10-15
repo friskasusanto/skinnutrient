@@ -22,6 +22,7 @@
                 </div>
                 <ul class="sidebar-menu">
                     <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                @role('Admin')
                     <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i> <span>User</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li>
@@ -50,13 +51,6 @@
                             <!-- <li><a href="{{url('/admin/jenisProduct')}}"><i class="fa fa-circle"></i>Daftar Product Jenis</a></li> -->
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="archive"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="{{url('/admin/gudang/index')}}"><i class="fa fa-circle"></i>Daftar Gudang</a></li>
-                            <li><a href="{{url('/admin/add/gudang')}}"><i class="fa fa-circle"></i>Tambah Barang</a></li>
-                            <li><a href=""><i class="fa fa-circle"></i>Barang Keluar Masuk</a></li>
-                        </ul>
-                    </li>
                     <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Blog</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/blog')}}"><i class="fa fa-circle"></i>Daftar Blog</a></li>
@@ -66,6 +60,16 @@
                     <li><a class="sidebar-header" href=""><i data-feather="bar-chart"></i><span>Log Admin</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/log')}}"><i class="fa fa-circle"></i>Daftar Log Admin</a></li>
+                        </ul>
+                    </li>
+                @endrole
+
+                @role('Gudang')
+                    <li><a class="sidebar-header" href=""><i data-feather="archive"></i><span>Gudang</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/gudang/index')}}"><i class="fa fa-circle"></i>Daftar Gudang</a></li>
+                            <li><a href="{{url('/admin/add/gudang')}}"><i class="fa fa-circle"></i>Tambah Barang</a></li>
+                            <li><a href=""><i class="fa fa-circle"></i>Barang Keluar Masuk</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Distributor</span><i class="fa fa-angle-right pull-right"></i></a>
@@ -78,7 +82,15 @@
                             <li><a href="{{url('/admin/sales')}}"><i class="fa fa-circle"></i>Daftar Sales</a></li>
                         </ul>
                     </li>
+                @endrole
 
+                @role('Sales')
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Sales</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/sales')}}"><i class="fa fa-circle"></i>Daftar Sales</a></li>
+                        </ul>
+                    </li>
+                @endrole
                 </ul>
             </div>
         </div>
