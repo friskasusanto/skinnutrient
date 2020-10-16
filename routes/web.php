@@ -74,11 +74,17 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 //BACKEND/ADMIN
 
-//Backend/DistributorController
+	//Backend/SalesController
 	Route::get('/admin/sales', 'Backend\Admin\SalesController@index')->name('sales');
 	Route::post('/admin/addSales', 'Backend\Admin\SalesController@add')->name('add_sales');
-	Route::post('/admin/editSales/{id}', 'Backend\Admin\SalesController@edit')->name('editsalesr');
+	Route::post('/admin/editSales/{id}', 'Backend\Admin\SalesController@edit')->name('editsales');
 	Route::get('/admin/hapusSales/{id}', 'Backend\Admin\SalesController@delete')->name('hapus_sales');
+
+	//Backend/TokoController
+	Route::get('/admin/toko', 'Backend\Admin\TokoController@index')->name('toko');
+	Route::post('/admin/addToko', 'Backend\Admin\TokoController@add')->name('add_toko');
+	Route::post('/admin/editToko/{id}', 'Backend\Admin\TokoController@edit')->name('edit_toko');
+	Route::get('/admin/hapusToko/{id}', 'Backend\Admin\TokoController@delete')->name('hapus_toko');
 
 	//Backend/DistributorController
 	Route::get('/admin/distributor', 'Backend\Admin\DistributorController@index')->name('distributor');

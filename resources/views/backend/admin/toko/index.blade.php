@@ -1,4 +1,4 @@
-@extends('backend.layout.index', ['active' => 'list_sales'])
+@extends('backend.layout.index', ['active' => 'list_toko'])
 @section('title', 'Sales')
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Sales List
+                    <h3>Toko List
                         <small>Multikart Admin panel</small>
                     </h3>
                 </div>
@@ -17,8 +17,8 @@
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Sales</li>
-                    <li class="breadcrumb-item active">Sales List</li>
+                    <li class="breadcrumb-item">Toko</li>
+                    <li class="breadcrumb-item active">Toko List</li>
                 </ol>
             </div>
         </div>
@@ -30,10 +30,8 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h5>Sales Details</h5>
-            @role ('Gudang')
-            <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded pull-right" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Sales</a>
-            @endrole
+            <h5>Toko Details</h5>
+            <a type="button" class="btn btn btn-secondary btn-rounded btn-rounded pull-right" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> Tambah Toko</a>
         </div>
         <div class="card-body">
             @if (count($errors) > 0)
@@ -59,37 +57,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @if(count($sales) != 0)
-                            @foreach ($sales as $key =>$u)
+                        @if(count($toko) != 0)
+                            @foreach ($toko as $key =>$u)
                             <tr>
                                 <td>{{++$key}}</td>
                                 <td>{{$u->name}}</td>
                                 <td>{{$u->alamat}}</td>
                             @if ($u->status == 1)
-                                <td><p style="color: green ">sales aktif</p></td>
+                                <td><p style="color: green ">toko aktif</p></td>
                             @elseif ($u->status == 0)
-                                <td><p style="color: red ">sales tidak aktif</p></td>
+                                <td><p style="color: red ">toko tidak aktif</p></td>
                             @else
                                 <td></td>
                             @endif
                                 <td>
                                 <center>
                                 <ul>
-                                @role ('Gudang')
                                     <li>
                                         <a class="btn btn-warning btn-icon-split btn-sm" type="button" data-toggle="modal" data-target="#modalEdit{{$u->id}}" >
                                             <i class="fa fa-edit"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{url('/admin/gudang/delete', $u->id)}}" class="btn btn-danger btn-icon-split btn-sm" >
-                                            <i class="fa fa-trash" ></i>
-                                        </a>
-                                    </li>
-                                @endrole
+
                                     <li>
                                         <a class="btn btn-info btn-icon-split btn-sm" type="button" data-toggle="modal" data-target="#modalDetail{{$u->id}}" >
                                                 <i class="fa fa-eye"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{url('/admin/gudang/delete', $u->id)}}" class="btn btn-danger btn-icon-split btn-sm" >
+                                            <i class="fa fa-trash" ></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -104,7 +102,7 @@
                         @endif 
                         </tbody>
                     </table>
-                    {{$sales->render()}}
+                    {{$toko->render()}}
                 </div>
             </div>
         </div>
@@ -112,24 +110,41 @@
 </div>
 
 
-@if(isset($sales))
+@if(isset($toko))
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><center>Tambah Sales</center></h5>
+                <h5 class="modal-title"><center>Tambah Toko</center></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form novalidate="novalidate" method="POST" action= "{{url('/admin/addSales')}}" enctype="multipart/form-data">
+                <form novalidate="novalidate" method="POST" action= "{{url('/admin/addToko')}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Nama Sales</label>
+                                        <label>Distributor</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                       <select name="distributor" type="text" class="form-control" style="width: 100%">
+                                              <option value="">--pilih distributor--</option>
+                                            @foreach ($distributor as $d)
+                                              <option value= "{{$d->id}}">{{$d->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Nama Toko</label>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -141,7 +156,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Alamat Sales</label>
+                                        <label>Alamat Toko</label>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -165,7 +180,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Kontak Sales</label>
+                                        <label>Kontak Toko</label>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -184,8 +199,8 @@
                                     <div class="form-group">
                                        <select name="status" type="text" class="form-control" style="width: 100%">
                                               <option value="">--pilih status--</option>
-                                              <option value= "1">distributor aktif</option>
-                                              <option value= "0">distributor tidak aktif</option>
+                                              <option value= "1">toko aktif</option>
+                                              <option value= "0">toko tidak aktif</option>
                                         </select>
                                     </div>
                                 </div>
@@ -207,20 +222,20 @@
 @endif
 
 
-@if(isset($sales))
-@foreach( $sales as $u )
+@if(isset($toko))
+@foreach( $toko as $u )
 <div class="modal" id="modalDetail{{$u->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><center>Data Sales</center></h5>
+                <h5 class="modal-title"><center>Data Toko</center></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <tr>
-                    <th>Nama Sales</th>
+                    <th>Nama Toko</th>
                     <td>: {{ $u->name }}</td>
                 </tr>
                 <br/>
@@ -235,7 +250,7 @@
                 </tr>
                 <br/>
                 <tr>
-                    <th>Kontak Sales</th>
+                    <th>Kontak Toko</th>
                     <td>: {{ $u->phone }}</td>
                 </tr>
                 <br/>
@@ -258,13 +273,13 @@
 @endforeach
 @endif
 
-@if(isset($sales))
-@foreach( $sales as $u )
+@if(isset($toko))
+@foreach( $toko as $u )
 <div class="modal" id="modalEdit{{$u->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Data Sales</h5>
+                <h5 class="modal-title">Edit Data Toko</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -280,13 +295,13 @@
                     </ul>
                 </div>
                 @endif
-                <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/editDistributor', $u->id)}}" enctype="multipart/form-data">
+                <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/editToko', $u->id)}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Nama Sales</label>
+                                    <label>Nama Toko</label>
                                 </div>
                             </div>
                             <div class="col-md-9">
@@ -298,7 +313,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Alamat Sales</label>
+                                    <label>Alamat Toko</label>
                                 </div>
                             </div>
                             <div class="col-md-9">
@@ -322,7 +337,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Kontak Sales</label>
+                                    <label>Kontak Toko</label>
                                 </div>
                             </div>
                             <div class="col-md-9">
@@ -342,12 +357,12 @@
                                     <select name="status" type="text" class="form-control pull-right select2" style="width: 100%">
                                           <option value="">--pilih status--</option>
                                           @if ($u->status == 1)
-                                          <option value="">--sales aktif--</option>
+                                          <option value="">--toko aktif--</option>
                                           @else
-                                          <option value="">--sales tidak aktif--</option>
+                                          <option value="">--toko tidak aktif--</option>
                                           @endif
-                                          <option value= "1">sales aktif</option>
-                                          <option value= "0">sales tidak aktif</option>
+                                          <option value= "1">toko aktif</option>
+                                          <option value= "0">toko tidak aktif</option>
                                     </select>
                                 </div>
                             </div>

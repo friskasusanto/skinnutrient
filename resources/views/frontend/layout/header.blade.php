@@ -292,7 +292,15 @@
                                 <ul class="onhover-show-div">
                                 @if (Auth::check())
                                     <li>Hallo, {{Auth::user()->name}}</li>
+                                    @role ('Admin')
                                     <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                    @endrole
+                                    @role ('Gudang')
+                                    <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                    @endrole
+                                    @role ('Sales')
+                                    <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                    @endrole
                                 @endif
                                     <li><a href="{{ route('login') }}" data-lng="en">Login</a></li>
                                     <li>
@@ -503,7 +511,15 @@
                                                 <li><a href="{{ route('login') }}">login</a></li>
                                             @endif
                                             @if (Auth::check())
-                                                <li><a href="{{ url('/dasboard') }}">dasboard</a></li>
+                                                @role ('Admin')
+                                                <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                                @endrole
+                                                @role ('Gudang')
+                                                <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                                @endrole
+                                                @role ('Sales')
+                                                <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
+                                                @endrole
                                                 <li>
                                                     <a href="{{ route('logout') }}"
                                                    onclick="event.preventDefault();

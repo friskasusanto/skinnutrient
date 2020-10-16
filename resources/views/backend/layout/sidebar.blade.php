@@ -90,6 +90,11 @@
                             <li><a href="{{url('/admin/sales')}}"><i class="fa fa-circle"></i>Daftar Sales</a></li>
                         </ul>
                     </li>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Toko</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/toko')}}"><i class="fa fa-circle"></i>Daftar Toko</a></li>
+                        </ul>
+                    </li>
                 @endrole
                 </ul>
             </div>
