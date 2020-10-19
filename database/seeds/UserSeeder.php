@@ -48,49 +48,49 @@ class UserSeeder extends Seeder
 
 		// Membuat sample admin
 			$admin = new User();
-			$admin->name = 'Admin Skinnutrient';
+			$admin->name = 'Admin';
 			$admin->email = 'admin@gmail.com';
-			$admin->last_name = null;
+			$admin->last_name = 'Skinnutrient';
 			$admin->password = bcrypt('password');
 			$admin->save();
 			$admin->attachRole($adminRole);
 
 			$dropshiper = new User();
-			$dropshiper->name = "Dropshiper Skinnutrient";
+			$dropshiper->name = "Dropshiper";
 			$dropshiper->email = 'dropshiper@gmail.com';
-			$dropshiper->last_name = null;
+			$dropshiper->last_name = 'Skinnutrient';
 			$dropshiper->password = bcrypt('password');
 			$dropshiper->save();
 			$dropshiper->attachRole($dropshiperRole);
 
 			$reseller = new User();
-			$reseller->name = "Reseller Skinnutrient";
+			$reseller->name = "Reseller";
 			$reseller->email = 'reseller@gmail.com';
-			$reseller->last_name = null;
+			$reseller->last_name = 'Skinnutrient';
 			$reseller->password = bcrypt('password');
 			$reseller->save();
 			$reseller->attachRole($resellerRole);
 
 			$gudang = new User();
-			$gudang->name = "Gudang Skinnutrient";
+			$gudang->name = "Gudang";
 			$gudang->email = 'gudang@gmail.com';
-			$gudang->last_name = null;
+			$gudang->last_name = 'Skinnutrient';
 			$gudang->password = bcrypt('password');
 			$gudang->save();
 			$gudang->attachRole($gudangRole);
 
 			$sales = new User();
-			$sales->name = "Sales Skinnutrient";
+			$sales->name = "Sales";
 			$sales->email = 'sales@gmail.com';
-			$sales->last_name = null;
+			$sales->last_name = 'Skinnutrient';
 			$sales->password = bcrypt('password');
 			$sales->save();
 			$sales->attachRole($salesRole);
 
 			$member = new User();
-			$member->name = "Member Skinnutrient";
+			$member->name = "Member";
 			$member->email = 'member@gmail.com';
-			$member->last_name = null;
+			$member->last_name = 'Skinnutrient';
 			$member->password = bcrypt('password');
 			$member->save();
 			$member->attachRole($memberRole);
