@@ -50,6 +50,7 @@ class UserSeeder extends Seeder
 			$admin = new User();
 			$admin->name = 'Admin Skinnutrient';
 			$admin->email = 'admin@gmail.com';
+			$admin->last_name = null;
 			$admin->password = bcrypt('password');
 			$admin->save();
 			$admin->attachRole($adminRole);
@@ -57,6 +58,7 @@ class UserSeeder extends Seeder
 			$dropshiper = new User();
 			$dropshiper->name = "Dropshiper Skinnutrient";
 			$dropshiper->email = 'dropshiper@gmail.com';
+			$dropshiper->last_name = null;
 			$dropshiper->password = bcrypt('password');
 			$dropshiper->save();
 			$dropshiper->attachRole($dropshiperRole);
@@ -64,6 +66,7 @@ class UserSeeder extends Seeder
 			$reseller = new User();
 			$reseller->name = "Reseller Skinnutrient";
 			$reseller->email = 'reseller@gmail.com';
+			$reseller->last_name = null;
 			$reseller->password = bcrypt('password');
 			$reseller->save();
 			$reseller->attachRole($resellerRole);
@@ -71,6 +74,7 @@ class UserSeeder extends Seeder
 			$gudang = new User();
 			$gudang->name = "Gudang Skinnutrient";
 			$gudang->email = 'gudang@gmail.com';
+			$gudang->last_name = null;
 			$gudang->password = bcrypt('password');
 			$gudang->save();
 			$gudang->attachRole($gudangRole);
@@ -78,6 +82,7 @@ class UserSeeder extends Seeder
 			$sales = new User();
 			$sales->name = "Sales Skinnutrient";
 			$sales->email = 'sales@gmail.com';
+			$sales->last_name = null;
 			$sales->password = bcrypt('password');
 			$sales->save();
 			$sales->attachRole($salesRole);
@@ -85,6 +90,7 @@ class UserSeeder extends Seeder
 			$member = new User();
 			$member->name = "Member Skinnutrient";
 			$member->email = 'member@gmail.com';
+			$member->last_name = null;
 			$member->password = bcrypt('password');
 			$member->save();
 			$member->attachRole($memberRole);
