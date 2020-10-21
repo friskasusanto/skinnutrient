@@ -168,9 +168,15 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
                                             <br>
+                                        @if ($b->comming_soon == 1)
+                                            <center><h4>
+                                                Comming Soon
+                                            </h4></center>
+                                        @else
                                             <h4>Rp. {{$b->price}}
                                                 <!-- <del>$600.00</del> -->
                                             </h4>
+                                        @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -219,9 +225,15 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($n->detail,0,50)!!} ...</h6> -->
                                             <br>
+                                        @if ($n->comming_soon == 1)
+                                            <center><h4>
+                                                Comming Soon
+                                            </h4></center>
+                                        @else
                                             <h4>Rp. {{$n->price}}
                                                 <!-- <del>$600.00</del> -->
                                             </h4>
+                                        @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -309,9 +321,15 @@
                                 <a href="{{url('/detailProduct', $l->slug)}}">
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
-                                <h4>Rp. {{$l->price}}
-                                    <!-- <del>$600.00</del> -->
-                                </h4>
+                                @if ($l->comming_soon == 1)
+                                    <center><h4>
+                                        Comming Soon
+                                    </h4></center>
+                                @else
+                                    <h4>Rp. {{$l->price}}
+                                        <!-- <del>$600.00</del> -->
+                                    </h4>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -436,7 +454,16 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                                <h3>Rp. {{$l->price}}</h3>
+
+                            @if ($l->comming_soon == 1)
+                                <center><h3>
+                                    Comming Soon
+                                </h3></center>
+                            @else
+                                <h3>Rp. {{$l->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h3>
+                            @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$l->description!!}</p>
@@ -482,7 +509,15 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                                <h3>Rp. {{$l->price}}</h3>
+                            @if ($l->comming_soon == 1)
+                                <center><h3>
+                                    Comming Soon
+                                </h3></center>
+                            @else
+                                <h3>Rp. {{$l->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h3>
+                            @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$l->description!!}</p>
@@ -528,7 +563,15 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                                <h3>Rp. {{$l->price}}</h3>
+                            @if ($l->comming_soon == 1)
+                                <center><h3>
+                                    Comming Soon
+                                </h3></center>
+                            @else
+                                <h3>Rp. {{$l->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h3>
+                            @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$l->description!!}</p>

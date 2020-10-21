@@ -116,6 +116,9 @@ class ProductController extends Controller
                     if ($request->bestseller != null){
                         $add->best_seller = 1;
                     }
+                    if ($request->comming_soon != null){
+                        $add->comming_soon = 1;
+                    }
                     
                     $add->status = 0;
                     $add->slug = Str::slug($request->name, '-');
@@ -171,6 +174,9 @@ class ProductController extends Controller
 
             if ($request->bestseller != null){
                 $add->best_seller = 1;
+            }
+            if ($request->comming_soon != null){
+                $add->comming_soon = 1;
             }
             $add->slug = Str::slug($request->name, '-');
             $add->save();
@@ -258,8 +264,16 @@ class ProductController extends Controller
                         $edit->best_seller = 1;
                     }elseif ($request->bestseller == 0) {
                         $edit->best_seller = 0;
-                    }else {
+                    }elseif ($request->bestseller == null) {
                         $edit->best_seller = $edit->bestseller;
+                    }
+
+                    if ($request->comming_soon == 1){
+                        $edit->comming_soon = 1;
+                    }elseif ($request->comming_soon == 0) {
+                        $edit->comming_soon = 0;
+                    }elseif ($request->comming_soon == null) {
+                        $edit->comming_soon = $edit->comming_soon;
                     }
                     $edit->save();
 
@@ -334,6 +348,14 @@ class ProductController extends Controller
                     $edit->best_seller = 0;
                 }else {
                     $edit->best_seller = $edit->bestseller;
+                }
+
+                if ($request->comming_soon == 1){
+                    $edit->comming_soon = 1;
+                }elseif ($request->comming_soon == 0) {
+                    $edit->comming_soon = 0;
+                }elseif ($request->comming_soon == null) {
+                    $edit->comming_soon = $edit->comming_soon;
                 }
                 $edit->save();
 

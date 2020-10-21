@@ -179,6 +179,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Comming Soon :</label>
+                                        <div class="add-product">
+                                            <div class="row">
+                                                <ul class="file-upload-product">
+                                                    <li>
+                                                        <input class="file" type="checkbox" name="comming_soon" multiple required>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="offset-xl-3">
                                     <center><button type="submit" class="btn btn-primary">Simpan</button></center>
                                 </div>

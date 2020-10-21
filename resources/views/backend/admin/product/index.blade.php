@@ -407,6 +407,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Comming Soon</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                @if ($u->comming_soon == 1)
+                                   <input class="file" type="checkbox" name="comming_soon" multiple required checked="checked" value="0">
+                                @else
+                                    <input class="file" type="checkbox" name="comming_soon" multiple required value="1">
+                                @endif
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-actions">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>
