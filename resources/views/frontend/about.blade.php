@@ -27,7 +27,7 @@
     <!-- Parallax banner -->
     <section class="p-0">
         <div class="full-banner parallax text-center p-left">
-            <img src="../assets/images/banner/about1.jpg" alt="" class="bg-img blur-up lazyload">
+            <img src="{{asset('backends/assets/images/banner/about1.jpg')}}" alt="" class="bg-img blur-up lazyload">
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -50,7 +50,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about2.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about2.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about3.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about3.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-12">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about4.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about4.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about5.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about5.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about6.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about6.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about7.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about7.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-12">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about8.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about8.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about9.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about9.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about10.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about10.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about11.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about11.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-12">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about12.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about12.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-12">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about13.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about13.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about14.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about14.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -235,7 +235,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/banner/about15.jpg"
+                                <a href="#"><img src="{{asset('backends/assets/images/banner/about15.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -258,7 +258,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="banner-section"><img src="../assets/images/banner/about16.jpg"
+                    <div class="banner-section"><img src="{{asset('backends/assets/images/banner/about16.jpg')}}"
                             class="img-fluid blur-up lazyload" alt=""></div>
                 </div>
                 <div class="col-sm-12">

@@ -470,9 +470,10 @@
                             <div class="icon-nav">
                                 <ul>
                                     <li class="onhover-div mobile-search">
-                                        <div><img src="{{asset('backends/assets/images/icon/search.png')}}" onclick="openSearch()"
-                                                class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
-                                                onclick="openSearch()"></i></div>
+                                        <div>
+                                            <img src="{{asset('backends/assets/images/icon/search.png')}}" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> 
+                                                <i class="ti-search" onclick="openSearch()"></i>
+                                        </div>
                                         <div id="search-overlay" class="search-overlay">
                                             <div><span class="closebtn" onclick="closeSearch()"
                                                     title="Close Overlay">×</span>

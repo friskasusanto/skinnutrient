@@ -1,4 +1,4 @@
-<!-- footer -->
+
     <footer class="footer-light footer-classic">
         <!--<div class="light-layout upper-footer">
             <div class="container">
@@ -35,11 +35,34 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="about-page.html">Tentang Kami</a></li>
-                                    <li><a href="search.html">Pencarian Produk</a></li>
-                                    <li><a href="#">Stokis</a></li>
-                                    <li><a href="sitemap.html">Peta</a></li>
-                                    <li><a href="#">Press</a></li>
+                                    <li><a href="{{url('/aboutUs')}}">Tentang Kami</a></li>
+                                    <li onclick="openSearch()">
+                                        Pencarian Produk
+                                        <div id="search-overlay" class="search-overlay">
+                                            <div><span class="closebtn" onclick="closeSearch()"
+                                                    title="Close Overlay">×</span>
+                                                <div class="overlay-content">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-xl-12">
+                                                                <form action="{{url('/shop')}}" method="GET">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product" name="name">
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- <li><a href="#">Stokis</a></li> -->
+                                    <li><a href="{{url('/sitemap')}}">Peta</a></li>
+                                    <!-- <li><a href="#">Press</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -51,12 +74,12 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="faq.html">FAQ s</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Return Policy</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{url('/faq')}}">FAQ s</a></li>
+                                    <li><a href="{{url('/contact')}}">Contact Us</a></li>
+                                    <!-- <li><a href="#">Shipping</a></li> -->
+                                    <!-- <li><a href="">Return Policy</a></li> -->
+                                    <!-- <li><a href="#">Terms of Service</a></li> -->
+                                    <li><a href="{{url('/privacyPolicy')}}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -40,6 +40,11 @@ Route::get('/', function () {
 	Route::get('/shop', 'Frontend\GeneralController@product')->name('shop');
 	Route::get('/whatsNew', 'Frontend\GeneralController@new')->name('new');
 	Route::get('/bestSeller', 'Frontend\GeneralController@bestSeller')->name('bestSeller');
+	Route::get('/aboutUs', 'Frontend\GeneralController@aboutUs')->name('aboutUs');
+	Route::get('/faq', 'Frontend\GeneralController@faq')->name('faq');
+	Route::get('/privacyPolicy', 'Frontend\GeneralController@privacyPolicy')->name('privacyPolicy');
+	Route::get('/sitemap', 'Frontend\GeneralController@sitemap')->name('sitemap');
+	Route::get('/contact', 'Frontend\GeneralController@sitemap')->name('contact');
 
 
 	//Frontend/DetailController

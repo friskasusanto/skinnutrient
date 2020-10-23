@@ -12,6 +12,29 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function contact ()
+    {
+        return view('frontend.contact');
+    }
+    public function sitemap ()
+    {
+        return view('frontend.sitemap');
+    }
+
+    public function privacyPolicy ()
+    {
+        return view('frontend.faq');
+    }
+    public function faq ()
+    {
+        return view('frontend.faq');
+    }
+
+    public function aboutUs ()
+    {
+        return view('frontend.about');
+    }
+
     public function bestSeller ()
     {
         $cek = Checkout::orderBy('created_at', 'desc')->paginate('12');

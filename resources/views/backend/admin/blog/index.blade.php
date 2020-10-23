@@ -39,7 +39,6 @@
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th>Judul</th>
-                                    <th>Isi Blog</th>
                                     <th>Gambar Blog</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -50,7 +49,6 @@
                                 <tr>
                                     <td>{{++$key}}</td>
                                     <td>{{$u->judul}}</td>
-                                    <td>{{$u->text}}</td>
                                     <td>
                                         <img src="{{url('blog/'.$u->images)}}" style="width: 50%">
                                     </td>
@@ -59,6 +57,9 @@
                                             <a href="{{url('/admin/delete', $u->id)}}"class="btn btn-danger btn-circle btn-sm" style="font-size: xx-small;">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> 
                                             </a>
+                                            <a type="btn" data-toggle="modal" data-target="#modalDetail{{$u->id}}" class="btn btn-success btn-circle btn-sm" style="font-size: xx-small;">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                 </button>
                                         </center>
                                     </td>
@@ -77,5 +78,47 @@
         </div>
     </div>
 </div>
+
+@if(isset($blog))
+@foreach( $blog as $u )
+<div class="modal" id="modalDetail{{$u->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><center>Data Blog</center></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <tr>
+                    <th>Judul Blog</th>
+                    <td>: {{ $u->judul }}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Gambar Blog</th>
+                    <td>: <img src="{{url('blog/'.$u->images)}}" style="width: 50%"></td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Isi Blog</th>
+                    <td>: {!!$u->text!!}</td>
+                </tr>
+                <br/>
+                <tr>
+                    <th>Tgl Input</th>
+                    <td>: {{$u->tgl_input}}</td>
+                </tr>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+@endif
 
 @endsection
