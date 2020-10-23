@@ -43,13 +43,13 @@
                                 <div class="form">
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Judul Blog :</label>
-                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" name="name">
+                                        <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" name="judul">
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Isi Blog :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                            <textarea id="summernote" name="description" cols="81" rows="4"></textarea>
+                                            <textarea id="summernote" name="text" cols="81" rows="4"></textarea>
                                         </div>
                                         <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>

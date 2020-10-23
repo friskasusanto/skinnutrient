@@ -43,6 +43,9 @@ class BlogController extends Controller
         $request->images->move(public_path('blog'), $fileName);
         $add->images= $fileName;
         $add->status= 0;
+        $add->love= null;
+
+        // dd($add);
 
     	$add->save();
 

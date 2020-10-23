@@ -33,7 +33,7 @@
                     <img src="{{url('blog/'.$blog->images)}}" class="img-fluid blur-up lazyload" alt="" style="width: 40%">
                     <h3>{{$blog->judul}}</h3>
                     <ul class="post-social">
-                        <li>{{$blog->tgl_input}}/li>
+                        <li>{{$blog->tgl_input}}</li>
                         <li>Posted By : {{$blog->user->name}}</li>
                         <li><i class="fa fa-heart"></i> {{$blog->love}} Hits</li>
                         <?php 
@@ -41,7 +41,7 @@
                         ?>
                         <li><i class="fa fa-comments"></i> {{count($comment)}} Comment</li>
                     </ul>
-                    <p>{{$blog->text}}</p>
+                    <p>{!!$blog->text!!}</p>
                 </div>
             </div>
             <br/>
