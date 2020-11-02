@@ -109,8 +109,8 @@
                                     <li><a href="https://www.facebook.com/skinnutrientindonesia/" target="_blank">facebook</a></li>
                                     <li><a href="https://www.instagram.com/skinnutrient.id/" target="_blank">instagram</a></li>
                                     <li><a href="https://www.youtube.com/channel/UCU-TTrwGEmkL6KrzVkZ8a0A" target="_blank">youtube</a></li>
-                                    <li><a href="https://www.pinterest.com.au/skinnutrient/" target="_blank">linkedin</a></li>
-                                    <li><a href="https://www.linkedin.com/company/skin-nutrient/?originalSubdomain=au" target="_blank">pinterest</a></li>
+                                    <li><a href="https://www.linkedin.com/company/skin-nutrient/?originalSubdomain=au" target="_blank">linkedin</a></li>
+                                    <li><a href="https://www.pinterest.com.au/skinnutrient/" target="_blank">pinterest</a></li>
                                 </ul>
                             </div>
                         </div>
