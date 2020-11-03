@@ -63,7 +63,7 @@ class BlogController extends Controller
 
     public function edit_view (Request $request, $id)
     {
-    	$user = User::find($id);
+    	$user = Blog::find($id);
     	return view('backend.admin.user.edit', compact(['user']));
     }
 
@@ -71,7 +71,7 @@ class BlogController extends Controller
     {
     	$status = 200;
         $message = "Data Berhasil di Update";
-    	$edit = User::find($id);
+    	$edit = Blog::find($id);
     	$edit->store_name = $request->store_name;
     	$edit->address = $request->address;
     	$edit->phone = $request->phone;

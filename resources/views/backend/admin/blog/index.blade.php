@@ -54,7 +54,7 @@
                                     </td>
                                     <td>
                                         <center>
-                                            <a href="{{url('/admin/delete', $u->id)}}"class="btn btn-danger btn-circle btn-sm" style="font-size: xx-small;">
+                                            <a href="{{url('/admin/hapusBlog', $u->id)}}"class="btn btn-danger btn-circle btn-sm" style="font-size: xx-small;">
                                                 <i class="fa fa-trash" aria-hidden="true"></i> 
                                             </a>
                                             <a type="btn" data-toggle="modal" data-target="#modalDetail{{$u->id}}" class="btn btn-success btn-circle btn-sm" style="font-size: xx-small;">
