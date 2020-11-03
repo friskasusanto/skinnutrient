@@ -2,6 +2,7 @@
 @section('title', 'User')
 @section('content')
 
+
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -48,9 +49,9 @@
                         <div class="blog-right">
                             <div>
                                 <h6>{{$b->tgl_input}}</h6> 
-                                    <a href="{{url('/blogsDetail', $b->judul)}}">
-                                        <h4>{{$b->judul}}</h4>
-                                    </a>
+                                <a href="{{url('/blogsDetail', $b->judul)}}">
+                                    <h4>{{$b->judul}}</h4>
+                                </a>
                                 <ul class="post-social">
                                     <li>Posted By : {{$b->user->name}}</li>
                                     <li>
@@ -65,26 +66,17 @@
                                     ?>
                                     <li><i class="fa fa-comments"></i> {{count($comment)}} Comment</li>
                                 </ul>
-                                <a href="{{url('/blogsDetail', $b->judul)}}">
-                                    <p>{!!substr($b->text,0,200)!!} ...</p>
-                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-            @else
-                <br/><br/><br/>
-                <div class="row blog-media">
-                    <div class="col-xl-12">
-                        <center><p>~ Comming Soon ~</p></center>
-                    </div>
-                </div>
             @endif
+                </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Section ends -->
+
 
 @endsection

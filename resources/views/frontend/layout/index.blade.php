@@ -8,7 +8,7 @@
     @include('frontend.layout.header')
 
 
-     @yield('content')
+    @yield('content')
 
 
     @include('frontend.layout.footer')

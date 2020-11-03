@@ -54,7 +54,7 @@
                         <div>
                             <h3 class="h3-new">Learn How To Layer Our Skincare Products</h3>
                             <h6 class="h6-new">Layering basically means to apply your skincare products in a specific order of application, to achieve optimum efficacy from each active.</h6>
-                            <a href="#" class="btn btn-solid-new category-btn">LEARN MORE</a>
+                            <a href="{{url('/blogs')}}" class="btn btn-solid-new category-btn">LEARN MORE</a>
                         </div>
                     </div>
                 </div>
