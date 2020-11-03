@@ -40,7 +40,7 @@
                             @if($b->images == null)
                                 <img src="{{asset('backends/assets/images/blog/1.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                             @else
-                                <img src="{{url('blog/'.$b->images)}}" class="img-fluid blur-up lazyload bg-img" alt="" style="width: 100%">
+                                <img src="{{url('blog/'.$b->images)}}" class="img-fluid blur-up lazyload bg-img" alt="" style="width: 540px; height: 324px">
                             @endif
                             </a>
                         </div>
