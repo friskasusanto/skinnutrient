@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 blog-detail">
-                    <img src="{{url('blog/'.$blog->images)}}" class="img-fluid blur-up lazyload" alt="" style="width: 40%">
+                    <img src="{{url('blog/'.$blog->images)}}" class="img-fluid blur-up lazyload" alt="" style="width: 100%">
                     <h3>{{$blog->judul}}</h3>
                     <ul class="post-social">
                         <li>{{$blog->tgl_input}}</li>

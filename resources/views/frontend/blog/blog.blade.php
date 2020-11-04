@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
     <div class="container">
@@ -31,16 +32,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-            @if(count($blog) != 0)
-                @foreach ($blog as $b)
+           
                 <div class="row blog-media">
+                @if(count($blog) != 0)
+                    @foreach ($blog as $b)
                     <div class="col-xl-6">
                         <div class="blog-left">
                             <a href="{{url('/blogsDetail', $b->judul)}}">
                             @if($b->images == null)
                                 <img src="{{asset('backends/assets/images/blog/1.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                             @else
-                                <img src="{{url('blog/'.$b->images)}}" class="img-fluid blur-up lazyload bg-img" alt="" style="width: 540px; height: 324px">
+                                <img src="{{url('blog/'.$b->images)}}" class="img-fluid" alt="Responsive image" style="width: 100%; padding: 2%">
                             @endif
                             </a>
                         </div>
@@ -69,8 +71,8 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-            @endif
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>
