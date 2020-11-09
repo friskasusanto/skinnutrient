@@ -67,6 +67,7 @@
                                         $comment = App\Model\Comment::where('blog_id', $b->id)->get();
                                     ?>
                                     <li><i class="fa fa-comments"></i> {{count($comment)}} Comment</li>
+                                    <!-- <p>{!!substr($b->text,1,200)!!} ...</p> -->
                                 </ul>
                             </div>
                         </div>

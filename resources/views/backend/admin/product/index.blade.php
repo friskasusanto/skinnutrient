@@ -378,13 +378,15 @@
                                 <div class="form-group">
                                    <select name="status" type="text" class="form-control" style="width: 100%">
                                           <option value="">--pilih status--</option>
-                                          @if ($u->status == 1)
+                                          @if ($u->status == 0)
                                           <option value="">--sembunyikan--</option>
-                                          @elseif ($u->status == 0)
+                                          @elseif ($u->status == 1)
                                           <option value="">--tampilkan--</option>
+                                          @elseif ($u->status == 2)
+                                          <option value="">--comming soon--</option>
                                           @endif
 
-                                          
+                                          <option value= "2">comming soon</option>
                                           <option value= "1">sembunyikan</option>
                                           <option value= "0">tampilkan</option>
                                     </select>

@@ -126,7 +126,11 @@
                                                                 <a href="product-page(no-sidebar).html">
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
-                                                                <h4>Rp. {{$s->price}}</h4>
+                                                                @if ($s->comming_soon != 1)
+                                                                    <h4>Rp. {{$s->product->price}}</h4>
+                                                                @else
+                                                                    <h4>Comming Soon</h4>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                    
@@ -168,7 +172,11 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$s->name}}</h2>
-                                <h3>Rp. {{$s->price}}</h3>
+                            @if ($s->comming_soon != 1)
+                                <h3>Rp. {{$s->product->price}}</h3>
+                            @else
+                                <h3>Comming Soon</h3>
+                            @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$s->description!!}</p>

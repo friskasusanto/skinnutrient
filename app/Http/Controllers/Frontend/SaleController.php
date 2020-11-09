@@ -15,7 +15,7 @@ class SaleController extends Controller
 
     public function index ()
     {
-    	$sale = Product::where('discount', '!=', null)->orderBy('created_at', 'desc')->paginate('12');
+    	$sale = Product::where('discount', '!=', null)->orderBy('created_at', 'desc')->where('status', '==', 1)->paginate('12');
     	return view('frontend.sale', compact('sale'));
     }
 
