@@ -91,30 +91,30 @@
                                                         <div class="img-wrapper">
                                                             <div class="front">
                                                                 <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                @if ($s->product->image == null)
+                                                                @if ($s->image == null)
                                                                 	<img src="{{asset('backends/assets/images/pro3/35.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @else
-                                                                	<img src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                                	<img src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @endif
                                                                 </a>
                                                             </div>
                                                             <div class="back">
                                                                 <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                @if ($s->product->image == null)
+                                                                @if ($s->image == null)
                                                                 	<img src="{{asset('backends/assets/images/pro3/36.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @else
-                                                                	<img src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                                	<img src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @endif
                                                                	</a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
-                                                                <a href="{{url('/cart', $s->product->slug)}}" title="Add to cart">
+                                                                <a href="{{url('/cart', $s->slug)}}" title="Add to cart">
                                                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                                                 </a> 
-                                                                <a href="{{url('/wishlist', $s->product->slug)}}" title="Add to Wishlist">
+                                                                <a href="{{url('/wishlist', $s->slug)}}" title="Add to Wishlist">
                                                                 	<i class="ti-heart" aria-hidden="true"></i>
                                                                 </a> 
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$s->product->slug}}" title="Quick View">
+                                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$s->slug}}" title="Quick View">
                                                                 	<i class="ti-search" aria-hidden="true"></i>
                                                                 </a> 
                                                             </div>
@@ -123,12 +123,12 @@
                                                         <div class="product-detail">
                                                             <div>
                                                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="product-page(no-sidebar).html">
-                                                                    <h6>{{$s->product->name}}</h6>
+                                                                <a href="{{url('/detailProduct', $s->slug)}}">
+                                                                    <h6>{{$s->name}}</h6>
                                                                 </a>
-                                                                <p>{!!$s->product->description!!}</p>
+                                                                <p>{!!$s->description!!}</p>
                                                             @if ($s->comming_soon != 1)
-                                                                <h4>Rp. {{$s->product->price}}</h4>
+                                                                <h4>Rp. {{$s->price}}</h4>
                                                             @else
                                                                 <h4>Comming Soon</h4>
                                                             @endif
@@ -174,7 +174,7 @@
                             <div class="product-right">
                                 <h2>{{$s->name}}</h2>
                             @if ($s->comming_soon != 1)
-                                <h3>Rp. {{$s->product->price}}</h3>
+                                <h3>Rp. {{$s->price}}</h3>
                             @else
                                 <h3>Comming Soon</h3>
                             @endif

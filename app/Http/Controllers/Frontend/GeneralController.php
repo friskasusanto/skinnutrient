@@ -37,7 +37,7 @@ class GeneralController extends Controller
 
     public function bestSeller ()
     {
-        $cek = Checkout::orderBy('created_at', 'desc')->paginate('12');
+        $cek = Product::orderBy('created_at', 'desc')->where('best_seller', 1)->paginate('12');
         return view('frontend.bestSeller', compact('cek'));
     }
 
