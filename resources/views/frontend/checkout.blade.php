@@ -30,7 +30,7 @@
         <div class="container">
             <div class="checkout-page">
                 <div class="checkout-form">
-                    <form novalidate="novalidate" method="POST" action= "#" enctype="multipart/form-data" enctype="multipart/form-data">
+                    <form novalidate="novalidate" method="POST" action= "{{ route('checkoutstore') }}" enctype="multipart/form-data" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 col-sm-12 col-xs-12">
@@ -39,8 +39,12 @@
                                 </div>
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nama Penerima</div>
-                                        <input type="text" name="nama_penerima" value="" placeholder="">
+                                        <div class="field-label">Nama Depan</div>
+                                        <input type="text" name="first_name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Nama Belakang</div>
+                                        <input type="text" name="last_name" value="" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nomor Hp</div>
@@ -59,8 +63,8 @@
                                             <div>Product <span>Total</span></div>
                                         </div>
                                         <ul class="qty">
-                                        @foreach ($cek as $c)
-                                            <li>Rp. {{$c->product->price}} × {{$c->total_item}} <span>Rp. {{$c->total_amount}}</span></li>
+                                        @foreach ($cart as $c)
+                                            <li>{{ $c->product->name }} ( Rp. {{$c->product->price}} × {{ $c->jumlah }} ) <span>Rp. {{$c->total_amount}}</span></li>
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">
@@ -116,7 +120,9 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="text-right"><a href="#" class="btn-solid btn">Place Order</a></div>
+                                        <div class="text-right">
+                                            <button type="submit" class="btn-solid btn" >Place Order</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
