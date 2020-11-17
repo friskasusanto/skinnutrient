@@ -127,7 +127,7 @@
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
                                                                 @if ($s->comming_soon != 1)
-                                                                    <h4>Rp. {{$s->product->price}}</h4>
+                                                                    <h4>Rp. {{$s->price}}</h4>
                                                                 @else
                                                                     <h4>Comming Soon</h4>
                                                                 @endif
@@ -173,7 +173,7 @@
                             <div class="product-right">
                                 <h2>{{$s->name}}</h2>
                             @if ($s->comming_soon != 1)
-                                <h3>Rp. {{$s->product->price}}</h3>
+                                <h3>Rp. {{$s->price}}</h3>
                             @else
                                 <h3>Comming Soon</h3>
                             @endif
