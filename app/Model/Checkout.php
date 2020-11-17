@@ -18,4 +18,9 @@ class Checkout extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function item()
+    {
+        return $this->hasMany('App\checkoutItem', 'checkout_id');
+    }
 }
