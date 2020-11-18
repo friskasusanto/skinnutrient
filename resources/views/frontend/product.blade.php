@@ -90,31 +90,31 @@
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                @if ($s->image == null)
+                                                                <a href="{{url('/detailProduct', $s->product->slug)}}">
+                                                                @if ($s->product->image == null)
                                                                 	<img src="{{asset('backends/assets/images/pro3/35.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @else
-                                                                	<img src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                                	<img src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @endif
                                                                 </a>
                                                             </div>
                                                             <div class="back">
-                                                                <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                @if ($s->image == null)
+                                                                <a href="{{url('/detailProduct', $s->product->slug)}}">
+                                                                @if ($s->product->image == null)
                                                                 	<img src="{{asset('backends/assets/images/pro3/36.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @else
-                                                                	<img src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                                	<img src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @endif
                                                                	</a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
-                                                                <a href="{{url('/cart', $s->slug)}}" title="Add to cart">
+                                                                <a href="{{url('/cart', $s->product->slug)}}" title="Add to cart">
                                                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                                                 </a> 
-                                                                <a href="{{action('Frontend\SaleController@wishlist', $s->slug)}}" title="Add to Wishlist">
+                                                                <a href="{{action('Frontend\SaleController@wishlist', $s->product->slug)}}" title="Add to Wishlist">
                                                                 	<i class="ti-heart" aria-hidden="true"></i>
                                                                 </a> 
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$s->slug}}" title="Quick View">
+                                                                <a href="#" data-toggle="modal" data-target="#quick-view{{$s->product->slug}}" title="Quick View">
                                                                 	<i class="ti-search" aria-hidden="true"></i>
                                                                 </a> 
                                                             </div>
@@ -124,12 +124,20 @@
                                                             <div>
                                                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
                                                                 <a href="product-page(no-sidebar).html">
-                                                                    <h6>{{$s->name}}</h6>
+                                                                    <h6>{{$s->product->name}}</h6>
                                                                 </a>
-                                                                @if ($s->comming_soon != 1)
-                                                                    <h4>Rp. {{$s->price}}</h4>
+                                                                @if ($s->comming_soon == 1)
+                                                                    <center><h4>
+                                                                        Comming Soon
+                                                                    </h4></center>
+                                                                @elseif ($s->stock_user == null || $s->stock_user == 0)
+                                                                    <center><h4>
+                                                                        Sold Out
+                                                                    </h4></center>
                                                                 @else
-                                                                    <h4>Comming Soon</h4>
+                                                                    <h4>Rp. {{$s->price}}
+                                                                        <!-- <del>$600.00</del> -->
+                                                                    </h4>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -157,7 +165,7 @@
     <!-- Quick-view modal popup start-->
     @if(isset($product))
     @foreach( $product as $s )
-    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->slug}}" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view{{$s->product->slug}}" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content quick-view-modal">
@@ -166,23 +174,31 @@
                             aria-hidden="true">&times;</span></button>
                     <div class="row">
                         <div class="col-lg-6 col-xs-12">
-                            <div class="quick-view-img"><img src="{{url('product/'.$s->image)}}" alt=""
+                            <div class="quick-view-img"><img src="{{url('product/'.$s->product->image)}}" alt=""
                                     class="img-fluid blur-up lazyload"></div>
                         </div>
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
-                                <h2>{{$s->name}}</h2>
-                            @if ($s->comming_soon != 1)
-                                <h3>Rp. {{$s->price}}</h3>
+                                <h2>{{$s->product->name}}</h2>
+                            @if ($s->comming_soon == 1)
+                                <center><h3>
+                                    Comming Soon
+                                </h3></center>
+                            @elseif ($s->stock_user == null || $s->stock_user == 0)
+                                <center><h3>
+                                    Sold Out
+                                </h3></center>
                             @else
-                                <h3>Comming Soon</h3>
+                                <h3>Rp. {{$s->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h3>
                             @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
-                                    <p>{!!$s->description!!}</p>
+                                    <p>{!!$s->product->description!!}</p>
                                 </div>
 
-                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/addCart', $s->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="product-description border-product">
                                         <h6 class="product-title">quantity</h6>
@@ -192,7 +208,7 @@
                                     </div>
                                     <div class="product-buttons">
                                         <button type="submit" class="btn btn-solid"> add to cart</button>
-                                        <a href="{{url('/detailProduct', $s->slug)}}" class="btn btn-solid">view detail</a>
+                                        <a href="{{url('/detailProduct', $s->product->slug)}}" class="btn btn-solid">view detail</a>
                                     </div>
                                 </form>
                             </div>

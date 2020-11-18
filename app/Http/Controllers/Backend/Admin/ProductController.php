@@ -10,6 +10,7 @@ use App\Model\ProductGambar;
 use App\Model\Category;
 use App\Model\Log;
 use App\Model\ProductJenis;
+use App\Model\ProductCategory;
 use App\Model\Checkout;
 use Auth;
 
@@ -93,11 +94,10 @@ class ProductController extends Controller
 
                     $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
                     $request->image->move(public_path('product'), $fileName);
-                    $add->image = $fileName;
+                    $add->image = $fileName; 
 
-                    $add->category_id = $request->category;
+                    $add->category_id = null;
 
-                    
                     $add->jenis_id = null;
                     $add->price = $request->price;
                     $add->title = null;
@@ -134,6 +134,18 @@ class ProductController extends Controller
                     'image' => $filename
                     ]);
                 }
+
+                    foreach ($request->category as $category) {
+                    ProductCategory::create([
+                    'product_id' => $add->id,
+                    'category_id' => $category
+                    ]);
+                }
+                    $cek = ProductCategory::where('product_id', $add->id)->first();
+                    $category = Product::where('id', $add->id)->first();
+                    $category->category_id = $cek->category_id;
+                    $category->save();
+
                     $log = new Log;
                     $log->mutasi_action = "tambah product ". $request->name;
                     $log->user_id = Auth::user()->id;
@@ -151,7 +163,12 @@ class ProductController extends Controller
         } else {
             $add= new Product;
             $add->name = $request->name;
-            $add->category_id = $request->category;
+            $add->category_id = null;
+
+            $cek = ProductCategory::where('product_id', $add->id)->first();
+            $category = Product::where('id', $add->id)->first();
+            $category->category_id = $cek->category_id;
+            $category->save();
             
             $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
             $request->image->move(public_path('product'), $fileName);

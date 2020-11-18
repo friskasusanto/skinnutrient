@@ -169,13 +169,17 @@
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
                                             <br>
                                         @if ($b->comming_soon == 1)
-                                            <center><h4>
+                                            <center><h3>
                                                 Comming Soon
-                                            </h4></center>
+                                            </h3></center>
+                                        @elseif ($b->stock_user == null || $b->stock_user == 0)
+                                            <center><h3>
+                                                Sold Out
+                                            </h3></center>
                                         @else
-                                            <h4>Rp. {{$b->price}}
+                                            <h3>Rp. {{$b->price}}
                                                 <!-- <del>$600.00</del> -->
-                                            </h4>
+                                            </h3>
                                         @endif
                                         </div>
                                     </div>
@@ -226,13 +230,17 @@
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($n->detail,0,50)!!} ...</h6> -->
                                             <br>
                                         @if ($n->comming_soon == 1)
-                                            <center><h4>
+                                            <center><h3>
                                                 Comming Soon
-                                            </h4></center>
+                                            </h3></center>
+                                        @elseif ($n->stock_user == null || $n->stock_user == 0)
+                                            <center><h3>
+                                                Sold Out
+                                            </h3></center>
                                         @else
-                                            <h4>Rp. {{$n->price}}
+                                            <h3>Rp. {{$n->price}}
                                                 <!-- <del>$600.00</del> -->
-                                            </h4>
+                                            </h3>
                                         @endif
                                         </div>
                                     </div>
@@ -322,13 +330,17 @@
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
                                 @if ($l->comming_soon == 1)
-                                    <center><h4>
+                                    <center><h3>
                                         Comming Soon
-                                    </h4></center>
+                                    </h3></center>
+                                @elseif ($l->stock_user == null || $l->stock_user == 0)
+                                    <center><h3>
+                                        Sold Out
+                                    </h3></center>
                                 @else
-                                    <h4>Rp. {{$l->price}}
+                                    <h3>Rp. {{$l->price}}
                                         <!-- <del>$600.00</del> -->
-                                    </h4>
+                                    </h3>
                                 @endif
                             </div>
                         </div>
@@ -459,6 +471,10 @@
                                 <center><h3>
                                     Comming Soon
                                 </h3></center>
+                            @elseif ($l->stock_user == null || $l->stock_user == 0)
+                                <center><h3>
+                                    Sold Out
+                                </h3></center>
                             @else
                                 <h3>Rp. {{$l->price}}
                                     <!-- <del>$600.00</del> -->
@@ -513,6 +529,10 @@
                                 <center><h3>
                                     Comming Soon
                                 </h3></center>
+                            @elseif ($l->stock_user == null || $l->stock_user == 0)
+                                <center><h3>
+                                    Sold Out
+                                </h3></center>
                             @else
                                 <h3>Rp. {{$l->price}}
                                     <!-- <del>$600.00</del> -->
@@ -566,6 +586,10 @@
                             @if ($l->comming_soon == 1)
                                 <center><h3>
                                     Comming Soon
+                                </h3></center>
+                            @elseif ($l->stock_user == null || $l->stock_user == 0)
+                                <center><h3>
+                                    Sold Out
                                 </h3></center>
                             @else
                                 <h3>Rp. {{$l->price}}

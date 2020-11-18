@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Product;
 use App\Model\ProductGambar;
+use App\Model\ProductCategory;
 use App\Model\Chart;
 use App\Model\Checkout;
 use App\Model\Comment;
@@ -92,9 +93,10 @@ class DetailController extends Controller
         // $status = Checkout::where('user_id', Auth::user()->id)->where('product_id', $product->id)->orderBy('updated_at', 'desc')->where('status', 1)->get();
         $related = Product::with('category')->where('category_id', $product->category_id)->orderBy('created_at', 'desc')->limit('6')->get();
         $comment = Comment::where('product_id', $product->id)->orderBy('created_at', 'desc')->paginate(5);
+        $category = ProductCategory::where('product_id', $product->id)->get();
     	// dd($status);
 
-    	return view('frontend.detailProductnew', compact('product', 'gambar', 'related', 'comment'));
+    	return view('frontend.detailProductnew', compact('product', 'gambar', 'related', 'comment', 'category'));
     }
 
     public function addCart (Request $request, $slug)

@@ -3,6 +3,8 @@
 @section('content')
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
  
 
 <!-- Container-fluid starts-->
@@ -61,7 +63,7 @@
                                         <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Category Product :</label>
 
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
-                                            <select name="category" type="text" class="form-control" style="width: 100%">
+                                            <select id="category" name="category[]" type="text" class="form-control" style="width: 100%" multiple="multiple">
                                                 <option value="">--pilih category--</option>
                                                 @foreach ($category as $p)
                                                     <option value= "{{$p->id}}">{{$p->category_name}}</option>
@@ -220,6 +222,8 @@
 <!-- summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 <script type="text/javascript">
     $('#summernoteDescription').summernote({
         height: 200
@@ -254,6 +258,19 @@
     $('#summernoteComposition').summernote({
         height: 200
     });
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#category").select2({
+
+            placeholder: "--pilih category--"
+
+        });
+
+    });
+
 </script>
 
 

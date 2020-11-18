@@ -127,10 +127,18 @@
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
                                                                 <p>{!!$s->description!!}</p>
-                                                            @if ($s->comming_soon != 1)
-                                                                <h4>Rp. {{$s->price}}</h4>
+                                                            @if ($s->comming_soon == 1)
+                                                                <center><h4>
+                                                                    Comming Soon
+                                                                </h4></center>
+                                                            @elseif ($s->stock_user == null || $s->stock_user == 0)
+                                                                <center><h4>
+                                                                    Sold Out
+                                                                </h4></center>
                                                             @else
-                                                                <h4>Comming Soon</h4>
+                                                                <h4>Rp. {{$s->price}}
+                                                                    <!-- <del>$600.00</del> -->
+                                                                </h4>
                                                             @endif
                                                             </div>
                                                         </div>
@@ -173,10 +181,18 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$s->name}}</h2>
-                            @if ($s->comming_soon != 1)
-                                <h3>Rp. {{$s->price}}</h3>
+                            @if ($s->comming_soon == 1)
+                                <center><h3>
+                                    Comming Soon
+                                </h3></center>
+                            @elseif ($s->stock_user == null || $s->stock_user == 0)
+                                <center><h3>
+                                    Sold Out
+                                </h3></center>
                             @else
-                                <h3>Comming Soon</h3>
+                                <h3>Rp. {{$s->price}}
+                                    <!-- <del>$600.00</del> -->
+                                </h3>
                             @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>

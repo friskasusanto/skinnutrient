@@ -58,9 +58,23 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <h5 class="mb-2">based on 2 reviews</h5>
+                            <!-- <h5 class="mb-2">based on 2 reviews</h5> -->
                             <!-- <h4><del>$459.00</del><span>55% off</span></h4> -->
-                            <h3>Rp. {{$product->price}}</h3>
+                            <h5 class="mb-2">category :
+                                @foreach ($category as $c) 
+                                <a href="{{route('shop', ['category' => $c->category->id])}}">
+                                    {{$c->category->category_name}}, 
+                                </a>
+                                @endforeach
+                            </h5>
+                            @if ($product->comming_soon == 1)
+                                <h3>Comming Soon</h3>
+                            @elseif ($product->stock_user == null || $product->stock_user == 0)
+                                <h3>Sold Out</h3>
+                            @else
+                                <h3>Rp. {{$product->price}}</h3>
+                            @endif
+
                             <p>{!!$product->description!!}</p>
                             <div class="product-description">
                                 <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/buy', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
@@ -397,7 +411,13 @@
                             <a href="{{url('/detailProduct', $r->slug)}}">
                                 <h6>{{$r->name}}</h6>
                             </a>
-                            <h4>Rp. {{$r->price}}</h4>
+                            @if ($r->comming_soon == 1)
+                                <h4>Comming Soon</h4>
+                            @elseif ($r->stock_user == null || $r->stock_user == 0)
+                                <h4>Sold Out</h4>
+                            @else
+                                <h4>Rp. {{$r->price}}</h4>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -294,7 +294,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                   <textarea class="form-control" name="how" id="summernoteHow">{!!$u->how!!}</textarea>
+                                   <textarea class="form-control" name="how" id="summernoteHow">{!!$u->how_to_use!!}</textarea>
                                 </div>
                             </div>
                         </div>

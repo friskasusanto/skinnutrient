@@ -22,4 +22,8 @@ class Product extends Model
     {
         return $this->hasMany('App\Model\ProductGambar', 'product_id');
     }
+    public function product_category()
+    {
+        return $this->hasMany('App\Model\Productcategory', 'product_id');
+    }
 }

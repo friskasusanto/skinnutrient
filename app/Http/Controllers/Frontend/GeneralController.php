@@ -8,6 +8,7 @@ use App\Model\Subscribe;
 use App\Model\Category;
 use App\Model\Product;
 use App\Model\Checkout;
+use App\Model\ProductCategory;
 use Auth;
 
 class GeneralController extends Controller
@@ -50,7 +51,8 @@ class GeneralController extends Controller
     public function product (Request $request)
     {
         if ($request->category) {
-            $product = Product::orWhere('category_id', $request->category)->orderBy('created_at', 'desc')->paginate(16);
+            // $product = Product::orWhere('category_id', $request->category)->orderBy('created_at', 'desc')->paginate(16);
+            $product = ProductCategory::with('product')->orWhere('category_id', $request->category)->orderBy('created_at', 'desc')->paginate(16);
             $category = Category::with('product')->get();
         }elseif ($request->name) {
             $product = Product::orWhere('name', 'like', '%'.$request->name.'%')->orderBy('created_at', 'desc')->paginate(16);
