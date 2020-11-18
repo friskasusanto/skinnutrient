@@ -155,7 +155,16 @@
                                         </div>
                                         <div class="product-detail">
                                             <br>
+                                        <?php
+                                            $category = App\Model\ProductCategory::where('product_id', $b->id)->get();
+                                        ?>
+                                        @if (count($category) != 0)
+                                            @foreach ($category as $c) 
+                                                <h4>{{$c->category->category_name}},</h4> 
+                                            @endforeach
+                                        @else
                                             <h4>{{$b->category->category_name}}</h4>
+                                        @endif
                                             <div class="rating">
                                                 <i class="fa fa-star"></i> 
                                                 <i class="fa fa-star"></i> 
@@ -216,7 +225,16 @@
                                         </div>
                                         <div class="product-detail">
                                             <br>
-                                            <h4>{{$n->category->category_name}}</h4>
+                                            <?php
+                                                $category = App\Model\ProductCategory::where('product_id', $b->id)->get();
+                                            ?>
+                                            @if (count($category) != 0)
+                                                @foreach ($category as $c) 
+                                                    <h4>{{$c->category->category_name}},</h4> 
+                                                @endforeach
+                                            @else
+                                                <h4>{{$n->category->category_name}}</h4>
+                                            @endif
                                             <div class="rating">
                                                 <i class="fa fa-star"></i> 
                                                 <i class="fa fa-star"></i> 
@@ -318,7 +336,16 @@
                             </div>
                             <div class="product-detail">
                                 <br>
-                                <h4>{{$l->category->category_name}}</h4>
+                                <?php
+                                    $category = App\Model\ProductCategory::where('product_id', $b->id)->get();
+                                ?>
+                                @if (count($category) != 0)
+                                    @foreach ($category as $c) 
+                                        <h4>{{$c->category->category_name}},</h4> 
+                                    @endforeach
+                                @else
+                                    <h4>{{$l->category->category_name}}</h4>
+                                @endif
                                 <div class="rating">
                                     <i class="fa fa-star"></i> 
                                     <i class="fa fa-star"></i> 
