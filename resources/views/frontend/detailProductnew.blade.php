@@ -61,11 +61,17 @@
                             <!-- <h5 class="mb-2">based on 2 reviews</h5> -->
                             <!-- <h4><del>$459.00</del><span>55% off</span></h4> -->
                             <h5 class="mb-2">category :
+                            @if (count($category) != 0)
                                 @foreach ($category as $c) 
                                 <a href="{{route('shop', ['category' => $c->category->id])}}">
                                     {{$c->category->category_name}}, 
                                 </a>
                                 @endforeach
+                            @else
+                                <a href="{{route('shop', ['category' => $product->category->id])}}">
+                                    {{$product->category->category_name}}, 
+                                </a>
+                            @endif
                             </h5>
                             @if ($product->comming_soon == 1)
                                 <h3>Comming Soon</h3>
