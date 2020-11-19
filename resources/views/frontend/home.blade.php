@@ -226,7 +226,7 @@
                                         <div class="product-detail">
                                             <br>
                                             <?php
-                                                $category = App\Model\ProductCategory::where('product_id', $b->id)->get();
+                                                $category = App\Model\ProductCategory::where('product_id', $n->id)->get();
                                             ?>
                                             @if (count($category) != 0)
                                                 @foreach ($category as $c) 
