@@ -62,23 +62,6 @@
                                                                     <li><img src="{{asset('backends/assets/images/icon/6.png')}}" alt="" class="product-6-layout-view"></li>
                                                                 </ul>
                                                             </div>
-                                                            <div class="product-page-per-view">
-                                                                <select>
-                                                                    <option value="High to low">24 Products Par Page
-                                                                    </option>
-                                                                    <option value="Low to High">50 Products Par Page
-                                                                    </option>
-                                                                    <option value="Low to High">100 Products Par Page
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="product-page-filter">
-                                                                <select>
-                                                                    <option value="High to low">Sorting items</option>
-                                                                    <option value="Low to High">50 Products</option>
-                                                                    <option value="Low to High">100 Products</option>
-                                                                </select>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -5,9 +5,10 @@
 <!-- Home slider -->
     <section class="p-0">
         <div class="slide-1 home-slider">
+        @foreach ($banner as $b)
             <div>
                 <div class="home text-center">
-                    <img src="{{asset('backends/assets/images/banner/banner1.jpg')}}" alt="" class="bg-img blur-up lazyload">
+                    <img src="{{url('banner/'.$b->image)}}" alt="" class="bg-img blur-up lazyload">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -15,7 +16,7 @@
                                     <div>
                                         <!--<h4>special offer</h4>
                                         <h1>men shoes</h1>-->
-                                        <a href="{{route('shop', ['name' => 'Skin+Nutrient™+Goat%27s+Milk+Magic™+Moment'])}}" class="btn btn-solid black-btn">shop now</a>
+                                        <a href="{{$b->link}}" class="btn btn-solid black-btn">shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -23,24 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="home text-center">
-                    <img src="{{asset('backends/assets/images/banner/banner2.jpg')}}" alt="" class="bg-img blur-up lazyload">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="slider-contain">
-                                    <div>
-                                        <!--<h4>special offer</h4>
-                                        <h1>men shoes</h1>-->
-                                        <a href="{{route('shop', ['name' => 'Skin+Nutrient™+Goat%27s+Milk+Magic™+Sleep+Cream'])}}" class="btn btn-solid black-btn">shop now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </section>
     <!-- Home slider end -->

@@ -16,6 +16,11 @@ use Auth;
 
 class ProductController extends Controller
 {
+    public function editProduct()
+    {
+        return view('backend.admin.product.editProduct');
+    }
+
     public function deleteProduct_gambar(Request $request, $id)
     {
         $status = 200;
@@ -219,8 +224,9 @@ class ProductController extends Controller
     	$product = Product::find($id);
         $gambar = ProductGambar::where('product_id', $product->id)->get();
         $jenis = ProductJenis::all();
-        // dd($gambar);
-    	return view('backend.admin.product.edit', compact(['product', 'category', 'gambar', 'jenis']));
+        $productCategory = ProductCategory::with('product')->where('product_id', $product->id)->get();
+        // dd($productCategory);
+    	return view('backend.admin.product.edit', compact(['product', 'category', 'gambar', 'jenis', 'productCategory']));
     }
 
     public function edit_product (Request $request, $id)

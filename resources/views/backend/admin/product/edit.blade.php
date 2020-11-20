@@ -148,17 +148,23 @@
                                                     <input class="file" type="file" name="photos[]" multiple required>
                                                 </li>
                                                 <li>(bisa pilih lebih dari 1 gambar)</li>
-                                                
-                                                <?php 
-                                                    $gambar = App\Model\ProductGambar::where('product_id', $product->id)->get();
-                                                ?>
-                                                @if (count($gambar) != 0)
-                                                    @foreach ($gambar as $g)
-                                                    <li>
-                                                        <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 20%">
-                                                    </li>
-                                                    @endforeach
-                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul style="margin-left: 20%">
+                                                <li>
+                                                    <?php 
+                                                        $gambar = App\Model\ProductGambar::where('product_id', $product->id)->get();
+                                                    ?>
+                                                    @if (count($gambar) != 0)
+                                                        @foreach ($gambar as $g)
+                                                        <li>
+                                                            <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 20%">
+                                                        </li>
+                                                        @endforeach
+                                                    @endif
                                                 </li>
                                             </ul>
                                         </div>

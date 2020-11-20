@@ -32,6 +32,15 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i> <span>Banner</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{url('/admin/banner')}}"><i class="fa fa-circle"></i>
+                                    <span>Daftar Banner</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a class="sidebar-header" href=""><i data-feather="box"></i><span>Product</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/index/product')}}"><i class="fa fa-circle"></i>Daftar Product</a></li>

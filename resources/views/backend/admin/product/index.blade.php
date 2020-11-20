@@ -3,6 +3,8 @@
 @section('content')
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
 <!-- Container-fluid starts-->
 <div class="container-fluid">
@@ -42,9 +44,7 @@
                             <div class="product-hover">
                                 <ul>
                                     <li>
-                                        <a type="btn" data-toggle="modal" data-target="#modalEdit{{$u->id}}">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
+                                        <a href="{{url('/admin/edit/product', $u->id)}}" type="btn"><i class="fa fa-edit"></i></a>
                                     </li>
                                 </ul>
                                 <ul>
@@ -216,8 +216,22 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                   <select name="category" type="text" class="form-control" style="width: 100%">
-                                        <option value="">--{{$u->category->category_name}}--</option>
+                                   <select id="category" name="category[]" type="text" class="form-control" style="width: 100%" multiple="multiple">
+                                        
+                                        <?php
+                                            $cek = App\Model\ProductCategory::with('product')->where('product_id', $u->id)->get();
+                                        ?>
+                                        @if(count($cek) != 0)
+                                        <option value="">
+                                            @foreach ($cek as $c)
+                                            --{{$c->category->category_name}}--
+                                            @endforeach
+                                        </option>
+                                        @else
+                                        <option>
+                                            --{{$u->category->category_name}}--
+                                        </option>
+                                        @endif
                                         <option value="">--pilih category--</option>
                                         @foreach ($category as $p)
                                             <option value= "{{$p->id}}">{{$p->category_name}}</option>
@@ -445,6 +459,21 @@
 <!-- summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#category").select2({
+
+            placeholder: "--pilih category--"
+
+        });
+
+    });
+
+</script>
 <script type="text/javascript">
     $('#summernoteDescription').summernote({
         height: 200

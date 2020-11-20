@@ -81,6 +81,11 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 //BACKEND/ADMIN
 
+	//Backend/BannerController
+	Route::get('/admin/banner', 'Backend\Admin\BannerController@index')->name('banner');
+	Route::post('/admin/editBanner/{id}', 'Backend\Admin\BannerController@edit')->name('editbanner');
+	Route::post('/admin/addBanner', 'Backend\Admin\BannerController@add')->name('addbanner');
+
 	//Backend/SalesController
 	Route::get('/admin/sales', 'Backend\Admin\SalesController@index')->name('sales');
 	Route::post('/admin/addSales', 'Backend\Admin\SalesController@add')->name('add_sales');
@@ -128,6 +133,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	//Backend/Admin/ProductController
 	Route::get('/admin/gambar_product', 'Backend\Admin\ProductController@gambar_product_view')->name('admin_gambarproduct');
 
+	Route::get('/admin/editProduct/product/{id}', 'Backend\Admin\ProductController@editProduct')->name('admin_editProduct');
 	Route::get('/admin/index/product', 'Backend\Admin\ProductController@index_product')->name('admin_indexProduct');
 	Route::get('/admin/edit/product/{id}', 'Backend\Admin\ProductController@edit_view_product')->name('admin_edit_view');
 	Route::post('/admin/edit/product/{id}', 'Backend\Admin\ProductController@edit_product')->name('admin_edit_product');
