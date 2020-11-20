@@ -33,7 +33,8 @@ class HomeController extends Controller
         $last = Product::orderBy('created_at', 'desc')->limit(8)->get();
         $best = Product::where('best_seller', '1')->limit(8)->get();
         $blog = Blog::orderBy('created_at', 'desc')->limit(3)->get();
+        $banner = Banner::where('nama_banner', 'banner utama')->get();
 
-        return view('frontend.home', compact('new', 'best', 'last', 'blog'));
+        return view('frontend.home', compact('new', 'best', 'last', 'blog', 'banner'));
     }
 }
