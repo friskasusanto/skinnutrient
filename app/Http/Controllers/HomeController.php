@@ -9,6 +9,7 @@ use App\Model\Product;
 use App\Model\Checkout;
 use App\Model\Blog;
 use App\Model\ProductJenis;
+use App\Model\Banner;
 
 class HomeController extends Controller
 {
