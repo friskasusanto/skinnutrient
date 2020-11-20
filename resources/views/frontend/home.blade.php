@@ -5,6 +5,7 @@
 <!-- Home slider -->
     <section class="p-0">
         <div class="slide-1 home-slider">
+            <p>hahaha</p>
         @foreach ($banner as $b)
             <div>
                 <div class="home text-center">
@@ -14,6 +15,8 @@
                             <div class="col">
                                 <div class="slider-contain">
                                     <div>
+                                        <!--<h4>special offer</h4>
+                                        <h1>men shoes</h1>-->
                                         <a href="{{$b->link}}" class="btn btn-solid black-btn">shop now</a>
                                     </div>
                                 </div>
