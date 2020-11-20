@@ -14,8 +14,6 @@
                             <div class="col">
                                 <div class="slider-contain">
                                     <div>
-                                        <!--<h4>special offer</h4>
-                                        <h1>men shoes</h1>-->
                                         <a href="{{$b->link}}" class="btn btn-solid black-btn">shop now</a>
                                     </div>
                                 </div>
