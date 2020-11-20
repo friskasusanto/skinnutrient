@@ -32,8 +32,8 @@ Route::get('/', function () {
 
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
-	Route::get('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
-	Route::get('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
+	Route::post('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
+	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
