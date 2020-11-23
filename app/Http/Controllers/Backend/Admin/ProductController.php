@@ -169,11 +169,6 @@ class ProductController extends Controller
             $add= new Product;
             $add->name = $request->name;
             $add->category_id = null;
-
-            $cek = ProductCategory::where('product_id', $add->id)->first();
-            $category = Product::where('id', $add->id)->first();
-            $category->category_id = $cek->category_id;
-            $category->save();
             
             $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
             $request->image->move(public_path('product'), $fileName);
@@ -202,6 +197,11 @@ class ProductController extends Controller
             }
             $add->slug = Str::slug($request->name, '-');
             $add->save();
+
+            $cek = ProductCategory::where('product_id', $add->id)->first();
+            $category = Product::where('id', $add->id)->first();
+            $category->category_id = $cek->category_id;
+            $category->save();
 
             $log = new Log;
             $log->mutasi_action = "tambah product ". $request->name;
@@ -307,8 +307,20 @@ class ProductController extends Controller
                     'product_id' => $edit->id,
                     'image' => $filename
                     ]);
-
                 }
+
+                    foreach ($request->category as $category) {
+                    ProductCategory::create([
+                    'product_id' => $edit->id,
+                    'category_id' => $category
+                    ]);
+                }
+                    $cek = ProductCategory::where('product_id', $edit->id)->first();
+                    $category = Product::where('id', $edit->id)->first();
+                    $category->category_id = $cek->category_id;
+                    $category->save();
+
+                
                     $log = new Log;
                     $log->mutasi_action = "tambah product ". $request->name;
                     $log->user_id = Auth::user()->id;
@@ -330,11 +342,12 @@ class ProductController extends Controller
                 $edit->name = $request->name;
                 $edit->price = $request->price;
                 $edit->title = null;
-
-                if ($request->category != null ){
-                    $edit->category_id = $request->category;
-                }else{
-                    $edit->category_id = $edit->category_id;
+                
+                foreach ($request->category as $category) {
+                    ProductCategory::create([
+                    'product_id' => $edit->id,
+                    'category_id' => $category
+                    ]);
                 }
                 
                 if ($request->image != null ){
@@ -381,6 +394,13 @@ class ProductController extends Controller
                     $edit->comming_soon = $edit->comming_soon;
                 }
                 $edit->save();
+
+                $cek = ProductCategory::where('product_id', $edit->id)->first();
+                // dd($cek);
+                $category = Product::where('id', $edit->id)->first();
+                $category->category_id = $cek->category_id;
+                $category->save();
+
 
                 $log = new Log;
                 $log->mutasi_action = "tambah product ". $request->name;
