@@ -5,8 +5,8 @@
     <meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{asset('backends/assets/images/dashboard/favicon.png')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('backends/assets/images/dashboard/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <title>Multikart - Premium Admin Template</title>
 
     <!-- Google font-->

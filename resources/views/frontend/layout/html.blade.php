@@ -5,8 +5,8 @@
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="{{asset('backends/assets/images/favicon/2.png')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/2.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <title>Skinnutrient</title>
 
     <!--Google font-->
