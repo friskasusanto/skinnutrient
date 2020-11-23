@@ -83,7 +83,7 @@
                                                             </div>
                                                             <div class="back">
                                                                 <a href="{{url('/detailProduct', $s->product->slug)}}">
-                                                                @if ($s->image == null)
+                                                                @if ($s->product->image == null)
                                                                 	<img src="{{asset('backends/assets/images/pro3/36.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                                 @else
                                                                 	<img src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">

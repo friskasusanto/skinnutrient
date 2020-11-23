@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Subscribe;
+use Illuminate\Database\Eloquent\Builder;
 use App\Model\Category;
 use App\Model\Product;
 use App\Model\Checkout;
@@ -55,7 +56,10 @@ class GeneralController extends Controller
             $product = ProductCategory::with('product')->orWhere('category_id', $request->category)->orderBy('created_at', 'desc')->paginate(16);
             $category = Category::with('product')->get();
         }elseif ($request->name) {
-            $product = Product::orWhere('name', 'like', '%'.$request->name.'%')->orderBy('created_at', 'desc')->paginate(16);
+            // $product = Product::orWhere('name', 'like', '%'.$request->name.'%')->orderBy('created_at', 'desc')->paginate(16);
+            $product = ProductCategory::whereHas('product', function (Builder $query) use ($request){
+                        $query->where('name', 'like', '%'.$request->name.'%');
+                    })->paginate(16);
             $category = Category::with('product')->get();
         }elseif ($request->jenis) {
             $product = Product::orWhere('jenis_id', $request->jenis)->orderBy('created_at', 'desc')->paginate(16);
