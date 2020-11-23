@@ -37,17 +37,7 @@
                     <div class="contain-block even new-block">
                         <div>
                             <h3 class="h3-new">Pelajari bagaimana cara layering produk perawatan kulit kami</h3>
-                            <h6 class="h6-new">Layering pada dasarnya berarti menerapkan produk perawatan kulit Anda dalam urutan tertentu, untuk mencapai hasil yang optimal.
-                            Index Bahan
-                            Pelajari tentang bahan-bahan yang terkandung dalam produk kami
-                            BACA LEBIH LANJUT
-                            LANGIT YANG BIRU DI DEPAN
-                            Pelajari bagaimana Skin Nutrient™ mendukung komunitas kami selama waktu yang tidak pasti ini.
-                            BACA LEBIH LANJUT
-                            MENDAFTAR UNTUK PENAWARAN EKSKLUSIF
-                            Jadilah yang pertama tahu tentang produk baru kami
-                            PERBEDAAN SKIN NUTRIENT
-                            Tujuan kami sederhana, untuk menutrisi kulit dengan meningkatkan imunitas kulit serta melawan radikal bebas. Dengan ini, kami membuat produk yang ditujukan untuk semua masalah kulit untuk semua jenis kulit.</h6>
+                            <h6 class="h6-new">Layering pada dasarnya berarti menerapkan produk perawatan kulit Anda dalam urutan tertentu, untuk mencapai hasil yang optimal.</h6>
                             <a href="{{url('/blogs')}}" class="btn btn-solid-new category-btn">LEARN MORE</a>
                         </div>
                     </div>
@@ -65,10 +55,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title-borderless">INGREDIENT INDEX</h2>
-                    <h6 class="title-borderless">Learn about the ingredients in our products</h6>
+                    <h2 class="title-borderless">Index Bahan</h2>
+                    <h6 class="title-borderless">Pelajari tentang bahan-bahan yang terkandung dalam produk kami</h6>
                     <a href="#">
-                        <h5 class="title-borderless"><strong>READ MORE</strong></h5>
+                        <h5 class="title-borderless"><strong>BACA LEBIH LANJUT</strong></h5>
                     </a>
                     <div class="slide-5 no-arrow slick-instagram">
                         <div>
@@ -277,9 +267,9 @@
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain">
-                            <h3>BLUE SKIES AHEAD</h3>
-                            <h5>Learn how Skin Nutrient™ is supporting our community during this uncertain time.</h5>
-                            <a href="#"><h5><strong>READ MORE</strong></h5></a>
+                            <h3>LANGIT YANG BIRU DI DEPAN</h3>
+                            <h5>Pelajari bagaimana Skin Nutrient™ mendukung komunitas kami selama waktu yang tidak pasti ini.</h5>
+                            <a href="#"><h5><strong>BACA LEBIH LANJUT</strong></h5></a>
                         </div>
                     </div>
                 </div>
@@ -380,8 +370,8 @@
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>Sign up for exclusive offers</h4>
-                                    <p class="font-white">Be the first to know about our new product releases</p>
+                                    <h4>MENDAFTAR UNTUK PENAWARAN EKSKLUSIF</h4>
+                                    <p class="font-white">Jadilah yang pertama tahu tentang produk baru kami</p>
                                 </div>
                             </div>
                         </div>
@@ -413,8 +403,8 @@
                             </div>
                             <div class="contain-banner">
                                 <div>
-                                    <h3 class="font-background-white">THE SKIN NUTRIENT DIFFERENCE</h3>
-                                    <h6 class="font-background-white">Our goal is simple, to nutritionally boost the skin by improving skin immunity, fighting off free radicals and supporting the natural barrier function. By doing this we are creating products that address all skin concerns for every skin type!</h6>
+                                    <h3 class="font-background-white">PERBEDAAN SKIN NUTRIENT</h3>
+                                    <h6 class="font-background-white">Tujuan kami sederhana, untuk menutrisi kulit dengan meningkatkan imunitas kulit serta melawan radikal bebas. Dengan ini, kami membuat produk yang ditujukan untuk semua masalah kulit untuk semua jenis kulit.</h6>
                                     <h5 class="font-background-white"><strong>READ MORE</strong></h5>
                                 </div>
                             </div>
