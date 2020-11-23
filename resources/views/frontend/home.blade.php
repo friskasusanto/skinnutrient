@@ -5,7 +5,6 @@
 <!-- Home slider -->
     <section class="p-0">
         <div class="slide-1 home-slider">
-            <p>hahaha</p>
         @foreach ($banner as $b)
             <div>
                 <div class="home text-center">
@@ -37,8 +36,18 @@
                 <div class="col-sm-6 p-0">
                     <div class="contain-block even new-block">
                         <div>
-                            <h3 class="h3-new">Learn How To Layer Our Skincare Products</h3>
-                            <h6 class="h6-new">Layering basically means to apply your skincare products in a specific order of application, to achieve optimum efficacy from each active.</h6>
+                            <h3 class="h3-new">Pelajari bagaimana cara layering produk perawatan kulit kami</h3>
+                            <h6 class="h6-new">Layering pada dasarnya berarti menerapkan produk perawatan kulit Anda dalam urutan tertentu, untuk mencapai hasil yang optimal.
+                            Index Bahan
+                            Pelajari tentang bahan-bahan yang terkandung dalam produk kami
+                            BACA LEBIH LANJUT
+                            LANGIT YANG BIRU DI DEPAN
+                            Pelajari bagaimana Skin Nutrient™ mendukung komunitas kami selama waktu yang tidak pasti ini.
+                            BACA LEBIH LANJUT
+                            MENDAFTAR UNTUK PENAWARAN EKSKLUSIF
+                            Jadilah yang pertama tahu tentang produk baru kami
+                            PERBEDAAN SKIN NUTRIENT
+                            Tujuan kami sederhana, untuk menutrisi kulit dengan meningkatkan imunitas kulit serta melawan radikal bebas. Dengan ini, kami membuat produk yang ditujukan untuk semua masalah kulit untuk semua jenis kulit.</h6>
                             <a href="{{url('/blogs')}}" class="btn btn-solid-new category-btn">LEARN MORE</a>
                         </div>
                     </div>
