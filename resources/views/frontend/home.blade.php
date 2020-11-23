@@ -16,7 +16,7 @@
                                     <div>
                                         <!--<h4>special offer</h4>
                                         <h1>men shoes</h1>-->
-                                        <a href="{{$b->link}}" class="btn btn-solid black-btn">shop now</a>
+                                        <a href="{{$b->link}}" class="btn btn-solid black-btn">belanja sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                         <div>
                             <h3 class="h3-new">Pelajari bagaimana cara layering produk perawatan kulit kami</h3>
                             <h6 class="h6-new">Layering pada dasarnya berarti menerapkan produk perawatan kulit Anda dalam urutan tertentu, untuk mencapai hasil yang optimal.</h6>
-                            <a href="{{url('/blogs')}}" class="btn btn-solid-new category-btn">LEARN MORE</a>
+                            <a href="{{url('/blogs')}}" class="btn btn-solid-new category-btn">PELAJARI LEBIH LANJUT</a>
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                 <div class="col">
                     <div class="theme-tab">
                         <ul class="tabs tab-title2">
-                            <li class="btn btn-solid white-btn current"><a href="tab-1">Best Seller</a></li>
-                            <li class="btn btn-solid black-btn"><a href="tab-2">What s New</a></li>
+                            <li class="btn btn-solid white-btn current"><a href="tab-1">Penjualan Terlaris</a></li>
+                            <li class="btn btn-solid black-btn"><a href="tab-2">Terbaru</a></li>
                             <!--<li class=""><a href="tab-3">trends of week</a></li>-->
                         </ul>
                         <div class="tab-content-cls">
@@ -405,7 +405,7 @@
                                 <div>
                                     <h3 class="font-background-white">PERBEDAAN SKIN NUTRIENT</h3>
                                     <h6 class="font-background-white">Tujuan kami sederhana, untuk menutrisi kulit dengan meningkatkan imunitas kulit serta melawan radikal bebas. Dengan ini, kami membuat produk yang ditujukan untuk semua masalah kulit untuk semua jenis kulit.</h6>
-                                    <h5 class="font-background-white"><strong>READ MORE</strong></h5>
+                                    <h5 class="font-background-white"><strong>BACA LEBIH LANJUT</strong></h5>
                                 </div>
                             </div>
                         </div>
@@ -447,7 +447,7 @@
                                 <!--<hr class="style1">
                                 <h6>by: John Dio , 2 Comment</h6>-->
                                 <br>
-                                <a href="{{url('/blogsDetail', $b->judul)}}" class="btn btn-solid black-btn">LEARN MORE</a>
+                                <a href="{{url('/blogsDetail', $b->judul)}}" class="btn btn-solid black-btn">PELAJARI LEBIH LANJUT</a>
                             </div>
                         </div>
                         @endforeach
