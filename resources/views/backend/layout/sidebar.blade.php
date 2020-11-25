@@ -32,7 +32,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i> <span>Banner</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="#"><i data-feather="chrome"></i><span>Banner</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li>
                                 <a href="{{url('/admin/banner')}}"><i class="fa fa-circle"></i>

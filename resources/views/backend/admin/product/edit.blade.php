@@ -57,8 +57,7 @@
                             <div class="form-body">
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nama Product :</label>
-                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" name="name" value="{{$product->name}}">
-                                    <div class="valid-feedback">Looks good!</div>
+                                    <input required="" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text"  name="name" value="{{$product->name}}">
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Category Product :</label>
@@ -68,7 +67,11 @@
                                         <p>{{$product->category->category_name}}</p>
                                     @elseif (count($productCategory) != 0)
                                         @foreach ($productCategory as $p)
-                                        <p>{{$p->category->category_name}}</p>
+                                            <a href="{{url('/admin/delete/productCategory', $p->id)}}" class="btn close" onclick="return confirm('Anda yakin menghapus category ini ?')">
+                                                <span aria-hidden="true">
+                                                    <h6 style="border-style: groove;">{{$p->category->category_name}} &times;</h6>
+                                                </span>
+                                            </a>
                                         @endforeach
                                     @endif
                                         <select id="category" name="category[]" type="text" class="form-control" style="width: 100%" multiple="multiple">
@@ -168,9 +171,11 @@
                                                     ?>
                                                     @if (count($gambar) != 0)
                                                         @foreach ($gambar as $g)
-                                                        <li>
-                                                            <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 20%">
-                                                        </li>
+                                                            <a href="{{url('/admin/delete/productGambar', $p->id)}}" class="btn close" onclick="return confirm('Anda yakin menghapus gambar ini ?')">
+                                                                <span aria-hidden="true">
+                                                                    <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 50% ; border-style: groove;"> &times;
+                                                                </span>
+                                                            </a>
                                                         @endforeach
                                                     @endif
                                                 </li>

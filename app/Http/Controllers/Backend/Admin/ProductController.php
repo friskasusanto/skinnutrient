@@ -16,6 +16,25 @@ use Auth;
 
 class ProductController extends Controller
 {
+    public function hapusCategory (Request $request, $id)
+    {
+        $status = 200;
+        $message = "Data Berhasil di Hapus";
+        $delete = ProductCategory::find($id);
+        $delete->delete();
+
+        $log = new Log;
+        $log->mutasi_action = "delete category product ". $request->category_id;
+        $log->user_id = Auth::user()->id;
+        $log->controller = "ProductController";
+        $log->function = "hapusCategory";
+        $log->keterangan = "hapus product category berhasil";
+        $log->tgl_action = date('Y-m-d H:i:s');
+        $log->save();
+
+        return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+    }
+
     public function editProduct()
     {
         return view('backend.admin.product.editProduct');

@@ -131,6 +131,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	Route::post('/storeName/{id}', 'Backend\Admin\BackendController@store')->name('storeName');
 
 	//Backend/Admin/ProductController
+	Route::get('/admin/delete/productCategory/{id}', 'Backend\Admin\ProductController@hapusCategory')->name('admin_hapusCategory');
 	Route::get('/admin/gambar_product', 'Backend\Admin\ProductController@gambar_product_view')->name('admin_gambarproduct');
 
 	Route::get('/admin/editProduct/product/{id}', 'Backend\Admin\ProductController@editProduct')->name('admin_editProduct');
