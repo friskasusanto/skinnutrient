@@ -1,17 +1,17 @@
-<!-- loader start -->
+loader start -->
     <div class="loader_skeleton">
         <header class="header-2">
             <div class="top-header top-header-dark d-none d-sm-block">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6">
                             <div class="header-contact">
                                 <ul>
                                     <li>Need assistance ordering online? We are here to help Mon - Fri 9am to 5pm AEST</li>
                                     <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                         <!--<div class="col-lg-6 text-right">
                             <ul class="header-dropdown">
                                 <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>
@@ -274,14 +274,14 @@
         <div class="top-header top-header-dark">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <!-- <div class="col-lg-12">
                         <div class="header-contact">
                             <ul>
                                 <li>Need assistance ordering online? We are here to help Mon - Fri 9am to 5pm AEST</li>
                                 <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-6 text-right hidden-aja">
                         <ul class="header-dropdown">
                             <li class="mobile-wishlist">
@@ -592,4 +592,4 @@
             </div>
         </div>
     </header>
-    <!-- header end -->
+    <!-- header end

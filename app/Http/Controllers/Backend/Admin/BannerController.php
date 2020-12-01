@@ -49,7 +49,12 @@ class BannerController extends Controller
         $message = "Data Product Berhasil di Ubah";
 
     	$edit = Banner::find($id);
-    	$edit->nama_banner = $request->nama_banner;
+
+        if ($request->nama_banner != null){
+    	    $edit->nama_banner = $request->nama_banner;
+        }else{
+            $edit->nama_banner = $edit->nama_banner;
+        }
 
     	if ($request->image != null){
     		$fileName = time().'.'.$request->image->getClientOriginalExtension(); 
