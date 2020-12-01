@@ -31,7 +31,7 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>ABOUT US</h4>
+                                <h4>Tentang Kami</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
@@ -70,7 +70,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>CUSTOMER CARE</h4>
+                                <h4>Layanan Customers</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
@@ -87,7 +87,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>store information</h4>
+                                <h4>Informasi Perusahaan</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
