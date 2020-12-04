@@ -1,4 +1,4 @@
-loader start -->
+<!-- loader start --> 
     <div class="loader_skeleton">
         <header class="header-2">
             <div class="top-header top-header-dark d-none d-sm-block">
