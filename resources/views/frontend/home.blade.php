@@ -161,7 +161,7 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
                                             <br>
-                                        @if ($b->coming_soon == 1)
+                                        @if ($b->comming_soon == 1)
                                             <center><h3>
                                                 Coming Soon
                                             </h3></center>
@@ -231,7 +231,7 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($n->detail,0,50)!!} ...</h6> -->
                                             <br>
-                                        @if ($n->coming_soon == 1)
+                                        @if ($n->comming_soon == 1)
                                             <center><h3>
                                                 Coming Soon
                                             </h3></center>
@@ -340,7 +340,7 @@
                                 <a href="{{url('/detailProduct', $l->slug)}}">
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
-                                @if ($l->coming_soon == 1)
+                                @if ($l->comming_soon == 1)
                                     <center><h3>
                                         Coming Soon
                                     </h3></center>
@@ -478,7 +478,7 @@
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
 
-                            @if ($l->coming_soon == 1)
+                            @if ($l->comming_soon == 1)
                                 <center><h3>
                                     Coming Soon
                                 </h3></center>
@@ -536,7 +536,7 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                            @if ($l->coming_soon == 1)
+                            @if ($l->comming_soon == 1)
                                 <center><h3>
                                     Coming Soon
                                 </h3></center>
@@ -594,7 +594,7 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                            @if ($l->coming_soon == 1)
+                            @if ($l->comming_soon == 1)
                                 <center><h3>
                                     Coming Soon
                                 </h3></center>
