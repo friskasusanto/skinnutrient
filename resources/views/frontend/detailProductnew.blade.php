@@ -73,8 +73,8 @@
                                 </a>
                             @endif
                             </h5>
-                            @if ($product->comming_soon == 1)
-                                <h3>Comming Soon</h3>
+                            @if ($product->coming_soon == 1)
+                                <h3>Coming Soon</h3>
                             @elseif ($product->stock_user == null || $product->stock_user == 0)
                                 <h3>Sold Out</h3>
                             @else
@@ -417,8 +417,8 @@
                             <a href="{{url('/detailProduct', $r->slug)}}">
                                 <h6>{{$r->name}}</h6>
                             </a>
-                            @if ($r->comming_soon == 1)
-                                <h4>Comming Soon</h4>
+                            @if ($r->coming_soon == 1)
+                                <h4>Coming Soon</h4>
                             @elseif ($r->stock_user == null || $r->stock_user == 0)
                                 <h4>Sold Out</h4>
                             @else

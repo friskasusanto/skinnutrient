@@ -109,9 +109,9 @@
                                                                 <a href="product-page(no-sidebar).html">
                                                                     <h6>{{$s->product->name}}</h6>
                                                                 </a>
-                                                                @if ($s->product->comming_soon == 1)
+                                                                @if ($s->product->coming_soon == 1)
                                                                     <center><h4>
-                                                                        Comming Soon
+                                                                        Coming Soon
                                                                     </h4></center>
                                                                 @elseif ($s->product->stock_user == null || $s->product->stock_user == 0)
                                                                     <center><h4>
@@ -163,9 +163,9 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$s->product->name}}</h2>
-                            @if ($s->product->comming_soon == 1)
+                            @if ($s->product->coming_soon == 1)
                                 <center><h3>
-                                    Comming Soon
+                                    Coming Soon
                                 </h3></center>
                             @elseif ($s->product->stock_user == null || $s->product->stock_user == 0)
                                 <center><h3>

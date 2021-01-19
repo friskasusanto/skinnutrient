@@ -161,9 +161,9 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
                                             <br>
-                                        @if ($b->comming_soon == 1)
+                                        @if ($b->coming_soon == 1)
                                             <center><h3>
-                                                Comming Soon
+                                                Coming Soon
                                             </h3></center>
                                         @elseif ($b->stock_user == null || $b->stock_user == 0)
                                             <center><h3>
@@ -231,9 +231,9 @@
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($n->detail,0,50)!!} ...</h6> -->
                                             <br>
-                                        @if ($n->comming_soon == 1)
+                                        @if ($n->coming_soon == 1)
                                             <center><h3>
-                                                Comming Soon
+                                                Coming Soon
                                             </h3></center>
                                         @elseif ($n->stock_user == null || $n->stock_user == 0)
                                             <center><h3>
@@ -340,9 +340,9 @@
                                 <a href="{{url('/detailProduct', $l->slug)}}">
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>
-                                @if ($l->comming_soon == 1)
+                                @if ($l->coming_soon == 1)
                                     <center><h3>
-                                        Comming Soon
+                                        Coming Soon
                                     </h3></center>
                                 @elseif ($l->stock_user == null || $l->stock_user == 0)
                                     <center><h3>
@@ -478,9 +478,9 @@
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
 
-                            @if ($l->comming_soon == 1)
+                            @if ($l->coming_soon == 1)
                                 <center><h3>
-                                    Comming Soon
+                                    Coming Soon
                                 </h3></center>
                             @elseif ($l->stock_user == null || $l->stock_user == 0)
                                 <center><h3>
@@ -536,9 +536,9 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                            @if ($l->comming_soon == 1)
+                            @if ($l->coming_soon == 1)
                                 <center><h3>
-                                    Comming Soon
+                                    Coming Soon
                                 </h3></center>
                             @elseif ($l->stock_user == null || $l->stock_user == 0)
                                 <center><h3>
@@ -594,9 +594,9 @@
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
                                 <h2>{{$l->name}}</h2>
-                            @if ($l->comming_soon == 1)
+                            @if ($l->coming_soon == 1)
                                 <center><h3>
-                                    Comming Soon
+                                    Coming Soon
                                 </h3></center>
                             @elseif ($l->stock_user == null || $l->stock_user == 0)
                                 <center><h3>
