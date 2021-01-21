@@ -102,12 +102,12 @@ class DetailController extends Controller
     public function addCart (Request $request, $slug)
     {
     	$product = Product::where('slug', $slug)->first();
-    	$cek = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-        $cekWish = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+        
 
     	// dd($request->quantity);
         if (Auth::check()) {
-        	if (! $cek){
+            $cek = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->get();
+        	if ( count($cek) == 0){
         		$cart = new Chart;
         		$cart->user_id = Auth::user()->id;
         		$cart->product_id = $product->id;
@@ -123,6 +123,8 @@ class DetailController extends Controller
         		$cart->save();
 
 
+                $cekWish = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+                
                 if ($cekWish){
                     $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
                     $wishlist->delete();

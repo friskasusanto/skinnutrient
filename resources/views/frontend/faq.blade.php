@@ -1,4 +1,4 @@
-@extends('frontend.layout.index', ['active' => 'home'])
+f@extends('frontend.layout.index', ['active' => 'home'])
 @section('title', 'User')
 @section('content')
 
