@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Checkout extends Model
 {
     protected $fillable = [
-    	'user_id', 'product_id', 'price', 'payment_date', 'total_amount', 'status', 'date_entry', 'receiver_name', 'address', 'phone_number'
+    	'user_id','date_entry', 'address', 'receiver_name', 'total_amount', 'phone_number','status','total_item'
     ];
     public function product()
     {
@@ -17,5 +17,10 @@ class Checkout extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function item()
+    {
+        return $this->hasMany('App\checkoutItem', 'checkout_id');
     }
 }

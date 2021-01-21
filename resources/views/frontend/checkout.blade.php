@@ -30,7 +30,7 @@
         <div class="container">
             <div class="checkout-page">
                 <div class="checkout-form">
-                    <form novalidate="novalidate" method="POST" action= "#" enctype="multipart/form-data" enctype="multipart/form-data">
+                    <form novalidate="novalidate" method="POST" action= "{{ route('checkoutstore') }}" enctype="multipart/form-data" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-6 col-sm-12 col-xs-12">
@@ -39,8 +39,12 @@
                                 </div>
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nama Penerima</div>
-                                        <input type="text" name="nama_penerima" value="" placeholder="">
+                                        <div class="field-label">Nama Depan</div>
+                                        <input type="text" name="first_name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <div class="field-label">Nama Belakang</div>
+                                        <input type="text" name="last_name" value="" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nomor Hp</div>
@@ -52,6 +56,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="total" value="{{$total}}">
                             <div class="col-lg-6 col-sm-12 col-xs-12">
                                 <div class="checkout-details">
                                     <div class="order-box">
@@ -59,8 +64,8 @@
                                             <div>Product <span>Total</span></div>
                                         </div>
                                         <ul class="qty">
-                                        @foreach ($cek as $c)
-                                            <li>Rp. {{$c->product->price}} × {{$c->total_item}} <span>Rp. {{$c->total_amount}}</span></li>
+                                        @foreach ($cart as $c)
+                                            <li>{{ $c->product->name }} ( Rp. {{$c->product->price}} × {{ $c->jumlah }} ) <span>Rp. {{$c->total_amount}}</span></li>
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">
@@ -84,39 +89,11 @@
                                     </div>
                                     <div class="payment-box">
                                         <div class="upper-box">
-                                            <div class="payment-options">
-                                                <ul>
-                                                    <li>
-                                                        <div class="radio-option">
-                                                            <input type="radio" name="payment-group" id="payment-1"
-                                                                checked="checked">
-                                                            <label for="payment-1">Check Payments<span
-                                                                    class="small-text">Please send a check to Store
-                                                                    Name, Store Street, Store Town, Store State /
-                                                                    County, Store Postcode.</span></label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="radio-option">
-                                                            <input type="radio" name="payment-group" id="payment-2">
-                                                            <label for="payment-2">Cash On Delivery<span
-                                                                    class="small-text">Please send a check to Store
-                                                                    Name, Store Street, Store Town, Store State /
-                                                                    County, Store Postcode.</span></label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="radio-option paypal">
-                                                            <input type="radio" name="payment-group" id="payment-3">
-                                                            <label for="payment-3">PayPal<span class="image"><img
-                                                                        src="{{asset('backends/assets/images/paypal.png')}}"
-                                                                        alt=""></span></label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                           
                                         </div>
-                                        <div class="text-right"><a href="#" class="btn-solid btn">Place Order</a></div>
+                                        <div class="text-right">
+                                            <button type="submit" class="btn-solid btn" >Place Order</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -63,8 +63,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 	//Frontend/CheckoutController
 	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
-	Route::get('/checkout', 'Frontend\CheckoutController@checkout_store')->name('checkoutstore');
-	Route::get('/midtrans/callback', 'Frontend\CheckoutController@midtrans_ipn')->name('midtrans');
+	Route::post('/checkout', 'Frontend\CheckoutController@checkout_store')->name('checkoutstore');
 
 	//Frontend/CartController
 	Route::get('/cartDelete/{id}', 'Frontend\CartController@delete')->name('cartDelete');
