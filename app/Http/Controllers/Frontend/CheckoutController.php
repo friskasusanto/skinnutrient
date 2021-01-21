@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 class CheckoutController extends Controller
@@ -72,14 +73,16 @@ class CheckoutController extends Controller
 
         // Set your Merchant Server Key
 
-        \Midtrans\Config::$serverKey = $_ENV['MD_SERVER_KEY'];
-        \Midtrans\Config::$isProduction = $_ENV['MD_PRODUCTION'];
+
+
+        \Midtrans\Config::$serverKey = getenv('MD_SERVER_KEY');
+        \Midtrans\Config::$isProduction = false;
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
 
         $snapToken = \Midtrans\Snap::createTransaction($params);
 
-        header('Location:'.$snapToken->redirect_url);
+        return Redirect::away($snapToken->redirect_url);
     }
 
     public function midtrans_ipn(Request $request)
