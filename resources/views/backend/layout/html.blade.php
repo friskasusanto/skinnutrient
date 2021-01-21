@@ -7,7 +7,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
-    <title>Multikart - Premium Admin Template</title>
+    <title>Skin Nutrient&trade; Indonesia Official Website</title>
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
