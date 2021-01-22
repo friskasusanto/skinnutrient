@@ -91,7 +91,7 @@
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-pin"></i>Australian Health Research & Development Group Pty Ltd </li>
+                                    <li><i class="fa fa-building"></i>Australian Health Research & Development Group Pty Ltd </li>
                                     <li><i class="fa fa-map-marker"></i>17 Iris Place, Acacia Ridge QLD 4110 Australia.</li>
                                     <li><i class="fa fa-phone"></i>Phone: +61 7 3216 6880</li>
                                     <li><i class="fa fa-fax"></i>Fax: +61 7 3020 3898</li>
