@@ -254,10 +254,10 @@
                                 href="#top-contact" role="tab" aria-selected="false">Video</a>
                             <div class="material-border"></div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
+                        <!-- <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
                                 href="#top-review" role="tab" aria-selected="false">Write Review</a>
                             <div class="material-border"></div>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="tab-content nav-material" id="top-tabContent">
                         <div class="tab-pane fade show active" id="top-home" role="tabpanel"

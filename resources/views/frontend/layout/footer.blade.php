@@ -74,12 +74,12 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="{{url('/faq')}}">FAQ s</a></li>
-                                    <li><a href="{{url('/contact')}}">Contact Us</a></li>
+                                    <li><a href="">FAQ s</a></li>
+                                    <li><a href="">Contact Us</a></li>
                                     <!-- <li><a href="#">Shipping</a></li> -->
                                     <!-- <li><a href="">Return Policy</a></li> -->
                                     <!-- <li><a href="#">Terms of Service</a></li> -->
-                                    <li><a href="{{url('/privacyPolicy')}}">Privacy Policy</a></li>
+                                    <li><a href="">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -55,11 +55,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="title-borderless">Index Bahan</h2>
+                    <!-- <h2 class="title-borderless">Index Bahan</h2>
                     <h6 class="title-borderless">Pelajari tentang bahan-bahan yang terkandung dalam produk kami</h6>
                     <a href="#">
                         <h5 class="title-borderless"><strong>BACA LEBIH LANJUT</strong></h5>
-                    </a>
+                    </a> -->
                     <div class="slide-5 no-arrow slick-instagram">
                         <div>
                             <div class="instagram-box"><img src="{{asset('backends/assets/images/banner/tab1.jpg')}}" class="bg-img"
@@ -156,7 +156,7 @@
                                                 <i class="fa fa-star"></i> 
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            <a href="product-page.php">
+                                            <a href="{{url('/detailProduct', $b->slug)}}">
                                                 <h5>{{$b->name}}</h5>
                                             </a>
                                             <!-- <h6><strong>Membantu dengan:</strong>{!!substr($b->detail,0,50)!!} ...</h6> -->
@@ -269,7 +269,7 @@
                         <div class="banner-contain">
                             <h3>LANGIT YANG BIRU DI DEPAN</h3>
                             <h5>Pelajari bagaimana Skin Nutrient™ mendukung komunitas kami selama waktu yang tidak pasti ini.</h5>
-                            <a href="#"><h5><strong>BACA LEBIH LANJUT</strong></h5></a>
+                            <!-- <a href="#"><h5><strong>BACA LEBIH LANJUT</strong></h5></a> -->
                         </div>
                     </div>
                 </div>

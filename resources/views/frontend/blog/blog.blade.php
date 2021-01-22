@@ -73,7 +73,8 @@
                         </div>
                     </div>
                     @endforeach
-                {{$blog->render()}}
+                    <br/><br/>
+                    <center>{{$blog->render()}}</center>
                 @endif
                 </div>
             </div>

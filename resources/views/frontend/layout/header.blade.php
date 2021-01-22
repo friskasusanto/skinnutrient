@@ -344,7 +344,7 @@
                                                 <ul>
                                                 @if (count(App\Model\Product::orderBy('created_at', 'desc')->where('discount', '!=', null)->limit(10)->get()) != 0)
                                                     @foreach (App\Model\Product::orderBy('created_at', 'desc')->where('discount', '!=', null)->limit(10)->get() as $s)
-                                                    <li><a href="{{route('shop', $s->slug)}}">{{$s->name}}</a></li>
+                                                    <li><a href="{{route('detailProduct', $s->slug)}}">{{$s->name}}</a></li>
                                                     @endforeach
                                                 @else
                                                     <li><a href="#">comming soon</a></li>
