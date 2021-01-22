@@ -74,7 +74,9 @@
                     </div>
                     @endforeach
                     <br/><br/>
+                <div class="row blog-media">
                     <center>{{$blog->render()}}</center>
+                </div>
                 @endif
                 </div>
             </div>
