@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function blog ()
     {
-    	$blog = Blog::orderBy('created_at', 'desc')->limit(4)->get();
+    	$blog = Blog::orderBy('created_at', 'desc')->limit(4)->paginate(10);
     	$recent = Blog::orderBy('created_at', 'asc')->limit(5)->get();
     	$popular = Blog::orderBy('love', 'desc')->limit(4)->get();
 
