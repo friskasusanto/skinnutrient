@@ -61,7 +61,7 @@
                                         </div>
                                     </li>
                                     <!-- <li><a href="#">Stokis</a></li> -->
-                                    <li><a href="{{url('/sitemap')}}">Peta</a></li>
+                                    <!-- <li><a href="{{url('/sitemap')}}">Peta</a></li> -->
                                     <!-- <li><a href="#">Press</a></li> -->
                                 </ul>
                             </div>
@@ -91,9 +91,11 @@
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Jl. Pandanaran 1 No. 10, Pekunden, Semarang Tengah</li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 0852-XXXX-XXXX</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">customerservice@skinnutrient.co.id</a></li>
+                                    <li><i class="fa fa-map-pin"></i>Australian Health Research & Development Group Pty Ltd </li>
+                                    <li><i class="fa fa-map-marker"></i>17 Iris Place, Acacia Ridge QLD 4110 Australia.</li>
+                                    <li><i class="fa fa-phone"></i>Phone: +61 7 3216 6880</li>
+                                    <li><i class="fa fa-fax"></i>Fax: +61 7 3020 3898</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: customerservice@skinnutrient.co.id</li>
                                     <!--<li><i class="fa fa-fax"></i>Fax: 123456</li>-->
                                 </ul>
                             </div>
