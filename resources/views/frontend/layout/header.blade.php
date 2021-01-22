@@ -446,7 +446,7 @@
                                                 <i class="ti-shopping-cart"></i>
                                         </div>
                                         <?php
-                                            $cart = App\Model\Chart::where('user_id', Auth::user()->id)->where('status' == 0)->limit(2)->get();
+                                            $cart = App\Model\Chart::where('user_id', Auth::user()->id)->where('status', 0)->limit(2)->get();
                                         ?>
                                         <ul class="show-div shopping-cart">
                                     @if (count ($cart) != 0)
