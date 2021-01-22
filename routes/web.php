@@ -110,6 +110,8 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	Route::get('/admin/hapusjenisProduct/{id}', 'Backend\Admin\JenisController@delete')->name('admin_hapusJenis');
 
 	//Backend/BlogController
+	Route::get('/admin/editBlog/{id}', 'Backend\Admin\BlogController@edit_view')->name('admin_editBlogView');
+	Route::post('/admin/editBlog/{id}', 'Backend\Admin\BlogController@edit')->name('admin_editBlog');
 	Route::get('/admin/blog', 'Backend\Admin\BlogController@index')->name('admin_blog');
 	Route::get('/admin/addBlog', 'Backend\Admin\BlogController@add_view')->name('admin_addBlogView');
 	Route::post('/admin/addBlog', 'Backend\Admin\BlogController@add')->name('admin_addBlog');

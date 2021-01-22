@@ -54,10 +54,13 @@
                                     </td>
                                     <td>
                                         <center>
-                                            <a href="{{url('/admin/hapusBlog', $u->id)}}"class="btn btn-danger btn-circle btn-sm" style="font-size: xx-small;">
+                                            <a href="{{url('/admin/hapusBlog', $u->id)}}" class="btn btn-danger btn-circle btn-sm" >
                                                 <i class="fa fa-trash" aria-hidden="true"></i> 
                                             </a>
-                                            <a type="btn" data-toggle="modal" data-target="#modalDetail{{$u->id}}" class="btn btn-success btn-circle btn-sm" style="font-size: xx-small;">
+
+                                            <a href="{{url('/admin/editBlog', $u->id)}}" type="btn" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+
+                                            <a type="btn" data-toggle="modal" data-target="#modalDetail{{$u->id}}" class="btn btn-success btn-circle btn-sm" >
                                             <i class="fa fa-eye"></i>
                                         </a>
                                 </button>

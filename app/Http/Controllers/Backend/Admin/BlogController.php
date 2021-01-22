@@ -63,8 +63,8 @@ class BlogController extends Controller
 
     public function edit_view (Request $request, $id)
     {
-    	$user = Blog::find($id);
-    	return view('backend.admin.user.edit', compact(['user']));
+    	$blog = Blog::find($id);
+    	return view('backend.admin.blog.edit', compact(['blog']));
     }
 
     public function edit (Request $request, $id)
@@ -72,22 +72,27 @@ class BlogController extends Controller
     	$status = 200;
         $message = "Data Berhasil di Update";
     	$edit = Blog::find($id);
-    	$edit->store_name = $request->store_name;
-    	$edit->address = $request->address;
-    	$edit->phone = $request->phone;
-    	$edit->deposit = $request->deposit;
+    	$edit->judul = $request->judul;
+
+        if ($request->text == null) {
+    	   $edit->text = $edit->text;
+        }elseif ($request->text != null) {
+            $edit->text = $request->text;
+        }
+
+        // dd($request->text);
     	$edit->save();
 
         $log = new Log;
-        $log->mutasi_action = "edit user ". $edit->name;
+        $log->mutasi_action = "edit blog ". $edit->judul;
         $log->user_id = Auth::user()->id;
-        $log->controller = "UserController";
+        $log->controller = "BlogController";
         $log->function = "edit";
-        $log->keterangan = "edit user berhasil";
+        $log->keterangan = "edit blog berhasil";
         $log->tgl_action = date('Y-m-d H:i:s');
         $log->save();
 
-    	return redirect('/admin/index')->with(['flash_status' => $status,'flash_message' => $message]);
+    	return redirect('/admin/blog')->with(['flash_status' => $status,'flash_message' => $message]);
     }
 
     public function delete (Request $request, $id)
