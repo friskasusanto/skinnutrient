@@ -8,14 +8,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>about us</h2>
+                        <h2>tentang kami</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">About us</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tentang Kami</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,8 +32,9 @@
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain">
-                            <h3>About Skin Nutrient™</h3>
-                            <h5>Skin Nutrient™ is a global born brand that was founded in 2013, developed by successful Australian manufacturing company AHRD. The original brand idea was to harness the power of unique Australian nutrients and explore the fundamentals of skin biology to build products that are effective, healthy and beneficial for every skin type. We believe the key to achieving healthy and beautiful skin, lies within the naturally derived Australian ingredients used in every formula we make - regardless of your skin type. Our goal is simple, to nutritionally boost the skin by improving skin immunity, fighting off free radicals and supporting the natural barrier function. By doing this we are creating products that slow down the ageing process, keep the skin hydrated and supple, help activate the skin own natural repair systems and protect it from pollution and harsh chemicals. The fact that we are creating products from high quality, rare and unique Australian ingredients to nourish every skin type - is our advantage.</h5>
+                            <h3>Tentang Skin Nutrient™</h3>
+                            <h5>Skin Nutrient adalah brand global yang didirikan pada tahun 2013, dikembangkan oleh AHRD, perusahaan manufaktur Australia yang sukses. Ide merek aslinya adalah memanfaatkan kekuatan nutrisi Australia yang unik dan mengeksplorasi dasar-dasar biologi kulit untuk membangun produk yang efektif, sehat dan bermanfaat untuk setiap jenis kulit. Kami percaya kunci untuk mencapai kulit yang sehat dan indah, terletak pada bahan-bahan Australia yang diturunkan secara alami yang digunakan dalam setiap formula yang kami buat - terlepas dari jenis kulit Anda.
+                            Tujuan kami sederhana, untuk meningkatkan kulit secara gizi dengan meningkatkan kekebalan kulit, melawan radikal bebas dan mendukung fungsi pelindung alami kulit. Dengan melakukan ini, kami menciptakan produk yang memperlambat proses penuaan, menjaga kulit tetap terhidrasi dan kenyal, membantu mengaktifkan sistem perbaikan alami kulit dan melindunginya dari polusi dan bahan kimia yang berbahaya. Fakta bahwa kami menciptakan produk dari bahan-bahan Australia berkualitas tinggi, langka dan unik untuk memelihara setiap jenis kulit adalah kelebihan kita.</h5>
                         </div>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2013</h4>
-                                        <p>Skin Nutrient™ was founded by the director of successful manufacturing company, Australia Health Research & Development Group Pty Ltd. The brand is now part of the rapidly expanding ANPG group, which is 100% Australian family owned.</p>
+                                        <p>Skin Nutrient ™ didirikan oleh direktur perusahaan manufaktur yang sukses yaitu Grup Penelitian & Pengembangan Kesehatan Australia Pty Ltd. Merek ini sekarang menjadi bagian dari grup ANPG yang berkembang pesat, yang 100% dimiliki oleh keluarga Australia.</p>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +69,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2014</h4>
-                                        <p>Our founding fathers began exploring skin care ingredients, that were unique to Australia and could be used as nutrients for the skin. Our skin care products only use the purest raw materials to give your skin the purest care.</p>
+                                        <p>Para pendiri kami mulai mengeksplorasi bahan-bahan perawatan kulit yang unik di Australia dan dapat digunakan sebagai nutrisi untuk kulit. Produk perawatan kulit kami hanya menggunakan bahan mentah paling murni untuk memberikan perawatan paling murni pada kulit Anda.</p>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +85,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2015</h4>
-                                        <p>Towards to the end of 2015, Goat's Milk Magic Touch™ is launched in China & Australia as the world's first goat milk droplet moisturiser with EGF proteins and Skin Nutrient's first ever product. This is still one of our best selling products to date! Goat milk is an extremely rich source of nutrients. One small cup of milk a day can meet 25% of the body’s calcium needs, it is also perfectly pH balanced for the skin and contains natural lactic acid that helps to gently remove dead skin cells from your skin’s surface. Not to mention EGF proteins which promote the production of new cells and the rejuvenation of younger looking skin. Our formulations containing goat milk are particularly suitable for those with aged and dry skin.</p>
+                                        <p>Menjelang akhir tahun 2015, Goat's Milk Magic Touch ™ diluncurkan di China & Australia sebagai pelembab susu kambing pertama di dunia dengan protein EGF dan produk Skin Nutrient yang pertama. Ini masih menjadi salah satu produk terlaris kami hingga saat ini! Susu kambing merupakan sumber nutrisi yang sangat kaya. Satu cangkir kecil susu sehari dapat memenuhi 25% kebutuhan kalsium tubuh, juga memiliki keseimbangan pH yang sempurna untuk kulit dan mengandung asam laktat alami yang membantu mengangkat sel kulit mati dari permukaan kulit Anda dengan lembut. Belum lagi protein EGF yang mendorong produksi sel-sel baru dan peremajaan kulit yang tampak lebih muda. Formulasi kami yang mengandung susu kambing sangat cocok untuk mereka yang memiliki kulit tua dan kering.</p>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +109,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2016</h4>
-                                        <p>The Goat Milk range get's a new and fresh look and Goat's Milk Magic Moment is launched. 2016 also saw the development and launch of our natural-cosmetic-injection alternative, the Bee Venom range. Designed to firm and lift and made with pure bee venom, that has been carefully inspected and tested to ensure that the toxic venom elements and impurities are completely removed and purified.</p>
+                                        <p>Produk Goat Milk mendapat penampilan baru dan segar, dan Goat’s Milk Moment juga telah dikeluarkan. 2016 juga melihat pengembangan dan peluncuran alternatif injeksi kosmetik alami kami, Produk Bee Venom. Dirancang untuk mempertegas dan mengangkat dan dibuat dengan ekstrak lebah murni, yang telah diperiksa dan diuji dengan hati-hati untuk memastikan bahwa elemen yang beracun dan kotor benar-benar telah dihapus dan dimurnikan.</p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +125,8 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2017</h4>
-                                        <p>Our hybrid anti-ageing/hydrating range, Hydramino, was launched in 2017 using Amino Acid Complex as the key ingredients. This range was inspired by the water element, pure and emotional and the key to the survival of all things.</p>
+                                        <p>Rangkaian produk hybrid anti-aging / hydrating kami, Hydramino, diluncurkan pada tahun 2017 menggunakan Amino Acid Complex sebagai bahan utamanya. Rangkaian ini terinspirasi oleh elemen air, murni dan emosional dan kunci untuk kelangsungan hidup segala sesuatu.
+                                        </p>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +141,8 @@
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <p>Throughout 2017, the Skin Nutrient product innovation team conducted a series of market research surveys to identify the average consumers makeup removing routine. We surprisingly discovered most women either skip removing their makeup and proceed straight to cleansing their face, use makeup removal wipes or skip the process in its entirety. The problem with this is, most of the time people are not actually removing makeup properly. Causing their pores to become clogged and resulting in pimples, blackheads and blemishes. Generally causing the complexion to appear dull, patchy and lifeless! So we decided to create a cleanser, makeup remover, exfoliating and brightening solution in one product. Introducing the Perfect White Magic Cleanser.</p>
+                                    <p>Sepanjang tahun 2017, tim inovasi produk Skin Nutrient melakukan serangkaian survei riset pasar untuk mengidentifikasi rutinitas rata-rata konsumen dalam menghapus riasan. Kami secara mengejutkan menemukan bahwa sebagian besar wanita tidak menghapus riasan dan langsung membersihkan wajah, menggunakan tisu penghapus riasan atau melewatkan proses secara keseluruhan. Masalahnya adalah, sebagian besar waktu orang tidak benar-benar menghapus riasan dengan benar. Menyebabkan pori-pori tersumbat dan mengakibatkan timbulnya jerawat, komedo dan noda. Umumnya menyebabkan kulit tampak kusam, tidak rata, dan tidak sehat!
+                                    Jadi kami memutuskan untuk membuat pembersih, penghapus riasan, solusi pengelupasan kulit dan pencerah dalam satu produk. Memperkenalkan Perfect White Magic Cleanser.</p>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +166,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2018</h4>
-                                        <p>Air and wind contain 5% water vapour. Wind is one of the purest sources of energy. It blows over plants, providing fragrance from supercharged botanical ingredients. Using air and wind as our inspiration, we began developing Australia's lightest, most fragrant sheet masks. Made with biodegradable cellulose material and infused with intensive, nutrient rich serums. Our famous Botanic Face Mask range was born. 2018 was also the year Skin Nutrient™ was launched in Ho Chi Minh City, Vietnam. The team was thrilled to meet Vietnam's hottest celebrities including lam giau khong kho, Đàm Vĩnh Hưng (Mr. Dam) , Hương Giang Idol vu hà, cùng nhiều khách mời nổi tiếng khác and many other famous guests.</p>
+                                        <p>Udara dan angin mengandung 5% uap air. Angin adalah salah satu sumber energi yang paling murni. Berhembus di tanaman, memberikan aroma dari bahan-bahan botani. Menggunakan udara dan angin sebagai inspirasi kami, kami mulai mengembangkan Sheet Mask paling ringan dan paling harum di Australia. Dibuat dengan bahan selulosa biodegradable dan diresapi dengan serum yang intensif dan kaya nutrisi. Produk Botanica Face Mask kami yang terkenal lahir. 2018 juga merupakan tahun Skin Nutrient™ diluncurkan di kota Ho Chi Minh, Vietnam. Tim sangat senang bertemu dengan selebriti terpanas Vietnam termasuk lam giau khong kho, Đàm Vĩnh Hưng (Mr. Đàm), Hương Giang Idol vu hà, cəng nhiều khách mời nổi tiếng khác dan banyak tamu terkenal lainnya.</p>
                                 </div>
                             </div>
                         </div>
@@ -179,8 +182,9 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2019</h4>
-                                        <p>More than 14,000 household consumers, surveyed as part of Australia’s largest independent consumer survey of new and innovative products, awarded our Australian team of leading herbalists and chemists Product of the Year 2019. This incredible achievement kick started our launch into major Australian retail channels, including; Terrywhite Chemmart, Priceline, Good Price Pharmacy, Go Vita and many more.</p>
-                                        <p>Along with winning prestigious awards and launching an entirely new range of products, our team also attended several trade shows throughout Asia, which further cemented Skin Nutrient™ as a leading Australian Brand in the Asia Pacific market.</p>
+                                        <p>Lebih dari 14.000 konsumen rumah tangga, yang disurvei sebagai bagian dari survei konsumen independen terbesar di Australia atas produk-produk baru dan inovatif, memberikan penghargaan kepada tim ahli herbal dan ahli kimia terkemuka Australia, Product of the Year 2019. Pencapaian luar biasa ini memulai peluncuran kami ke toko ritel utama di Australia, termasuk ; Terry White Chemmart, Priceline, Apotik Harga Bagus, Go Vita dan banyak lagi.
+                                        </p>
+                                        <p>Bersamaan dengan memenangkan penghargaan bergengsi dan meluncurkan rangkaian produk yang sama sekali baru, tim kami juga menghadiri beberapa pameran dagang di seluruh Asia, yang selanjutnya mengukuhkan Skin Nutrient ™ sebagai Merek Australia terkemuka di pasar Asia Pasifik.</p>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +199,7 @@
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <p>2019 was also the year Skin Nutrient™ developed and launched our Kakadu Plum Illuminating Cream. The Kakadu plum (Terminalia ferdinandiana) is an Australian native superfood, only found in remote regions of the Northern Territory. Skin Nutrient Kakadu Plum Illuminating Cream works to moisturise, illuminate and prime the skin. The cream is infused with native Australian Kakadu Plum, which is a rich source of vitamin C. Skin will appear several shades more luminous and be protected from daily pollutants and stress.</p>
+                                    <p>2019 juga merupakan tahun dimana Skin Nutrient™ mengembangkan dan meluncurkan Kakadu Plum Illuminating Cream. The Kakadu Plum (Terminalia ferdinandiana) adalah makanan super asli Australia, hanya ditemukan di daerah terpencil di Northern Territory. Skin Nutrient Kakadu Plum Illuminating Cream berfungsi untuk melembabkan, menerangi, dan merawat kulit. Krim ini mengandung Kakadu Plum asli Australia, yang merupakan sumber vitamin C. Kulit akan lebih bercahaya dan terlindungi dari polusi dan stres sepanjang hari.</p>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +231,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h4>2020</h4>
-                                        <p>During summer, the Earth's orbit brings Australia closer to the sun, resulting in an additional 7% solar UV intensity. Coupled with our clearer atmospheric conditions, this means that Australians are exposed to up to 15% more UV rays. It's safe to say, Australia is home to some of the best sunscreen products in the world. In fact, we were awarded Product of the Year 2020 for our Sun Barrier Tone-Up Whitening Sun Screen and Red Wine Refining and Exfoliating Mask. We were also awarded best marketing team of the year 2020.</p>
+                                        <p>Selama musim panas, orbit Bumi membawa Australia lebih dekat ke matahari, menghasilkan tambahan intensitas UV matahari sebesar 7%. Ditambah dengan kondisi atmosfer kami yang lebih jernih, ini berarti bahwa orang Australia terpapar sinar UV hingga 15% lebih banyak. Bisa dibilang, Australia adalah rumah bagi beberapa produk tabir surya terbaik di dunia. Faktanya, kami dianugerahi Product of the Year 2020 untuk Sun Barrier Tone-Up Whitening Sun Screen dan Red Wine Refining and Exfoliating Mask kami. Kami juga dianugerahi tim pemasaran terbaik tahun 2020.</p>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +246,7 @@
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <p>Throughout the COVID-19 pandemic, we supplied over 2 million units of 70% alcohol to schools, businesses, government and households alike. Our partnership with Woolworths, allowed everyday consumers access to hand sanitiser when there was a major disruption in supply chains. For those who have chosen Skin Nutrient as their preferred hand sanitiser supplier, we would like to warmly thank you for your support & welcome you to the Skin Nutrient club. Hand sanitiser has quickly become a new staple in our daily routines. As essential as brushing your teeth. Unlike other products recently rushed to market, to ensure the safety of our customers' Skin Nutrient's hand sanitiser has been clinically tested and proven to remove 99.99% of germs. Our unique formula contains 70% ethyl alcohol and moisturising ingredients to avoid red, irritated, and sore hands.</p>
+                                    <p>Sepanjang pandemi COVID-19, kami menyuplai lebih dari 2 juta unit alkohol 70% ke sekolah, perusahaan, pemerintah, dan rumah. Kemitraan kami dengan Woolworths, memungkinkan konsumen sehari-hari mengakses hand sanitiser ketika ada gangguan besar dalam rantai pasokan. Bagi mereka yang telah memilih Skin Nutrient sebagai pemasok hand sanitiser pilihan mereka, kami ingin mengucapkan terima kasih dengan hangat atas dukungan Anda & menyambut Anda di klub Skin Nutrient. Hand sanitiser telah dengan cepat menjadi bahan pokok baru dalam rutinitas sehari-hari kita. Sama pentingnya dengan menyikat gigi. Tidak seperti produk lain yang baru-baru ini bergegas ke pasar, untuk memastikan keamanan hand sanitiser Skin Nutrient pelanggan kami telah diuji secara klinis dan terbukti menghilangkan 99,99% kuman. Formula unik kami mengandung 70% ethyl alkohol dan bahan pelembab untuk menghindari tangan merah, iritasi, dan sakit.</p>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +258,7 @@
     <!-- Section ends -->
 
     <!-- about section start -->
-    <section class="about-page section-b-space">
+    <!-- <section class="about-page section-b-space">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -280,7 +284,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- about section end -->
 
 @endsection
