@@ -391,7 +391,7 @@
         </div>
 
     <!-- collection banner -->
-    <section class="section-b-space p-t-0 ratio_40">
+    <!-- <section class="section-b-space p-t-0 ratio_40">
         <div class="container">
             <div class="row partition2">
                 <div class="col-md-12">
@@ -413,7 +413,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- collection banner end -->
 
     <!-- blog section -->
