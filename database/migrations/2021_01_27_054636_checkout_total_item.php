@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RemoveProductIdToCheckoutTable extends Migration
+class CheckoutTotalItem extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class RemoveProductIdToCheckoutTable extends Migration
     public function up()
     {
         Schema::table('checkouts', function (Blueprint $table) {
-            $table->dropColumn('product_id');
+            $table->string('total_item')->after('total_amount')->nullable();
         });
     }
 
@@ -26,8 +26,7 @@ class RemoveProductIdToCheckoutTable extends Migration
     public function down()
     {
         Schema::table('checkouts', function (Blueprint $table) {
-            $table->UnsignedBigInteger('product_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->dropColumn('total_item');
         });
     }
 }

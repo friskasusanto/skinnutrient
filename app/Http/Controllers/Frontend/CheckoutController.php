@@ -20,7 +20,7 @@ class CheckoutController extends Controller
     public function checkout ()
     {
     	$total = Chart::where('user_id', Auth::user()->id)->pluck('total_amount')->sum();
-        $cart = Chart::where('user_id', Auth::user()->id)->get();
+        $cart = Checkout::where('user_id', Auth::user()->id)->get();
 
         // dd($total);
     	return view('frontend.checkout', compact( 'total','cart'));

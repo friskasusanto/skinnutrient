@@ -185,6 +185,7 @@ class DetailController extends Controller
 
             	return redirect('/checkout');
         	}else{
+                $cekCart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
         		if ($cekCart){
                     $cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
                     $cart->delete();
