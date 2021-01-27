@@ -65,7 +65,7 @@
                                         </div>
                                         <ul class="qty">
                                         @foreach ($cart as $c)
-                                            <li>{{ $c->product->name }} ( Rp. {{$c->product->price}} × {{ $c->jumlah }} ) <span>Rp. {{$c->total_amount}}</span></li>
+                                            <li>{{ $c->product->name }} ( Rp. {{$c->product->price}} × {{ $c->total_item }} ) <span>Rp. {{$c->total_amount}}</span></li>
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">
