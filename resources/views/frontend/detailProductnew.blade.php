@@ -82,6 +82,8 @@
                             @endif
 
                             <p>{!!$product->description!!}</p>
+
+                        
                             <div class="product-description">
                                 <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/buy', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
