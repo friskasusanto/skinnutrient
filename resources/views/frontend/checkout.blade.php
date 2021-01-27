@@ -70,7 +70,7 @@
                                         </ul>
                                         <ul class="sub-total">
                                             <li>Subtotal <span class="count">Rp. {{$total}}</span></li>
-                                            <li>Shipping
+                                            <!-- <li>Shipping
                                                 <div class="shipping">
                                                     <div class="shopping-option">
                                                         <input type="checkbox" name="free-shipping" id="free-shipping">
@@ -81,7 +81,7 @@
                                                         <label for="local-pickup">Local Pickup</label>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                         <ul class="total">
                                             <li>Total <span class="count">Rp. {{$total}}</span></li>
