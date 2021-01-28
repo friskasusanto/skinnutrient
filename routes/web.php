@@ -55,6 +55,9 @@ Route::get('/', function () {
 
 
 Auth::routes(['verify' => true]);
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 	Route::get('/home', 'HomeController@index')->name('home');
