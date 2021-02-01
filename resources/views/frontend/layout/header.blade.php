@@ -29,8 +29,10 @@
                     <div class="col-sm-12">
                         <div class="main-menu border-section border-top-0">
                             <div class="menu-left">
-                                <div class="navbar"><a href="javascript:void(0)" onclick="openNav()"><i
-                                            class="fa fa-bars sidebar-bar" aria-hidden="true"></i></a>
+                                <div class="navbar">
+                                    <a href="javascript:void(0)" onclick="openNav()">
+                                        <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoatas lazyloaded" alt="" style="width: 50px">
+                                    </a>
                                 </div>
                             </div>
                             <div class="brand-logo layout2-logo">
@@ -329,8 +331,10 @@
                 <div class="col-sm-12">
                     <div class="main-menu border-section border-top-0">
                         <div class="menu-left">
-                            <div class="navbar"><a href="javascript:void(0)" onclick="openNav()"><i
-                                        class="fa fa-bars sidebar-bar" aria-hidden="true"></i></a>
+                            <div class="navbar">
+                                <a href="javascript:void(0)" onclick="openNav()">
+                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoatas lazyloaded" alt="" style="width: 50px">
+                                </a>
                                 <div id="mySidenav" class="sidenav">
                                     <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
                                     <nav>
