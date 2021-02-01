@@ -2,9 +2,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <link rel="icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <title>Skin Nutrient&trade; Indonesia Official Website</title>
@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color2.css')}}" media="screen" id="color">
 
     <style>
+
     /* Small devices (landscape phones, 576px and up) */
     @media (min-width: 576px) {
         
@@ -40,6 +41,8 @@
 
     /* Extra small devices (portrait phones, less than 576px) */
     @media (max-width: 575.98px) {
+
+
         .fixed-tops {
             display: none;
         }
@@ -219,6 +222,8 @@
 
     /* Large devices (desktops, 992px and up) */
     @media (min-width: 992px) {
+
+
         .hidden-aja {
             display: none;
         }
