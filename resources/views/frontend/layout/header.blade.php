@@ -30,9 +30,22 @@
                         <div class="main-menu border-section border-top-0">
                             <div class="menu-left">
                                 <div class="navbar">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoatas lazyloaded" alt="" style="width: 50px">
-                                    </a>
+                                <a href="javascript:void(0)" onclick="openNav()">
+                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoaud lazyloaded" alt="" style="width: 50px">
+                                </a>
+                                <div id="mySidenav" class="sidenav">
+                                    <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
+                                    <nav>
+                                        <a href="javascript:void(0)" onclick="closeNav()">
+                                            <div class="sidebar-back text-left"><i class="fa fa-angle-left pr-2"
+                                                    aria-hidden="true"></i> Back</div>
+                                        </a>
+                                        <!-- Vertical Menu -->
+                                        <ul id="sub-menu" class="sm pixelstrap sm-vertical">
+                                            <li><a href="https://www.australianmade.com.au/why-buy-australian-made/about-the-logo/" target="_blank">AUSTRALIAN MADE</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                             <div class="brand-logo layout2-logo">
@@ -333,7 +346,7 @@
                         <div class="menu-left">
                             <div class="navbar">
                                 <a href="javascript:void(0)" onclick="openNav()">
-                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoatas lazyloaded" alt="" style="width: 50px">
+                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoaud lazyloaded" alt="" style="width: 50px">
                                 </a>
                                 <div id="mySidenav" class="sidenav">
                                     <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
@@ -344,17 +357,8 @@
                                         </a>
                                         <!-- Vertical Menu -->
                                         <ul id="sub-menu" class="sm pixelstrap sm-vertical">
-                                            <li><a href="#">sale product</a>
-                                                <ul>
-                                                @if (count(App\Model\Product::orderBy('created_at', 'desc')->where('discount', '!=', null)->limit(10)->get()) != 0)
-                                                    @foreach (App\Model\Product::orderBy('created_at', 'desc')->where('discount', '!=', null)->limit(10)->get() as $s)
-                                                    <li><a href="{{route('detailProduct', $s->slug)}}">{{$s->name}}</a></li>
-                                                    @endforeach
-                                                @else
-                                                    <li><a href="#">comming soon</a></li>
-                                                @endif
-                                                </ul>
-                                            </li>   
+                                            <li><a href="https://www.australianmade.com.au/why-buy-australian-made/about-the-logo/" target="_blank">AUSTRALIAN MADE</a>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>

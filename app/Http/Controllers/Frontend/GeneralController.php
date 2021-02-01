@@ -60,11 +60,12 @@ class GeneralController extends Controller
             $product = ProductCategory::whereHas('product', function (Builder $query) use ($request){
                         $query->where('name', 'like', '%'.$request->name.'%');
                     })->paginate(16);
-            dd($request->name);
-            $category = Category::with('product')->get();
+                        $category = Category::with('product')->get();
+            // dd($product);
         }elseif ($request->jenis) {
             $product = Product::orWhere('jenis_id', $request->jenis)->orderBy('created_at', 'desc')->paginate(16);
         }
+
 
         return view('frontend.product', compact('product', 'category'));
     }
