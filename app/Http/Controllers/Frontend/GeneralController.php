@@ -60,7 +60,7 @@ class GeneralController extends Controller
             $product = ProductCategory::whereHas('product', function (Builder $query) use ($request){
                         $query->where('name', 'like', '%'.$request->name.'%');
                     })->paginate(16);
-            // dd($product);
+            dd($request->name);
             $category = Category::with('product')->get();
         }elseif ($request->jenis) {
             $product = Product::orWhere('jenis_id', $request->jenis)->orderBy('created_at', 'desc')->paginate(16);
