@@ -41,9 +41,6 @@
                             <div class="menu-right pull-right">
                                 <div class="icon-nav d-none d-sm-block">
                                     <ul>
-                                        <li>
-                                            <img src="{{asset('backends/assets/images/australia.png')}}" class="img-fluid blur-up lazyload" alt=""> 
-                                        </li>
                                         <li class="onhover-div mobile-search">
                                             <div>
                                                 <img src="{{asset('backends/assets/images/icon/search.png')}}" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> 
@@ -366,9 +363,6 @@
                         <div class="menu-right pull-right">
                             <div class="icon-nav">
                                 <ul>
-                                    <li>
-                                        <img src="{{asset('backends/assets/images/australia.png')}}" alt=""> 
-                                    </li>
                                     <li class="onhover-div mobile-search">
                                         <div>
                                             <img src="{{asset('backends/assets/images/icon/search.png')}}" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> 
@@ -497,6 +491,7 @@
                                         </ul>
                                     </li>
                                 @endif
+                                    
                                 </ul>
                             </div>
                         </div>
