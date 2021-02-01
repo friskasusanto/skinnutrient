@@ -362,11 +362,13 @@ class ProductController extends Controller
                 $edit->price = $request->price;
                 $edit->title = null;
                 
-                foreach ($request->category as $category) {
-                    ProductCategory::create([
-                    'product_id' => $edit->id,
-                    'category_id' => $category
-                    ]);
+                if ($request->category != null){
+                    foreach ($request->category as $category) {
+                        ProductCategory::create([
+                        'product_id' => $edit->id,
+                        'category_id' => $category
+                        ]);
+                    }
                 }
                 
                 if ($request->image != null ){
