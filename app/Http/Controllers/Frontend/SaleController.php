@@ -24,8 +24,9 @@ class SaleController extends Controller
     	$product = Product::where('slug', $slug)->first();
 
     	if (Auth::check()){
-
-            if (count(Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->get()) >= 0){
+            $cek = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->count();
+            // dd($cek);
+            if ($cek == 0){
         	
                 $status = 200;
                 $message = "Berhasil Menambahkan Wishlist";

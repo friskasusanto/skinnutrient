@@ -32,8 +32,8 @@ Route::get('/', function () {
 
 	//Frontend/SaleController
 	Route::get('/sale', 'Frontend\SaleController@index')->name('sale');
-	Route::post('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
-	Route::post('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
+	Route::get('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
+	Route::get('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	Route::post('/cartQuantity/{id}', 'Frontend\CartController@quantity')->name('cartQuantity');
 	Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
 	Route::get('/cartTocheckout', 'Frontend\CartController@checkoutAdd')->name('cartTocheckout');
+	Route::get('/checkoutWishlist', 'Frontend\WishlistController@checkoutWish')->name('checkoutWish');
 
 	//Frontend/WishlistController
 	Route::get('/wishlist', 'Frontend\WishlistController@wishlist')->name('wishlist');

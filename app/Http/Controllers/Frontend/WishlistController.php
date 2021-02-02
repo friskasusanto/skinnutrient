@@ -59,4 +59,28 @@ class WishlistController extends Controller
     	return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
 
     }
+
+    public function checkoutWish (Request $request)
+    {
+
+        $status = 200;
+        $message = "Berhasil, silahkan lanjutkan transaksi. Terimakasih.";
+        $wish = Wishlist::where('user_id', Auth::user()->id)->where('status', 0)->get();
+        foreach ($wish as $key => $value) {
+            $data[] = array(
+                'user_id'=> Auth::user()->id,
+                'product_id'=> $value->product_id,
+                'jumlah'=> 1,
+                'total_amount'=> $value->amount,
+                'status' => 0
+            );
+            $value->delete();
+        }
+        Chart::insert($data);
+        
+        // dd($wish);
+        
+
+        return redirect('/cart')->with(['flash_status' => $status,'flash_message' => $message]);
+    }
 }

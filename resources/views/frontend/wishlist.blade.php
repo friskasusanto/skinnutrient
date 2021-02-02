@@ -102,8 +102,10 @@
                 </div>
             </div>
             <div class="row wishlist-buttons">
-                <div class="col-12"><a href="#" class="btn btn-solid">continue shopping</a> <a href="#"
-                        class="btn btn-solid">check out</a></div>
+                <div class="col-12">
+                    <a href="{{url('/')}}" class="btn btn-solid">continue shopping</a> 
+                    <a href="{{url('/checkoutWishlist')}}" class="btn btn-solid">continue cart</a>
+                </div>
             </div>
         </div>
     </section>

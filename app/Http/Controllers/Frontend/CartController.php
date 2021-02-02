@@ -76,7 +76,7 @@ class CartController extends Controller
 
     	$status = 200;
         $message = "Berhasil, menunggu pembayaran barang. Terimakasih.";
-        $wish = Wishlist::where('user_id', Auth::user()->id)->get();
+        $wish = Wishlist::where('user_id', Auth::user()->id)->where('status', 0)->get();
         foreach ($wish as $key => $value) {
             $data[] = array(
                 'date_entry'=>  date('Y-m-d H:i:s'),
@@ -94,7 +94,7 @@ class CartController extends Controller
             );
         }
         Checkout::insert($data);
-        $status = Wishlist::where('user_id', Auth::user()->id)->where('status', '0')->update(['status'=>1]);
+        $value->delete();
 
         return redirect('/home')->with(['flash_status' => $status,'flash_message' => $message]);
     }
