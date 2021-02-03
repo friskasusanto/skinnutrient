@@ -170,7 +170,7 @@
                                                 Sold Out
                                             </h3></center>
                                         @else
-                                            <h3>Rp. {{$b->price}}
+                                            <h3>Rp. {{number_format($b->price, 0, ',', '.')}}
                                                 <!-- <del>$600.00</del> -->
                                             </h3>
                                         @endif
@@ -240,7 +240,7 @@
                                                 Sold Out
                                             </h3></center>
                                         @else
-                                            <h3>Rp. {{$n->price}}
+                                            <h3>Rp. {{number_format($n->price, 0, ',', '.')}}
                                                 <!-- <del>$600.00</del> -->
                                             </h3>
                                         @endif
@@ -349,7 +349,7 @@
                                         Sold Out
                                     </h3></center>
                                 @else
-                                    <h3>Rp. {{$l->price}}
+                                    <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
                                         <!-- <del>$600.00</del> -->
                                     </h3>
                                 @endif
@@ -487,7 +487,7 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{$l->price}}
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
                                     <!-- <del>$600.00</del> -->
                                 </h3>
                             @endif
@@ -545,7 +545,7 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{$l->price}}
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
                                     <!-- <del>$600.00</del> -->
                                 </h3>
                             @endif
@@ -603,7 +603,7 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{$l->price}}
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
                                     <!-- <del>$600.00</del> -->
                                 </h3>
                             @endif

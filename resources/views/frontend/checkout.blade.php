@@ -37,10 +37,20 @@
                                 <div class="checkout-title">
                                     <h3>Billing Details</h3>
                                 </div>
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nama Depan</div>
-                                        <input type="text" name="first_name" value="" placeholder="">
+                                        <input type="text" name="nama" value="" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nama Belakang</div>
@@ -65,11 +75,11 @@
                                         </div>
                                         <ul class="qty">
                                         @foreach ($cart as $c)
-                                            <li>{{ $c->product->name }} ( Rp. {{$c->product->price}} × {{ $c->total_item }} ) <span>Rp. {{$c->total_amount}}</span></li>
+                                            <li>{{ $c->product->name }} ( Rp. {{number_format($c->product->price, 0, ',', '.')}} × {{ $c->total_item }} ) <span>Rp. {{number_format($c->total_amount, 0, ',', '.')}}</span></li>
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">
-                                            <li>Subtotal <span class="count">Rp. {{$total}}</span></li>
+                                            <li>Subtotal <span class="count">Rp. {{number_format($total, 0, ',', '.')}}</span></li>
                                             <!-- <li>Shipping
                                                 <div class="shipping">
                                                     <div class="shopping-option">
@@ -84,7 +94,7 @@
                                             </li> -->
                                         </ul>
                                         <ul class="total">
-                                            <li>Total <span class="count">Rp. {{$total}}</span></li>
+                                            <li>Total <span class="count">Rp. {{number_format($total, 0, ',', '.')}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="payment-box">

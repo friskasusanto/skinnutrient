@@ -111,9 +111,11 @@
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                 aria-hidden="true"></i></div>
                                     </li>
+                                    @if (!Auth::check())
                                     <li>
                                         <a href="{{url('/login')}}">Login</a>
                                     </li>
+                                    @endif
                                     <li>
                                         <a href="{{url('/sale')}}">Sale</a>
                                     </li>
@@ -475,7 +477,7 @@
                                                         <a href="{{url('/detailProduct', $c->product->slug)}}">
                                                             <h4>{{$c->product->name}}</h4>
                                                         </a>
-                                                        <h4><span>{{$c->jumlah}} x $ Rp. {{$c->product->price}}</span></h4>
+                                                        <h4><span>{{$c->jumlah}} x $ Rp. {{number_format($c->product->price, 0, ',', '.')}}</span></h4>
                                                     </div>
                                                 </div>
                                                 <div class="close-circle">
@@ -486,7 +488,7 @@
                                             </li>
                                             <li>
                                                 <div class="total">
-                                                    <h5>subtotal : <span>Rp. {{$c->jumlah * $c->product->price}}</span></h5>
+                                                    <h5>subtotal : <span>Rp. {{number_format($c->jumlah * $c->product->price, 0, ',', '.')}}</span></h5>
                                                 </div>
                                             </li>
                                             

@@ -73,7 +73,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h2>Rp. {{$w->product->price}}</h2>
+                                    <h2>Rp. {{number_format($w->product->price, 0, ',', '.')}}</h2>
                                 </td>
                                 <td>
                                 @if ($w->product->stock >= 1)

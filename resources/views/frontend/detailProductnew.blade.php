@@ -78,7 +78,7 @@
                             @elseif ($product->stock_user == null || $product->stock_user == 0)
                                 <h3>Sold Out</h3>
                             @else
-                                <h3>Rp. {{$product->price}}</h3>
+                                <h3>Rp. {{number_format($product->price, 0, ',', '.')}}</h3>
                             @endif
 
                             <p>{!!$product->description!!}</p>
@@ -424,7 +424,7 @@
                             @elseif ($r->stock_user == null || $r->stock_user == 0)
                                 <h4>Sold Out</h4>
                             @else
-                                <h4>Rp. {{$r->price}}</h4>
+                                <h4>Rp. {{number_format($r->price, 0, ',', '.')}}</h4>
                             @endif
                         </div>
                     </div>

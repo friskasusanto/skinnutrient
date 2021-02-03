@@ -28,13 +28,19 @@ class CheckoutController extends Controller
 
     public function checkout_store(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'phone' => 'required',
+        ]);
+
         $carts = Chart::where('user_id', Auth::user()->id)->get();
         // dd($carts);
         foreach ($carts as $key => $value) {
             $data[] = array(
                 'user_id' => Auth::user()->id,
                 'date_entry' => Carbon::now(),
-                'receiver_name' => $request->first_name.' '.$request->last_name,
+                'receiver_name' => $request->nama.' '.$request->last_name,
                 'address' => $request->alamat,
                 'phone_number' => $request->phone,
                 'total_amount' => $request->total,
@@ -77,6 +83,10 @@ class CheckoutController extends Controller
             );
         }
         checkoutItem::insert($item);
+
+        foreach ($carts as $key => $value) {
+            $value->delete();
+        }
 
         // remove item cart
 

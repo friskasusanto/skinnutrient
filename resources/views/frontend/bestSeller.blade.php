@@ -119,7 +119,7 @@
                                                                     Sold Out
                                                                 </h4></center>
                                                             @else
-                                                                <h4>Rp. {{$s->price}}
+                                                                <h4>Rp. {{number_format($s->price, 0, ',', '.')}}
                                                                     <!-- <del>$600.00</del> -->
                                                                 </h4>
                                                             @endif
@@ -173,7 +173,7 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{$s->price}}
+                                <h3>Rp. {{number_format($s->price, 0, ',', '.')}}
                                     <!-- <del>$600.00</del> -->
                                 </h3>
                             @endif

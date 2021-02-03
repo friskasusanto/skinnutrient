@@ -62,7 +62,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-3">
-                                            <h2 class="td-color">Rp. {{$c->product->price}}</h2>
+                                            <h2 class="td-color">Rp. {{number_format($c->product->price, 0, ',', '.')}}</h2>
                                         </div>
                                         <div class="col-xs-3">
                                             <h2 class="td-color">
@@ -74,7 +74,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h2>Rp. {{$c->product->price}}</h2>
+                                    <h3>Rp. {{number_format($c->product->price, 0, ',', '.')}}</h3>
                                 </td>
                                 <td>
                                     <form novalidate="novalidate" method="POST" action= "{{url('/cartQuantity', $c->id)}}" enctype="multipart/form-data">
@@ -88,7 +88,7 @@
                                 </td>
                                 <td><a href="{{url('/cartDelete', $c->id)}}" class="icon"><i class="ti-close"></i></a></td>
                                 <td>
-                                    <h2 class="td-color">Rp. {{$c->total_amount}}</h2>
+                                    <h2 class="td-color">Rp. {{number_format($c->total_amount, 0, ',', '.')}}</h2>
                                 </td>
                             </tr>
                             @endforeach
@@ -104,7 +104,7 @@
                             <tr>
                                 <td>total price :</td>
                                 <td>
-                                    <h2>Rp. {{$cart->sum('total_amount')}}</h2>
+                                    <h2>Rp. {{number_format($cart->sum('total_amount'), 0, ',', '.')}}</h2>
                                 </td>
                             </tr>
                         </tfoot>
