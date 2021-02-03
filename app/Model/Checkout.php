@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Checkout extends Model
 {
+    protected $guarded = [
+        'id'
+    ];
+
     protected $fillable = [
-    	'user_id','date_entry', 'address', 'receiver_name', 'total_amount', 'phone_number','status','total_item'
+    	'user_id','date_entry', 'address', 'receiver_name', 'total_amount', 'phone_number','status','total_item', 'id'
     ];
     public function product()
     {

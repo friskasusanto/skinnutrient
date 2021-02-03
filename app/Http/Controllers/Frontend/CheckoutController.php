@@ -28,47 +28,59 @@ class CheckoutController extends Controller
 
     public function checkout_store(Request $request)
     {
-        
-
-        $checkout = new Checkout();
-        $checkout->user_id = Auth::user()->id;
-        $checkout->date_entry = Carbon::now();
-        $checkout->receiver_name = $request->first_name.' '.$request->last_name;
-        $checkout->address = $request->alamat;
-        $checkout->phone_number = $request->phone;
-        $checkout->total_amount = $request->total;
-        $checkout->status = 0;
-        $checkout->total_item = 0;
-        $checkout->save();
+        $carts = Chart::where('user_id', Auth::user()->id)->get();
+        // dd($carts);
+        foreach ($carts as $key => $value) {
+            $data[] = array(
+                'user_id' => Auth::user()->id,
+                'date_entry' => Carbon::now(),
+                'receiver_name' => $request->first_name.' '.$request->last_name,
+                'address' => $request->alamat,
+                'phone_number' => $request->phone,
+                'total_amount' => $request->total,
+                'status' => 0,
+                'total_item' => $value->jumlah,
+                'product_id' => $value->product_id
+            );
+            // $value->delete();
+        }
+        $checkout = Checkout::insert($data);
+        // dd($data);
 
         // input cart item ke checkout item
-        $carts = Chart::where('user_id', Auth::user()->id)->get();
-        foreach ($carts as $cart ) {
-            $item = new checkoutItem();
-            $item->product_id = $cart->product_id;
-            $product = Product::where('id',$cart->product_id)->first();
-            $item->name = $product->name;
-            $item->price = $product->price;
+        
+        $check = Checkout::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 0)->get();
 
-            $item->qty = $cart->jumlah;
-            $item->total = $cart->total_amount;
-            $item->checkout_id = $checkout->id;
-            $item->save();
+        // dd($check);
+        foreach ($check as $checks => $value) {
+            $item[] = array(
+                'product_id' => $value->product_id,
+                'name' => $value->receiver_name,
+                'price' => $value->product->price,
+                'qty' => $value->total_item,
+                'total' => $value->total_amount,
+                'checkout_id' => $value->id
+                
+            );
+
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $value->id,
+                    'gross_amount' => $request->total,
+                ),
+                'customer_details' => array(
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'email' => Auth::user()->email,
+                    'phone' => $request->phone,
+                ),
+            );
         }
+        checkoutItem::insert($item);
+
         // remove item cart
 
-       $params = array(
-            'transaction_details' => array(
-                'order_id' => $checkout->id,
-                'gross_amount' => $request->total,
-            ),
-            'customer_details' => array(
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'email' => Auth::user()->email,
-                'phone' => $request->phone,
-            ),
-        );
+       
 
 
         // Set your Merchant Server Key
