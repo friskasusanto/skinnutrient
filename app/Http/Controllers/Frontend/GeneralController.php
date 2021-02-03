@@ -73,7 +73,7 @@ class GeneralController extends Controller
     public function subscribe (Request $request)
     {
     	$status = 200;
-        $message = "Selamat, kami akan mengirimkan berita terbaru Skinnutrient melalui email anda";
+        $message = "Selamat, kami akan mengirimkan notif berita terbaru Skin Nutrient melalui via email anda";
 
     	$subscribe = new Subscribe;
     	$subscribe->email = $request->email;

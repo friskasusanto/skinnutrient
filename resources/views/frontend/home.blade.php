@@ -441,7 +441,7 @@
                             </a>
                             <div class="blog-details">
                                 <h4>SKINNUTRIENT NEWS</h4>
-                                <a href="#">
+                                <a href="{{url('/blogsDetail', $b->judul)}}">
                                     <p>{{$b->judul}}</p>
                                 </a>
                                 <!--<hr class="style1">
