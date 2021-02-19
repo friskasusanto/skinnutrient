@@ -91,49 +91,42 @@
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Discount :</label>
                                     <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="discount" value="{{$product->discount}}">
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Keterangan :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="description" id="summernoteDescription">{{$product->description}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Detail :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="detail" id="summernoteDetail">{{$product->detail}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Ingredients :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="ingredients" id="summernoteIngredients">{{$product->ingredients}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">How To Use :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="how" id="summernoteHow">{{$product->how}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Shipping Police :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="shipping" id="summernoteShipping">{{$product->shipping}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Composition :</label>
                                     <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                         <textarea class="form-control" name="composition" id="summernoteComposition">{{$product->composition}}</textarea>
                                     </div>
-                                    <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Utama :</label>
@@ -178,6 +171,30 @@
                                                             </a>
                                                         @endforeach
                                                     @endif
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Best Seller :</label>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul class="file-upload-product">
+                                                <li>
+                                                    <input class="file" type="checkbox" name="bestseller" required>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Comming Soon :</label>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul class="file-upload-product">
+                                                <li>
+                                                    <input class="file" type="checkbox" name="comming_soon"  required>
                                                 </li>
                                             </ul>
                                         </div>

@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
+@extends('frontend.layout.index')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <p>try</p>
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 

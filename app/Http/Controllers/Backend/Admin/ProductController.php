@@ -103,7 +103,7 @@ class ProductController extends Controller
             $allowedfileExtension=['JPG','PNG', 'JPEG', 'WEBP', 'jpg', 'png', 'jpeg', 'webp'];
             $files = $request->file('photos');
             // dd($allowedfileExtension);
-
+            // dd($request->photos);
             foreach($files as $file){
 
             $filename = $file->getClientOriginalName();

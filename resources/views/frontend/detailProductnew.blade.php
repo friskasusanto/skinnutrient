@@ -85,6 +85,7 @@
 
                         
                             <div class="product-description">
+                            @if ($product->comming_soon != 1)
                                 <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/buy', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="product-description border-product">
@@ -111,6 +112,7 @@
                                         <button type="submit" class="btn btn-solid">BUY NOW</button>
                                     </div>
                                 </form>
+                            @endif
                                 <form class="d-inline-block" novalidate="novalidate" method="POST" action= "{{url('/wishlist', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <button class="wishlist-btn" type="submit">

@@ -108,7 +108,7 @@
                                                         <div class="product-detail">
                                                             <div>
                                                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                <a href="product-page(no-sidebar).html">
+                                                                <a href="{{url('/detailProduct', $s->slug)}}">
                                                                     <h6>{{$s->name}}</h6>
                                                                 </a>
                                                                 @if ($s->comming_soon == 1)
