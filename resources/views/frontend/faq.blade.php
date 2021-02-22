@@ -1,4 +1,4 @@
-f@extends('frontend.layout.index', ['active' => 'home'])
+@extends('frontend.layout.index', ['active' => 'home'])
 @section('title', 'User')
 @section('content')
 
@@ -34,12 +34,12 @@ f@extends('frontend.layout.index', ['active' => 'home'])
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Are the hand sanitisers still in stock?</button></h5>
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Kenapa Anda punya stok dan sedangkan yang tidak ada yang punya?</button></h5>
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>Unless the website states that they are out of stock on the product page, yes they are in stock and available.</p>
+                                    <p>Ini karena kami adalah produsen dari semua produk kami. Skin Nutrient dimiliki oleh Grup Penelitian & Pengembangan Kesehatan Australia Pty Ltd. Fasilitas produksi kami berbasis di Brisbane.</p>
                                 </div>
                             </div>
                         </div>
@@ -47,12 +47,12 @@ f@extends('frontend.layout.index', ['active' => 'home'])
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0"><button class="btn btn-link collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">How come you have stock and nobody else does?</button></h5>
+                                        aria-controls="collapseTwo">Kapan pesanan saya akan diproses?</button></h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>This is because we are the manufacturer of all our products. Skin Nutrient is owned by the Australia Health Research & Development Group Pty Ltd. Our manufacturing facilities are based in Brisbane.</p>
+                                    <p>Karena volume pesanan yang tinggi, mohon waktu 3-5 hari untuk memproses pesanan. Jika pesanan Anda tidak dibatalkan, mohon tetap tinggal.</p>
                                 </div>
                             </div>
                         </div>
@@ -60,12 +60,13 @@ f@extends('frontend.layout.index', ['active' => 'home'])
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0"><button class="btn btn-link collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">What is the percentage of alcohol in the hand sanitisers?</button></h5>
+                                        aria-controls="collapseThree">Mengapa saya belum menerima nomor pelacakan, apakah ini berarti pesanan saya dibatalkan?</button></h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>70% Ethyl Alcohol</p>
+                                    <p>Tidak, ini tidak berarti pesanan Anda dibatalkan. Karena tingginya volume pesanan yang kami terima, kami membutuhkan waktu lebih lama untuk memproses pesanan Anda.
+                                    Mohon tunggu 3-5 hari untuk pesanan Anda diproses, Anda akan menerima nomor pelacakan setelah pesanan dikirim.</p>
                                 </div>
                             </div>
                         </div>
@@ -73,16 +74,17 @@ f@extends('frontend.layout.index', ['active' => 'home'])
                             <div class="card-header" id="headingFour">
                                 <h5 class="mb-0"><button class="btn btn-link collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">When will my order be processed?</button></h5>
+                                        aria-controls="collapseFour">Berapa lama waktu yang dibutuhkan untuk mengirimkan pesanan saya?</button></h5>
                             </div>
                             <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p>Due to due to a high volume of orders, please allow 3-5 days to process orders. If your order is not cancelled, please stay put.</p>
+                                    <p>Pesanan yang dilacak membutuhkan waktu sekitar 2-7 hari kerja untuk sampai.
+                                    Namun, karena menerima pesanan dalam jumlah besar, mohon tunggu 3-5 hari untuk memproses dan mengirim pesanan Anda. Jika pesanan Anda tidak dibatalkan, mohon tetap tinggal.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="card-header" id="headingFive">
                                 <h5 class="mb-0"><button class="btn btn-link collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
@@ -134,7 +136,7 @@ f@extends('frontend.layout.index', ['active' => 'home'])
                                     <p>We no longer offer free shipping because of the large quantities of hand sanitiser being purchased. Due to the flammable nature of hand sanitiser, we must adhere to strict courier safety instructions. This costs our business a lot more to ship your products. Thank you for your understanding. If you have any further questions, please contact our customer care team: info@skinnnutrient.co.id Shipping rates are calculated per region.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="">FAQ s</a></li>
+                                    <li><a href="{{url('/faq')}}">FAQ s</a></li>
                                     <li><a href="">Contact Us</a></li>
                                     <!-- <li><a href="#">Shipping</a></li> -->
                                     <!-- <li><a href="">Return Policy</a></li> -->
