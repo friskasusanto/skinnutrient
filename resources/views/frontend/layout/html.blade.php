@@ -31,6 +31,20 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color2.css')}}" media="screen" id="color">
 
+    <!-- Website Google Analytics for Skin Nutrient
+    ID Pelacakan
+    UA-192258117-1
+    Pelacakan Situs -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-192258117-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-192258117-1');
+    </script>
+
     <style>
 
     /* Small devices (landscape phones, 576px and up) */
