@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Discount :</label>
-                                    <input class="form-control col-xl-8 col-sm-7" id="validationCustomUsername" type="number" required="" name="discount" value="{{$product->discount}}">
+                                    <input class="form-control col-xl-8 col-sm-7" id="" type="number" required="" name="discount" value="{{$product->discount}}">
                                 </div>
                                 <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Keterangan :</label>
@@ -177,14 +177,26 @@
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row">
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Status Product :</label>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <select name="status" type="text" class="form-control" style="width: 100%">
+                                                  <option value="">--pilih status--</option>
+                                                  <option value= "1">tampilkan</option>
+                                                  <option value= "0">sembunyikan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 row">
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Best Seller :</label>
                                     <div class="add-product">
                                         <div class="row">
-                                            <ul class="file-upload-product">
-                                                <li>
-                                                    <input class="file" type="checkbox" name="bestseller" required>
-                                                </li>
-                                            </ul>
+                                            <select name="bestseller" type="text" class="form-control" style="width: 100%">
+                                                  <option value="">--pilih aktifasi--</option>
+                                                  <option value= "1">product bestseller</option>
+                                                  <option value= "0">hilangkan bestseller</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -192,11 +204,11 @@
                                     <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Comming Soon :</label>
                                     <div class="add-product">
                                         <div class="row">
-                                            <ul class="file-upload-product">
-                                                <li>
-                                                    <input class="file" type="checkbox" name="comming_soon"  required>
-                                                </li>
-                                            </ul>
+                                            <select name="comming_soon" type="text" class="form-control" style="width: 100%">
+                                                  <option value="">--pilih aktifasi--</option>
+                                                  <option value= "1">product coming soon</option>
+                                                  <option value= "0">hilangkan coming soon</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

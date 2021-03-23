@@ -399,25 +399,23 @@ class ProductController extends Controller
                     $edit->status = $edit->status;
                 }
                 
-                if ($request->bestseller == 1){
+                if ($request->bestseller != null){
                     $edit->best_seller = 1;
-                }elseif ($request->bestseller == 0) {
+                }elseif ($request->bestseller == null) {
                     $edit->best_seller = 0;
-                }else {
-                    $edit->best_seller = $edit->bestseller;
                 }
 
-                if ($request->comming_soon == 1){
+                if ($request->comming_soon != null){
                     $edit->comming_soon = 1;
-                }elseif ($request->comming_soon == 0) {
-                    $edit->comming_soon = 0;
                 }elseif ($request->comming_soon == null) {
-                    $edit->comming_soon = $edit->comming_soon;
+                    $edit->comming_soon = 0;
                 }
+
+                // dd($request->all());
                 $edit->save();
 
                 $cek = ProductCategory::where('product_id', $edit->id)->first();
-                // dd($cek);
+                // dd($edit->id);
                 $category = Product::where('id', $edit->id)->first();
                 $category->category_id = $cek->category_id;
                 $category->save();
