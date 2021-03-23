@@ -341,11 +341,11 @@ class ProductController extends Controller
 
                 
                     $log = new Log;
-                    $log->mutasi_action = "tambah product ". $request->name;
+                    $log->mutasi_action = "edit product ". $request->name;
                     $log->user_id = Auth::user()->id;
                     $log->controller = "ProductController";
-                    $log->function = "add_product";
-                    $log->keterangan = "tambah product berhasil";
+                    $log->function = "edit_product";
+                    $log->keterangan = "edit product berhasil";
                     $log->tgl_action = date('Y-m-d H:i:s');
                     $log->save();
 
@@ -424,11 +424,11 @@ class ProductController extends Controller
 
 
                 $log = new Log;
-                $log->mutasi_action = "tambah product ". $request->name;
+                $log->mutasi_action = "edit product ". $request->name;
                 $log->user_id = Auth::user()->id;
                 $log->controller = "ProductController";
-                $log->function = "add_product";
-                $log->keterangan = "tambah product berhasil";
+                $log->function = "edit_product";
+                $log->keterangan = "edit product berhasil";
                 $log->tgl_action = date('Y-m-d H:i:s');
                 $log->save();
 
