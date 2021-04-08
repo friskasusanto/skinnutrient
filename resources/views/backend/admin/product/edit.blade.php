@@ -193,6 +193,10 @@
                                     <div class="add-product">
                                         <div class="row">
                                             <select name="bestseller" type="text" class="form-control" style="width: 100%">
+                                                @if ($product->best_seller == 1)
+                                                <option value="">--product best seller--</option>
+                                                @endif
+
                                                   <option value="">--pilih aktifasi--</option>
                                                   <option value= "1">product bestseller</option>
                                                   <option value= "0">hilangkan bestseller</option>
@@ -205,6 +209,9 @@
                                     <div class="add-product">
                                         <div class="row">
                                             <select name="comming_soon" type="text" class="form-control" style="width: 100%">
+                                                @if ($product->comming_soon == 1)
+                                                <option value="">--product comming soon--</option>
+                                                @endif
                                                   <option value="">--pilih aktifasi--</option>
                                                   <option value= "1">product coming soon</option>
                                                   <option value= "0">hilangkan coming soon</option>
