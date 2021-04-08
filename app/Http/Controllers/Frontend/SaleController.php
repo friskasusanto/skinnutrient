@@ -69,7 +69,7 @@ class SaleController extends Controller
     	    	$cart->status = 0;
     	    	$cart->save();
             }else{
-                $status = 500;
+                $status = 200;
                 $message = "Berhasil menambahkan ke cart";
             }
 
