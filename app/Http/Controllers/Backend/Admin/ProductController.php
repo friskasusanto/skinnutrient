@@ -296,9 +296,11 @@ class ProductController extends Controller
                     $edit->min_price = null;
                     $edit->max_price = null;
 
-                    if ($request->status != null ){
-                        $edit->status = $request->status;
-                    }else{
+                    if ($request->status == 1 ){
+                        $edit->status = 1;
+                    }elseif ($request->status == 0) {
+                        $edit->status = 0;
+                    }elseif ($request->status == null) {
                         $edit->status = $edit->status;
                     }
 
@@ -393,22 +395,28 @@ class ProductController extends Controller
                 $edit->min_price = null;
                 $edit->max_price = null;
 
-                if ($request->status != null ){
-                    $edit->status = $request->status;
-                }else{
+                if ($request->status == 1 ){
+                    $edit->status = 1;
+                }elseif ($request->status == 0) {
+                    $edit->status = 0;
+                }elseif ($request->status == null) {
                     $edit->status = $edit->status;
                 }
-                
-                if ($request->bestseller != null){
+
+                if ($request->bestseller == 1){
                     $edit->best_seller = 1;
-                }elseif ($request->bestseller == null) {
+                }elseif ($request->bestseller == 0) {
                     $edit->best_seller = 0;
+                }elseif ($request->bestseller == null) {
+                    $edit->best_seller = $edit->bestseller;
                 }
 
-                if ($request->comming_soon != null){
+                if ($request->comming_soon == 1){
                     $edit->comming_soon = 1;
-                }elseif ($request->comming_soon == null) {
+                }elseif ($request->comming_soon == 0) {
                     $edit->comming_soon = 0;
+                }elseif ($request->comming_soon == null) {
+                    $edit->comming_soon = $edit->comming_soon;
                 }
 
                 // dd($request->all());
