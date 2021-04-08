@@ -69,6 +69,10 @@ class LoginController extends Controller
                 'password'  => '',
                 'email_verified_at' =>  Carbon::now()
             ]);
+
+            $role = Role::where('name','=','Member')->first();
+            $data->attachRole($role);
+
             return $data;
         }
     }
