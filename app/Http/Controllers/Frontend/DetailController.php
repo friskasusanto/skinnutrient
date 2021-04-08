@@ -163,36 +163,45 @@ class DetailController extends Controller
     public function buy (Request $request, $slug)
     {
     	$product = Product::where('slug', $slug)->first();
-    	// dd($cek);
+        
 
+        // dd($request->quantity);
         if (Auth::check()) {
-            $cek = Checkout::where('product_id', $product->id)->where('user_id', Auth::user()->id)->count();
-        	if ($cek <= 0){
-        		$buy = new Checkout;
-        		$buy->date_entry = date('Y-m-d H:i:s');    
-        		$buy->product_id = $product->id;
-        		$buy->user_id = Auth::user()->id;
-        		$buy->total_item = $request->quantity;
-        		$buy->total_amount = $request->quantity * $product->price;
-        		$buy->status = 0;
-        		$buy->save();
+            $cek = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->get();
+            if ( count($cek) == 0){
+                $cart = new Chart;
+                $cart->user_id = Auth::user()->id;
+                $cart->product_id = $product->id;
 
-                $cekCart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-        		if ($cekCart){
-                    $cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-                    $cart->delete();
+                if ($request->quantity == null){
+                    $cart->jumlah = 1;
+                }else {
+                    $cart->jumlah = $request->quantity;
                 }
 
-            	return redirect('/checkout');
-        	}else{
-                $cekCart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-        		if ($cekCart){
-                    $cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
-                    $cart->delete();
-                }
+                $cart->total_amount = $product->price * $cart->jumlah;
+                $cart->status = 0;
+                $cart->save();
 
-            	return redirect('/checkout');
-        	}
+                $status = 200;
+                $message = "Berhasil Menambahkan ke Cart";
+
+                return redirect('/checkout');
+        
+            }else{
+
+                if ($request->quantity != null){
+                    $cart = Chart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+                    $cart->jumlah = $request->quantity;
+                    $cart->save();
+                }
+                
+                $status = 200;
+                $message = "Product sudah ada di cart";
+
+                return redirect('/checkout');
+            }
+            
         }else{
             $status = 200;
             $message = "Silahkan Login Terlebih Dahulu";
