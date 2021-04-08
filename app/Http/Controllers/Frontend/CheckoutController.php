@@ -75,7 +75,7 @@ class CheckoutController extends Controller
                     'gross_amount' => $request->total,
                 ),
                 'customer_details' => array(
-                    'first_name' => $request->first_name,
+                    'first_name' => $request->nama,
                     'last_name' => $request->last_name,
                     'email' => Auth::user()->email,
                     'phone' => $request->phone,
