@@ -41,12 +41,12 @@
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '447822012979039');
+            fbq('init', '293843232329451');
             fbq('track', 'PageView');
-        </script>
-        <noscript>
-            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=447822012979039&ev=PageView&noscript=1" />
-        </noscript>
+            </script>
+            <noscript>
+                <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=293843232329451&ev=PageView&noscript=1" />
+            </noscript>
         <!-- End Facebook Pixel Code -->
 
     <!-- Website Google Analytics for Skin Nutrient
