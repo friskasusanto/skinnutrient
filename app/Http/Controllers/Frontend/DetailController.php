@@ -142,6 +142,9 @@ class DetailController extends Controller
             		$cart->jumlah = $request->quantity;
             		$cart->save();
             	}
+                
+                $cekWish = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
+
                 if ($cekWish){
                     $wishlist = Wishlist::where('product_id', $product->id)->where('user_id', Auth::user()->id)->first();
                     $wishlist->delete();
