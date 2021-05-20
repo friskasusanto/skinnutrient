@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Backend\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Model\Banner;
-use App\Model\Log;
 use Auth;
+use App\Model\Log;
+use App\Model\Banner;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 
 class BannerController extends Controller
 {
@@ -25,8 +27,10 @@ class BannerController extends Controller
         $add->nama_banner = $request->nama_banner;
         $add->link = $request->link;
 
-        $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
-    	$request->image->move(public_path('banner'), $fileName);
+        $fileName = 'com'.time().'.'.$request->image->getClientOriginalExtension(); 
+        $img = Image::make($request->image->getRealPath());
+        $img->save(public_path('banner').'/'.$fileName,60);
+    	// $request->image->move(public_path('banner'), $fileName);
         $add->image = $fileName;
 
         $add->save();
@@ -57,8 +61,10 @@ class BannerController extends Controller
         }
 
     	if ($request->image != null){
-    		$fileName = time().'.'.$request->image->getClientOriginalExtension(); 
-        	$request->image->move(public_path('banner'), $fileName);
+    		$fileName = 'com'.time().'.'.$request->image->getClientOriginalExtension(); 
+        	// $request->image->move(public_path('banner'), $fileName);
+            $img = Image::make($request->image->getRealPath());
+            $img->save(public_path('banner').'/'.$fileName,60);
         	$edit->image= $fileName;
     	} else {
     		$edit->image = $edit->image;
