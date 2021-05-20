@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Backend\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use App\Model\Product;
-use App\Model\ProductGambar;
-use App\Model\Category;
-use App\Model\Log;
-use App\Model\ProductJenis;
-use App\Model\ProductCategory;
-use App\Model\Checkout;
 use Auth;
+use App\Model\Log;
+use App\Model\Product;
+use App\Model\Category;
+use App\Model\Checkout;
+use App\Model\ProductJenis;
+use Illuminate\Support\Str;
+use App\Model\ProductGambar;
+use Illuminate\Http\Request;
+use App\Model\ProductCategory;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -116,8 +117,10 @@ class ProductController extends Controller
                     $add= new Product;
                     $add->name = $request->name;
 
-                    $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
-                    $request->image->move(public_path('product'), $fileName);
+                    $fileName = 'com'.time().'.'.$request->image->getClientOriginalExtension(); 
+                    // $request->image->move(public_path('product'), $fileName);
+                    $img = Image::make($request->image->getRealPath());
+                    $img->save(public_path('product').'/'.$fileName,60);
                     $add->image = $fileName; 
 
                     $add->category_id = null;
@@ -190,7 +193,9 @@ class ProductController extends Controller
             $add->category_id = null;
             
             $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
-            $request->image->move(public_path('product'), $fileName);
+            // $request->image->move(public_path('product'), $fileName);
+            $img = Image::make($request->image->getRealPath());
+            $img->save(public_path('product').'/'.$fileName,60);
             $add->image = $fileName;
 
             $add->jenis_id = null;
@@ -278,7 +283,9 @@ class ProductController extends Controller
                     
                     if ($request->image != null ){
                         $fileName = time().'.'.$request->image->getClientOriginalExtension(); 
-                        $request->image->move(public_path('product'), $fileName);
+                        // $request->image->move(public_path('product'), $fileName);
+                        $img = Image::make($request->image->getRealPath());
+                        $img->save(public_path('product').'/'.$fileName,60);
                         $edit->image = $fileName;
                     }else{
                         $edit->image = $edit->image;
@@ -323,7 +330,10 @@ class ProductController extends Controller
 
                     foreach ($request->photos as $photo) {
                     $filename = $photo->store('');
-                    $photo->move(public_path('product'), 'product/'.$filename);
+                    // $photo->move(public_path('product'), 'product/'.$filename);
+                    $img = Image::make($photo->getRealPath());
+                    $img->save(public_path('product').'/'.$fileName,60);
+                    
                     ProductGambar::create([
                     'product_id' => $edit->id,
                     'image' => $filename
