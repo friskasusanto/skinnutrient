@@ -164,7 +164,7 @@
                                                     ?>
                                                     @if (count($gambar) != 0)
                                                         @foreach ($gambar as $g)
-                                                            <a href="{{url('/admin/delete/productGambar', $p->id)}}" class="btn close" onclick="return confirm('Anda yakin menghapus gambar ini ?')">
+                                                            <a href="{{url('/admin/delete/productGambar', $g->id)}}" class="btn close" onclick="return confirm('Anda yakin menghapus gambar ini ?')">
                                                                 <span aria-hidden="true">
                                                                     <img src="{{url('product/'.$g->image)}}" alt="..." style="width: 50% ; border-style: groove;"> &times;
                                                                 </span>
