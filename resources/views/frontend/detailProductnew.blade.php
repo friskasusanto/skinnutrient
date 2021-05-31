@@ -78,12 +78,12 @@
                             @elseif ($product->stock_user == null || $product->stock_user == 0)
                                 <h3>Sold Out</h3>
                             @else
-                                @if ($s->discount != null)
-                                <h3>Rp. {{number_format($s->price - ($s->discount /100 * $s->price), 0, ',', '.')}}
-                                    <del>Rp. {{number_format($s->price, 0, ',', '.')}}</del>
+                                @if ($product->discount != null)
+                                <h3>Rp. {{number_format($product->price - ($product->discount /100 * $product->price), 0, ',', '.')}}
+                                    <del>Rp. {{number_format($product->price, 0, ',', '.')}}</del>
                                 </h3>
                                 @else 
-                                <h3>Rp. {{number_format($s->price, 0, ',', '.')}}</h3>
+                                <h3>Rp. {{number_format($product->price, 0, ',', '.')}}</h3>
                                 @endif
                             @endif
 
@@ -432,12 +432,12 @@
                             @elseif ($r->stock_user == null || $r->stock_user == 0)
                                 <h4>Sold Out</h4>
                             @else
-                                @if ($s->discount != null)
-                                <h4>Rp. {{number_format($s->price - ($s->discount /100 * $s->price), 0, ',', '.')}}
-                                    <del>Rp. {{number_format($s->price, 0, ',', '.')}}</del>
+                                @if ($r->discount != null)
+                                <h4>Rp. {{number_format($r->price - ($r->discount /100 * $r->price), 0, ',', '.')}}
+                                    <del>Rp. {{number_format($r->price, 0, ',', '.')}}</del>
                                 </h4>
                                 @else 
-                                <h4>Rp. {{number_format($s->price, 0, ',', '.')}}</h4>
+                                <h4>Rp. {{number_format($r->price, 0, ',', '.')}}</h4>
                                 @endif
                             @endif
                         </div>
