@@ -170,9 +170,13 @@
                                                 Sold Out
                                             </h3></center>
                                         @else
-                                            <h3>Rp. {{number_format($b->price, 0, ',', '.')}}
-                                                <!-- <del>$600.00</del> -->
+                                            @if ($b->discount != null)
+                                            <h3>Rp. {{number_format($b->price - ($b->discount /100 * $b->price), 0, ',', '.')}}
+                                                <del>Rp. {{number_format($b->price, 0, ',', '.')}}</del>
                                             </h3>
+                                            @else 
+                                            <h3>Rp. {{number_format($b->price, 0, ',', '.')}}</h3>
+                                            @endif
                                         @endif
                                         </div>
                                     </div>
@@ -240,9 +244,13 @@
                                                 Sold Out
                                             </h3></center>
                                         @else
-                                            <h3>Rp. {{number_format($n->price, 0, ',', '.')}}
-                                                <!-- <del>$600.00</del> -->
+                                            @if ($n->discount != null)
+                                            <h3>Rp. {{number_format($n->price - ($n->discount /100 * $n->price), 0, ',', '.')}}
+                                                <del>Rp. {{number_format($n->price, 0, ',', '.')}}</del>
                                             </h3>
+                                            @else 
+                                            <h3>Rp. {{number_format($n->price, 0, ',', '.')}}</h3>
+                                            @endif
                                         @endif
                                         </div>
                                     </div>
@@ -349,9 +357,13 @@
                                         Sold Out
                                     </h3></center>
                                 @else
-                                    <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
-                                        <!-- <del>$600.00</del> -->
+                                    @if ($l->discount != null)
+                                    <h3>Rp. {{number_format($l->price - ($l->discount /100 * $l->price), 0, ',', '.')}}
+                                        <del>Rp. {{number_format($l->price, 0, ',', '.')}}</del>
                                     </h3>
+                                    @else 
+                                    <h3>Rp. {{number_format($l->price, 0, ',', '.')}}</h3>
+                                    @endif
                                 @endif
                             </div>
                         </div>
@@ -487,9 +499,13 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
-                                    <!-- <del>$600.00</del> -->
+                                @if ($l->discount != null)
+                                <h3>Rp. {{number_format($l->price - ($l->discount /100 * $l->price), 0, ',', '.')}}
+                                    <del>Rp. {{number_format($l->price, 0, ',', '.')}}</del>
                                 </h3>
+                                @else 
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}</h3>
+                                @endif
                             @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
@@ -545,9 +561,13 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
-                                    <!-- <del>$600.00</del> -->
+                                @if ($l->discount != null)
+                                <h3>Rp. {{number_format($l->price - ($l->discount /100 * $l->price), 0, ',', '.')}}
+                                    <del>Rp. {{number_format($l->price, 0, ',', '.')}}</del>
                                 </h3>
+                                @else 
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}</h3>
+                                @endif
                             @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
@@ -603,9 +623,13 @@
                                     Sold Out
                                 </h3></center>
                             @else
-                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}
-                                    <!-- <del>$600.00</del> -->
+                                @if ($l->discount != null)
+                                <h3>Rp. {{number_format($l->price - ($l->discount /100 * $l->price), 0, ',', '.')}}
+                                    <del>Rp. {{number_format($l->price, 0, ',', '.')}}</del>
                                 </h3>
+                                @else 
+                                <h3>Rp. {{number_format($l->price, 0, ',', '.')}}</h3>
+                                @endif
                             @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
