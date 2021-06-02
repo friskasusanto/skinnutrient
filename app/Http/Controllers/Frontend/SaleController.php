@@ -35,7 +35,13 @@ class SaleController extends Controller
     	    	$wishlist->user_id = Auth::user()->id;
     	    	$wishlist->product_id = $product->id;
     	    	$wishlist->item = 0;
-    	    	$wishlist->amount = $product->price;
+
+                if ($product->discount != null){
+                    $wishlist->amount = ($product->price - ($product->price * ($product->discount / 100)));
+                } else {
+                    $wishlist->amount = $product->price;
+                }
+
     	    	$wishlist->status = 0;
     	    	$wishlist->save();
             }else{
@@ -65,7 +71,13 @@ class SaleController extends Controller
     	    	$cart->user_id = Auth::user()->id;
     	    	$cart->product_id = $product->id;
     	    	$cart->jumlah = 1;
-    	    	$cart->total_amount = $product->price * $cart->jumlah;
+
+                if ($product->discount != null){
+                    $cart->total_amount = ($product->price - ($product->price * ($product->discount / 100))) * $cart->jumlah;
+                } else {
+                    $cart->total_amount = $product->price * $cart->jumlah;
+                }
+                
     	    	$cart->status = 0;
     	    	$cart->save();
             }else{

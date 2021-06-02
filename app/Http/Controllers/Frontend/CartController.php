@@ -47,7 +47,13 @@ class CartController extends Controller
         $product = Product::where('id', $quantity->product_id)->first();
 
         $quantity->jumlah = $request->jumlah;
-        $quantity->total_amount = $request->jumlah * $product->price;
+
+        if ($product->discount != null){
+            $quantity->total_amount = ($product->price - ($product->price * ($product->discount / 100))) * $request->jumlah;
+        } else {
+            $quantity->total_amount = $request->jumlah * $product->price;
+        }
+        
         $quantity->save();
 
         return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);

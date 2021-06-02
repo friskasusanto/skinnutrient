@@ -477,7 +477,13 @@
                                                         <a href="{{url('/detailProduct', $c->product->slug)}}">
                                                             <h4>{{$c->product->name}}</h4>
                                                         </a>
-                                                        <h4><span>{{$c->jumlah}} x $ Rp. {{number_format($c->product->price, 0, ',', '.')}}</span></h4>
+                                                        <h4>
+                                                        @if ($c->product->discount != null)
+                                                            <span>{{$c->jumlah}} x $ Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}}</span>
+                                                        @else
+                                                            <span>{{$c->jumlah}} x $ Rp. {{number_format($c->product->price, 0, ',', '.')}}</span>
+                                                        @endif
+                                                        </h4>
                                                     </div>
                                                 </div>
                                                 <div class="close-circle">
@@ -488,7 +494,11 @@
                                             </li>
                                             <li>
                                                 <div class="total">
+                                                @if ($c->product->discount != null)
+                                                    <h5>subtotal : <span>Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}}</span></h5>
+                                                @else
                                                     <h5>subtotal : <span>Rp. {{number_format($c->jumlah * $c->product->price, 0, ',', '.')}}</span></h5>
+                                                @endif
                                                 </div>
                                             </li>
                                             
