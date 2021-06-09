@@ -5,6 +5,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <meta name="facebook-domain-verification" content="vnst8e5isg379iaichstugev4l58a5" />
     <link rel="icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('backends/assets/images/favicon/fa_icon.jpg')}}" type="image/x-icon">
     <title>Skin Nutrient&trade; Indonesia Official Website</title>
