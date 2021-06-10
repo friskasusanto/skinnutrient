@@ -44,7 +44,7 @@ Route::get('/', function () {
 	Route::get('/faq', 'Frontend\GeneralController@faq')->name('faq');
 	Route::get('/privacyPolicy', 'Frontend\GeneralController@privacyPolicy')->name('privacyPolicy');
 	Route::get('/sitemap', 'Frontend\GeneralController@sitemap')->name('sitemap');
-	Route::get('/contact', 'Frontend\GeneralController@sitemap')->name('contact');
+	Route::get('/contact', 'Frontend\GeneralController@contact')->name('contact');
 
 
 	//Frontend/DetailController
