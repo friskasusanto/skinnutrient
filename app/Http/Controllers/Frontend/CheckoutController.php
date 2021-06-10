@@ -5,18 +5,26 @@ namespace App\Http\Controllers\Frontend;
 use Carbon\Carbon;
 use App\Model\Chart;
 use App\checkoutItem;
+use App\Factory\OrderHistoryFactory;
 use App\Model\Product;
 use App\Model\Checkout;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Order;
+use App\OrderItem;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 
 class CheckoutController extends Controller
 {
+    private $rajaongkirKey = 'ba13aac922f8f8048088396b13baf303';
+
+
     public function checkout ()
     {
     	$total = Chart::where('user_id', Auth::user()->id)->pluck('total_amount')->sum();
@@ -34,68 +42,59 @@ class CheckoutController extends Controller
             'phone' => 'required',
         ]);
 
-        $carts = Chart::where('user_id', Auth::user()->id)->get();
-        // dd($carts);
-        foreach ($carts as $key => $value) {
-            $data[] = array(
-                'user_id' => Auth::user()->id,
-                'date_entry' => Carbon::now(),
-                'receiver_name' => $request->nama.' '.$request->last_name,
-                'address' => $request->alamat,
-                'phone_number' => $request->phone,
-                'total_amount' => $request->total,
-                'status' => 0,
-                'total_item' => $value->jumlah,
-                'product_id' => $value->product_id
-            );
-            // $value->delete();
-        }
-        $checkout = Checkout::insert($data);
-        // dd($data);
-
-        // input cart item ke checkout item
+        $carts = Chart::with('product')->where('user_id', Auth::user()->id)->get();
         
-        $check = Checkout::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->where('status', 0)->get();
+        $orderId = null;
 
-        // dd($check);
-        foreach ($check as $checks => $value) {
-            $item[] = array(
-                'product_id' => $value->product_id,
-                'name' => $value->receiver_name,
-                'price' => $value->product->price,
-                'qty' => $value->total_item,
-                'total' => $value->total_amount,
-                'checkout_id' => $value->id
-                
-            );
+        DB::transaction(function() use ($request,$carts,&$orderId)
+        {
+            $order = new Order();
+            $order->user_id         = Auth::user()->id;
+            $order->name            = $request->nama.' '.$request->last_name;
+            $order->provinsi        = $request->provinsi_name;
+            $order->kota            = $request->kota_name;
+            $order->address         = $request->alamat;
+            $order->phone_number    = $request->phone;
+            $order->courier         = 'JNE';
+            $order->courier_paket   = $request->tipe_name;
+            $order->courier_price   = $request->tipe;
+            $order->total_amount    = $request->total;
+            $order->save();
+            $orderId = $order->id;
 
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $value->id,
-                    'gross_amount' => $request->total,
-                ),
-                'customer_details' => array(
-                    'first_name' => $request->nama,
-                    'last_name' => $request->last_name,
-                    'email' => Auth::user()->email,
-                    'phone' => $request->phone,
-                ),
-            );
-        }
-        checkoutItem::insert($item);
-
+            foreach ($carts as $cart) {
+                $item = new OrderItem();
+                $item->product_id   = $cart->product_id;
+                $item->product_name = $cart->product->name;
+                $item->price        = $cart->product->price;
+                $item->qty          = $cart->jumlah;
+                $item->total        = $cart->total_amount;
+                $item->order_id     = $order->id;
+                $item->save();
+            }
+           
+        });
+       
+        
+        // remove item cart
         foreach ($carts as $key => $value) {
             $value->delete();
         }
 
-        // remove item cart
+        // midtrans
 
-       
-
-
-        // Set your Merchant Server Key
-
-
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $orderId,
+                'gross_amount' => ($request->total + $request->tipe),
+            ),
+            'customer_details' => array(
+                'first_name' => $request->nama,
+                'last_name' => $request->last_name,
+                'email' => Auth::user()->email,
+                'phone' => $request->phone,
+            ),
+        );
 
         \Midtrans\Config::$serverKey = getenv('MD_SERVER_KEY');
         \Midtrans\Config::$isProduction = true;
@@ -113,13 +112,42 @@ class CheckoutController extends Controller
         $transaction_status = $request->transaction_status;
 
         if ( $transaction_status == 'capture' || $transaction_status == 'settlement') {
-            $checkout = Checkout::where('id',$request->order_id)->first();   
+            $checkout = Order::where('id',$request->order_id)->first();   
             $checkout->status = 1;
             $checkout->payment_date = $request->transaction_time;
             $checkout->update();
-            Log::debug($request->all());
+            OrderHistoryFactory::PaidOrder($request->order_id);
         }
 
+        Log::debug($request->all());
+
         return new Response(['status' => 'success'], 200);
+    }
+    
+    public function kota_ongkir(Request $request)
+    {
+        $response = Http::withHeaders(['key' => $this->rajaongkirKey])
+                    ->get('https://api.rajaongkir.com/starter/city?province='.$request->provinsi);
+            
+        $hasil = $response->json();
+        $data = $hasil['rajaongkir']['results'];
+            
+        return new Response(['kota' => $data], 200);
+    }
+
+    public function ongkir_total(Request $request)
+    {
+        $response = Http::asForm()->withHeaders(['key' => $this->rajaongkirKey])
+                    ->post('https://api.rajaongkir.com/starter/cost',[
+                        'origin' => '399', //kota semarang
+                        'destination' => $request->kota,
+                        'weight' => '1000',
+                        'courier' => 'jne',
+                    ]);
+
+        $hasil = $response->json();
+        $data = $hasil['rajaongkir']['results'][0]['costs'];
+
+        return new Response(['jenis' => $data], 200);
     }
 }

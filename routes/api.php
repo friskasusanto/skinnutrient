@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/midtrans/callback', 'Frontend\CheckoutController@midtrans_ipn')->name('midtrans');
+Route::get('/ongkir/kota','Frontend\CheckoutController@kota_ongkir')->name('ongkir.kota');
+Route::get('/ongkir/total','Frontend\CheckoutController@ongkir_total')->name('ongkir.total');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

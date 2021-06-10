@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Checkout;
+use App\Model\Log;
+use App\Order;
+use App\OrderItem;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -12,8 +16,8 @@ class CheckoutController extends Controller
 	public function index_checkout ()
     {
     	// $search = \Request::get('search');
-    	$checkout = Checkout::paginate(10);
-    	return view('backend.admin.checkout.index', compact(['checkout']));
+    	$orders = Order::paginate(10);
+    	return view('backend.admin.checkout.index', compact(['orders']));
     }
 
     public function approve_admin (Request $request, $id)
@@ -24,7 +28,7 @@ class CheckoutController extends Controller
     	$status->status = 2;
     	$status->save();
 
-    	$log = new Log;
+    	$log = new Log();
         $log->mutasi_action = "approve product by admin ";
         $log->user_id = Auth::user()->id;
         $log->controller = "CheckoutController";
@@ -77,7 +81,8 @@ class CheckoutController extends Controller
     }
     public function detail_checkout (Request $request, $id)
     {
-    	$checkout = Checkout::find($id);
-    	return view('backend.admin.checkout.detail', compact(['checkout']));
+    	$order = Order::find($id);
+    	$orderitems = OrderItem::where('order_id',$id)->get();
+    	return view('backend.admin.checkout.detail', compact(['order','orderitems']));
     }
 }
