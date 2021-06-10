@@ -58,7 +58,11 @@
                                         @endif
                                         </div>
                                         <div class="col-xs-3">
+                                            @if ($w->product->discount != null)
+                                            <h2 class="td-color">{{($w->product->price) - (($w->product->discount / 100) * $w->product->price)}}</h2>
+                                            @else
                                             <h2 class="td-color">{{$w->product->price}}</h2>
+                                            @endif
                                         </div>
                                         <div class="col-xs-3">
                                             <h2 class="td-color">
@@ -73,7 +77,11 @@
                                     </div>
                                 </td>
                                 <td>
+                                    @if ($w->product->discount != null)
+                                    <h2>Rp. {{number_format(($w->product->price) - (($w->product->discount / 100) * $w->product->price), 0, ',', '.')}}</h2>
+                                    @else
                                     <h2>Rp. {{number_format($w->product->price, 0, ',', '.')}}</h2>
+                                    @endif
                                 </td>
                                 <td>
                                 @if ($w->product->stock >= 1)

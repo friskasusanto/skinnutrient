@@ -274,7 +274,11 @@
                                         </div>
                                         <ul class="qty">
                                         @foreach ($cart as $c)
-                                            <li>{{ $c->product->name }} ( Rp. {{number_format($c->product->price, 0, ',', '.')}} × {{ $c->total_item }} ) <span>Rp. {{number_format($c->total_amount, 0, ',', '.')}}</span></li>
+                                            @if ($c->product->discount != null)
+                                            <li>{{ $c->product->name }} ( Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}} × {{ $c->jumlah }} ) <span>Rp. {{number_format($c->total_amount, 0, ',', '.')}}</span></li>
+                                            @else
+                                            <li>{{ $c->product->name }} ( Rp. {{number_format($c->product->price, 0, ',', '.')}} × {{ $c->jumlah }} ) <span>Rp. {{number_format($c->total_amount, 0, ',', '.')}}</span></li>
+                                            @endif
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">

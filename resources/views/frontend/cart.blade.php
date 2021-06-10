@@ -62,7 +62,11 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-3">
+                                            @if ($c->product->discount != null)
+                                            <h2 class="td-color">Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}}</h2>
+                                            @else
                                             <h2 class="td-color">Rp. {{number_format($c->product->price, 0, ',', '.')}}</h2>
+                                            @endif
                                         </div>
                                         <div class="col-xs-3">
                                             <h2 class="td-color">
@@ -74,7 +78,11 @@
                                     </div>
                                 </td>
                                 <td>
+                                    @if ($c->product->discount != null)
+                                    <h3>Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}}</h3>
+                                    @else
                                     <h3>Rp. {{number_format($c->product->price, 0, ',', '.')}}</h3>
+                                    @endif
                                 </td>
                                 <td>
                                     <form novalidate="novalidate" method="POST" action= "{{url('/cartQuantity', $c->id)}}" enctype="multipart/form-data">
@@ -102,9 +110,9 @@
                     <table class="table cart-table table-responsive-md">
                         <tfoot>
                             <tr>
-                                <td>total price :</td>
+                                <td>total harga :</td>
                                 <td>
-                                    <h2>Rp. {{number_format($cart->sum('total_amount'), 0, ',', '.')}}</h2>
+                                    <h5>Rp. {{number_format($cart->sum('total_amount'), 0, ',', '.')}}</h5>
                                 </td>
                             </tr>
                         </tfoot>

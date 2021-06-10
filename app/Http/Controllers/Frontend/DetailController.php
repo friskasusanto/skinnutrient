@@ -118,7 +118,12 @@ class DetailController extends Controller
         			$cart->jumlah = $request->quantity;
         		}
 
-        		$cart->total_amount = $product->price * $cart->jumlah;
+                if ($product->discount != null){
+                    $cart->total_amount = ($product->price - ($product->price * ($product->discount / 100))) * $cart->jumlah;
+                } else {
+                    $cart->total_amount = $product->price * $cart->jumlah;
+                }
+        		
         		$cart->status = 0;
         		$cart->save();
 
@@ -181,8 +186,13 @@ class DetailController extends Controller
                 }else {
                     $cart->jumlah = $request->quantity;
                 }
+                
+                if ($product->discount != null){
+                    $cart->total_amount = ($product->price - ($product->price * ($product->discount / 100))) * $cart->jumlah;
+                } else {
+                    $cart->total_amount = $product->price * $cart->jumlah;
+                }
 
-                $cart->total_amount = $product->price * $cart->jumlah;
                 $cart->status = 0;
                 $cart->save();
 
