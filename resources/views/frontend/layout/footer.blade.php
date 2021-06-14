@@ -76,6 +76,7 @@
                                 <ul>
                                     <li><a href="{{url('/faq')}}">FAQ s</a></li>
                                     <li><a href="{{url('/contact')}}">Contact Us</a></li>
+                                    <li><a href="{{url('/pengaduan')}}">Pengaduan</a></li>
                                     <!-- <li><a href="#">Shipping</a></li> -->
                                     <!-- <li><a href="">Return Policy</a></li> -->
                                     <!-- <li><a href="#">Terms of Service</a></li> -->
@@ -94,7 +95,7 @@
                                     <li><i class="fa fa-building"></i>Australian Health Research & Development Group Pty Ltd </li>
                                     <li><i class="fa fa-map-marker"></i>Jl. Pandanaran 1 No.10 Pekunden, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134</li>
                                     <li><i class="fa fa-phone"></i>Phone:  +62 812 1577 0449</li>
-                                    <li><i class="fa fa-fax"></i>Fax:  +62 812 1577 0449</li>
+                                    <!-- <li><i class="fa fa-fax"></i>Fax:  +62 812 1577 0449</li> -->
                                     <li><i class="fa fa-envelope-o"></i>Email Us: customerservice@skinnutrient.co.id</li>
                                     <!--<li><i class="fa fa-fax"></i>Fax: 123456</li>-->
                                 </ul>

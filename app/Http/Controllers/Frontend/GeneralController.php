@@ -14,6 +14,10 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function pengaduan ()
+    {
+        return view('frontend.pengaduan');
+    }
     public function contact ()
     {
         return view('frontend.contact');

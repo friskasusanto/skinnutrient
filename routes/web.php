@@ -35,6 +35,7 @@ Route::get('/', function () {
 	Route::get('/wishlist/{slug}', 'Frontend\SaleController@wishlist')->name('wishlist');
 	Route::get('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
+
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
 	Route::get('/shop', 'Frontend\GeneralController@product')->name('shop');
@@ -45,6 +46,10 @@ Route::get('/', function () {
 	Route::get('/privacyPolicy', 'Frontend\GeneralController@privacyPolicy')->name('privacyPolicy');
 	Route::get('/sitemap', 'Frontend\GeneralController@sitemap')->name('sitemap');
 	Route::get('/contact', 'Frontend\GeneralController@contact')->name('contact');
+	Route::get('/pengaduan', 'Frontend\GeneralController@pengaduan')->name('pengaduan');
+
+	//Frontend/PengaduanController
+	Route::post('/pengaduan', 'Frontend\PengaduanController@pengaduan')->name('pengaduan');
 
 
 	//Frontend/DetailController
