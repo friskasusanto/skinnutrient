@@ -76,7 +76,7 @@
                                 <ul>
                                     <li><a href="{{url('/faq')}}">FAQ s</a></li>
                                     <li><a href="{{url('/contact')}}">Contact Us</a></li>
-                                    <li><a href="{{url('/pengaduan')}}">Pengaduan</a></li>
+                                    <li><a href="{{url('/pengaduan')}}">Pengaduan BPOM</a></li>
                                     <!-- <li><a href="#">Shipping</a></li> -->
                                     <!-- <li><a href="">Return Policy</a></li> -->
                                     <!-- <li><a href="#">Terms of Service</a></li> -->

@@ -330,12 +330,15 @@ class ProductController extends Controller
                     ]);
                 }
 
-                    foreach ($request->category as $category) {
-                    ProductCategory::create([
-                    'product_id' => $edit->id,
-                    'category_id' => $category
-                    ]);
-                }
+                    if ($request->category != null){
+                        foreach ($request->category as $category) {
+                        ProductCategory::create([
+                        'product_id' => $edit->id,
+                        'category_id' => $category
+                        ]);
+                        }
+                    }
+
                     $cek = ProductCategory::where('product_id', $edit->id)->first();
                     $category = Product::where('id', $edit->id)->first();
                     $category->category_id = $cek->category_id;

@@ -18,10 +18,10 @@ class PengaduanController extends Controller
     	$pengaduan->nama_pasien = $request->namaPasien;
     	$pengaduan->kelamin_pasien = $request->kelaminPasien;
     	$pengaduan->umur_pasien = $request->umurPasien;
-    	$pengaduan->alamat_pasien = $request->alamatpasien;
+    	$pengaduan->alamat_pasien = $request->alamatPasien;
     	$pengaduan->email_pasien = $request->emailPasien;
     	$pengaduan->tlp_pasien = $request->tlpPasien;
-    	$pengaduan->nama_product = $request->product;
+    	$pengaduan->nama_product = $request->namaProduct;
     	$pengaduan->no_notifikasi = $request->notifikasi;
     	$pengaduan->ukuran_kemasan = $request->kemasan;
     	$pengaduan->no_batch = $request->batch;
