@@ -11,6 +11,7 @@ use Hash;
 
 class GeneralController extends Controller
 {
+	
     public function changePass_view (Request $request, $id)
     {
         $user = User::find($id);

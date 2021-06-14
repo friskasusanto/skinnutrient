@@ -189,6 +189,9 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	//LOG
 	Route::get('/admin/log', 'Backend\Admin\LogController@index')->name('admin_log');
 
+	//Backend/Admin/PengaduanController
+	Route::get('/admin/pengaduan', 'Backend\Admin\PengaduanController@index')->name('admin_pengaduan');
+
 
 
 });

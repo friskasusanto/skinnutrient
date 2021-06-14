@@ -8,6 +8,7 @@ use App\Pengaduan;
 
 class PengaduanController extends Controller
 {
+	
     public function pengaduan (Request $request)
     {
     	$pengaduan = new Pengaduan;
@@ -46,7 +47,7 @@ class PengaduanController extends Controller
     	$pengaduan->efek = $request->efek;
 
         $fileName = time().'.'.$request->foto->getClientOriginalExtension(); 
-        $request->foto->move(public_path('foto'), $fileName);
+        $request->foto->move(public_path('bpom'), $fileName);
         $pengaduan->foto = $fileName; 
 
         $pengaduan->tindakan = $request->tindakan;

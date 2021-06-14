@@ -325,6 +325,9 @@
                                     @role ('Sales')
                                     <li><a href="{{ url('/dasboard') }}" data-lng="en">Dasboard</a></li>
                                     @endrole
+                                    @role('Bpom')
+                                    <li><a href="{{ url('/admin/pengaduan') }}" data-lng="en">Pengaduan</a></li>
+                                    @endrole
                                 @endif
                                     <li><a href="{{ route('login') }}" data-lng="en">Login</a></li>
                                     <li>

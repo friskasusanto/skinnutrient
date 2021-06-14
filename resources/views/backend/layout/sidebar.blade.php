@@ -18,10 +18,12 @@
                     <p>Gudang</p>
                 @elseif (Auth::user()->hasRole('Sales'))
                     <p>Sales</p>
+                @elseif (Auth::user()->hasRole('Bpom'))
+                    <p>Bpom</p>
                 @endif
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                    <li><a class="sidebar-header" href="{{url('/dasboard')}}"><i data-feather="home"></i><span>Dashboard</span></a></li>
                 @role('Admin')
                     <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i> <span>User</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
@@ -102,6 +104,14 @@
                     <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Toko</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/toko')}}"><i class="fa fa-circle"></i>Daftar Toko</a></li>
+                        </ul>
+                    </li>
+                @endrole
+
+                @role('Bpom')
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Pengaduan</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/pengaduan')}}"><i class="fa fa-circle"></i>Daftar Pengaduan</a></li>
                         </ul>
                     </li>
                 @endrole
