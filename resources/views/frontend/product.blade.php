@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="top-banner-wrapper">
-                                        <a href="#"><img src="{{asset('backends/assets/images/via/BANNER-SKINCARE.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                        <a href="#"><img src="{{asset('backends/assets/images/via/BANNER-FACE-MASK-CATEGORY.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                     </div>
                                     <div class="collection-product-wrapper">
                                         <div class="product-top-filter">
