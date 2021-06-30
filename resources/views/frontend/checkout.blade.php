@@ -325,13 +325,16 @@
     <script>
       $(document).ready(function(){
         
+        var url_kota = "{{ route("ongkir.kota") }}";
+        var url_total_kota = "{{ route("ongkir.total") }}";
+
         $('#provinsi').on('change', function() {
           var provinsiId = $(this).val();
           var provinsiName = $(this).find('option:selected').text();
 
           $('#provinsi_name').val(provinsiName);
 
-          $.get( "http://127.0.0.1:8000/api/ongkir/kota?provinsi="+provinsiId, function( data ) {
+          $.get( url_kota+"?provinsi="+provinsiId, function( data ) {
 
             $('#kota').empty().append('<option>-- pilih --</option>');
 
@@ -351,7 +354,7 @@
           var kotaName = $(this).find('option:selected').text();
 
           $('#kota_name').val(kotaName);
-          $.get( "http://127.0.0.1:8000/api/ongkir/total?kota="+kotaId, function( data ) {
+          $.get( url_total_kota+"?kota="+kotaId, function( data ) {
 
               $('#tipe').empty().append('<option>-- pilih --</option>');
 
