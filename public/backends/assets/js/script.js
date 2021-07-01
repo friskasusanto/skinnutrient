@@ -1230,20 +1230,20 @@ $(".color-box li").click(function() {
 //         '</div>').appendTo($('body'));
 // })();
 
-var body_event = $("body");
-body_event.on("click", ".theme-layout-version", function() {
-    $(this).toggleClass('dark');
-    $('body').removeClass('dark');
-    if ($('.theme-layout-version').hasClass('dark')) {
-        $('.theme-layout-version').text('Light');
-        $('body').addClass('dark');
-    } else {
-        $('#theme-dark').remove();
-        $('.theme-layout-version').text('Dark');
-    }
+// var body_event = $("body");
+// body_event.on("click", ".theme-layout-version", function() {
+//     $(this).toggleClass('dark');
+//     $('body').removeClass('dark');
+//     if ($('.theme-layout-version').hasClass('dark')) {
+//         $('.theme-layout-version').text('Light');
+//         $('body').addClass('dark');
+//     } else {
+//         $('#theme-dark').remove();
+//         $('.theme-layout-version').text('Dark');
+//     }
 
-    return false;
-});
+//     return false;
+// });
 
 
 /*=====================
