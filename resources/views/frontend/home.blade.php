@@ -126,9 +126,11 @@
                                                 </a>
                                             </div>
                                             <div class="cart-info">
+                                            @if ($b->comming_soon != 1)
                                                 <a href="{{url('/cart', $b->slug)}}" title="Add to cart">
                                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                                 </a> 
+                                            @endif
                                                 <a href="{{url('/wishlist', $b->slug)}}" title="Add to Wishlist">
                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                 </a> 
@@ -143,13 +145,11 @@
                                             $category = App\Model\ProductCategory::where('product_id', $b->id)->get();
                                         ?>
                                         
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i>
-                                            </div>
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i>   
                                             <a href="{{url('/detailProduct', $b->slug)}}">
                                                 <h5>{{$b->name}}</h5>
                                             </a>
@@ -194,9 +194,11 @@
                                                 </a>
                                             </div>
                                             <div class="cart-info">
+                                            @if ($n->comming_soon != 1)
                                                 <a href="{{url('/cart', $n->slug)}}" title="Add to cart">
                                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                                 </a> 
+                                            @endif
                                                 <a href="{{url('/wishlist', $n->slug)}}" title="Add to Wishlist">
                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                 </a> 
@@ -211,13 +213,11 @@
                                                 $category = App\Model\ProductCategory::where('product_id', $n->id)->get();
                                             ?>
                                             
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i>
-                                            </div>
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                            <i class="fa fa-star" style="color: #fd7e14"></i>
                                             <a href="{{url('/detailProduct', $n->slug)}}">
                                                 <h5>{{$n->name}}</h5>
                                             </a>
@@ -303,9 +303,11 @@
                                     </a>
                                 </div>
                                 <div class="cart-info">
+                                @if ($l->comming_soon != 1)
                                     <a href="{{url('/cart', $l->slug)}}" title="Add to cart">
                                         <i class="ti-shopping-cart" aria-hidden="true"></i>
                                     </a> 
+                                @endif
                                     <a href="{{url('/wishlist', $l->slug)}}" title="Add to Wishlist">
                                         <i class="ti-heart" aria-hidden="true"></i>
                                     </a> 
@@ -320,13 +322,11 @@
                                     $category = App\Model\ProductCategory::where('product_id', $l->id)->get();
                                 ?>
                                
-                                <div class="rating">
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i>
-                                </div>
+                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                <i class="fa fa-star" style="color: #fd7e14"></i>
                                 <a href="{{url('/detailProduct', $l->slug)}}">
                                     <h5>Skin Nutrient™ {{$l->name}}</h5>
                                 </a>

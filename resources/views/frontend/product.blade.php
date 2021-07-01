@@ -91,9 +91,11 @@
                                                                	</a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
+                                                            @if ($s->comming_soon != 1)
                                                                 <a href="{{url('/cart', $s->product->slug)}}" title="Add to cart">
                                                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                                                 </a> 
+                                                            @endif
                                                                 <a href="{{action('Frontend\SaleController@wishlist', $s->product->slug)}}" title="Add to Wishlist">
                                                                 	<i class="ti-heart" aria-hidden="true"></i>
                                                                 </a> 
@@ -105,7 +107,11 @@
                                                         </div>
                                                         <div class="product-detail">
                                                             <div>
-                                                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                                                <i class="fa fa-star" style="color: #fd7e14"></i> 
+                                                                <i class="fa fa-star" style="color: #fd7e14"></i>
                                                                 <a href="{{url('/detailProduct', $s->product->slug)}}">
                                                                     <h6>{{$s->product->name}}</h6>
                                                                 </a>

@@ -112,7 +112,13 @@
             <div class="row wishlist-buttons">
                 <div class="col-12">
                     <a href="{{url('/')}}" class="btn btn-solid">continue shopping</a> 
+
+                    <?php 
+                        $cek = App\Model\Wishlist::where('user_id', Auth::user()->id)->get();
+                    ?>
+                    @if (count($cek) != 0)
                     <a href="{{url('/checkoutWishlist')}}" class="btn btn-solid">continue cart</a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -51,13 +51,11 @@
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
                             <h2 class="mb-0">{{$product->name}}</h2>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i>
                             <!-- <h5 class="mb-2">based on 2 reviews</h5> -->
                             <!-- <h4><del>$459.00</del><span>55% off</span></h4> -->
                             <h5 class="mb-2">category :
@@ -405,9 +403,11 @@
                                 </a>
                             </div>
                             <div class="cart-info cart-wrap">
+                            @if ($r->comming_soon != 1)
                                 <a href="{{url('/cart', $r->slug)}}" title="Add to cart">
                                     <i class="ti-shopping-cart" aria-hidden="true"></i>
                                 </a> 
+                            @endif
                                 <a href="{{action('Frontend\SaleController@wishlist', $r->slug)}}" title="Add to Wishlist">
                                     <i class="ti-heart" aria-hidden="true"></i>
                                 </a> 
@@ -417,13 +417,11 @@
                             </div>
                         </div>
                         <div class="product-detail">
-                            <div class="rating">
-                                <i class="fa fa-star"></i> 
-                                <i class="fa fa-star"></i> 
-                                <i class="fa fa-star"></i> 
-                                <i class="fa fa-star"></i> 
-                                <i class="fa fa-star"></i>
-                            </div>
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i> 
+                            <i class="fa fa-star" style="color: #fd7e14"></i>
                             <a href="{{url('/detailProduct', $r->slug)}}">
                                 <h6>{{$r->name}}</h6>
                             </a>

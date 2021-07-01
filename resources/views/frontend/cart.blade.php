@@ -121,7 +121,14 @@
             </div>
             <div class="row cart-buttons">
                 <div class="col-6"><a href="{{url('/whatsNew')}}" class="btn btn-solid">continue shopping</a></div>
-                <div class="col-6"><a href="{{url('/cartTocheckout')}}" class="btn btn-solid">check out</a></div>
+
+                <?php 
+                    $cek = App\Model\Chart::where('user_id', Auth::user()->id)->get();
+                ?>
+                @if (count($cek) != 0)
+                <div class="col-6"><a href="{{url('/cartTocheckout')}}" class="btn btn-solid">check out</a>
+                </div>
+                @endif
             </div>
         </div>
     </section>

@@ -36,7 +36,7 @@
                             <div class="footer-contant">
                                 <ul>
                                     <li><a href="{{url('/aboutUs')}}">Tentang Kami</a></li>
-                                    <li onclick="openSearch()">
+                                    <li onclick="openSearch()"><a href="">
                                         Pencarian Produk
                                         <div id="search-overlay" class="search-overlay">
                                             <div><span class="closebtn" onclick="closeSearch()"
@@ -58,7 +58,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div></a>
                                     </li>
                                     <!-- <li><a href="#">Stokis</a></li> -->
                                     <!-- <li><a href="{{url('/sitemap')}}">Peta</a></li> -->
