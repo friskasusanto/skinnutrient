@@ -876,9 +876,9 @@
 
 
     <!-- tap to top start -->
-    <div class="tap-top">
+    <!-- <div class="tap-top">
         <div><i class="fa fa-angle-double-up"></i></div>
-    </div>
+    </div> -->
     <!-- tap to top end -->
 
 
