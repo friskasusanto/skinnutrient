@@ -31,6 +31,8 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color2.css')}}" media="screen" id="color">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/whatsapp.css')}}">
     
     <!-- Facebook Pixel Code -->
         <script>

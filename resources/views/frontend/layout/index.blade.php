@@ -4,6 +4,9 @@
 @include('frontend.layout.html')
 
 <body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=+6281215770449&text=Hai,%21%20Saya%20m%C3%A1s%20mau%C3%B3n%20pesan%20produk%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
 
     @include('frontend.layout.header')
 
