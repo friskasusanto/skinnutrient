@@ -110,12 +110,12 @@
                                     <li>
                                         <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                 aria-hidden="true"></i></div>
-                                    </li>
+                                    </li><!-- 
                                     @if (!Auth::check())
                                     <li>
                                         <a href="{{url('/login')}}">Login</a>
                                     </li>
-                                    @endif
+                                    @endif -->
                                     <li>
                                         <a href="{{url('/sale')}}">Sale</a>
                                     </li>
@@ -540,12 +540,12 @@
                                 <li>
                                     <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                             aria-hidden="true"></i></div>
-                                </li>
+                                </li><!-- 
                                 @if (!Auth::check())
                                 <li>
                                     <a href="{{url('/login')}}">Login</a>
                                 </li>
-                                @endif
+                                @endif -->
                                 <li>
                                     <a href="{{url('/sale')}}">Sale</a>
                                 </li>
