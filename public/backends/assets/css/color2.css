@@ -10454,7 +10454,7 @@ footer {
     .color-picker .skin a.actt {
       border: 2px white solid; }
 
-.dark-light {
+/*.dark-light {
   position: fixed;
   right: 0;
   width: 40px;
@@ -10478,7 +10478,7 @@ footer {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(154, 154, 154, 0.54);
           box-shadow: 0px 0px 5px 0px rgba(154, 154, 154, 0.54);
   top: calc(50% + 34px);
-  cursor: pointer; }
+  cursor: pointer; }*/
 
 .setting-sidebar {
   position: fixed;
