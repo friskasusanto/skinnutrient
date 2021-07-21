@@ -885,7 +885,7 @@
     </div> -->
     <!-- tap to top end -->
 
-
+    <!-- try -->
     @include('frontend.layout.script')
     @yield('script')
     
