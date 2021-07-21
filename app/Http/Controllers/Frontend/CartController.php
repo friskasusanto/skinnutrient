@@ -63,7 +63,7 @@ class CartController extends Controller
     {
     	$cart = Chart::where('user_id', Auth::user()->id)->get();
 
-    	return view('frontend.cart', compact('cart'));
+    	return view('frontend.layout.frontend.cart', compact('cart'));
     }
 
     public function delete (Request $request, $id)

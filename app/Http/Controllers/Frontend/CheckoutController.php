@@ -31,7 +31,7 @@ class CheckoutController extends Controller
         $cart = Chart::where('user_id', Auth::user()->id)->get();
 
         // dd($total);
-    	return view('frontend.checkout', compact( 'total','cart'));
+    	return view('frontend.layout.frontend.checkout', compact( 'total','cart'));
     }
 
     public function checkout_store(Request $request)

@@ -1,5 +1,5 @@
-@extends('backend.layout.index', ['active' => 'edit_user'])
-@section('title', 'User')
+@extends('backend.layout.index', ['active' => 'edit_ingrediet'])
+@section('title', 'Ingredient')
 @section('content') 
 
 

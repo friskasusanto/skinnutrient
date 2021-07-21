@@ -15,7 +15,7 @@ class BlogController extends Controller
     	$recent = Blog::orderBy('created_at', 'asc')->limit(5)->get();
     	$popular = Blog::orderBy('love', 'desc')->limit(4)->get();
 
-    	return view('frontend.blog.blog', compact('blog', 'recent', 'popular'));
+    	return view('frontend.layout.frontend.blog.blog', compact('blog', 'recent', 'popular'));
     }
 
     public function detail (Request $request, $judul)
@@ -23,6 +23,6 @@ class BlogController extends Controller
     	$blog = Blog::where('judul', $judul)->first();
     	$comment = Comment::where('blog_id', $blog->id);
 
-    	return view('frontend.blog.detailBlog', compact('blog', 'comment'));
+    	return view('frontend.layout.frontend.blog.detailBlog', compact('blog', 'comment'));
     }
 }

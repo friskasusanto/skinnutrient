@@ -16,41 +16,41 @@ class GeneralController extends Controller
 {
     public function pengaduan ()
     {
-        return view('frontend.pengaduan');
+        return view('frontend.layout.frontend.pengaduan');
     }
     public function contact ()
     {
-        return view('frontend.contact');
+        return view('frontend.layout.frontend.contact');
     }
     public function sitemap ()
     {
-        return view('frontend.sitemap');
+        return view('frontend.layout.frontend.sitemap');
     }
 
     public function privacyPolicy ()
     {
-        return view('frontend.faq');
+        return view('frontend.layout.frontend.faq');
     }
     public function faq ()
     {
-        return view('frontend.faq');
+        return view('frontend.layout.frontend.faq');
     }
 
     public function aboutUs ()
     {
-        return view('frontend.about');
+        return view('frontend.layout.frontend.about');
     }
 
     public function bestSeller ()
     {
         $cek = Product::orderBy('created_at', 'desc')->where('best_seller', 1)->paginate('12');
-        return view('frontend.bestSeller', compact('cek'));
+        return view('frontend.layout.frontend.bestSeller', compact('cek'));
     }
 
     public function new ()
     {
         $product = Product::orderBy('created_at', 'desc')->paginate('12');
-        return view('frontend.new', compact('product'));
+        return view('frontend.layout.frontend.new', compact('product'));
     }
     
     public function product (Request $request)
@@ -71,7 +71,7 @@ class GeneralController extends Controller
         }
 
 
-        return view('frontend.product', compact('product', 'category'));
+        return view('frontend.layout.frontend.product', compact('product', 'category'));
     }
 
     public function subscribe (Request $request)

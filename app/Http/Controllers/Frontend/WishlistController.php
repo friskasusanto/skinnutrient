@@ -15,7 +15,7 @@ class WishlistController extends Controller
     {
     	$wishlist = Wishlist::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
-    	return view('frontend.wishlist', compact('wishlist'));
+    	return view('frontend.layout.frontend.wishlist', compact('wishlist'));
     }
 
     public function delete (Request $request, $id)

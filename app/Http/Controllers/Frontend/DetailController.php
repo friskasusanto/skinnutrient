@@ -96,7 +96,7 @@ class DetailController extends Controller
         $category = ProductCategory::where('product_id', $product->id)->get();
     	// dd($status);
 
-    	return view('frontend.detailProductnew', compact('product', 'gambar', 'related', 'comment', 'category'));
+    	return view('frontend.layout.frontend.detailProductnew', compact('product', 'gambar', 'related', 'comment', 'category'));
     }
 
     public function addCart (Request $request, $slug)
