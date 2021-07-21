@@ -547,7 +547,7 @@
                                 </li>
                                 @endif -->
                                 <li>
-                                    <a href="{{url('/sale')}}">Sale</a>
+                                    <a href="{{url('/sale')}}"> Sale</a>
                                 </li>
                                 <li class="mega" id="hover-cls"><a href="#">Skin Care
                                         <div class="lable-nav">new</div>
