@@ -34,7 +34,7 @@
                     <li>
                         <div class="media">
                             <a href="#">
-                                <img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/34.jpg')}}">
+                                <!--<img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/34.jpg')}}">-->
                             </a>
                             <div class="media-body">
                                 <a href="#">
@@ -54,7 +54,7 @@
                     <li>
                         <div class="media">
                             <a href="#">
-                                <img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/16.jpg')}}">
+                                <!--<img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/16.jpg')}}">-->
                             </a>
                             <div class="media-body">
                                 <a href="#">
@@ -73,7 +73,7 @@
                     </li>
                     <li>
                         <div class="media">
-                            <a href="#"><img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/27.jpg')}}"></a>
+                            <!--<a href="#"><img alt="" class="mr-3" src="{{asset('backends/assets/images/pro/27.jpg')}}"></a>-->
                             <div class="media-body">
                                 <a href="#">
                                     <h4>item name</h4>
@@ -117,8 +117,9 @@
                             aria-hidden="true">&times;</span></button>
                     <div class="row">
                         <div class="col-lg-6 col-xs-12">
-                            <div class="quick-view-img"><img src="{{asset('backends/assets/images/pro3/1.jpg')}}" alt=""
-                                    class="img-fluid blur-up lazyload"></div>
+                            <div class="quick-view-img">
+                                <!--<img src="{{asset('backends/assets/images/pro3/1.jpg')}}" alt="" class="img-fluid blur-up lazyload">-->
+                                </div>
                         </div>
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">

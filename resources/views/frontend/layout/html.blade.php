@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/bootstrap.css')}}">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color2.css')}}" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/color2.css?2')}}" media="screen" id="color">
 
     <link rel="stylesheet" type="text/css" href="{{asset('backends/assets/css/whatsapp.css')}}">
     
@@ -93,7 +93,7 @@
             -ms-flex-pack: center;
             justify-content: center;
             height: 100%;
-            background-color: #000;
+            background-color: #ffbdbd;
         }
 
         .h3-new {
@@ -118,7 +118,7 @@
             margin-bottom: 0;
         }
 
-        .btn-solid-new {
+        /*.btn-solid-new {
             padding: 13px 29px;
             color: #000000;
             letter-spacing: 0.05em;
@@ -129,26 +129,26 @@
             background-position: 0;
             -webkit-transition: background 300ms ease-in-out;
             transition: background 300ms ease-in-out;
-        }
+        }*/
 
         .theme-tab .tab-title2 .current {
             background-color: #000000;
         }
 
-        .btn-solid.black-btn {
+        /*.btn-solid.black-btn {
             background-image: linear-gradient(30deg, #000 50%, transparent 50%);
             border: 2px solid #000000;
-        }
+        }*/
 
         .theme-tab .tab-title2 .current a {
-            background-color: #000000;
+            background-color: #ffbdbd;
         }
 
         .theme-tab .tab-title .current a, .theme-tab .tab-title2 .current a {
-            color: #ffffff;
+            color: #fff;
         }
 
-        .btn-solid {
+        /*.btn-solid {
             padding: 13px 29px;
             color: #ffffff;
             letter-spacing: 0.05em;
@@ -159,7 +159,7 @@
             background-position: 0;
             -webkit-transition: background 300ms ease-in-out;
             transition: background 300ms ease-in-out;
-        }
+        }*/
         
         .tab-1new {
             color: #000000;
@@ -226,11 +226,11 @@
         border: none;
     }
 
-    .btn-link {
+    /*.btn-link {
         font-weight: 400;
         color: #000;
         background-color: transparent;
-    }
+    }*/
     
     .category-bg .contain-block .category-btn {
         letter-spacing: 0px;
@@ -240,7 +240,7 @@
         transition: all 0.5s ease;
     }
 
-    .btn-solid-new {
+    /*.btn-solid-new {
         padding: 13px 29px;
         color: #000000;
         letter-spacing: 0.05em;
@@ -251,7 +251,7 @@
         background-position: 0;
         -webkit-transition: background 300ms ease-in-out;
         transition: background 300ms ease-in-out;
-    }
+    }*/
     
 
 

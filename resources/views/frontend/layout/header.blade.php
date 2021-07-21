@@ -355,7 +355,7 @@
                         <div class="menu-left">
                             <div class="navbar">
                                 <a href="javascript:void(0)" onclick="openNav()">
-                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoaud lazyloaded" alt="" style="height: 60px;">
+                                    <img src="{{asset('backends/assets/images/icon/australia.png')}}" class="img-fluid blur-up logoaud lazyloaded" alt="" style="height: 60px; display: none;">
                                 </a>
                                 <div id="mySidenav" class="sidenav">
                                     <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
@@ -547,7 +547,7 @@
                                 </li>
                                 @endif -->
                                 <li>
-                                    <a href="{{url('/sale')}}"> Sale</a>
+                                    <a href="{{url('/sale')}}">Sale</a>
                                 </li>
                                 <li class="mega" id="hover-cls"><a href="#">Skin Care
                                         <div class="lable-nav">new</div>
