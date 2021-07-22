@@ -503,15 +503,13 @@
                                     <div class="product-box product-wrap">
                                         <div class="img-wrapper">
                                             <?php
-                                                $front = App\Model\ProductGambar::where('product_id', $a->id)->first();
                                                 $back = App\Model\ProductGambar::where('product_id', $a->id)->skip(1)->first();
-                                                $count = App\Model\ProductGambar::where('product_id', $a->id)->get();
                                             ?>
                                             <div class="front">
                                                 <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
                                             </div>
                                             <div class="back">
-                                                <img alt="" src="{{url('product/'.$front->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                                <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                             </div>
                                             <div class="cart-detail">
                                                 <a href="{{url('/wishlist', $a->slug)}}" title="Add to Wishlist">
@@ -581,15 +579,13 @@
                         <div class="product-box product-wrap">
                             <div class="img-wrapper">
                                 <?php
-                                    $front = App\Model\ProductGambar::where('product_id', $a->id)->first();
                                     $back = App\Model\ProductGambar::where('product_id', $a->id)->skip(1)->first();
-                                    $count = App\Model\ProductGambar::where('product_id', $a->id)->get();
                                 ?>
                                 <div class="front">
                                     <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
                                 </div>
                                 <div class="back">
-                                    <img alt="" src="{{url('product/'.$front->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                    <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                 </div>
                                 <div class="cart-detail">
                                     <a href="{{url('/wishlist', $a->slug)}}" title="Add to Wishlist">
