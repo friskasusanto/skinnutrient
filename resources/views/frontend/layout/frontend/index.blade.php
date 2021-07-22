@@ -582,21 +582,14 @@
                             <div class="img-wrapper">
                                 <?php
                                     $front = App\Model\ProductGambar::where('product_id', $a->id)->first();
-                                ?>
-                                <div class="front">
-                                        <img alt="" src="{{url('product/'.$front->image)}}" class="img-fluid blur-up lazyload bg-img">
-                                </div>
-                                <?php
                                     $back = App\Model\ProductGambar::where('product_id', $a->id)->skip(1)->first();
                                     $count = App\Model\ProductGambar::where('product_id', $a->id)->get();
                                 ?>
-
+                                <div class="front">
+                                    <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                </div>
                                 <div class="back">
-                                    @if (count($count) > 1)
-                                        <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
-                                    @else
-                                        <img alt="" src="{{url('product/'.$front->image)}}" class="img-fluid blur-up lazyload bg-img">
-                                    @endif
+                                    <img alt="" src="{{url('product/'.$front->image)}}" class="img-fluid blur-up lazyload bg-img">
                                 </div>
                                 <div class="cart-detail">
                                     <a href="{{url('/wishlist', $a->slug)}}" title="Add to Wishlist">
