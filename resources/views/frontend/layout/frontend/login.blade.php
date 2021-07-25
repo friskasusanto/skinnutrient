@@ -835,6 +835,22 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (Session::has('flash_message'))
+        <?php $status = (Session::get('flash_status') == 200)?'success':'error';?>
+        <?php $status_type = (Session::get('flash_status') == 200)?'Success':'Failed';?>
+        <script type="text/javascript">
+            swal({   
+                type: "{{ $status }}",
+                title: "{{ $status_type }}",   
+                text: "{{ Session::get('flash_message') }}",   
+                showConfirmButton: false ,
+                showCloseButton: true,
+                footer: ''
+            });
+        </script>
+    @endif
 </body>
 
 </html>

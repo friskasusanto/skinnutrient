@@ -68,7 +68,7 @@
             <div class="col-sm-12">
                 <div class="main-menu border-section border-top-0">
                     <div class="brand-logo layout2-logo">
-                        <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/logo/logo.png')}}" class="img-fluid blur-up lazyload logo" alt=""></a>
+                        <a href="index.php"><img src="{{asset('frontend/assets/img/logo/logo.png')}}" class="img-fluid blur-up lazyload logo" alt=""></a>
                     </div>
                     <div>
                         <form class="form_search" role="form">
@@ -92,12 +92,13 @@
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-xl-12">
-                                                            <form>
+                                                            <form action="{{url('/shop')}}" method="GET">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
+                                                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product" name="name">
                                                                 </div>
-                                                                <button type="submit" class="btn btn-primary"><i
-                                                                        class="fa fa-search"></i></button>
+                                                                <button type="submit" class="btn btn-primary">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -159,10 +160,10 @@
                                 <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                             </li>
                             <li>
-                                <a href="#">Sale</a>
+                                <a href="shop.php">Sale</a>
                             </li>
                             <li class="mega" id="hover-cls">
-                                <a href="#">Skin Care</a>
+                                <a href="category.php">Skin Care</a>
                                 <ul class="mega-menu full-mega-menu">
                                     <li>
                                         <div class="container">
@@ -174,20 +175,8 @@
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="grid-2-col.html">portfolio grid 2</a>
+                                                                <li><a href="category.php">portfolio grid 2</a>
                                                                 </li>
-                                                                <li><a href="grid-3-col.html">portfolio grid 3</a>
-                                                                </li>
-                                                                <li><a href="grid-4-col.html">portfolio grid 4</a>
-                                                                </li>
-                                                                <li><a href="masonary-2-grid.html">mesonary grid
-                                                                        2</a></li>
-                                                                <li><a href="masonary-3-grid.html">mesonary grid
-                                                                        3</a></li>
-                                                                <li><a href="masonary-4-grid.html">mesonary grid
-                                                                        4</a></li>
-                                                                <li><a href="masonary-fullwidth.html">mesonary full
-                                                                        width</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -199,14 +188,8 @@
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="nursery.html">cart modal popup</a></li>
-                                                                <li><a href="vegetables.html">qty. counter <i
-                                                                            class="fa fa-bolt icon-trend"
-                                                                            aria-hidden="true"></i></a></li>
-                                                                <li><a href="bags.html">cart top</a></li>
-                                                                <li><a href="shoes.html">cart bottom</a></li>
-                                                                <li><a href="watch.html">cart left</a></li>
-                                                                <li><a href="tools.html">cart right</a></li>
+                                                                <li><a href="category.php">portfolio grid 2</a>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -218,14 +201,6 @@
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="element-title.html">title</a></li>
-                                                                <li><a href="element-banner.html">collection
-                                                                        banner</a></li>
-                                                                <li><a href="element-slider.html">home slider</a>
-                                                                </li>
-                                                                <li><a href="element-category.html">category</a>
-                                                                </li>
-                                                                <li><a href="element-service.html">service</a></li>
                                                                 <li><a href="element-image-ratio.html">image size
                                                                         ratio <i class="fa fa-bolt icon-trend"
                                                                             aria-hidden="true"></i></a></li>
@@ -239,16 +214,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Apa Yang Baru!</a>
+                                <a href="new.php">Apa Yang Baru!</a>
                             </li>
                             <li>
-                                <a href="#">Paling Laris</a>
+                                <a href="laris.php">Paling Laris</a>
                             </li>
                             <li>
-                                <a href="#">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#">Press</a>
+                                <a href="blog.php">Blog</a>
                             </li>
                         </ul>
                     </nav>
