@@ -47,6 +47,8 @@ Route::get('/', function () {
 	Route::get('/sitemap', 'Frontend\GeneralController@sitemap')->name('sitemap');
 	Route::get('/contact', 'Frontend\GeneralController@contact')->name('contact');
 	Route::get('/pengaduan', 'Frontend\GeneralController@pengaduan')->name('pengaduan');
+	Route::get('/botanic', 'Frontend\GeneralController@botanic')->name('botanic');
+	Route::get('/compare', 'Frontend\GeneralController@compare')->name('compare');
 
 	//Frontend/PengaduanController
 	Route::post('/pengaduan', 'Frontend\PengaduanController@pengaduan')->name('pengaduan');

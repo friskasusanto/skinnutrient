@@ -14,7 +14,7 @@
                     <ul class="header-dropdown">
                         <li class="mobile-wishlist"><a href="wishlist.php"><i class="fa fa-heart" aria-hidden="true"></i>
                                 wishlist</a></li>
-                        <li class="onhover-dropdown mobile-account">
+                        <!-- <li class="onhover-dropdown mobile-account">
                             <i class="fa fa-user" aria-hidden="true"></i> Akun Saya
                             <ul class="onhover-show-div">
                              @if (Auth::check())
@@ -56,7 +56,7 @@
                                 </li>
                             @endif
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

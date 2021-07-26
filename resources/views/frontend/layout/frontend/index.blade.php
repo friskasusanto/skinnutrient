@@ -130,7 +130,7 @@
                             <div class="sembarang">
                                 <h2 class="bannerteks">BOTANIC FACE MASKS</h2>
                                 <h4 class="fontsedang">Terpilih NO.1 Rangkaian Masker Lembaran Buatan Australia, oleh 14K Australia!</h4>
-                                <a href="botanic.php" class="btn btn-solid btn-tengah">Beli Sekarang</a>
+                                <a href="{{url('/botanic')}}" class="btn btn-solid btn-tengah">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -249,6 +249,9 @@
                                                 </a>
                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                     <i class="ti-search" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="{{url('/compare')}}" title="Compare">
+                                                    <i class="ti-reload" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                         </div>

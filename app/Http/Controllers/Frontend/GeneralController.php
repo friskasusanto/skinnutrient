@@ -14,6 +14,15 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function compare ()
+    {
+        return view('frontend.layout.frontend.compare');
+    }
+    public function botanic ()
+    {
+        $mask = Product::where('category_id', 1)->paginate(12);
+        return view('frontend.layout.frontend.botanic', compact('mask'));
+    }
     public function pengaduan ()
     {
         return view('frontend.layout.frontend.pengaduan');
