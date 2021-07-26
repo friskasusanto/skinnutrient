@@ -49,6 +49,7 @@ Route::get('/', function () {
 	Route::get('/pengaduan', 'Frontend\GeneralController@pengaduan')->name('pengaduan');
 	Route::get('/botanic', 'Frontend\GeneralController@botanic')->name('botanic');
 	Route::get('/compare', 'Frontend\GeneralController@compare')->name('compare');
+	Route::get('/categ', 'Frontend\GeneralController@categ')->name('categ');
 
 	//Frontend/PengaduanController
 	Route::post('/pengaduan', 'Frontend\PengaduanController@pengaduan')->name('pengaduan');

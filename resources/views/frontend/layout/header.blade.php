@@ -160,10 +160,10 @@
                                 <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                             </li>
                             <li>
-                                <a href="shop.php">Sale</a>
+                                <a href="{{url('/sale')}}">Sale</a>
                             </li>
                             <li class="mega" id="hover-cls">
-                                <a href="category.php">Skin Care</a>
+                                <a href="{{url('/categ')}}">Skin Care</a>
                                 <ul class="mega-menu full-mega-menu">
                                     <li>
                                         <div class="container">
@@ -171,12 +171,15 @@
                                                 <div class="col mega-box">
                                                     <div class="link-section">
                                                         <div class="menu-title">
-                                                            <h5>Kategori</h5>
+                                                            <h5>By Concern</h5>
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="category.php">portfolio grid 2</a>
-                                                                </li>
+                                                                @foreach (App\Model\Category::where('menu_id', 1)->orderBy('created_at', 'asc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -184,12 +187,15 @@
                                                 <div class="col mega-box">
                                                     <div class="link-section">
                                                         <div class="menu-title">
-                                                            <h5>By Concern</h5>
+                                                            <h5>By Category</h5>
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="category.php">portfolio grid 2</a>
-                                                                </li>
+                                                                @foreach (App\Model\Category::where('menu_id', 2)->orderBy('created_at', 'desc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -201,9 +207,11 @@
                                                         </div>
                                                         <div class="menu-content">
                                                             <ul>
-                                                                <li><a href="element-image-ratio.html">image size
-                                                                        ratio <i class="fa fa-bolt icon-trend"
-                                                                            aria-hidden="true"></i></a></li>
+                                                                @foreach (App\Model\Category::where('menu_id', 3)->orderBy('created_at', 'desc')->get() as $concern)
+                                                                    <li>
+                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -214,13 +222,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="new.php">Apa Yang Baru!</a>
+                                <a href="{{url('/whatsNew')}}">Apa Yang Baru!</a>
                             </li>
                             <li>
-                                <a href="laris.php">Paling Laris</a>
+                                <a href="{{url('/bestSeller')}}">Paling Laris</a>
                             </li>
                             <li>
-                                <a href="blog.php">Blog</a>
+                                <a href="{{url('/blogs')}}">Blog</a>
                             </li>
                         </ul>
                     </nav>

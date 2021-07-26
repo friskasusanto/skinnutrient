@@ -14,6 +14,10 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function categ ()
+    {
+        return view('frontend.layout.frontend.categ');
+    }
     public function compare ()
     {
         return view('frontend.layout.frontend.compare');
