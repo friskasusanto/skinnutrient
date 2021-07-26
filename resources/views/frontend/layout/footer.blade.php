@@ -11,9 +11,9 @@
                             <ul>
                                 <li><a href="#">Tentang Kami</a></li>
                                 <li><a href="#">Pencarian</a></li>
-                                <li><a href="#">Stockists</a></li>
+                                <!-- <li><a href="#">Stockists</a></li>
                                 <li><a href="#">Sitemap</a></li>
-                                <li><a href="#">Press</a></li>
+                                <li><a href="#">Press</a></li> -->
                             </ul>
                         </div>
                     </div>
