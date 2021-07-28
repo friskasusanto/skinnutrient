@@ -13,9 +13,16 @@ class WishlistController extends Controller
 {
     public function wishlist ()
     {
-    	$wishlist = Wishlist::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        if (Auth::check()){
+    	   $wishlist = Wishlist::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
-    	return view('frontend.layout.frontend.wishlist', compact('wishlist'));
+           return view('frontend.layout.frontend.wishlist', compact('wishlist'));
+        }else {
+            $status = 500;
+            $message = "Silahkan login terlebih dahulu sebelum melanjutkan !";
+
+            return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+        }
     }
 
     public function delete (Request $request, $id)

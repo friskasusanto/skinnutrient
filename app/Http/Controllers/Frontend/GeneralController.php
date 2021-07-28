@@ -11,6 +11,7 @@ use App\Model\Product;
 use App\Model\Checkout;
 use App\Model\ProductCategory;
 use Auth;
+// use Request;
 
 class GeneralController extends Controller
 {
@@ -18,8 +19,14 @@ class GeneralController extends Controller
     {
         return view('frontend.layout.frontend.categ');
     }
-    public function compare ()
+    public function compare (Request $request)
     {
+        // dd($request->ip());
+            session(['key' => 'value']);
+        // $request->session()->forget('name');
+
+        echo $request->session()->get('name');
+
         return view('frontend.layout.frontend.compare');
     }
     public function botanic ()

@@ -42,15 +42,16 @@ class CheckoutController extends Controller
             'phone' => 'required',
         ]);
 
-        $carts = Chart::with('product')->where('user_id', Auth::user()->id)->get();
+        // $carts = Chart::with('product')->where('user_id', Auth::user()->id)->get();
+        $carts = Cart::instance('shopping')->content();
         
         $orderId = null;
 
         DB::transaction(function() use ($request,$carts,&$orderId)
         {
             $order = new Order();
-            $order->user_id         = Auth::user()->id;
-            $order->name            = $request->nama.' '.$request->last_name;
+            $order->user_id         = null; //Auth::user()->id
+            $order->name            = $request->nama;
             $order->provinsi        = $request->provinsi_name;
             $order->kota            = $request->kota_name;
             $order->address         = $request->alamat;
@@ -64,11 +65,11 @@ class CheckoutController extends Controller
 
             foreach ($carts as $cart) {
                 $item = new OrderItem();
-                $item->product_id   = $cart->product_id;
-                $item->product_name = $cart->product->name;
-                $item->price        = $cart->product->price;
-                $item->qty          = $cart->jumlah;
-                $item->total        = $cart->total_amount;
+                $item->product_id   = $cart->id;
+                $item->product_name = $cart->name;
+                $item->price        = $cart->price;
+                $item->qty          = $cart->qty;
+                $item->total        = $cart->price * $cart->qty;
                 $item->order_id     = $order->id;
                 $item->save();
             }
@@ -90,8 +91,7 @@ class CheckoutController extends Controller
             ),
             'customer_details' => array(
                 'first_name' => $request->nama,
-                'last_name' => $request->last_name,
-                'email' => Auth::user()->email,
+                'email' => $request->email,
                 'phone' => $request->phone,
             ),
         );

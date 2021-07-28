@@ -12,8 +12,12 @@
                 </div>
                 <div class="col-lg-6 text-right">
                     <ul class="header-dropdown">
-                        <li class="mobile-wishlist"><a href="wishlist.php"><i class="fa fa-heart" aria-hidden="true"></i>
-                                wishlist</a></li>
+                        <li class="mobile-wishlist">
+                            <a href="{{url('/session/wishlist')}}">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                wishlist
+                            </a>
+                        </li>
                         <!-- <li class="onhover-dropdown mobile-account">
                             <i class="fa fa-user" aria-hidden="true"></i> Akun Saya
                             <ul class="onhover-show-div">
@@ -68,7 +72,7 @@
             <div class="col-sm-12">
                 <div class="main-menu border-section border-top-0">
                     <div class="brand-logo layout2-logo">
-                        <a href="index.php"><img src="{{asset('frontend/assets/img/logo/logo.png')}}" class="img-fluid blur-up lazyload logo" alt=""></a>
+                        <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/logo/logo.png')}}" class="img-fluid blur-up lazyload logo" alt=""></a>
                     </div>
                     <div>
                         <form class="form_search" role="form">
@@ -108,32 +112,60 @@
                                     </div>
                                 </li>
                                 <li class="onhover-div mobile-cart">
-                                    <div><img src="{{asset('frontend/assets/images/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt="">
-                                        <i class="ti-shopping-cart"></i></div>
+                                    <div>
+                                        <img src="{{asset('frontend/assets/img/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt="" >
+                                        <i class="ti-shopping-cart"></i>
+                                    </div>
                                     <ul class="show-div shopping-cart">
+                                    <?php
+                                        $cart = Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->content();
+                                        $total = Cart::priceTotal();
+                                        $discount = Cart::discount();
+
+                                        // dd($discount);
+                                    ?>
+                                    @foreach ($cart as $c)
                                         <li>
                                             <div class="media">
-                                                <a href="#"><img class="mr-3" src="{{asset('frontend/assets/img/produk/mix-mask.jpg')}}" alt="Generic placeholder image"></a>
+                                                <a href="#">
+                                                    <img class="mr-3" src="{{url('product/'.$c->image)}}" alt="Generic placeholder image">
+                                                </a>
                                                 <div class="media-body">
                                                     <a href="#">
-                                                        <h4 class="judulpopcart">Skin Nutrient™ Mix and Mask Variety Pack (12 pcs)</h4>
+                                                        <h4 class="judulpopcart">{{$c->name}}</h4>
                                                     </a>
-                                                    <h5><span class="hargapopcart">Rp60.000 <del class="hargapopcart">Rp85.000</del></span></h5>
+                                                    @if ($c->discount != null)
+                                                    <a href="{{url('/session/cart', $a->slug)}}" class="addcarthitam"></a>
+                                                    <h5>
+                                                        <span class="hargapopcart">Rp. {{number_format($c->price - ($c->discount /100 * $c->price), 0, ',', '.')}}
+                                                            <del class="hargapopcart">
+                                                                Rp. {{number_format($c->price, 0, ',', '.')}}
+                                                            </del>
+                                                        </span>
+                                                    </h5>
+                                                    @else 
+                                                    <h5>
+                                                        <span class="hargapopcart">
+                                                            Rp. {{number_format($c->price, 0, ',', '.')}}
+                                                        </span>
+                                                    </h5>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="close-circle">
-                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                <a href="{{url('/session/delete', $c->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="total">
-                                                <h5>Subtotal : <span>Rp600.000</span></h5>
+                                                <h5>subtotal : <span>Rp. {{$total}}</span></h5>
                                             </div>
                                         </li>
+                                    @endforeach
                                         <li>
                                             <div class="buttons">
-                                                <a href="cart.php" class="view-cart view-carts">view cart</a>
-                                                <a href="checkout.php" class="checkout checkouts">checkout</a>
+                                                <a href="{{url('/session/cart')}}" class="view-cart view-carts">view cart</a>
+                                                <a href="{{url('/session/checkout')}}" class="checkout checkouts">checkout</a>
                                             </div>
                                         </li>
                                     </ul>

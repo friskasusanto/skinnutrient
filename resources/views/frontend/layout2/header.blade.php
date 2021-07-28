@@ -490,14 +490,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="close-circle">
-                                                    <a href="{{url('/cartDelete', $c->id)}}">
+                                                    <a href="{{url('/session/delete/', $c->id)}}">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="total">
-                                                @if ($c->product->discount != null)
+                                                @if ($c->discount != 0)
                                                     <h5>subtotal : <span>Rp. {{number_format(($c->product->price) - (($c->product->discount / 100) * $c->product->price), 0, ',', '.')}}</span></h5>
                                                 @else
                                                     <h5>subtotal : <span>Rp. {{number_format($c->jumlah * $c->product->price, 0, ',', '.')}}</span></h5>

@@ -266,7 +266,6 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            <a href="{{url('/cart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                             @if ($a->comming_soon == 1)
                                                <h5 class="harga">
                                                     Coming Soon
@@ -276,12 +275,14 @@
                                                     Sold Out
                                                 </h5>
                                             @else
-                                                @if ($a->discount != null)
+                                                @if ($a->discount != null || $a->discount != 0)
+                                                <a href="{{url('/session/tambahCart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                 <h5 class="harga">
                                                     Rp. {{number_format($a->price - ($a->discount /100 * $a->price), 0, ',', '.')}}
                                                     <del>Rp. {{number_format($a->price, 0, ',', '.')}}</del>
                                                 </h5>
                                                 @else 
+                                                <a href="{{url('/session/tambahCart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                 <h5 class="harga">
                                                     Rp. {{number_format($a->price, 0, ',', '.')}}
                                                 </h5>
@@ -352,7 +353,7 @@
                                     Sold Out
                                 </h5>
                             @else
-                                @if ($a->discount != null)
+                                @if ($a->discount != null || $a->discount != 0)
                                 <h5 class="harga">
                                     Rp. {{number_format($a->price - ($a->discount /100 * $a->price), 0, ',', '.')}}
                                     <del>Rp. {{number_format($a->price, 0, ',', '.')}}</del>

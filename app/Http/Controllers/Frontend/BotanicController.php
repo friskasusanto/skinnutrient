@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class BotanicController extends Controller
 {
     public function sessionCart (Request $request) {
-		$request->session()->put('nama','Diki Alfarabi Hadi');
+		$request->session()
+		->put('user_id','Diki Alfarabi Hadi');
 		echo "Data telah ditambahkan ke session.";
 	}
 }

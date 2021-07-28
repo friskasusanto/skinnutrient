@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Model\Chart;
 use App\Model\Wishlist;
 use App\Model\Product;
@@ -22,6 +23,7 @@ class HomeController extends Controller
     	$blog = Blog::orderBy('created_at', 'desc')->limit(3)->get();
     	$banner = Banner::where('nama_banner', 'banner utama')->get();
     	$all = Product::orderBy('created_at', 'desc')->where('category_id', 1)->get();
+        // dd(Cart::instance('shopping')->content());
 
     	return view('frontend.layout.frontend.index', compact('new', 'best', 'last', 'blog', 'banner', 'all'));
     }
