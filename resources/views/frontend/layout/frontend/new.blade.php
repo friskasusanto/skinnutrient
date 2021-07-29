@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
-                                            @foreach ($cek as $m)
+                                            @foreach ($product as $m)
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
@@ -128,26 +128,15 @@
                                                     <div class="row">
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <nav aria-label="Page navigation">
-                                                                <ul class="pagination">
-                                                                    <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span
-                                                                                aria-hidden="true"><i
-                                                                                    class="fa fa-chevron-left"
-                                                                                    aria-hidden="true"></i></span> <span
-                                                                                class="sr-only">Previous</span></a></li>
-                                                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                                                aria-hidden="true"><i
-                                                                                    class="fa fa-chevron-right"
-                                                                                    aria-hidden="true"></i></span> <span
-                                                                                class="sr-only">Next</span></a></li>
-                                                                </ul>
+                                                                {{ $product->links('pagination.custom') }}
                                                             </nav>
                                                         </div>
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <div class="product-search-count-bottom">
-                                                                <h5>Showing Products 1-24 of 10 Result</h5>
+                                                            <?php
+                                                                $botanic = App\Model\Product::where('category_id', 1)->orderBy('created_at', 'desc')->count();
+                                                            ?>
+                                                                <h5>Showing Products {{$botanic}} Result</h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -177,8 +166,8 @@
 
 
     <!-- Quick-view modal popup start-->
-    @if(isset($cek))
-    @foreach( $cek as $u )
+    @if(isset($product))
+    @foreach( $product as $u )
     <div class="modal fade bd-example-modal-lg theme-modal" id="modalDetail{{$u->id}}"tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content quick-view-modal">
