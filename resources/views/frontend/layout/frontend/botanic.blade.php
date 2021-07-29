@@ -25,14 +25,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2 class="judulhal">Sale</h2>
+                        <h2 class="judulhal">Botanic</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Sale</li>
+                            <li class="breadcrumb-item active" aria-current="page">Botanic</li>
                         </ol>
                     </nav>
                 </div>
@@ -71,7 +71,7 @@
                                                                 <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
                                                             <div class="cart-detail">
-                                                                <a href="{{url('/wishlist', $m->slug)}}" title="Add to Wishlist">
+                                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                                 </a>
                                                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$m->id}}" title="Quick View">
@@ -80,7 +80,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="product-info">
-                                                            <a href="product-page(no-sidebar).html">
+                                                            <a href="{{url('/detailProduct', $m->slug)}}">
                                                                 <h6 class="tekshitam">{{$m->name}}</h6>
                                                             </a>
                                                             <div class="rating">
@@ -110,7 +110,7 @@
                                                                 </h5>
                                                                 @endif
                                                             @endif
-                                                            <a href="{{url('/cart', $m->slug)}}" class="addcarthitams btn btn-solid btn-tengah">Tambah keranjang</a>
+                                                            <a href="{{url('/session/tambahCart', $m->slug)}}" class="addcarthitams btn btn-solid btn-tengah">Tambah keranjang</a>
                                                             <!--<div class="add-btn">
                                                                 <a href="javascript:void(0)" onclick="openCart()" class="btn btn-outline">
                                                                     <i class="ti-shopping-cart"></i> add to cart

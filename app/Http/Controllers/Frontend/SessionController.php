@@ -12,6 +12,34 @@ use Session;
 
 class SessionController extends Controller
 {
+	public function sessionBeliSekarang (Request $request, $slug)
+	{
+		$status = 200;
+        $message = "Product Berhasil di Tambahkan ke Cart";
+        $product = Product::where('slug', $slug)->first();
+
+       	if ($request->quantity == null){
+
+	        Cart::instance('shopping')
+	        ->add(
+	            $product->id, // product id
+	            $product->name, // nama product
+	            1, // qty
+	            $product->price // harga
+	        );
+	    } else {
+	    	Cart::instance('shopping')
+	        ->add(
+	            $product->id, // product id
+	            $product->name, // nama product
+	            $request->quantity, // qty
+	            $product->price // harga
+	        );
+	    }
+
+	    return redirect()->back('/session/checkout/{$product->slug}');
+
+	}
 	public function sessionUbahValue (Request $request, $id)
 	{
 		$status = 200;
@@ -45,13 +73,24 @@ class SessionController extends Controller
         $message = "Product Berhasil di Tambahkan ke Cart";
         $product = Product::where('slug', $slug)->first();
 
-        Cart::instance('shopping')
-        ->add(
-            $product->id, // product id
-            $product->name, // nama product
-            1, // qty
-            $product->price // harga
-        );
+       	if ($request->quantity == null){
+
+	        Cart::instance('shopping')
+	        ->add(
+	            $product->id, // product id
+	            $product->name, // nama product
+	            1, // qty
+	            $product->price // harga
+	        );
+	    } else {
+	    	Cart::instance('shopping')
+	        ->add(
+	            $product->id, // product id
+	            $product->name, // nama product
+	            $request->quantity, // qty
+	            $product->price // harga
+	        );
+	    }
         // dd(Cart::instance('shopping')->content());
 
 

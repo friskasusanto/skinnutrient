@@ -67,7 +67,6 @@
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
                             <h2 class="mb-3 judulproduk">{{$product->name}}</h2>
-                            <h5 class="hargas">Rp575.000 <del>Rp785.000</del></h5>
                             @if ($product->comming_soon == 1)
                                 <h5 class="hargas">Coming Soon</h5>
                             @elseif ($product->stock_user == null || $product->stock_user == 0)
@@ -83,7 +82,7 @@
                             @endif
 
                             @if ($product->comming_soon != 1)
-                                <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/buy', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="product-description border-product">
                                         <h6 class="product-title">quantity</h6>
@@ -95,7 +94,7 @@
                                                         <i class="ti-angle-left"></i>
                                                     </button> 
                                                 </span>
-                                                <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                <input type="number" name="quantity" class="form-control input-number" value="1">
                                                 <span class="input-group-prepend">
                                                     <button type="button"
                                                         class="btn quantity-right-plus" data-type="plus" data-field="">
@@ -106,16 +105,18 @@
                                         </div>
                                     </div>
                                     <div class="product-buttons">
-                                        <a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-solid melengkung melengkung">+ Keranjang</a> 
-                                        <button type="submit" class="btn btn-solid melengkung">Beli Sekarang</button>
+                                        <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
                                     </div>
                                 </form>
+                                <a href="{{url('/session/checkout', $product->slug)}}" class="btn btn-solid melengkung">Beli Sekarang</a>
                             @endif
                             <div class="border-product">
                                 <div class="product-icon">
                                     <form class="d-inline-block">
-                                        <button class="wishlist-btn"><i class="fa fa-heart"></i><span
-                                                class="title-font">Add To WishList</span></button>
+                                        <a href="{{url('/session/wishlist')}}" class="wishlist-btn">
+                                            <i class="fa fa-heart"></i>
+                                            <span class="title-font">Add To WishList</span>
+                                        </a>
                                     </form>
                                 </div>
                             </div>
@@ -271,13 +272,13 @@
                                     </a>
                                 </div>
                                 <div class="cart-detail">
-                                    <a href="{{url('/wishlist', $r->slug)}}" title="Add to Wishlist">
+                                    <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                         <i class="ti-heart" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="product-info">
-                                <a href="product-page(no-sidebar).html">
+                                <a href="{{url('/detailProduct', $r->slug)}}">
                                     <h6 class="tekshitam">{{$r->name}}</h6>
                                 </a>
                                 <div class="rating">
@@ -287,7 +288,7 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <a href="{{url('/cart', $r->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
+                                <a href="{{url('/session/tambahCart', $r->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                 @if ($r->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon

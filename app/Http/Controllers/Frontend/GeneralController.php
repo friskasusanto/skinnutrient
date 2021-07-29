@@ -64,7 +64,7 @@ class GeneralController extends Controller
     public function bestSeller ()
     {
         $cek = Product::orderBy('created_at', 'desc')->where('best_seller', 1)->paginate('12');
-        return view('frontend.layout.frontend.bestSeller', compact('cek'));
+        return view('frontend.layout.frontend.best', compact('cek'));
     }
 
     public function new ()
@@ -91,7 +91,7 @@ class GeneralController extends Controller
         }
 
 
-        return view('frontend.layout.frontend.product', compact('product', 'category'));
+        return view('frontend.layout.frontend.shopSearch', compact('product', 'category'));
     }
 
     public function subscribe (Request $request)

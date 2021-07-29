@@ -225,6 +225,17 @@
                                 <div class="checkout-title">
                                     <h3 class="judultengah">Pembayaran</h3>
                                 </div>
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nama</div>

@@ -244,15 +244,15 @@
                                                 <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                             </div>
                                             <div class="cart-detail">
-                                                <a href="{{url('/wishlist', $a->slug)}}" title="Add to Wishlist">
+                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                <a href="#" data-toggle="modal" data-target="#modalDetail{{$a->id}}" title="Quick View">
                                                     <i class="ti-search" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{url('/compare')}}" title="Compare">
+                                                <!-- <a href="{{url('/compare')}}" title="Compare">
                                                     <i class="ti-reload" aria-hidden="true"></i>
-                                                </a>
+                                                </a> -->
                                             </div>
                                         </div>
                                         <div class="product-info">
@@ -324,12 +324,15 @@
                                 <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                             </div>
                             <div class="cart-detail">
-                                <a href="{{url('/wishlist', $a->slug)}}" title="Add to Wishlist">
+                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                     <i class="ti-heart" aria-hidden="true"></i>
                                 </a>
-                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                <a href="#" data-toggle="modal" data-target="#modalDetail{{$a->id}}" title="Quick View">
                                     <i class="ti-search" aria-hidden="true"></i>
                                 </a>
+                                <!-- <a href="{{url('/compare')}}" title="Compare">
+                                    <i class="ti-reload" aria-hidden="true"></i>
+                                </a> -->
                             </div>
                         </div>
                         <div class="product-info">
@@ -343,7 +346,6 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <a href="{{url('/cart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                             @if ($a->comming_soon == 1)
                                <h5 class="harga">
                                     Coming Soon
@@ -354,11 +356,13 @@
                                 </h5>
                             @else
                                 @if ($a->discount != null || $a->discount != 0)
+                                <a href="{{url('/session/tambahCart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                 <h5 class="harga">
                                     Rp. {{number_format($a->price - ($a->discount /100 * $a->price), 0, ',', '.')}}
                                     <del>Rp. {{number_format($a->price, 0, ',', '.')}}</del>
                                 </h5>
                                 @else 
+                                <a href="{{url('/session/tambahCart', $a->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                 <h5 class="harga">
                                     Rp. {{number_format($a->price, 0, ',', '.')}}
                                 </h5>
@@ -488,7 +492,92 @@
 
 
     <!-- Quick-view modal popup start-->
-    @include('frontend.layout.quickview')
+    @if(isset($all))
+    @foreach( $all as $u )
+    <div class="modal fade bd-example-modal-lg theme-modal" id="modalDetail{{$u->id}}"tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row">
+                        <div class="col-lg-6  col-xs-12">
+                            <div class="quick-view-img">
+                                <img src="{{url('product/'.$u->image)}}" alt="" class="img-fluid blur-up lazyload">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2 class="judulquick">{{$u->name}}</h2>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                @if ($u->comming_soon == 1)
+                                   <h5 class="harga">
+                                        Coming Soon
+                                    </h5>
+                                @elseif ($u->stock_user == null || $u->stock_user == 0)
+                                    <h5 class="harga">
+                                        Sold Out
+                                    </h5>
+                                @else
+                                    @if ($u->discount != null)
+                                    <h5 class="harga">
+                                        Rp. {{number_format($u->price - ($u->discount /100 * $u->price), 0, ',', '.')}}
+                                        <del>Rp. {{number_format($u->price, 0, ',', '.')}}</del>
+                                    </h5>
+                                    @else 
+                                    <h5 class="harga">
+                                        Rp. {{number_format($u->price, 0, ',', '.')}}
+                                    </h5>
+                                    @endif
+                                @endif
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>{!!$u->description!!}</p>
+                                </div>
+                            <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart, $u->slug')}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                                <div class="product-description border-product">
+                                    <h6 class="product-title">quantity</h6>
+                                    
+                                    <div class="qty-box">
+                                        <div class="input-group">
+                                            <span class="input-group-prepend">
+                                                <button type="button" class="btn quantity-left-minus" data-type="minus"
+                                                    data-field="">
+                                                    <i class="ti-angle-left"></i>
+                                                </button>
+                                            </span>
+                                            <input type="number" name="quantity" class="form-control input-number" value="1">
+                                            <span class="input-group-prepend">
+                                                <button type="button" class="btn quantity-right-plus" data-type="plus"
+                                                    data-field="">
+                                                    <i class="ti-angle-right"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-buttons">
+                                    <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
+                                </div>
+                            </form>
+                            <a href="{{url('/detailProduct', $u->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
     <!-- Quick-view modal popup end-->
 
 

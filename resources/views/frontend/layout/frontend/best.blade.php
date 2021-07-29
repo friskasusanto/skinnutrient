@@ -25,14 +25,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2 class="judulhal">New</h2>
+                        <h2 class="judulhal">Paling Laris</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">New</li>
+                            <li class="breadcrumb-item active" aria-current="page">Paling Laris</li>
                         </ol>
                     </nav>
                 </div>
@@ -53,7 +53,7 @@
                                 <div class="col-sm-12">
                                     <div class="collection-product-wrapper">
                                         <div class="top-banner-wrapper">
-                                            <a href="#"><img src="{{asset('frontend/assets/img/banner/shop3.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                            <a href="#"><img src="{{asset('frontend/assets/img/banner/botanic.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                         </div>
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
@@ -68,7 +68,7 @@
                                                                 <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="{{url('product/'.$m->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
                                                             <div class="back">
-                                                                <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                                <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
                                                             <div class="cart-detail">
                                                                 <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
@@ -128,26 +128,15 @@
                                                     <div class="row">
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <nav aria-label="Page navigation">
-                                                                <ul class="pagination">
-                                                                    <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span
-                                                                                aria-hidden="true"><i
-                                                                                    class="fa fa-chevron-left"
-                                                                                    aria-hidden="true"></i></span> <span
-                                                                                class="sr-only">Previous</span></a></li>
-                                                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                                                aria-hidden="true"><i
-                                                                                    class="fa fa-chevron-right"
-                                                                                    aria-hidden="true"></i></span> <span
-                                                                                class="sr-only">Next</span></a></li>
-                                                                </ul>
+                                                                {{ $cek->links('pagination.custom') }}
                                                             </nav>
                                                         </div>
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <div class="product-search-count-bottom">
-                                                                <h5>Showing Products 1-24 of 10 Result</h5>
+                                                            <?php
+                                                                $botanic = App\Model\Product::where('category_id', 1)->where('best_seller', 1)->count();
+                                                            ?>
+                                                                <h5>Showing Products {{$botanic}} Result</h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -306,7 +295,6 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (Session::has('flash_message'))
         <?php $status = (Session::get('flash_status') == 200)?'success':'error';?>

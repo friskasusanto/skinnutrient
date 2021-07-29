@@ -42,6 +42,7 @@ Route::get('/', function () {
 	Route::get('/session/checkout', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
 	Route::get('/session/wishlist', 'Frontend\SessionController@sessionWishlist')->name('sessionWishlist');
 	Route::post('/session/updateQuantity/{id}', 'Frontend\SessionController@sessionUbahValue')->name('sessionUbahValue');
+	Route::get('/session/checkout/{slug}', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
