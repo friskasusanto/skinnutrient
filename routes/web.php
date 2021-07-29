@@ -68,6 +68,10 @@ Route::get('/', function () {
 	Route::post('/buy/{slug}', 'Frontend\DetailController@buy')->name('buy');
 	Route::post('/review/{slug}', 'Frontend\DetailController@review')->name('review');
 
+	//Frontend/CheckoutController
+	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
+	Route::post('/checkout', 'Frontend\CheckoutController@checkout_store')->name('checkoutstore');
+
 
 Auth::routes(['verify' => true]);
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
@@ -79,9 +83,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 
 //FRONEND
 
-	//Frontend/CheckoutController
-	Route::get('/checkout', 'Frontend\CheckoutController@checkout')->name('checkout');
-	Route::post('/checkout', 'Frontend\CheckoutController@checkout_store')->name('checkoutstore');
+	
 
 	//Frontend/CartController
 	Route::get('/cartDelete/{id}', 'Frontend\CartController@delete')->name('cartDelete');
