@@ -116,14 +116,15 @@
                                         <img src="{{asset('frontend/assets/img/icon/cart.png')}}" class="img-fluid blur-up lazyload" alt="" >
                                         <i class="ti-shopping-cart"></i>
                                     </div>
-                                    <ul class="show-div shopping-cart">
-                                    <?php
-                                        $cart = Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->content();
-                                        $total = Cart::priceTotal();
-                                        $discount = Cart::discount();
+                                <?php
+                                    $cart = Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->content();
+                                    $total = Cart::priceTotal();
+                                    $discount = Cart::discount();
 
-                                        // dd($discount);
-                                    ?>
+                                    // dd($discount);
+                                ?>
+                                @if (count($cart) != 0)
+                                    <ul class="show-div shopping-cart">
                                     @foreach ($cart as $c)
                                         <li>
                                             <div class="media">
@@ -169,6 +170,7 @@
                                             </div>
                                         </li>
                                     </ul>
+                                @endif
                                 </li>
                             </ul>
                         </div>

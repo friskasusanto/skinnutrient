@@ -81,23 +81,24 @@
                                 @endif
                             @endif
 
-                            @if ($product->comming_soon != 1)
-                                <form  class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
+                            @if ($product->comming_soon != 1 && $product->stock_user != null || $product->stock_user != 0)
+                                <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart, $product->slug')}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                     <div class="product-description border-product">
                                         <h6 class="product-title">quantity</h6>
+                                        
                                         <div class="qty-box">
                                             <div class="input-group">
                                                 <span class="input-group-prepend">
-                                                    <button type="button"
-                                                        class="btn quantity-left-minus" data-type="minus" data-field="">
+                                                    <button type="button" class="btn quantity-left-minus" data-type="minus"
+                                                        data-field="">
                                                         <i class="ti-angle-left"></i>
-                                                    </button> 
+                                                    </button>
                                                 </span>
                                                 <input type="number" name="quantity" class="form-control input-number" value="1">
                                                 <span class="input-group-prepend">
-                                                    <button type="button"
-                                                        class="btn quantity-right-plus" data-type="plus" data-field="">
+                                                    <button type="button" class="btn quantity-right-plus" data-type="plus"
+                                                        data-field="">
                                                         <i class="ti-angle-right"></i>
                                                     </button>
                                                 </span>
@@ -122,10 +123,7 @@
                             </div>
                             <div class="border-product">
                                 <h6 class="product-title">Detail produk</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
-                                    veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
-                                    voluptatem,</p>
+                                <p>{!!$product->detail!!}</p>
                             </div>
                         </div>
                     </div>

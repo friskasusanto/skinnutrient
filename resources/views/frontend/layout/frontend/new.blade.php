@@ -134,7 +134,7 @@
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <div class="product-search-count-bottom">
                                                             <?php
-                                                                $botanic = App\Model\Product::where('category_id', 1)->orderBy('created_at', 'desc')->count();
+                                                                $botanic = App\Model\Product::orderBy('created_at', 'desc')->count();
                                                             ?>
                                                                 <h5>Showing Products {{$botanic}} Result</h5>
                                                             </div>
@@ -215,7 +215,7 @@
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$u->description!!}</p>
                                 </div>
-                            <form novalidate="novalidate" method="POST" action= "{{url('/addCart', $u->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $u->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="product-description border-product">
                                     <h6 class="product-title">quantity</h6>
@@ -228,7 +228,7 @@
                                                     <i class="ti-angle-left"></i>
                                                 </button>
                                             </span>
-                                            <input type="text" name="quantity" class="form-control input-number" value="1">
+                                            <input type="number" name="quantity" class="form-control input-number" value="1">
                                             <span class="input-group-prepend">
                                                 <button type="button" class="btn quantity-right-plus" data-type="plus"
                                                     data-field="">
@@ -239,10 +239,10 @@
                                     </div>
                                 </div>
                                 <div class="product-buttons">
-                                    <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
-                                    <a href="{{url('/detailProduct', $u->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
+                                    <button type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</button>
                                 </div>
                             </form>
+                            <a href="{{url('/detailProduct', $u->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
                             </div>
                         </div>
                     </div>

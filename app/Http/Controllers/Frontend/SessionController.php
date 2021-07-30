@@ -72,6 +72,7 @@ class SessionController extends Controller
 		$status = 200;
         $message = "Product Berhasil di Tambahkan ke Cart";
         $product = Product::where('slug', $slug)->first();
+        // dd($request->quantity);
 
        	if ($request->quantity == null){
 
@@ -80,7 +81,8 @@ class SessionController extends Controller
 	            $product->id, // product id
 	            $product->name, // nama product
 	            1, // qty
-	            $product->price // harga
+	            $product->price, // harga
+
 	        );
 	    } else {
 	    	Cart::instance('shopping')
