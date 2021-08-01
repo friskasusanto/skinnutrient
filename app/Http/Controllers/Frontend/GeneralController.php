@@ -15,9 +15,18 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function category ($id)
+    {
+        $category = Category::find($id);
+        $all = Product::all();
+        $product = Product::where('category_id', $category->id)->paginate(12);
+        // dd($category->id);
+        return view('frontend.layout.frontend.category', compact('category', 'all', 'product'));
+    }
     public function categ ()
     {
-        return view('frontend.layout.frontend.categ');
+        $categ = Category::all();
+        return view('frontend.layout.frontend.categ', compact('categ'));
     }
     public function compare (Request $request)
     {

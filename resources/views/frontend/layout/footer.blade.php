@@ -58,9 +58,10 @@
                             <p class="psubscribe">Untuk menerima informasi, produk terbaru dan promo kami.</p>
                         </div>
                         <div class="footer-contant">
-                            <form>
+                            <form novalidate="novalidate" method="POST" action= "{{url('/subscribe')}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                                 <div class="form-group subrek">
-                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Email Anda">
+                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Email Anda" name="email">
                                     <button type="submit" class="btn btn-solid buttonsubrek">subscribe</button>
                                 </div>
                             </form>

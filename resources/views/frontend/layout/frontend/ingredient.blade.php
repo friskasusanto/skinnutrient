@@ -23,14 +23,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2 class="judulhal">Blog</h2>
+                        <h2 class="judulhal">Ingredient</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Blog</li>
+                            <li class="breadcrumb-item active">Ingredient</li>
                         </ol>
                     </nav>
                 </div>
@@ -45,12 +45,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                @if (count($blog) != 0)
-                    @foreach ($blog as $i)
+                @if (count($ingredient) != 0)
+                    @foreach ($ingredient as $i)
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="{{url('/blogsDetail', $i->judul)}}">
+                                <a href="{{url('/ingredientDetail', $i->judul)}}">
                                     <img src="{{url('blog/'.$i->images)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                 </a>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="blog-right">
                                 <div>
                                     <h6>{{$i->tgl_input}}</h6>
-                                    <a href="{{url('/blogsDetail', $i->judul)}}">
+                                    <a href="{{url('/ingredientDetail', $i->judul)}}">
                                         <h4>{{$i->judul}}</h4>
                                     </a>
                                     <p>{!!(substr($i->text, 50))!!} ...</p>

@@ -395,7 +395,7 @@
                             </a>
                             <div class="blog-details">
                                     <p class="ingrid">Bahan Kami</p>
-                                <a href="ingridient.php">
+                                <a href="{{url('/ingredient')}}">
                                 <h6 class="bawahingrid">Baca Selengkapnya <i class="ti-arrow-right"></i></h6>
                                 </a>
                             </div>

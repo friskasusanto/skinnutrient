@@ -68,6 +68,12 @@
                             <li><a href="{{url('/admin/addBlog')}}"><i class="fa fa-circle"></i>Tambah Blog</a></li>
                         </ul>
                     </li>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Ingredient</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/ingredient')}}"><i class="fa fa-circle"></i>Daftar Ingredient</a></li>
+                            <li><a href="{{url('/admin/addIngredient')}}"><i class="fa fa-circle"></i>Tambah Ingredient</a></li>
+                        </ul>
+                    </li>
                     <li><a class="sidebar-header" href=""><i data-feather="bar-chart"></i><span>Log Admin</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{url('/admin/log')}}"><i class="fa fa-circle"></i>Daftar Log Admin</a></li>

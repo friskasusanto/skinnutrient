@@ -43,6 +43,8 @@ Route::get('/', function () {
 	Route::get('/session/wishlist', 'Frontend\SessionController@sessionWishlist')->name('sessionWishlist');
 	Route::post('/session/updateQuantity/{id}', 'Frontend\SessionController@sessionUbahValue')->name('sessionUbahValue');
 	Route::get('/session/checkout/{slug}', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
+	Route::get('/ingredient', 'Frontend\SessionController@ingredient')->name('ingredient');
+	Route::get('/ingredientDetail/{judul}', 'Frontend\SessionController@ingredientDetail')->name('ingredientDetail');
 
 	//Frontend/GeneralController
 	Route::post('/subscribe', 'Frontend\GeneralController@subscribe')->name('subscribe');
@@ -58,6 +60,7 @@ Route::get('/', function () {
 	Route::get('/botanic', 'Frontend\GeneralController@botanic')->name('botanic');
 	Route::get('/compare', 'Frontend\GeneralController@compare')->name('compare');
 	Route::get('/categ', 'Frontend\GeneralController@categ')->name('categ');
+	Route::get('/category/{id}', 'Frontend\GeneralController@category')->name('category');
 
 	//Frontend/PengaduanController
 	Route::post('/pengaduan', 'Frontend\PengaduanController@pengaduan')->name('pengaduan');
@@ -138,6 +141,14 @@ Route::group(['middleware' => ['auth', 'verified']], function ()  {
 	Route::get('/admin/addBlog', 'Backend\Admin\BlogController@add_view')->name('admin_addBlogView');
 	Route::post('/admin/addBlog', 'Backend\Admin\BlogController@add')->name('admin_addBlog');
 	Route::get('/admin/hapusBlog/{id}', 'Backend\Admin\BlogController@delete')->name('admin_hapusBlog');
+
+	//Backend/IngredientController
+	Route::get('/admin/editIngredient/{id}', 'Backend\Admin\IngredientController@edit_view')->name('admin_editIngredientView');
+	Route::post('/admin/editIngredient/{id}', 'Backend\Admin\IngredientController@edit')->name('admin_editIngredient');
+	Route::get('/admin/ingredient', 'Backend\Admin\IngredientController@index')->name('admin_ingredient');
+	Route::get('/admin/addIngredient', 'Backend\Admin\IngredientController@add_view')->name('admin_addIngredientView');
+	Route::post('/admin/addIngredient', 'Backend\Admin\IngredientController@add')->name('admin_addIngredient');
+	Route::get('/admin/hapusIngredient/{id}', 'Backend\Admin\IngredientController@delete')->name('admin_hapusIngredient');
 
 	//Backend/GeneralController
 	Route::get('/ganti_password/{id}', 'Backend\GeneralController@changePass_view')->name('gantipassword');

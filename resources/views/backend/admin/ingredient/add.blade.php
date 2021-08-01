@@ -1,5 +1,5 @@
-@extends('backend.layout.index', ['active' => 'tambah_product'])
-@section('title', 'Product')
+@extends('backend.layout.index', ['active' => 'tambah_ingredient'])
+@section('title', 'Ingredient')
 @section('content')
 
 
@@ -10,16 +10,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Add Blog
+                    <h3>Add Ingredient
                         <small>Multikart Admin panel</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Blog</li>
-                    <li class="breadcrumb-item active">Tambah Blog</li>
+                    <li class="breadcrumb-item"><a href="{{url('/dasboard')}}"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Ingredient</li>
+                    <li class="breadcrumb-item active">Tambah Ingredient</li>
                 </ol>
             </div>
         </div>
@@ -33,28 +33,28 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Add Blog</h5>
+                    <h5>Add Ingredient</h5>
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
                         <div class="col-xl-7">
-                            <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/addBlog')}}" enctype="multipart/form-data">
+                            <form class="needs-validation add-product-form" novalidate="novalidate" method="POST" action= "{{url('/admin/addIngredient')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form">
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Judul Blog :</label>
+                                        <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Judul Ingredient :</label>
                                         <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" name="judul">
                                         <div class="valid-feedback">Looks good!</div>
                                     </div>
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Isi Blog :</label>
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Isi Ingredient :</label>
                                         <div class="col-xl-8 col-sm-7 pl-0 description-sm">
                                             <textarea id="summernote" name="text" cols="81" rows="4"></textarea>
                                         </div>
                                         <div class="invalid-feedback offset-sm-4 offset-xl-3">Please choose Valid Code.</div>
                                     </div>
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Blog :</label>
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Ingredient :</label>
                                         <div class="add-product">
                                             <div class="row">
                                                 <ul class="file-upload-product">

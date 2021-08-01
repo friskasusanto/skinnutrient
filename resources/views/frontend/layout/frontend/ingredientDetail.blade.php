@@ -16,68 +16,47 @@
     @include('frontend.layout.header')
     <!-- header end -->
 
-
-    <!-- breadcrumb start -->
+    <!-- breadcrumb start-->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2 class="judulhal">Blog</h2>
+                        <h2 class="judulhal">Ingredient</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Blog</li>
+                            <li class="breadcrumb-item"><a href="{{url('/ingredient')}}">Ingredient</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- breadcrumb End -->
+    <!-- breadcrumb end-->
 
 
-    <!-- section start -->
-    <section class="section-b-space blog-page ratio2_3">
+    <!--section start-->
+    <section class="blog-detail-page section-b-space ratio2_3">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                @if (count($blog) != 0)
-                    @foreach ($blog as $i)
-                    <div class="row blog-media">
-                        <div class="col-xl-6">
-                            <div class="blog-left">
-                                <a href="{{url('/blogsDetail', $i->judul)}}">
-                                    <img src="{{url('blog/'.$i->images)}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="blog-right">
-                                <div>
-                                    <h6>{{$i->tgl_input}}</h6>
-                                    <a href="{{url('/blogsDetail', $i->judul)}}">
-                                        <h4>{{$i->judul}}</h4>
-                                    </a>
-                                    <p>{!!(substr($i->text, 50))!!} ...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                @else
-                    <div class="row blog-media">
-                        ~ halaman kosong ~
-                    </div>
-                @endif
+                <div class="col-sm-12 blog-detail"><img src="{{url('ingredient/'.$ingredient->images)}}"
+                        class="img-fluid blur-up lazyload" alt="">
+                    <h3>{{$ingredient->judul}}</h3>
+                    <ul class="post-social">
+                        <li>{{$ingredient->tgl_input}}</li>
+                        <li>Posted By : Admin Skinnutrient</li>
+                    </ul>
+                    <p>{!!$ingredient->text!!}</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Section ends -->
+    <!--Section ends-->
 
 
     <!-- footer start -->
@@ -100,17 +79,17 @@
     <!-- latest jquery-->
     <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
 
-    <!-- menu js-->
-    <script src="{{asset('frontend/assets/js/menu.js')}}"></script>
-
-    <!-- lazyload js-->
-    <script src="{{asset('frontend/assets/js/lazysizes.min.js')}}"></script>
-
     <!-- popper js-->
     <script src="{{asset('frontend/assets/js/popper.min.js')}}"></script>
 
     <!-- slick js-->
     <script src="{{asset('frontend/assets/js/slick.js')}}"></script>
+
+    <!-- menu js-->
+    <script src="{{asset('frontend/assets/js/menu.js')}}"></script>
+
+    <!-- lazyload js-->
+    <script src="{{asset('frontend/assets/js/lazysizes.min.js')}}"></script>
 
     <!-- Bootstrap js-->
     <script src="{{asset('frontend/assets/js/bootstrap.js')}}"></script>
@@ -130,6 +109,7 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if (Session::has('flash_message'))
         <?php $status = (Session::get('flash_status') == 200)?'success':'error';?>
@@ -145,7 +125,6 @@
             });
         </script>
     @endif
-
 </body>
 
 </html>

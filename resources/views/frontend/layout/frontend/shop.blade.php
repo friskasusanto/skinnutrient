@@ -162,8 +162,8 @@
 
 
     <!-- Quick-view modal popup start-->
-    @if(isset($sll))
-    @foreach( $sll as $u )
+    @if(isset($all))
+    @foreach( $all as $u )
     <div class="modal fade bd-example-modal-lg theme-modal" id="modalDetail{{$u->id}}"tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content quick-view-modal">

@@ -5,18 +5,31 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use App\Model\Ingredient;
 use App\Model\Product;
 use App\Model\Chart;
 use Session;
 
 class SessionController extends Controller
 {
+
+	public function ingredient ()
+    {
+    	$ingredient = Ingredient::orderBy('created_at', 'desc')->get();
+
+    	return view('frontend.layout.frontend.ingredient', compact('ingredient'));
+    }
+    public function ingredientDetail ($judul)
+    {
+    	$ingredient = Ingredient::where('judul', $judul)->first();
+
+    	return view('frontend.layout.frontend.ingredientDetail', compact('ingredient'));
+    }
 	public function sessionBeliSekarang (Request $request, $slug)
 	{
 		$status = 200;
         $message = "Product Berhasil di Tambahkan ke Cart";
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::orderBy('created_at', 'desc')->where('slug', $slug)->first();
 
        	if ($request->quantity == null){
 
@@ -52,7 +65,7 @@ class SessionController extends Controller
 	}
 	public function sessionWishlist ()
 	{
-		$status = 200;
+		$status = 500;
         $message = "Silahkan Login Terlebih Dahulu";
 		return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
 	}
@@ -71,7 +84,7 @@ class SessionController extends Controller
 
 		$status = 200;
         $message = "Product Berhasil di Tambahkan ke Cart";
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::orderBy('created_at', 'desc')->where('slug', $slug)->first();
         // dd($request->quantity);
 
        	if ($request->quantity == null){

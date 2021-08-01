@@ -75,8 +75,8 @@
                         <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/logo/logo.png')}}" class="img-fluid blur-up lazyload logo" alt=""></a>
                     </div>
                     <div>
-                        <form class="form_search" role="form">
-                            <input id="query search-autocomplete" type="search" placeholder="Cari produk..." class="nav-search nav-search-field" aria-expanded="true">
+                        <form class="form_search" role="form" action="{{url('/shop')}}" method="GET">
+                            <input id="query search-autocomplete" type="search" placeholder="Cari produk..." class="nav-search nav-search-field" aria-expanded="true" name="name">
                             <button type="submit" name="nav-submit-button" class="btn-search">
                                 <i class="ti-search"></i>
                             </button>

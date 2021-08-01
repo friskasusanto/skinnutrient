@@ -7,7 +7,7 @@
 
 <body>
     <!-- Floating WhatsApp start -->
-    <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=+6281215770449" class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
     </a>
     <!-- Floating WhatsApp end -->
@@ -45,29 +45,18 @@
         <div class="container-fluid p-0">
             <div class="row order-section">
                 <div class="col-sm-4 p-0">
-                    <a href="category.php" class="image-block">
+                    <a href="{{url('/category/3')}}" class="image-block">
                         <img alt="" src="{{asset('frontend/assets/img/categ/categ1.jpg')}}" class="img-fluid blur-up lazyload bg-img">
                     </a>
                 </div>
                 <div class="col-sm-4 p-0">
-                    <a href="category.php" class="image-block"><img alt="" src="{{asset('frontend/assets/img/categ/categ2.jpg')}}"
-                            class="img-fluid blur-up lazyload bg-img"></a>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <a href="category.php" class="image-block even"><img alt="" src="{{asset('frontend/assets/img/categ/categ3.jpg')}}"
-                            class="img-fluid blur-up lazyload bg-img"></a>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <a href="category.php class="image-block">
-                        <img alt="" src="{{asset('frontend/assets/img/categ/categ4.jpg" class="img-fluid blur-up lazyload bg-img')}}">
+                    <a href="{{url('/category/2')}}" class="image-block">
+                        <img alt="" src="{{asset('frontend/assets/img/categ/categ2.jpg')}}"
+                            class="img-fluid blur-up lazyload bg-img">
                     </a>
                 </div>
                 <div class="col-sm-4 p-0">
-                    <a href="category.php" class="image-block"><img alt="" src="{{asset('frontend/assets/img/categ/categ5.jpg')}}"
-                            class="img-fluid blur-up lazyload bg-img"></a>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <a href="category.php" class="image-block even"><img alt="" src="{{asset('frontend/assets/img/categ/categ6.jpg')}}"
+                    <a href="{{url('/category/1')}}" class="image-block"><img alt="" src="{{asset('frontend/assets/img/categ/categ5.jpg')}}"
                             class="img-fluid blur-up lazyload bg-img"></a>
                 </div>
             </div>

@@ -75,7 +75,7 @@
                             @endif 
                         </tbody>
                     </table>
-                    {{$blog->render()}}
+                    {{$ingredient->render()}}
                 </div>
             </div>
         </div>

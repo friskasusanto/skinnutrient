@@ -1,5 +1,5 @@
-@extends('backend.layout.index', ['active' => 'edit_user'])
-@section('title', 'User')
+@extends('backend.layout.index', ['active' => 'edit_ingredient'])
+@section('title', 'Ingredient')
 @section('content') 
 
 
@@ -14,16 +14,16 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Edit Blog
+                    <h3>Edit Ingredient
                         <small>Multikart Admin panel</small>
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Blog</li>
-                    <li class="breadcrumb-item active">Edit Blog</li>
+                    <li class="breadcrumb-item"><a href="{{url('/dasboard')}}"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Ingredient</li>
+                    <li class="breadcrumb-item active">Edit Ingredient</li>
                 </ol>
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Edit Blog</h5>
+                    <h5>Edit Ingredient</h5>
                 </div>
                 <div class="card-body">
                     <div class="row product-adding">
@@ -52,18 +52,18 @@
                         </div>
                         @endif
                         <div class="col-xl-7">
-                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editBlog', $blog->id)}}">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editIngredient', $ingredient->id)}}">
                             {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Judul Blog</label>
+                                                <label>Judul Ingredient</label>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <input required="" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text"  name="judul" value="{{$blog->judul}}">
+                                                <input required="" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text"  name="judul" value="{{$ingredient->judul}}">
                                             </div>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <textarea class="form-control" name="text" id="summernoteDescription">{!!$blog->text!!}</textarea>
+                                                <textarea class="form-control" name="text" id="summernoteDescription">{!!$ingredient->text!!}</textarea>
                                             </div>
                                         </div>
                                     </div>
