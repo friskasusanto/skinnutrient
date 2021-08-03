@@ -277,7 +277,7 @@
                             <div class="img-wrapper">
                             <?php
                                 $back = App\Model\ProductGambar::where('product_id', $r->id)->first();
-                                $backs = App\Model\ProductGambar::where('product_id', $s->product_id)->get();
+                                $backs = App\Model\ProductGambar::where('product_id', $r->product_id)->get();
                             ?>
                                 <div class="front">
                                     <a href="{{url('/detailProduct', $r->slug)}}" class="produkkotaks">
