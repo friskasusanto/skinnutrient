@@ -15,7 +15,7 @@
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
-                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/dasboard')}}"><i data-feather="home"></i></a></li>
                     <li class="breadcrumb-item">Ingredient</li>
                     <li class="breadcrumb-item active">Ingredient List</li>
                 </ol>
@@ -50,7 +50,7 @@
                                     <td>{{++$key}}</td>
                                     <td>{{$u->judul}}</td>
                                     <td>
-                                        <img src="{{url('ingredient/'.$u->images)}}" style="width: 50%">
+                                        <img src="{{url('blog/'.$u->images)}}" style="width: 50%">
                                     </td>
                                     <td>
                                         <center>

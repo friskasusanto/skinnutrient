@@ -62,7 +62,7 @@
                                     <a href="{{url('/ingredientDetail', $i->judul)}}">
                                         <h4>{{$i->judul}}</h4>
                                     </a>
-                                    <p>{!!(substr($i->text, 50))!!} ...</p>
+                                    <ins>Baca Selengkapnya</ins>
                                 </div>
                             </div>
                         </div>

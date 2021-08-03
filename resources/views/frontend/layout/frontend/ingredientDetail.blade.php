@@ -44,7 +44,7 @@
     <section class="blog-detail-page section-b-space ratio2_3">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 blog-detail"><img src="{{url('ingredient/'.$ingredient->images)}}"
+                <div class="col-sm-12 blog-detail"><img src="{{url('ingredient/'.$blog->images)}}"
                         class="img-fluid blur-up lazyload" alt="">
                     <h3>{{$ingredient->judul}}</h3>
                     <ul class="post-social">
