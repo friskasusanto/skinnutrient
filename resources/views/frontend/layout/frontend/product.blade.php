@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                                     <div class="product-buttons">
-                                        <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
+                                        <a href="{{url('/session/tambahCart', $product->slug)}}" class="btn btn-solid melengkung">+ Keranjang</a>
                                     </div>
                                 </form>
                                 <a href="{{url('/session/checkout', $product->slug)}}" class="btn btn-solid melengkung">Beli Sekarang</a>
