@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Order;
+use App\OrderItem;
 use Carbon\Carbon;
 use App\Model\Chart;
 use App\checkoutItem;
-use App\Factory\OrderHistoryFactory;
 use App\Model\Product;
 use App\Model\Checkout;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\Controller;
-use App\Order;
-use App\OrderItem;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Factory\OrderHistoryFactory;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 class CheckoutController extends Controller
@@ -41,13 +42,15 @@ class CheckoutController extends Controller
             'alamat' => 'required',
             'phone' => 'required',
         ]);
+        $totalan = Cart::instance('shopping')->subtotal(0);
+        $totalan = str_replace(",","",$totalan);
 
         // $carts = Chart::with('product')->where('user_id', Auth::user()->id)->get();
         $carts = Cart::instance('shopping')->content();
         
         $orderId = null;
 
-        DB::transaction(function() use ($request,$carts,&$orderId)
+        DB::transaction(function() use ($request,$carts,&$orderId,$totalan)
         {
             $order = new Order();
             $order->user_id         = null; //Auth::user()->id
@@ -59,7 +62,7 @@ class CheckoutController extends Controller
             $order->courier         = 'JNE';
             $order->courier_paket   = $request->tipe_name;
             $order->courier_price   = $request->tipe;
-            $order->total_amount    = $request->total;
+            $order->total_amount    = $totalan;
             $order->save();
             $orderId = $order->id;
 
@@ -78,16 +81,14 @@ class CheckoutController extends Controller
        
         
         // remove item cart
-        foreach ($carts as $key => $value) {
-            $value->delete();
-        }
+        // Cart::destroy();
 
         // midtrans
 
         $params = array(
             'transaction_details' => array(
                 'order_id' => $orderId,
-                'gross_amount' => ($request->total + $request->tipe),
+                'gross_amount' => ($totalan + $request->tipe),
             ),
             'customer_details' => array(
                 'first_name' => $request->nama,
