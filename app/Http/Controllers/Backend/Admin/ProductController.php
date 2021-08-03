@@ -143,6 +143,9 @@ class ProductController extends Controller
                     if ($request->comming_soon != null){
                         $add->comming_soon = 1;
                     }
+                    if ($request->sale != null){
+                        $add->sale = 1;
+                    }
                     
                     $add->status = 0;
                     $add->slug = Str::slug($request->name, '-');
@@ -213,6 +216,9 @@ class ProductController extends Controller
             }
             if ($request->comming_soon != null){
                 $add->comming_soon = 1;
+            }
+            if ($request->sale != null){
+                $add->sale = 1;
             }
             $add->slug = Str::slug($request->name, '-');
             $add->save();
@@ -319,6 +325,14 @@ class ProductController extends Controller
                     }elseif ($request->comming_soon == null) {
                         $edit->comming_soon = $edit->comming_soon;
                     }
+
+                    if ($request->sale == 1){
+                        $edit->sale = 1;
+                    }elseif ($request->sale == 0) {
+                        $edit->sale = 0;
+                    }elseif ($request->sale == null) {
+                        $edit->sale = $edit->sale;
+                    }
                     $edit->save();
 
                     foreach ($request->photos as $photo) {
@@ -420,6 +434,14 @@ class ProductController extends Controller
                     $edit->comming_soon = 0;
                 }elseif ($request->comming_soon == null) {
                     $edit->comming_soon = $edit->comming_soon;
+                }
+
+                if ($request->sale == 1){
+                    $edit->sale = 1;
+                }elseif ($request->sale == 0) {
+                    $edit->sale = 0;
+                }elseif ($request->sale == null) {
+                    $edit->sale = $edit->sale;
                 }
 
                 // dd($request->all());

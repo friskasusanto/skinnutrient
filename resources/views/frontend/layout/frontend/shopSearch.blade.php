@@ -102,10 +102,6 @@
                                                                <h5 class="harga">
                                                                     Coming Soon
                                                                 </h5>
-                                                            @elseif ($s->stock_user == null || $s->stock_user == 0)
-                                                                <h5 class="harga">
-                                                                    Sold Out
-                                                                </h5>
                                                             @else
                                                                 @if ($s->discount != null || $s->discount != 0)
                                                                 <a href="{{url('/session/tambahCart', $s->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>

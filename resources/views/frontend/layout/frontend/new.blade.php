@@ -109,8 +109,9 @@
                                                                     Rp. {{number_format($m->price, 0, ',', '.')}}
                                                                 </h5>
                                                                 @endif
+                                                                <a href="{{url('/session/tambahCart', $m->slug)}}" class="addcarthitams btn btn-solid btn-tengah">Tambah keranjang</a>
                                                             @endif
-                                                            <a href="{{url('/session/tambahCart', $m->slug)}}" class="addcarthitams btn btn-solid btn-tengah">Tambah keranjang</a>
+                                                            
                                                             <!--<div class="add-btn">
                                                                 <a href="javascript:void(0)" onclick="openCart()" class="btn btn-outline">
                                                                     <i class="ti-shopping-cart"></i> add to cart
