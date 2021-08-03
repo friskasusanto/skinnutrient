@@ -52,7 +52,7 @@
                         </div>
                         @endif
                         <div class="col-xl-7">
-                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editBlog', $blog->id)}}">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editBlog', $blog->id)}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="row">
@@ -86,9 +86,19 @@
                                                 <ul class="file-upload-product">
                                                     <li>
                                                         <input type="file" name="images" multiple required>
-                                                        <img src="{{url('blog/'.$blog->images)}}" class="img-fluid blur-up lazyload bg-img" alt="">
                                                     </li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <img src="{{url('blog/'.$ingredient->images)}}" style="width: 50%">
                                             </div>
                                         </div>
                                     </div>

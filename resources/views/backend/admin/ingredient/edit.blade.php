@@ -52,7 +52,7 @@
                         </div>
                         @endif
                         <div class="col-xl-7">
-                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editIngredient', $ingredient->id)}}">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/admin/editIngredient', $ingredient->id)}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="row">
