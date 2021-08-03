@@ -213,10 +213,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row">
-                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Best Seller :</label>
+                                    <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Sale :</label>
                                     <div class="add-product">
                                         <div class="row">
-                                            <select name="bestseller" type="text" class="form-control" style="width: 100%">
+                                            <select name="sale" type="text" class="form-control" style="width: 100%">
                                                 @if ($product->sale == 1)
                                                 <option value="">--product sale--</option>
                                                 @endif

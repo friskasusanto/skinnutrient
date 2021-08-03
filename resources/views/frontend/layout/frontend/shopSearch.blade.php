@@ -60,14 +60,14 @@
                                             <div class="row margin-res">
                                             @foreach($product as $s)
                                             <?php
-                                                $back = App\Model\ProductGambar::where('product_id', $s->id)->first();
-                                                $backs = App\Model\ProductGambar::where('product_id', $s->id)->get();
+                                                $back = App\Model\ProductGambar::where('product_id', $s->product_id)->first();
+                                                $backs = App\Model\ProductGambar::where('product_id', $s->product_id)->get();
                                             ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                                                <img alt="" src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
                                                         @if (count($backs)!= 0)
                                                             <div class="back">
@@ -75,7 +75,7 @@
                                                             </div>
                                                         @else
                                                             <div class="back">
-                                                                <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                                                <img alt="" src="{{url('product/'.$s->product->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
                                                         @endif
                                                             <div class="cart-detail">
@@ -180,12 +180,12 @@
                     <div class="row">
                         <div class="col-lg-6  col-xs-12">
                             <div class="quick-view-img">
-                                <img src="{{url('product/'.$u->image)}}" alt="" class="img-fluid blur-up lazyload">
+                                <img src="{{url('product/'.$u->product->image)}}" alt="" class="img-fluid blur-up lazyload">
                             </div>
                         </div>
                         <div class="col-lg-6 rtl-text">
                             <div class="product-right">
-                                <h2 class="judulquick">{{$u->name}}</h2>
+                                <h2 class="judulquick">{{$u->product->name}}</h2>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -193,31 +193,31 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                @if ($u->comming_soon == 1)
+                                @if ($u->product->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
                                     </h5>
-                                @elseif ($u->stock_user == null || $u->stock_user == 0)
+                                @elseif ($u->product->stock_user == null || $u->product->stock_user == 0)
                                     <h5 class="harga">
                                         Sold Out
                                     </h5>
                                 @else
-                                    @if ($u->discount != null)
+                                    @if ($u->product->discount != null)
                                     <h5 class="harga">
-                                        Rp. {{number_format($u->price - ($u->discount /100 * $u->price), 0, ',', '.')}}
-                                        <del>Rp. {{number_format($u->price, 0, ',', '.')}}</del>
+                                        Rp. {{number_format($u->product->price - ($u->product->discount /100 * $u->product->price), 0, ',', '.')}}
+                                        <del>Rp. {{number_format($u->product->price, 0, ',', '.')}}</del>
                                     </h5>
                                     @else 
                                     <h5 class="harga">
-                                        Rp. {{number_format($u->price, 0, ',', '.')}}
+                                        Rp. {{number_format($u->product->price, 0, ',', '.')}}
                                     </h5>
                                     @endif
                                 @endif
                                 <div class="border-product">
                                     <h6 class="product-title">product details</h6>
-                                    <p>{!!$u->description!!}</p>
+                                    <p>{!!$u->product->description!!}</p>
                                 </div>
-                            <form novalidate="novalidate" method="POST" action= "{{url('/addCart', $u->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/addCart', $u->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="product-description border-product">
                                     <h6 class="product-title">quantity</h6>
@@ -242,7 +242,7 @@
                                 </div>
                                 <div class="product-buttons">
                                     <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
-                                    <a href="{{url('/detailProduct', $u->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
+                                    <a href="{{url('/detailProduct', $u->product->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
                                 </div>
                             </form>
                             </div>

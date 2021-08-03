@@ -194,10 +194,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group mb-3 row">
-                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Status Product :</label>
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Status Sale :</label>
                                         <div class="add-product">
                                             <div class="row">
-                                                <select name="status" type="text" class="form-control" style="width: 100%">
+                                                <select name="sale" type="text" class="form-control" style="width: 100%">
                                                       <option value="">--pilih status sale--</option>
                                                       <option value= "1">product sale</option>
                                                       <option value= "0">product tidak sale</option>
