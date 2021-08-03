@@ -136,8 +136,14 @@
                                                 <li>
                                                     <input class="file" type="file" name="image" multiple required>
                                                 </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="add-product">
+                                        <div class="row">
+                                            <ul class="file-upload-product">
                                                 <li>
-                                                    <img src="{{url('product/'.$product->image)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                    <img src="{{url('product/'.$product->image)}}" alt="">
                                                 </li>
                                             </ul>
                                         </div>

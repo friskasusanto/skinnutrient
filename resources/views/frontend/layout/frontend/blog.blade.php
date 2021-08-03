@@ -62,7 +62,9 @@
                                     <a href="{{url('/blogsDetail', $i->judul)}}">
                                         <h4>{{$i->judul}}</h4>
                                     </a>
-                                    <!-- <p>{!!(substr($i->text, 50))!!} ...</p> -->
+                                    <a href="{{url('/blogsDetail', $i->judul)}}">
+                                        <ins>Baca Selengkapnya</ins>
+                                    </a>
                                 </div>
                             </div>
                         </div>

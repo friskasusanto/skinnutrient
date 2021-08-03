@@ -79,6 +79,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group mb-3 row">
+                                        <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Blog :</label>
+                                        <div class="add-product">
+                                            <div class="row">
+                                                <ul class="file-upload-product">
+                                                    <li>
+                                                        <input type="file" name="images" multiple required>
+                                                        <img src="{{url('blog/'.$blog->images)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-actions">
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>

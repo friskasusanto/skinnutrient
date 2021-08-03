@@ -79,6 +79,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Gambar</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <input type="file" name="images" multiple required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <img src="{{url('blog/'.$ingredient->images)}}" style="width: 50%">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-actions">
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-info" id="btn_submit">Simpan</button>

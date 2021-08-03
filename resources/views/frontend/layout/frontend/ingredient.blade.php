@@ -62,7 +62,9 @@
                                     <a href="{{url('/ingredientDetail', $i->judul)}}">
                                         <h4>{{$i->judul}}</h4>
                                     </a>
-                                    <ins>Baca Selengkapnya</ins>
+                                    <a href="{{url('/ingredientDetail', $i->judul)}}">
+                                        <ins>Baca Selengkapnya</ins>
+                                    </a>
                                 </div>
                             </div>
                         </div>
