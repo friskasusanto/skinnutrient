@@ -53,7 +53,7 @@
                                 <div class="col-sm-12">
                                     <div class="collection-product-wrapper">
                                         <div class="top-banner-wrapper">
-                                            <a href="#"><img src="{{asset('frontend/assets/img/banner/botanic.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                            <a href="#"><img src="{{asset('frontend/assets/img/banner/shop4.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                         </div>
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
@@ -215,6 +215,7 @@
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$u->description!!}</p>
                                 </div>
+                            @if ($u->comming_soon != 1)
                             <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $u->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="product-description border-product">
@@ -242,6 +243,7 @@
                                     <button type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</button>
                                 </div>
                             </form>
+                            @endif
                             <a href="{{url('/detailProduct', $u->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
                             </div>
                         </div>
