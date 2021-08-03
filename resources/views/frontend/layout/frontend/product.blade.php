@@ -310,14 +310,10 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <a href="{{url('/session/tambahCart', $r->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
+                                
                                 @if ($r->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($r->stock_user == null || $r->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($r->discount != null)
@@ -330,6 +326,7 @@
                                         Rp. {{number_format($r->price, 0, ',', '.')}}
                                     </h5>
                                     @endif
+                                    <a href="{{url('/session/tambahCart', $r->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                 @endif
                                 <!--<div class="add-btn">
                                     <a href="javascript:void(0)" onclick="openCart()" class="btn btn-outline">
