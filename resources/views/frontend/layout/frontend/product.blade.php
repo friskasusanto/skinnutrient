@@ -277,17 +277,22 @@
                             <div class="img-wrapper">
                             <?php
                                 $back = App\Model\ProductGambar::where('product_id', $r->id)->first();
+                                $backs = App\Model\ProductGambar::where('product_id', $s->product_id)->get();
                             ?>
                                 <div class="front">
                                     <a href="{{url('/detailProduct', $r->slug)}}" class="produkkotaks">
                                         <img alt="" src="{{url('product/'.$r->image)}}" class="img-fluid blur-up lazyload bg-img">
                                     </a>
                                 </div>
-                                <div class="back">
-                                    <a href="{{url('/detailProduct', $r->slug)}}" class="produkkotaks">
+                                @if (count($backs)!= 0)
+                                    <div class="back">
                                         <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
-                                    </a>
-                                </div>
+                                    </div>
+                                @else
+                                    <div class="back">
+                                        <img alt="" src="{{url('product/'.$r->product->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                    </div>
+                                @endif
                                 <div class="cart-detail">
                                     <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                         <i class="ti-heart" aria-hidden="true"></i>
