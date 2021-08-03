@@ -85,7 +85,7 @@ class BlogController extends Controller
         }elseif ($request->images != null){
             $fileName = time().'.'.$request->images->getClientOriginalExtension(); 
             $request->images->move(public_path('blog'), $fileName);
-            $add->images= $fileName;
+            $edit->images= $fileName;
         }
 
         // dd($request->text);
