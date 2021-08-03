@@ -10,6 +10,7 @@ use App\Model\Checkout;
 use App\Model\Blog;
 use App\Model\ProductJenis;
 use App\Model\Banner;
+use App\Model\Ingredient;
 
 class HomeController extends Controller
 {
