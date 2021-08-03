@@ -217,7 +217,7 @@
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$u->product->description!!}</p>
                                 </div>
-                            @if ($u->comming_soon != 1)
+                            @if ($u->product->comming_soon != 1)
                             <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $u->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="product-description border-product">
