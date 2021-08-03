@@ -47,6 +47,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
+                    @if(count($gambar) != 0)
                         <div class="product-slick">
                         @foreach ($gambar as $g)
                             <div><img src="{{url('product/'.$g->image)}}" alt=""
@@ -63,6 +64,24 @@
                                 </div>
                             </div>
                         </div>
+                    @else
+                        <div class="product-slick">
+                            <div>
+                                <img src="{{url('product/'.$product->image)}}" alt=""
+                                    class="img-fluid blur-up lazyload image_zoom_cls-0">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <div class="slider-nav">
+                                    <div>
+                                        <img src="{{url('product/'.$product->image)}}" alt=""
+                                            class="img-fluid blur-up lazyload">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     </div>
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
