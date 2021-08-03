@@ -55,33 +55,41 @@
                                         <div class="top-banner-wrapper">
                                             <a href="#"><img src="{{asset('frontend/assets/img/banner/botanic.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                         </div>
+                                     @if(count($product) != 0)
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
-                                            @foreach ($product as $m)
+                                            @foreach($product as $s)
+                                            <?php
+                                                $back = App\Model\ProductGambar::where('product_id', $s->id)->first();
+                                                $backs = App\Model\ProductGambar::where('product_id', $s->id)->get();
+                                            ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
-                                                        <?php
-                                                            $back = App\Model\ProductGambar::where('product_id', $m->id)->first();
-                                                        ?>
                                                             <div class="front">
-                                                                <a href="{{url('/detailProduct', $m->product->slug)}}" class="produkkotaks"><img src="{{url('product/'.$m->product->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                                <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
+                                                        @if (count($backs)!= 0)
                                                             <div class="back">
-                                                                <a href="{{url('/detailProduct', $m->product->slug)}}" class="produkkotaks"><img src="" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                                                <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
+                                                        @else
+                                                            <div class="back">
+                                                                <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                                            </div>
+                                                        @endif
                                                             <div class="cart-detail">
                                                                 <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="#" data-toggle="modal" data-target="#modalDetail{{$m->product->id}}" title="Quick View">
+                                                                <a href="#" data-toggle="modal" data-target="#modalDetail{{$s->id}}" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                         <div class="product-info">
-                                                            <a href="{{url('/detailProduct', $m->product->slug)}}">
-                                                                <h6 class="tekshitam">{{$m->product->name}}</h6>
+                                                            <a href="{{url('/detailProduct', $s->slug)}}">
+                                                                <h6 class="tekshitam">{{$s->name}}</h6>
                                                             </a>
                                                             <div class="rating">
                                                                 <i class="fa fa-star"></i>
@@ -90,37 +98,35 @@
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
                                                             </div>
-                                                            @if ($m->comming_soon == 1)
+                                                            @if ($s->comming_soon == 1)
                                                                <h5 class="harga">
                                                                     Coming Soon
                                                                 </h5>
-                                                            @elseif ($m->stock_user == null || $m->stock_user == 0 && $m->comming_soon != 1)
+                                                            @elseif ($s->stock_user == null || $s->stock_user == 0)
                                                                 <h5 class="harga">
                                                                     Sold Out
                                                                 </h5>
                                                             @else
-                                                                @if ($m->discount != null)
+                                                                @if ($s->discount != null || $s->discount != 0)
+                                                                <a href="{{url('/session/tambahCart', $s->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                                 <h5 class="harga">
-                                                                    Rp. {{number_format($m->price - ($m->discount /100 * $m->price), 0, ',', '.')}}
-                                                                    <del>Rp. {{number_format($m->price, 0, ',', '.')}}</del>
+                                                                    Rp. {{number_format($s->price - ($s->discount /100 * $s->price), 0, ',', '.')}}
+                                                                    <del>Rp. {{number_format($s->price, 0, ',', '.')}}</del>
                                                                 </h5>
                                                                 @else 
+                                                                <a href="{{url('/session/tambahCart', $s->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                                 <h5 class="harga">
-                                                                    Rp. {{number_format($m->price, 0, ',', '.')}}
+                                                                    Rp. {{number_format($s->price, 0, ',', '.')}}
                                                                 </h5>
                                                                 @endif
-                                                                <a href="{{url('/session/tambahCart', $m->slug)}}" class="addcarthitams btn btn-solid btn-tengah">Tambah keranjang</a>
                                                             @endif
-                                                            <!--<div class="add-btn">
-                                                                <a href="javascript:void(0)" onclick="openCart()" class="btn btn-outline">
-                                                                    <i class="ti-shopping-cart"></i> add to cart
-                                                                </a>
-                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endforeach
                                             </div>
+                                        </div>
+                                    @endif
                                         </div>
                                         <div class="product-pagination">
                                             <div class="theme-paggination-block">
