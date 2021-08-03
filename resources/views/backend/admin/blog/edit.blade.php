@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="form-group">
-                                                <img src="{{url('blog/'.$ingredient->images)}}" style="width: 50%">
+                                                <img src="{{url('blog/'.$blog->images)}}" style="width: 50%">
                                             </div>
                                         </div>
                                     </div>
