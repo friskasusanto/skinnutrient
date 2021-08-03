@@ -15,6 +15,10 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function concern ()
+    {
+        return view('frontend.layout.frontend.concern');
+    }
     public function category ($id)
     {
         $category = Category::find($id);
