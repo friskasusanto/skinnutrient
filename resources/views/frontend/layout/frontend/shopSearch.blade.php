@@ -98,21 +98,21 @@
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
                                                             </div>
-                                                            @if ($s->comming_soon == 1)
+                                                            @if ($s->product->comming_soon == 1)
                                                                <h5 class="harga">
                                                                     Coming Soon
                                                                 </h5>
                                                             @else
-                                                                @if ($s->discount != null || $s->discount != 0)
-                                                                <a href="{{url('/session/tambahCart', $s->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
+                                                                @if ($s->product->discount != null || $s->product->discount != 0)
+                                                                <a href="{{url('/session/tambahCart', $s->product->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                                 <h5 class="harga">
-                                                                    Rp. {{number_format($s->price - ($s->discount /100 * $s->price), 0, ',', '.')}}
-                                                                    <del>Rp. {{number_format($s->price, 0, ',', '.')}}</del>
+                                                                    Rp. {{number_format($s->product->price - ($s->product->discount /100 * $s->product->price), 0, ',', '.')}}
+                                                                    <del>Rp. {{number_format($s->product->price, 0, ',', '.')}}</del>
                                                                 </h5>
                                                                 @else 
-                                                                <a href="{{url('/session/tambahCart', $s->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
+                                                                <a href="{{url('/session/tambahCart', $s->product->slug)}}" class="addcarthitam"><h4>+ Tambah keranjang</a></h4>
                                                                 <h5 class="harga">
-                                                                    Rp. {{number_format($s->price, 0, ',', '.')}}
+                                                                    Rp. {{number_format($s->product->price, 0, ',', '.')}}
                                                                 </h5>
                                                                 @endif
                                                             @endif
@@ -217,7 +217,7 @@
                                     <h6 class="product-title">product details</h6>
                                     <p>{!!$u->product->description!!}</p>
                                 </div>
-                            <form novalidate="novalidate" method="POST" action= "{{url('/addCart', $u->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                            <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart', $u->product->slug)}}" enctype="multipart/form-data" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="product-description border-product">
                                     <h6 class="product-title">quantity</h6>
@@ -242,9 +242,10 @@
                                 </div>
                                 <div class="product-buttons">
                                     <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
-                                    <a href="{{url('/detailProduct', $u->product->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
+                                    
                                 </div>
                             </form>
+                            <a href="{{url('/detailProduct', $u->product->slug)}}" class="btn btn-solid melengkung">Detail Produk</a>
                             </div>
                         </div>
                     </div>
