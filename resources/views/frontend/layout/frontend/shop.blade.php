@@ -59,6 +59,7 @@
                                             @foreach($sale as $s)
                                             <?php
                                                 $back = App\Model\ProductGambar::where('product_id', $s->id)->first();
+                                                $backs = App\Model\ProductGambar::where('product_id', $s->id)->get();
                                             ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
@@ -66,9 +67,15 @@
                                                             <div class="front">
                                                                 <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
+                                                        @if (count($backs)!= 0)
                                                             <div class="back">
                                                                 <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                                             </div>
+                                                        @else
+                                                            <div class="back">
+                                                                <img alt="" src="{{url('product/'.$s->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                                            </div>
+                                                        @endif
                                                             <div class="cart-detail">
                                                                 <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
