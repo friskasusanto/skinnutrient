@@ -239,7 +239,7 @@
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nama</div>
-                                        <input type="text" name="name" value="" placeholder="">
+                                        <input type="text" name="nama" value="" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nomor Telp</div>
@@ -285,7 +285,7 @@
                             
                              <?php
                                 $cart = Gloudemans\Shoppingcart\Facades\Cart::instance('shopping')->content();
-                                $total = Cart::priceTotal();
+                                $total = Cart::priceTotal(0);
                                 $discount = Cart::discount();
 
                                 // dd($discount);
@@ -318,13 +318,13 @@
                                         @endforeach
                                         </ul>
                                         <ul class="sub-total">
-                                            <li class="titles">Subtotal <span class="count"><h5 class="hargabayartipis">Rp. {{$total}}</h5></span></li>
+                                            <li class="titles">Subtotal <span class="count"><h5 class="hargabayartipis">Rp. {{str_replace(",",".",$total)}}</h5></span></li>
                                         </ul>
                                         <ul class="ongkir">
                                           <li class="titles">Ongkir<span class="count" id="tampilongkir"><h5 class="hargabayartipis">Rp. 0</h5></span></li>
                                         </ul>
                                         <ul class="total">
-                                            <li class="titles">Total <span class="count" id="tampiltotal">Rp. {{$total}}</span></li>
+                                            <li class="titles">Total <span class="count" id="tampiltotal">Rp. {{str_replace(",",".",$total)}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="payment-box">

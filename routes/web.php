@@ -36,7 +36,7 @@ Route::get('/', function () {
 	Route::get('/cart/{slug}', 'Frontend\SaleController@cart')->name('cart');
 
 	//Frontend/SessionController
-	Route::post('/session/tambahCart/{slug}', 'Frontend\SessionController@tambahKeranjang')->name('sessionCart');
+	Route::get('/session/tambahCart/{slug}', 'Frontend\SessionController@tambahKeranjang')->name('sessionCart');
 	Route::get('/session/delete/{id}', 'Frontend\SessionController@delSessionCart')->name('delSessionCart');
 	Route::get('/session/cart', 'Frontend\SessionController@sessionCart')->name('sessionCart');
 	Route::get('/session/checkout', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
