@@ -16,8 +16,9 @@ class SaleController extends Controller
     public function index ()
     {
     	$sale = Product::where('sale',  1)->orderBy('created_at', 'desc')->paginate('12');
+        $product = Product::all();
         // dd($sale);
-    	return view('frontend.layout.frontend.shop', compact('sale'));
+    	return view('frontend.layout.frontend.shop', compact('sale', 'all'));
     }
 
     public function wishlist (Request $request, $slug)
