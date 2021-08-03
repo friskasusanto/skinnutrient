@@ -290,7 +290,7 @@
                                     </div>
                                 @else
                                     <div class="back">
-                                        <img alt="" src="{{url('product/'.$r->product->image)}}" class="img-fluid blur-up lazyload bg-img">
+                                        <img alt="" src="{{url('product/'.$r->image)}}" class="img-fluid blur-up lazyload bg-img">
                                     </div>
                                 @endif
                                 <div class="cart-detail">
