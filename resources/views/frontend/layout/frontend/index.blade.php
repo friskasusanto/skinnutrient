@@ -235,7 +235,7 @@
                                     <div class="product-box product-wrap">
                                         <div class="img-wrapper">
                                             <?php
-                                                $back = App\Model\ProductGambar::where('product_id', $a->id)->first();
+                                                $back = App\Model\ProductGambar::where('product_id', $a->id)->orderBy('updated_at', 'desc')->first();
                                             ?>
                                             <div class="front">
                                                 <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
