@@ -15,9 +15,14 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function tentangkami ()
+    {
+        return view('frontend.layout.frontend.tentangkami');
+    }
     public function concern ()
     {
-        return view('frontend.layout.frontend.concern');
+        $all = Product::all();
+        return view('frontend.layout.frontend.concern', compact('all'));
     }
     public function category ($id)
     {

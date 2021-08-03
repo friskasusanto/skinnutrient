@@ -401,7 +401,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="concern.php">
+                            <a href="{{url('/concern')}}">
                                 <div class="basic-effect">
                                     <div class="ingri">
                                         <img src="{{asset('frontend/assets/img/ingri/2.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
@@ -411,13 +411,13 @@
                             </a>
                             <div class="blog-details">
                                     <p class="ingrid">Shop by Concern</p>
-                                <a href="concern.php">
+                                <a href="{{url('/concern')}}">
                                 <h6 class="bawahingrid">Belanja Sekarang <i class="ti-arrow-right"></i></h6>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="categ.php">
+                            <a href="{{url('/categ')}}">
                                 <div class="basic-effect">
                                     <div class="ingri">
                                         <img src="{{asset('frontend/assets/img/ingri/3.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
@@ -427,7 +427,7 @@
                             </a>
                             <div class="blog-details">
                                     <p class="ingrid">Belanja berdasarkan ketegori</p>
-                                <a href="categ.php">
+                                <a href="{{url('/categ')}}">
                                 <h6 class="bawahingrid">Belanja Sekarang <i class="ti-arrow-right"></i></h6>
                                 </a>
                             </div>
@@ -451,7 +451,7 @@
                             <div class="about-text">
                                 <p>Kami merangkul konsep multi-tasking. Kami ingin produk kami melakukan lebih banyak dengan lebih sedikit. Selain sangat pekerja keras, produk Skin Nutrient™ alami, memanfaatkan bahan-bahan asli ekosistem Australia. Dirancang untuk merayakan bahan-bahan asli yang unik yang ditawarkan Australia.</p>
                             </div>
-                            <a href="tentangkami.php">
+                            <a href="{{url('/tentangkami')}}">
                                 <h6 class="bawahingrid">Baca Selengkapnya <i class="ti-arrow-right"></i></h6>
                             </a>
                         </div>
@@ -459,12 +459,18 @@
                 </div>
                 <div class="col-xl-5 col-lg-6 col-md-12 hapeblog">
                     <div class="about-section">
+                    <?php
+                        $blog = App\Model\Blog::orderBy('created_at', 'asc')->limit('1')->first();
+                        $sub = substr($blog->text, 0,20);
+                    ?>
                         <div>
-                            <h2 class="judulblogindex">Perawatan Kulit Pemenang Penghargaan</h2>
+                            <a href="{{url('/blogsDetail', $blog->judul)}}">
+                                <h2 class="judulblogindex">{{$blog->judul}}</h2>
+                            </a>
                             <div class="about-text">
-                                <p>Skin Nutrient™ has won several awards. Product of the Year awarded us the best Australian face mask brand in 2019 and 2020 for the Botanic Face Mask Range, Red Wine Refining and Exfoliating Mask and Suncare products...</p>
+                                <p>Kami memiliki banyak berita menarik dan bermanfaat untuk di baca ...</p>
                             </div>
-                            <a href="blog-detail.php">
+                            <a href="{{url('/blogsDetail', $blog->judul)}}">
                                 <h6 class="bawahingrid">Baca Selengkapnya <i class="ti-arrow-right"></i></h6>
                             </a>
                         </div>

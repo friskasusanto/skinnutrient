@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include 'head.php' ?>
+    @include('frontend.layout.head')
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <!-- Floating WhatsApp end -->
 
     <!-- header start -->
-    <?php include 'header.php' ?>
+    @include('frontend.layout.header')
     <!-- header end -->
 
 
@@ -29,7 +29,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Tentang Kami</li>
                         </ol>
                     </nav>
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="banner-section"><img src="../assets/img/banner/tentang.jpg"
+                    <div class="banner-section"><img src="{{asset('frontend/assets/img/banner/tentang.jpg')}}"
                             class="img-fluid blur-up lazyload" alt=""></div>
                 </div>
                 <div class="col-sm-12">
@@ -86,7 +86,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/img/tentangkami/about1.jpg"
+                                <a href="#"><img src="{{asset('frontend/assets/img/tentangkami/about1.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/blog/2.jpg"
+                                <a href="#"><img src="{{asset('frontend/assets/images/blog/2.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/blog/3.jpg"
+                                <a href="#"><img src="{{asset('frontend/assets/images/blog/3.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="../assets/images/blog/4.jpg"
+                                <a href="#"><img src="{{asset('frontend/assets/images/blog/4.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
@@ -202,12 +202,12 @@
 
 
     <!-- footer section start -->
-    <?php include 'footer.php' ?>
+    @include('frontend.layout.footer')
     <!-- footer section end -->
 
 
     <!-- theme setting -->
-    <?php include 'dropdown.php' ?>
+    @include('frontend.layout.dropdown')
     <!-- theme setting -->
 
 
@@ -221,28 +221,28 @@
 
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
 
     <!-- menu js-->
-    <script type="text/javascript" src="../assets/js/menu.js"></script>
+    <script type="text/javascript" src="{{asset('frontend/assets/js/menu.js')}}"></script>
 
     <!-- lazyload js-->
-    <script src="../assets/js/lazysizes.min.js"></script>
+    <script src="{{asset('frontend/assets/js/lazysizes.min.js')}}"></script>
 
     <!-- popper js-->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="{{asset('frontend/assets/js/popper.min.js')}}"></script>
 
     <!-- slick js-->
-    <script type="text/javascript" src="../assets/js/slick.js"></script>
+    <script type="text/javascript" src="{{asset('frontend/assets/js/slick.js')}}"></script>
 
     <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="{{asset('frontend/assets/js/bootstrap.js')}}"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="../assets/js/bootstrap-notify.min.js"></script>
+    <script src="{{asset('frontend/assets/js/bootstrap-notify.min.js')}}"></script>
 
     <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
+    <script src="{{asset('frontend/assets/js/script.js')}}"></script>
 
     <script>
         function openSearch() {
@@ -253,6 +253,21 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
+    <script src="{{asset('frontend/ps://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (Session::has('flash_message'))
+        <?php $status = (Session::get('flash_status') == 200)?'success':'error';?>
+        <?php $status_type = (Session::get('flash_status') == 200)?'Success':'Failed';?>
+        <script type="text/javascript">
+            swal({   
+                type: "{{ $status }}",
+                title: "{{ $status_type }}",   
+                text: "{{ Session::get('flash_message') }}",   
+                showConfirmButton: false ,
+                showCloseButton: true,
+                footer: ''
+            });
+        </script>
+    @endif
 
 </body>
 

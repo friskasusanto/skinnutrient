@@ -143,7 +143,9 @@
                                         <div class="row">
                                             <ul class="file-upload-product">
                                                 <li>
-                                                    <img src="{{url('product/'.$product->image)}}" alt="">
+                                                    <center>
+                                                        <img src="{{url('product/'.$product->image)}}" alt="" style="width: 50%">
+                                                    </center>
                                                 </li>
                                             </ul>
                                         </div>
