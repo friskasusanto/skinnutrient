@@ -158,11 +158,25 @@
                             <img src="{{asset('frontend/assets/img/sub-banner/4c.jpg')}}"
                                 class="img-fluid bg-img blur-up lazyload bannerkotakdua" alt="">
                         </div>
+                        <?php
+                            $blog = App\Model\Blog::where('id', 14)->first();
+                            $blogs = App\Model\Blog::where('id', 14)->get();
+                        ?>
                         <div class="contain-banner">
                             <div class="kotakduas">
                                 <h3 class="kotakdua"><strong>High Performing Sheet Masks</strong></h3>
                                 <h4 class="kotakdua h4-kecil">Temukan manfaat Serat Bio-Selulosa.</h4>
-                                <h4 class="kotakdua"><a href="blog-detail.php"><u class="tekshitam">Lebih Lanjut</u></a></h4>
+                                <h4 class="kotakdua">
+                                @if (count($blogs) != 0)
+                                    <a href="{{url('/blogsDetail', $blog->judul)}}">
+                                        <u class="tekshitam">Lebih Lanjut</u>
+                                    </a>
+                                @else
+                                    <a href="">
+                                        <u class="tekshitam">Lebih Lanjut</u>
+                                    </a>
+                                @endif
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -185,7 +199,7 @@
                                     </h4>
                                 </div>
                                 <h3 class="kotakputih"><strong>GET SHEET FACED!</strong></h3>
-                                <a href="review.php"><h4><u>Baca Review Pelanggan</u></h4></a>
+                                <a href="{{url('/review')}}"><h4><u>Baca Review Pelanggan</u></h4></a>
                             </div>
                         </div>
                     </div>

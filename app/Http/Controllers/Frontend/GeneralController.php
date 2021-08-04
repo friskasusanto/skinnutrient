@@ -15,6 +15,10 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function review ()
+    {
+        return view('frontend.layout.frontend.review');
+    }
     public function pengiriman ()
     {
         return view('frontend.layout.frontend.pengiriman');
