@@ -25,14 +25,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2 class="judulhal">Botanic</h2>
+                        <h2 class="judulhal">Halaman Pencarian</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/')}}">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Botanic</li>
+                            <li class="breadcrumb-item active" aria-current="page">Cari</li>
                         </ol>
                     </nav>
                 </div>
@@ -51,10 +51,10 @@
                         <div class="page-main-content">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <div class="title3">
+                                        <h2 class="title-inner3 col-lg-12 col-sm-8 fonttengahs"><u>Produk pencarianmu</u></h2>
+                                    </div>
                                     <div class="collection-product-wrapper">
-                                        <div class="top-banner-wrapper">
-                                            <a href="#"><img src="{{asset('frontend/assets/img/banner/botanic.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
-                                        </div>
                                      @if(count($product) != 0)
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
@@ -79,9 +79,9 @@
                                                             </div>
                                                         @endif
                                                             <div class="cart-detail">
-                                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
+                                                                <!-- <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                </a> -->
                                                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$s->id}}" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
@@ -122,6 +122,16 @@
                                             @endforeach
                                             </div>
                                         </div>
+                                    @else
+                                        <div class="product-wrapper-grid">
+                                            <div class="row margin-res">
+                                                <div class="col-xl-12 col-12 col-grid-box">
+                                                    <div class="product-box">
+                                                        <center><p>~ Oops.. barang tidak ditemukan ~</p></center>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                         </div>
                                         <div class="product-pagination">
@@ -138,7 +148,11 @@
                                                             <?php
                                                                 $botanic = App\Model\Product::where('category_id', 1)->count();
                                                             ?>
+                                                            @if (count($product) != 0)
                                                                 <h5>Showing Products {{$botanic}} Result</h5>
+                                                            @else
+                                                                <h5>Showing Products 0 Result</h5>
+                                                            @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -243,7 +257,6 @@
                                 </div>
                                 <div class="product-buttons">
                                     <a type="submit" class="btn btn-solid melengkung" style="color: #fff">+ Keranjang</a>
-                                    
                                 </div>
                             </form>
                             @endif

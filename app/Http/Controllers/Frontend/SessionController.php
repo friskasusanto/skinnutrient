@@ -77,6 +77,7 @@ class SessionController extends Controller
 	public function sessionCart ()
 	{
 		$cart = Cart::instance('shopping')->content();
+		// dd($cart);
 		return view('frontend.layout.frontend.cart', compact('cart'));
 	}
     public function tambahKeranjang (Request $request, $slug)

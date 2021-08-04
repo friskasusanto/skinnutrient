@@ -15,6 +15,10 @@ use Auth;
 
 class GeneralController extends Controller
 {
+    public function pengiriman ()
+    {
+        return view('frontend.layout.frontend.pengiriman');
+    }
     public function tentangkami ()
     {
         return view('frontend.layout.frontend.tentangkami');
@@ -58,7 +62,7 @@ class GeneralController extends Controller
     }
     public function contact ()
     {
-        return view('frontend.layout.frontend.contact');
+        return view('frontend.layout.frontend.kontak');
     }
     public function sitemap ()
     {
@@ -67,7 +71,7 @@ class GeneralController extends Controller
 
     public function privacyPolicy ()
     {
-        return view('frontend.layout.frontend.faq');
+        return view('frontend.layout.frontend.policy');
     }
     public function faq ()
     {

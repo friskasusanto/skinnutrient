@@ -12,12 +12,12 @@
                 </div>
                 <div class="col-lg-6 text-right">
                     <ul class="header-dropdown">
-                        <li class="mobile-wishlist">
+                        <!-- <li class="mobile-wishlist">
                             <a href="{{url('/session/wishlist')}}">
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                 wishlist
                             </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="onhover-dropdown mobile-account">
                             <i class="fa fa-user" aria-hidden="true"></i> Akun Saya
                             <ul class="onhover-show-div">
@@ -157,12 +157,13 @@
                                                 <a href="{{url('/session/delete', $c->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </div>
                                         </li>
+                                        
+                                    @endforeach
                                         <li>
                                             <div class="total">
                                                 <h5>subtotal : <span>Rp. {{$total}}</span></h5>
                                             </div>
                                         </li>
-                                    @endforeach
                                         <li>
                                             <div class="buttons">
                                                 <a href="{{url('/session/cart')}}" class="view-cart view-carts">view cart</a>
@@ -208,12 +209,21 @@
                                                             <h5>By Concern</h5>
                                                         </div>
                                                         <div class="menu-content">
+                                                        <?php
+                                                            $concern = App\Model\Category::where('menu_id', 1)->orderBy('created_at', 'asc')->get();
+                                                        ?>
                                                             <ul>
-                                                                @foreach (App\Model\Category::where('menu_id', 1)->orderBy('created_at', 'asc')->get() as $concern)
+                                                            @if (count($concern) != 0)
+                                                                @foreach ($concern as $concern)
                                                                     <li>
                                                                         <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
                                                                     </li>
                                                                 @endforeach
+                                                            @else
+                                                                <li>
+                                                                    <span style="color: #DCDCDC;">Coming Soon</span>
+                                                                </li>
+                                                            @endif
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -224,12 +234,21 @@
                                                             <h5>By Category</h5>
                                                         </div>
                                                         <div class="menu-content">
+                                                            <?php
+                                                                $category = App\Model\Category::where('menu_id', 2)->orderBy('created_at', 'desc')->get();
+                                                            ?>
                                                             <ul>
-                                                                @foreach (App\Model\Category::where('menu_id', 2)->orderBy('created_at', 'desc')->get() as $concern)
+                                                            @if (count($category) != 0)
+                                                                @foreach ($category as $category)
                                                                     <li>
-                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                        <a href="{{route('shop', ['category' => $category->id])}}">{{$category->category_name}}</a>
                                                                     </li>
                                                                 @endforeach
+                                                            @else
+                                                                <li>
+                                                                    <span style="color: #DCDCDC;">Coming Soon</span>
+                                                                </li>
+                                                            @endif
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -240,12 +259,21 @@
                                                             <h5>By Range</h5>
                                                         </div>
                                                         <div class="menu-content">
+                                                        <?php
+                                                            $range = App\Model\Category::where('menu_id', 3)->orderBy('created_at', 'desc')->get();
+                                                        ?>
                                                             <ul>
-                                                                @foreach (App\Model\Category::where('menu_id', 3)->orderBy('created_at', 'desc')->get() as $concern)
+                                                            @if (count($range)!= 0)
+                                                                @foreach ($range as $range)
                                                                     <li>
-                                                                        <a href="{{route('shop', ['category' => $concern->id])}}">{{$concern->category_name}}</a>
+                                                                        <a href="{{route('shop', ['category' => $range->id])}}">{{$range->category_name}}</a>
                                                                     </li>
                                                                 @endforeach
+                                                            @else
+                                                                <li>
+                                                                    <span style="color: #DCDCDC;">Coming Soon</span>
+                                                                </li>
+                                                            @endif
                                                             </ul>
                                                         </div>
                                                     </div>

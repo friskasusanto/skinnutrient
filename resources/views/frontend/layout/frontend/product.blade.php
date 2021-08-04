@@ -132,12 +132,12 @@
                             @endif
                             <div class="border-product">
                                 <div class="product-icon">
-                                    <form class="d-inline-block">
+                                    <!-- <form class="d-inline-block">
                                         <a href="{{url('/session/wishlist')}}" class="wishlist-btn">
                                             <i class="fa fa-heart"></i>
                                             <span class="title-font">Add To WishList</span>
                                         </a>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                             <div class="border-product">
@@ -293,11 +293,11 @@
                                         <img alt="" src="{{url('product/'.$r->image)}}" class="img-fluid blur-up lazyload bg-img">
                                     </div>
                                 @endif
-                                <div class="cart-detail">
+                                <!-- <div class="cart-detail">
                                     <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                         <i class="ti-heart" aria-hidden="true"></i>
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="product-info">
                                 <a href="{{url('/detailProduct', $r->slug)}}">

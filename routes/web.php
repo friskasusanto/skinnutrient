@@ -63,6 +63,7 @@ Route::get('/', function () {
 	Route::get('/category/{id}', 'Frontend\GeneralController@category')->name('category');
 	Route::get('/concern', 'Frontend\GeneralController@concern')->name('concern');
 	Route::get('/tentangkami', 'Frontend\GeneralController@tentangkami')->name('tentangkami');
+	Route::get('/pengiriman', 'Frontend\GeneralController@pengiriman')->name('pengiriman');
 
 
 	//Frontend/PengaduanController

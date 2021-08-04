@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include 'head.php' ?>
+    @include('frontend.layout.head')
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <!-- Floating WhatsApp end -->
 
     <!-- header start -->
-    <?php include 'header.php' ?>
+    @include('frontend.layout.header')
     <!-- header end -->
 
 

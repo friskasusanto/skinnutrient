@@ -25,13 +25,13 @@
             <div>
                 <div class="home ">
                     <picture>
-                    <source 
-                        media="(min-width: 768px)"
-                        srcset="{{asset('frontend/assets/img/banner/1.jpg')}}" class="bg-img blur-up lazyload">
-                    <source 
-                        media="(min-width: 280px)"
-                        srcset="{{asset('frontend/assets/img/banner/2.jpg')}}" class="banner-hp">
-                    <img src="{{asset('frontend/assets/img/banner/2.jpg')}}" class="banner-hp banner100">
+                        <source 
+                            media="(min-width: 768px)"
+                            srcset="{{asset('frontend/assets/img/banner/1.jpg')}}" class="bg-img blur-up lazyload">
+                        <source 
+                            media="(min-width: 280px)"
+                            srcset="{{asset('frontend/assets/img/banner/2.jpg')}}" class="banner-hp">
+                        <img src="{{asset('frontend/assets/img/banner/2.jpg')}}" class="banner-hp banner100">
                     </picture>
                 </div>
             </div>
@@ -244,9 +244,9 @@
                                                 <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                                             </div>
                                             <div class="cart-detail">
-                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
+                                                <!-- <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                     <i class="ti-heart" aria-hidden="true"></i>
-                                                </a>
+                                                </a> -->
                                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$a->id}}" title="Quick View">
                                                     <i class="ti-search" aria-hidden="true"></i>
                                                 </a>
@@ -324,9 +324,9 @@
                                 <img alt="" src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img">
                             </div>
                             <div class="cart-detail">
-                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
+                                <!-- <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                     <i class="ti-heart" aria-hidden="true"></i>
-                                </a>
+                                </a> -->
                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$a->id}}" title="Quick View">
                                     <i class="ti-search" aria-hidden="true"></i>
                                 </a>

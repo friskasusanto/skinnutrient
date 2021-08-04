@@ -66,9 +66,12 @@
                             // dd($discount);
                         ?>
                         @foreach ($cart as $c)
+                        <?php 
+                            $product = App\Model\Product::where('id', $c->id)->first();
+                        ?>
                             <tr>
                                 <td>
-                                    <a href="#"><img src="{{url('product/'.$c->image)}}" alt=""></a>
+                                    <a href="#"><img src="{{url('product/'.$product->image)}}" alt=""></a>
                                 </td>
                                 <td>
                                     <a href="#">{{$c->name}}</a>

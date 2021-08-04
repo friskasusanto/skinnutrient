@@ -77,9 +77,9 @@
                                                             </div>
                                                         @endif
                                                             <div class="cart-detail">
-                                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
+                                                                <!-- <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                </a> -->
                                                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$s->id}}" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>

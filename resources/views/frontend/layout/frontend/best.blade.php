@@ -71,9 +71,9 @@
                                                                 <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="{{url('product/'.$back->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
                                                             <div class="cart-detail">
-                                                                <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
+                                                                <!-- <a href="{{url('/session/wishlist')}}" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                </a> -->
                                                                 <a href="#" data-toggle="modal" data-target="#modalDetail{{$m->id}}" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
