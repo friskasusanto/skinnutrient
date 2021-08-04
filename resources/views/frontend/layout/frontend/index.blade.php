@@ -399,14 +399,12 @@
                 <div class="col-md-12">
                     <div class="slide-3 no-arrow">
                         <div class="col-md-12">
-                            <a href="ingridient.php">
-                                <div class="basic-effect">
-                                    <div class="ingri">
-                                        <img src="{{asset('frontend/assets/img/ingri/1.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                        <span></span>
-                                    </div>
+                            <div class="basic-effect">
+                                <div class="ingri">
+                                    <img src="{{asset('frontend/assets/img/ingri/1.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <span></span>
                                 </div>
-                            </a>
+                            </div>
                             <div class="blog-details">
                                     <p class="ingrid">Bahan Kami</p>
                                 <a href="{{url('/ingredient')}}">
@@ -415,14 +413,12 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="{{url('/concern')}}">
-                                <div class="basic-effect">
-                                    <div class="ingri">
-                                        <img src="{{asset('frontend/assets/img/ingri/2.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                        <span></span>
-                                    </div>
+                            <div class="basic-effect">
+                                <div class="ingri">
+                                    <img src="{{asset('frontend/assets/img/ingri/2.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <span></span>
                                 </div>
-                            </a>
+                            </div>
                             <div class="blog-details">
                                     <p class="ingrid">Shop by Concern</p>
                                 <a href="{{url('/concern')}}">
@@ -431,14 +427,12 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="{{url('/categ')}}">
-                                <div class="basic-effect">
-                                    <div class="ingri">
-                                        <img src="{{asset('frontend/assets/img/ingri/3.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                        <span></span>
-                                    </div>
+                            <div class="basic-effect">
+                                <div class="ingri">
+                                    <img src="{{asset('frontend/assets/img/ingri/3.jpg')}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <span></span>
                                 </div>
-                            </a>
+                            </div>
                             <div class="blog-details">
                                     <p class="ingrid">Belanja berdasarkan ketegori</p>
                                 <a href="{{url('/categ')}}">
