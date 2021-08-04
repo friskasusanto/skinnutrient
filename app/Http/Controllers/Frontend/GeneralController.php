@@ -27,10 +27,6 @@ class GeneralController extends Controller
     {
         return view('frontend.layout.frontend.pengiriman');
     }
-    public function tentangkami ()
-    {
-        return view('frontend.layout.frontend.tentangkami');
-    }
     public function concern ()
     {
         $all = Product::all();
@@ -88,7 +84,7 @@ class GeneralController extends Controller
 
     public function aboutUs ()
     {
-        return view('frontend.layout.frontend.about');
+        return view('frontend.layout.frontend.tentangkami');
     }
 
     public function bestSeller ()

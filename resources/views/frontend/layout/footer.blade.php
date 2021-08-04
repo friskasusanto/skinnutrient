@@ -9,7 +9,7 @@
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="{{url('/tentangkami')}}">Tentang Kami</a></li>
+                                <li><a href="{{url('/aboutUs')}}">Tentang Kami</a></li>
                                 <!-- <li><a href="#">Pencarian</a></li> -->
                                 <!-- <li><a href="#">Stockists</a></li>
                                 <li><a href="#">Sitemap</a></li>

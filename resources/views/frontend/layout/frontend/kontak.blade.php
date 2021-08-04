@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-12">
                     <form class="theme-form">
                         <div class="form-row">
@@ -114,7 +114,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!--Section ends-->

@@ -41,12 +41,12 @@
 
 
 <!-- about section start -->
-<section class="about-page section-b-space">
+<section class="contact-page section-b-space">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <form  class="theme-form" novalidate="novalidate" method="POST" action= "{{url('/pengaduan')}}" enctype="multipart/form-data" enctype="multipart/form-data">
-                                {{ csrf_field() }}
+                    {{ csrf_field() }}
                     <div class="form-row">
                         <div class="col-md-12">
                             <label for="name">Identitas Pelapor</label>
@@ -55,6 +55,11 @@
                             <input type="text" class="form-control" id="name" placeholder="email" name="emailPelapor"  required="">
                             <input type="text" class="form-control" id="name" placeholder="telepon" name="tlpPelapor" required="" >
                         </div>
+                        <div class="col-md-6">
+                        <label for="name">*Nama</label>
+                        <input type="text" class="form-control" id="name" placeholder=""
+                            required="">
+                            </div>
                         <div class="col-md-12">
                             <label for="email">Identitas Pasien</label>
                             <input type="text" class="form-control" id="last-name" placeholder="nama pasien" name="namaPasien" required="">

@@ -133,7 +133,7 @@
                                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                                             <div class="product-search-count-bottom">
                                                             <?php
-                                                                $sale = App\Model\Product::where('category_id', 1)->where('discount', '!=', null)->count();
+                                                                $sale = App\Model\Product::where('category_id', 1)->where('discount', '!=', null)->where('sale', 1)->count();
                                                             ?>
                                                                 <h5>Showing Products {{$sale}} Result</h5>
                                                             </div>
