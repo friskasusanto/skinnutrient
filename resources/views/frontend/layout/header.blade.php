@@ -126,10 +126,13 @@
                                 @if (count($cart) != 0)
                                     <ul class="show-div shopping-cart">
                                     @foreach ($cart as $c)
+                                    <?php 
+                                        $product = App\Model\Product::where('id', $c->id)->first();
+                                    ?>
                                         <li>
                                             <div class="media">
                                                 <a href="#">
-                                                    <img class="mr-3" src="{{url('product/'.$c->image)}}" alt="Generic placeholder image">
+                                                    <img class="mr-3" src="{{url('product/'.$product->image)}}" alt="Generic placeholder image">
                                                 </a>
                                                 <div class="media-body">
                                                     <a href="#">
