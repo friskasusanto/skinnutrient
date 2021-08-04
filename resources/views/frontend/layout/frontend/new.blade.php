@@ -94,10 +94,6 @@
                                                                <h5 class="harga">
                                                                     Coming Soon
                                                                 </h5>
-                                                            @elseif ($m->stock_user == null || $m->stock_user == 0)
-                                                                <h5 class="harga">
-                                                                    Sold Out
-                                                                </h5>
                                                             @else
                                                                 @if ($m->discount != null)
                                                                 <h5 class="harga">
