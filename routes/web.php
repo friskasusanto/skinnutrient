@@ -64,6 +64,7 @@ Route::get('/', function () {
 	Route::get('/concern', 'Frontend\GeneralController@concern')->name('concern');
 	Route::get('/tentangkami', 'Frontend\GeneralController@tentangkami')->name('tentangkami');
 	Route::get('/review', 'Frontend\GeneralController@review')->name('review');
+	Route::get('/terms', 'Frontend\GeneralController@terms')->name('terms');
 
 	//Frontend/PengaduanController
 	Route::post('/pengaduan', 'Frontend\PengaduanController@pengaduan')->name('pengaduan');

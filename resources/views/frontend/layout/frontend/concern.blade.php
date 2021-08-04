@@ -51,13 +51,16 @@
                         <div class="page-main-content">
                             <div class="top-banner-wrapper">
                                 <section class="mb-3">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/mega-menu/2.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                    <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/mega-menu/concern1.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                 </section>
                                 <section class="mb-3">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/mega-menu/2.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                    <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/mega-menu/concern2.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                 </section>
                                 <section class="mb-3">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/mega-menu/2.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                    <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/mega-menu/concern3.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
+                                </section>
+                                <section class="mb-3">
+                                    <a href="{{url('/')}}"><img src="{{asset('frontend/assets/img/mega-menu/concern4.jpg')}}" class="img-fluid blur-up lazyload" alt=""></a>
                                 </section>
                             </div>
                         </div>

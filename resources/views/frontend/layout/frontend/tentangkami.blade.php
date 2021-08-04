@@ -108,89 +108,86 @@
                                     <a href="#">
                                         <h4 class="tahuntentang">2014</h4>
                                     </a>
-                                    <p>Para pendiri kami mulai mengeksplorasi bahan perawatan kulit, yang unik di Australia dan dapat digunakan sebagai nutrisi untuk kulit. Produk perawatan kulit kami hanya menggunakan bahan baku paling murni untuk memberikan perawatan paling murni pada kulit Anda.</p>
+                                    <p class="tengah">Para pendiri kami mulai mengeksplorasi bahan perawatan kulit, yang unik di Australia dan dapat digunakan sebagai nutrisi untuk kulit. Produk perawatan kulit kami hanya menggunakan bahan baku paling murni untuk memberikan perawatan paling murni pada kulit Anda.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row blog-media">
+                    <div class="row blog-media tentangtengah">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="{{asset('frontend/assets/images/blog/2.jpg')}}"
+                                <a href="#"><img src="{{asset('frontend/assets/img/tentangkami/about3.jpg')}}"
                                         class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <h6>25 January 2018</h6> <a href="#">
-                                        <h4>you how all this mistaken idea of denouncing pleasure and praising pain was
-                                            born.</h4>
+                                    <a href="#">
+                                        <h4 class="tahuntentang">2015</h4>
                                     </a>
-                                    <ul class="post-social">
-                                        <li>Posted By : Admin Admin</li>
-                                        <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                        <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                    </ul>
-                                    <p>Consequences that are extremely painful. Nor again is there anyone who loves or
-                                        pursues or desires to obtain pain of itself, because it is pain, but because
-                                        occasionally circumstances occur in which toil and pain can procure him some
-                                        great pleasure.</p>
+                                    <p>Menjelang akhir tahun 2015, Goat's Milk Magic Touch™ diluncurkan di China & Australia sebagai pelembab tetes susu kambing pertama di dunia dengan protein EGF dan produk pertama Skin Nutrient. Ini masih salah satu produk terlaris kami hingga saat ini!</p>
+                                    <br>
+                                    <p>Susu kambing merupakan sumber nutrisi yang sangat kaya. Satu cangkir kecil susu sehari dapat memenuhi 25% kebutuhan kalsium tubuh, juga memiliki pH seimbang yang sempurna untuk kulit dan mengandung asam laktat alami yang membantu mengangkat sel kulit mati dari permukaan kulit dengan lembut. Belum lagi protein EGF yang mendorong produksi sel-sel baru dan peremajaan kulit yang tampak lebih muda. Formulasi kami yang mengandung susu kambing sangat cocok untuk mereka yang memiliki kulit tua dan kering.</p>
+                                    </p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row blog-media tentangtengah">
+                        <div class="col-xl-6">
+                            <div class="blog-right">
+                                <div>
+                                    <a href="#">
+                                        <h4 class="tahuntentang">2016</h4>
+                                    </a>
+                                    <p>Rangkaian Susu Kambing mendapatkan tampilan baru dan segar dan Momen Ajaib Susu Kambing diluncurkan.</p>
+                                    <br>
+                                    <p>2016 juga melihat pengembangan dan peluncuran alternatif injeksi kosmetik alami kami, rangkaian Bee Venom. Dirancang untuk mengencangkan dan mengangkat dan dibuat dengan racun lebah murni, yang telah diperiksa dan diuji dengan cermat untuk memastikan bahwa unsur racun dan kotoran beracun benar-benar dihilangkan dan dimurnikan.</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="blog-left">
+                                <a href="#"><img src="{{asset('frontend/assets/img/tentangkami/about4.jpg')}}"
+                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
                     </div>
                     <div class="row blog-media">
                         <div class="col-xl-6">
                             <div class="blog-left">
-                                <a href="#"><img src="{{asset('frontend/assets/images/blog/3.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                <a href="#"><img src="{{asset('frontend/assets/img/tentangkami/about5.jpg')}}"
+                                    class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <h6>25 January 2018</h6> <a href="#">
-                                        <h4>you how all this mistaken idea of denouncing pleasure and praising pain was
-                                            born.</h4>
+                                    <a href="#">
+                                        <h4 class="tahuntentang">2017</h4>
                                     </a>
-                                    <ul class="post-social">
-                                        <li>Posted By : Admin Admin</li>
-                                        <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                        <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                    </ul>
-                                    <p>Consequences that are extremely painful. Nor again is there anyone who loves or
-                                        pursues or desires to obtain pain of itself, because it is pain, but because
-                                        occasionally circumstances occur in which toil and pain can procure him some
-                                        great pleasure.</p>
+                                    <p>Rangkaian anti-penuaan/penghidrasi hibrida kami, Hydramino, diluncurkan pada tahun 2017 menggunakan Kompleks Asam Amino sebagai bahan utama. Rentang ini terinspirasi oleh elemen air, murni dan emosional dan kunci untuk kelangsungan hidup segala sesuatu.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row blog-media">
-                        <div class="col-xl-6">
-                            <div class="blog-left">
-                                <a href="#"><img src="{{asset('frontend/assets/images/blog/4.jpg')}}"
-                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
-                            </div>
-                        </div>
+                    <div class="row blog-media tentangtengah">
                         <div class="col-xl-6">
                             <div class="blog-right">
                                 <div>
-                                    <h6>25 January 2018</h6> <a href="#">
-                                        <h4>you how all this mistaken idea of denouncing pleasure and praising pain was
-                                            born.</h4>
-                                    </a>
-                                    <ul class="post-social">
-                                        <li>Posted By : Admin Admin</li>
-                                        <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                        <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                    </ul>
-                                    <p>Consequences that are extremely painful. Nor again is there anyone who loves or
-                                        pursues or desires to obtain pain of itself, because it is pain, but because
-                                        occasionally circumstances occur in which toil and pain can procure him some
-                                        great pleasure.</p>
+                                    <p>Sepanjang tahun 2017, tim inovasi produk Skin Nutrient melakukan serangkaian survei riset pasar untuk mengidentifikasi rata-rata konsumen rutin menghapus riasan. Kami secara mengejutkan menemukan sebagian besar wanita melewatkan menghapus riasan mereka dan langsung membersihkan wajah mereka, menggunakan tisu penghapus riasan atau melewatkan proses secara keseluruhan. Masalahnya adalah, sebagian besar waktu orang tidak benar-benar menghapus riasan dengan benar. Menyebabkan pori-pori mereka menjadi tersumbat dan mengakibatkan jerawat, komedo dan noda. Umumnya menyebabkan kulit tampak kusam, tambal sulam dan tak bernyawa!</p>
+                                    <br>
+                                    <p>Jadi kami memutuskan untuk membuat solusi pembersih, penghapus riasan, pengelupasan, dan pencerah dalam satu produk. Memperkenalkan Perfect White Magic Cleanser.</p>
+                                    </p>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="blog-left">
+                                <a href="#"><img src="{{asset('frontend/assets/img/tentangkami/about6.jpg')}}"
+                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
                             </div>
                         </div>
                     </div>

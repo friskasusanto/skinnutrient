@@ -29,8 +29,9 @@
                                 <li><a href="{{url('/contact')}}">Kontak Kami</a></li>
                                 <li><a href="{{url('/pengiriman')}}">Pengiriman</a></li>
                                 <!-- <li><a href="">Return Policy</a></li> -->
-                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="{{url('/terms')}}">Terms of Service</a></li>
                                 <li><a href="{{url('/privacyPolicy')}}">Privacy Policy</a></li>
+                                <!-- <li><a href="{{url('/pengaduan')}}">Pengaduan</a></li> -->
                             </ul>
                         </div>
                     </div>
