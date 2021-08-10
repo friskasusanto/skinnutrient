@@ -88,8 +88,6 @@
                             <h2 class="mb-3 judulproduk">{{$product->name}}</h2>
                             @if ($product->comming_soon == 1)
                                 <h5 class="hargas">Coming Soon</h5>
-                            @elseif ($product->stock_user == null || $product->stock_user == 0)
-                                <h5 class="hargas">Sold Out</h5>
                             @else
                                 @if ($product->discount != null)
                                 <h5 class="hargas">Rp. {{number_format($product->price - ($product->discount /100 * $product->price), 0, ',', '.')}}
@@ -276,7 +274,7 @@
                         <div class="product-box product-wrap">
                             <div class="img-wrapper">
                             <?php
-                                $back = App\Model\ProductGambar::where('product_id', $r->id)->first();
+                                $back = App\Model\ProductGambar::where('product_id', $r->id)->orderBy('ref_number', 'desc')->first();
                                 $backs = App\Model\ProductGambar::where('product_id', $r->product_id)->get();
                             ?>
                                 <div class="front">
