@@ -8,7 +8,7 @@ class ProductGambar extends Model
 {
 	protected $table = 'product_gambars';
 	protected $fillable = [
-    	'image', 'product_id'
+    	'image', 'product_id','ref_number'
     ];
 
     public function product()

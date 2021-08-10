@@ -152,14 +152,17 @@ class ProductController extends Controller
                     $add->save();
                     // dd($add);
 
+                    $hitung_gambar = 1;
                     foreach ($request->photos as $photo) {
                     $filename = $photo->store('');
                     $photo->move(public_path('product'), 'product/'.$filename);
                     // dd($photo);
                     ProductGambar::create([
                     'product_id' => $add->id,
-                    'image' => $filename
+                    'image' => $filename,
+                    'ref_number' => $hitung_gambar
                     ]);
+                    $hitung_gambar++;
                 }
 
                     foreach ($request->category as $category) {
