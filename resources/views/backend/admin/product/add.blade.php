@@ -159,14 +159,17 @@
                                     <div class="form-group mb-3 row">
                                         <label for="validationCustomUsername" class="col-xl-3 col-sm-4 mb-0">Gambar Lain :</label>
                                         <div class="add-product">
-                                            <div class="row">
-                                                <ul class="file-upload-product">
-                                                    <li>
-                                                        <input class="file" type="file" name="photos[]" multiple required>
-                                                    </li>
-                                                    <li>(bisa pilih lebih dari 1 gambar)</li>
-                                                </ul>
-                                            </div>
+
+                                                <table class="gambarlain">
+                                                    <tr>
+                                                        <td><input class="file" type="file" name="photos[]" required></td>
+                                                        <td>
+                                                            <button type="button" class="add-gambar">+</button>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </table>
+
                                         </div>
                                     </div>
                                     <div class="form-group mb-3 row">
@@ -279,6 +282,19 @@
 
             placeholder: "--pilih category--"
 
+        });
+
+        $(".add-gambar").on("click", function(e){
+            e.preventDefault();
+            $(".gambarlain").append('<tr>'+
+                '<td><input class="file" type="file" name="photos[]"></td>'+
+                    '<td><button type="button" class="hapus-gambar">-</button></td>'+
+                '</tr>'
+            );
+        });
+
+        $(document).on("click",".hapus-gambar", function(e){
+            $(this).parents("tr").remove();
         });
 
     });
