@@ -89,7 +89,7 @@
                                                         </div>
                                                         <div class="product-info">
                                                             <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                <h6 class="tekshitam">{{$s->name}}</h6>
+                                                                <h6 class="tekshitam">{{$s->product->name}}</h6>
                                                             </a>
                                                             <div class="rating">
                                                                 <i class="fa fa-star"></i>

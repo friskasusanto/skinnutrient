@@ -79,6 +79,11 @@
                             <li><a href="{{url('/admin/log')}}"><i class="fa fa-circle"></i>Daftar Log Admin</a></li>
                         </ul>
                     </li>
+                    <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Pengaduan</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="{{url('/admin/pengaduan')}}"><i class="fa fa-circle"></i>Daftar Pengaduan</a></li>
+                        </ul>
+                    </li>
                 @endrole
 
                 @role('Gudang')
