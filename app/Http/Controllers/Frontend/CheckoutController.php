@@ -44,7 +44,7 @@ class CheckoutController extends Controller
             'provinsi' => 'required',
             'kota' => 'required',
             'tipe' => 'required',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
         ]);
 
         $totalan = Cart::instance('shopping')->subtotal(0);
