@@ -238,16 +238,30 @@
                                 
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nama</div>
-                                        <input type="text" name="nama" value="" placeholder="">
+                                        <div class="field-label" for="fname">Nama</div>
+
+                                        <input id="fname" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="">
+
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nomor Telp</div>
-                                        <input type="number" name="phone" value="" placeholder="">
+                                        <div class="field-label" for="phone">Nomor Telp</div>
+                                        <input type="number" name="phone" value="" placeholder="" required class="form-control" id="phone">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Email</div>
-                                        <input type="text" name="email" value="" placeholder="" class="form-control @error('email') is-invalid @enderror">
+                                        <div class="field-label" for="email">Email</div>
+
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" placeholder="">
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Provinsi</div>

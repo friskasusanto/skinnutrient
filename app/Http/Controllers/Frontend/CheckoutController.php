@@ -38,9 +38,9 @@ class CheckoutController extends Controller
     public function checkout_store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required',
+            'nama' => 'required|string',
             'alamat' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:11',
             'provinsi' => 'required',
             'kota' => 'required',
             'tipe' => 'required',
