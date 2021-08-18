@@ -28,11 +28,11 @@ class CheckoutController extends Controller
 
     public function checkout ()
     {
-    	$total = Chart::where('user_id', Auth::user()->id)->pluck('total_amount')->sum();
+        $total = Chart::where('user_id', Auth::user()->id)->pluck('total_amount')->sum();
         $cart = Chart::where('user_id', Auth::user()->id)->get();
 
         // dd($total);
-    	return view('frontend.layout.frontend.checkout', compact( 'total','cart'));
+        return view('frontend.layout.frontend.checkout', compact( 'total','cart'));
     }
 
     public function checkout_store(Request $request)
@@ -41,7 +41,12 @@ class CheckoutController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'phone' => 'required',
+            'provinsi' => 'required',
+            'kota' => 'required',
+            'tipe' => 'required',
+            'email' => 'required|string|email|max:255|unique:users',
         ]);
+
         $totalan = Cart::instance('shopping')->subtotal(0);
         $totalan = str_replace(",","",$totalan);
 

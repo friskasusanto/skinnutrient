@@ -243,11 +243,11 @@
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Nomor Telp</div>
-                                        <input type="text" name="phone" value="" placeholder="">
+                                        <input type="number" name="phone" value="" placeholder="">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Email</div>
-                                        <input type="text" name="email" value="" placeholder="">
+                                        <input type="text" name="email" value="" placeholder="" class="form-control @error('email') is-invalid @enderror">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Provinsi</div>
