@@ -74,6 +74,27 @@ class SessionController extends Controller
 		$cart = Cart::instance('shopping')->content();
 		return view('frontend.layout.frontend.checkout', compact('cart'));
 	}
+
+	public function detailcart(Request $request,$slug)
+	{
+		$status = 200;
+        $message = "Product Berhasil di Tambahkan ke Cart";
+		$product = Product::orderBy('created_at', 'desc')->where('slug', $slug)->first();
+		Cart::instance('shopping')
+		->add(
+			$product->id, // product id
+			$product->name, // nama product
+			$request->quantity, // qty
+			$product->price, // harga
+		);
+
+		if ($request->action == "keranjang") {
+			return redirect()->back()->with(['flash_status' => $status,'flash_message' => $message]);
+		}
+
+		return redirect()->route("sessionCheckout",$product->slug);
+	}
+
 	public function sessionCart ()
 	{
 		$cart = Cart::instance('shopping')->content();
