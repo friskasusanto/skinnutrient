@@ -101,7 +101,7 @@
                             @endif
 
                             @if ($product->comming_soon != 1 && $product->stock_user != null || $product->stock_user != 0)
-                                <form novalidate="novalidate" method="POST" action= "{{url('/session/tambahCart, $product->slug')}}" enctype="multipart/form-data" enctype="multipart/form-data">
+                                <form novalidate="novalidate" method="POST" action= "{{ route("detailcart",$product->slug) }}" enctype="multipart/form-data" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                     <div class="product-description border-product">
                                         <h6 class="product-title">quantity</h6>
@@ -124,11 +124,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-buttons">
-                                        <a href="{{url('/session/tambahCart', $product->slug)}}" class="btn btn-solid melengkung">+ Keranjang</a>
-                                    </div>
+                                    <button type="submit" class="btn btn-solid melengkung" name="action" value="keranjang">Tambah Keranjang</button>
+                                    <button type="submit" class="btn btn-solid melengkung" name="action" value="beli">Beli Sekarang</button>
                                 </form>
-                                <a href="{{url('/session/checkout', $product->slug)}}" class="btn btn-solid melengkung">Beli Sekarang</a>
+
                             @endif
                             <div class="border-product">
                                 <div class="product-icon">

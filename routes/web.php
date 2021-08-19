@@ -40,6 +40,7 @@ Route::get('/', function () {
 	Route::get('/session/delete/{id}', 'Frontend\SessionController@delSessionCart')->name('delSessionCart');
 	Route::get('/session/cart', 'Frontend\SessionController@sessionCart')->name('sessionCart');
 	Route::get('/session/checkout', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
+	Route::post('/session/detail_cart/{slug}', 'Frontend\SessionController@detailcart')->name('detailcart');
 	Route::get('/session/wishlist', 'Frontend\SessionController@sessionWishlist')->name('sessionWishlist');
 	Route::post('/session/updateQuantity/{id}', 'Frontend\SessionController@sessionUbahValue')->name('sessionUbahValue');
 	Route::get('/session/checkout/{slug}', 'Frontend\SessionController@sessionCheckout')->name('sessionCheckout');
