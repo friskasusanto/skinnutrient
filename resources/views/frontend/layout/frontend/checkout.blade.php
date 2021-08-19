@@ -238,21 +238,27 @@
                                 
                                 <div class="row check-out">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nama</div>
-                                        <input type="text" name="nama" value="" placeholder="">
+                                        <div class="field-label" for="name">Nama</div>
+                                        <input type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autocomplete="nama" autofocus id="nama">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Nomor Telp</div>
-                                        <input type="text" name="phone" value="" placeholder="">
+                                        <div class="field-label" for="phone">Nomor Telp</div>
+                                        <input type="number" name="phone" value="{{ old('phone') }}" placeholder="" required class="form-control" id="phone">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Email</div>
-                                        <input type="text" name="email" value="" placeholder="">
+                                        <div class="field-label" for="email">Email</div>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="">
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Provinsi</div>
-                                        <select name="provinsi" id="provinsi">
-                                            <option>-- pilih --</option>
+                                        <select name="provinsi" id="provinsi" required>
+                                            <option value="">-- pilih --</option>
                                             @foreach ($provinsi as $pro)
                                                 <option value="{{ $pro['province_id'] }}">{{ $pro['province'] }}</option>
                                             @endforeach
@@ -262,22 +268,22 @@
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Kota</div>
-                                        <select name="kota" id="kota">
-                                          <option>-- pilih --</option>
+                                        <select name="kota" id="kota" required>
+                                          <option value="">-- pilih --</option>
                                         </select>
                                         <input type="hidden" name="kota_name" id="kota_name">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Tipe Pengiriman</div>
-                                        <select name="tipe" id="tipe">
-                                          <option>-- pilih --</option>
+                                        <select name="tipe" id="tipe" required>
+                                          <option value="">-- pilih --</option>
                                           <option>-- JNE --</option>
                                         </select>
                                         <input type="hidden" name="tipe_name" id="tipe_name">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Alamat</div>
-                                        <textarea cols="50" rows="20" name="alamat" placeholder="Jelaskan alamat lengkap/RT/RW/Kel/Kec/No. Rumah/Gedung"></textarea>
+                                        <textarea cols="50" rows="20" name="alamat" placeholder="Jelaskan alamat lengkap/RT/RW/Kel/Kec/No. Rumah/Gedung" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -413,6 +419,8 @@
 
     <script>
       $(document).ready(function(){
+        $('#kota').prop('disabled', true);
+        $('#tipe').prop('disabled', true);
         
         var url_kota = "{{ route("ongkir.kota") }}";
         var url_total_kota = "{{ route("ongkir.total") }}";
@@ -434,6 +442,8 @@
                                   </option>`);
             });
 
+          }).done(function () {
+            $('#kota').prop('disabled', false);
           });
 
         });
@@ -456,7 +466,9 @@
                 </option>`);
               });
 
-          });
+          }).done(function () {
+            $('#tipe').prop('disabled', false);
+          });;
 
 
         });
