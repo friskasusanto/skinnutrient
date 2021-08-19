@@ -249,7 +249,7 @@
                                     <div class="product-box product-wrap">
                                         <div class="img-wrapper">
                                             <?php
-                                                $back = App\Model\ProductGambar::where('product_id', $a->id)->orderBy('id', 'asc')->first();
+                                                $back = App\Model\ProductGambar::where('product_id', $a->id)->orderBy('ref_number', 'desc')->first();
                                             ?>
                                             <div class="front">
                                                 <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
@@ -283,10 +283,6 @@
                                             @if ($a->comming_soon == 1)
                                                <h5 class="harga">
                                                     Coming Soon
-                                                </h5>
-                                            @elseif ($a->stock_user == null || $a->stock_user == 0)
-                                                <h5 class="harga">
-                                                    Sold Out
                                                 </h5>
                                             @else
                                                 @if ($a->discount != null || $a->discount != 0)
@@ -329,7 +325,7 @@
                     <div class="product-box product-wrap">
                         <div class="img-wrapper">
                             <?php
-                                $back = App\Model\ProductGambar::where('product_id', $a->id)->orderBy('id', 'asc')->first();
+                                $back = App\Model\ProductGambar::where('product_id', $a->id)->orderBy('ref_number', 'desc')->first();
                             ?>
                             <div class="front">
                                 <img alt="" src="{{url('product/'.$a->image)}}" class="img-fluid blur-up lazyload bg-img">
@@ -363,10 +359,6 @@
                             @if ($a->comming_soon == 1)
                                <h5 class="harga">
                                     Coming Soon
-                                </h5>
-                            @elseif ($a->stock_user == null || $a->stock_user == 0)
-                                <h5 class="harga">
-                                    Sold Out
                                 </h5>
                             @else
                                 @if ($a->discount != null || $a->discount != 0)
@@ -534,10 +526,6 @@
                                 @if ($u->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($u->stock_user == null || $u->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($u->discount != null)

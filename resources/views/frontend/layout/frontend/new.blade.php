@@ -62,7 +62,7 @@
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                         <?php
-                                                            $back = App\Model\ProductGambar::where('product_id', $m->id)->first();
+                                                            $back = App\Model\ProductGambar::where('product_id', $m->id)->orderBy('ref_number', 'desc')->first();
                                                         ?>
                                                             <div class="front">
                                                                 <a href="{{url('/detailProduct', $m->slug)}}" class="produkkotaks"><img src="{{url('product/'.$m->image)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
@@ -191,10 +191,6 @@
                                 @if ($u->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($u->stock_user == null || $u->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($u->discount != null)

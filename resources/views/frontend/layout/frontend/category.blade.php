@@ -59,7 +59,7 @@
                                             @if (count($product) != 0)
                                                 @foreach ($product as $c)
                                                 <?php
-                                                    $back = App\Model\ProductGambar::where('product_id', $c->id)->first();
+                                                    $back = App\Model\ProductGambar::where('product_id', $c->id)->orderBy('ref_number', 'desc')->first();
                                                 ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
                                                     <div class="product-box">
@@ -96,10 +96,6 @@
                                                             @if ($c->comming_soon == 1)
                                                                <h5 class="harga">
                                                                     Coming Soon
-                                                                </h5>
-                                                            @elseif ($c->stock_user == null || $c->stock_user == 0)
-                                                                <h5 class="harga">
-                                                                    Sold Out
                                                                 </h5>
                                                             @else
                                                                 @if ($c->discount != null || $c->discount != 0)
@@ -202,10 +198,6 @@
                                 @if ($u->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($u->stock_user == null || $u->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($u->discount != null)

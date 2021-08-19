@@ -58,7 +58,7 @@
                                             <div class="row margin-res">
                                             @foreach($sale as $s)
                                             <?php
-                                                $back = App\Model\ProductGambar::where('product_id', $s->id)->first();
+                                                $back = App\Model\ProductGambar::where('product_id', $s->id)->orderBy('ref_number', 'desc')->first();
                                                 $backs = App\Model\ProductGambar::where('product_id', $s->id)->get();
                                             ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
@@ -193,10 +193,6 @@
                                 @if ($u->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($u->stock_user == null || $u->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($u->discount != null)

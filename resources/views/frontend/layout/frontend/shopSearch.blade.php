@@ -60,7 +60,7 @@
                                             <div class="row margin-res">
                                             @foreach($product as $s)
                                             <?php
-                                                $back = App\Model\ProductGambar::where('product_id', $s->product_id)->first();
+                                                $back = App\Model\ProductGambar::where('product_id', $s->product_id)->orderBy('ref_number', 'desc')->first();
                                                 $backs = App\Model\ProductGambar::where('product_id', $s->product_id)->get();
                                             ?>
                                                 <div class="col-xl-3 col-6 col-grid-box">
@@ -89,7 +89,7 @@
                                                         </div>
                                                         <div class="product-info">
                                                             <a href="{{url('/detailProduct', $s->slug)}}">
-                                                                <h6 class="tekshitam">{{$s->name}}</h6>
+                                                                <h6 class="tekshitam">{{$s->product->name}}</h6>
                                                             </a>
                                                             <div class="rating">
                                                                 <i class="fa fa-star"></i>
@@ -210,10 +210,6 @@
                                 @if ($u->product->comming_soon == 1)
                                    <h5 class="harga">
                                         Coming Soon
-                                    </h5>
-                                @elseif ($u->product->stock_user == null || $u->product->stock_user == 0)
-                                    <h5 class="harga">
-                                        Sold Out
                                     </h5>
                                 @else
                                     @if ($u->product->discount != null)
