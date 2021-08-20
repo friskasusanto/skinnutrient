@@ -210,7 +210,7 @@
                         </div>
                         <div class="tab-pane fade" id="top-kirim" role="tabpanel"
                             aria-labelledby="top-kirim-tab">
-                            <p>kirim</p>
+                            <p></p>
                         </div>
                         <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
                             <form class="theme-form" novalidate="novalidate" method="POST" action= "{{url('/review', $product->slug)}}" enctype="multipart/form-data">
